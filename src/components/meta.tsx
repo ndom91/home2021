@@ -1,5 +1,4 @@
-import Head from 'next/head'
-import { CMS_NAME, HOME_OG_IMAGE_URL } from '../lib/constants'
+import Head from "next/head"
 
 const Meta = () => {
   return (
@@ -32,11 +31,9 @@ const Meta = () => {
       <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
       <meta name="theme-color" content="#000" />
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
-      <meta
-        name="description"
-        content={`A statically generated blog example using Next.js and ${CMS_NAME}.`}
-      />
-      <meta property="og:image" content={HOME_OG_IMAGE_URL} />
+      <meta name="description" content={`ndom91 homepage`} />
+      <meta property="og:image" content="https://fillmurray.com/200/300" />
+      <title>ndom91</title>
     </Head>
   )
 }

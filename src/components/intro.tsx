@@ -1,20 +1,29 @@
-import { CMS_NAME } from '../lib/constants'
+import Link from "next/link"
 
 const Intro = () => {
   return (
     <section className="flex-col md:flex-row flex items-center md:justify-between mt-16 mb-16 md:mb-12">
       <h1 className="text-6xl md:text-8xl font-bold tracking-tighter leading-tight md:pr-8">
-        Blog.
+        ndom91.
       </h1>
       <h4 className="text-center md:text-left text-lg mt-5 md:pl-8">
-        A statically generated blog example using{' '}
+        During the day, I'm a full-stack javascript developer at{" "}
+        <a href="https://checklyhq.com" target="_blank">
+          Checkly
+        </a>{" "}
+        🦝. In the evenings you can find me working on open source software or
+        catching up on the latest Netflix series. I'm based in Frankfurt,
+        Germany where I occasionally write about my adventures in tech on my{" "}
+        <Link href="/blog">blog</Link> 📓 and if you like memes, movies, and web
+        development you might also enjoy following me on{" "}
         <a
-          href="https://nextjs.org/"
-          className="underline hover:text-success duration-200 transition-colors"
+          href="https://twitter.com/ndom91"
+          target="_blank"
+          rel="noopener noreferer"
         >
-          Next.js
-        </a>{' '}
-        and {CMS_NAME}.
+          Twitter
+        </a>{" "}
+        🐦.
       </h4>
     </section>
   )
