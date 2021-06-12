@@ -1,7 +1,12 @@
 {
   "name": "ndom91-home2021",
+  "version": "0.0.1",
+  "description": "Portfolio page for 2021",
   "license": "MIT",
-  "version": "1.0.0",
+  "author": "ndom91 <yo@ndo.dev>",
+  "homepage": "https://home2021.vercel.app/",
+  "bugs": "https://github.com/ndom91/home2021/issues",
+  "repository": "https://github.com/ndom91/home2021",
   "scripts": {
     "dev": "next -p 3003",
     "build": "next build",
@@ -9,10 +14,9 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "classnames": "2.3.1",
     "date-fns": "2.22.1",
     "gray-matter": "4.0.3",
-    "next": "latest",
+    "next": "^10.2.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "remark": "13.0.0",

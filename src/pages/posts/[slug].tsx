@@ -9,7 +9,20 @@ import { getPostBySlug, getAllPosts } from "../../lib/api"
 import PostTitle from "../../components/post-title"
 import Head from "next/head"
 import markdownToHtml from "../../lib/markdownToHtml"
-import PostType from "../../types/post"
+
+type PostType = {
+  slug: string
+  title: string
+  date: string
+  coverImage: string
+  excerpt: string
+  tags: string[]
+  category: string
+  ogImage: {
+    url: string
+  }
+  content: string
+}
 
 type Props = {
   post: PostType
