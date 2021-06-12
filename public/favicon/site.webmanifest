@@ -1,6 +1,6 @@
 {
-  "name": "Next.js",
-  "short_name": "Next.js",
+  "name": "ndom91",
+  "short_name": "ndom91",
   "icons": [
     {
       "src": "/favicons/android-chrome-192x192.png",
@@ -13,7 +13,7 @@
       "type": "image/png"
     }
   ],
-  "theme_color": "#000000",
-  "background_color": "#000000",
+  "theme_color": "#333333",
+  "background_color": "#333333",
   "display": "standalone"
 }
