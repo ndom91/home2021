@@ -1,7 +1,5 @@
-const config = {
+module.exports = {
   images: {
     domains: ["fillmurray.com"],
   },
 }
-
-export default config
