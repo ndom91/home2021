@@ -6,7 +6,7 @@ type Props = {
 
 const Alert = ({ preview }: Props) => {
   return (
-    <div className="border-bg-accent-1 border-accent-2">
+    <div className="border-gray-100">
       <Container>
         <div className="py-2 text-center text-sm">
           {preview ? (
@@ -14,7 +14,7 @@ const Alert = ({ preview }: Props) => {
               This page is a preview.{" "}
               <a
                 href="/api/exit-preview"
-                className="underline hover:text-cyan duration-200 transition-colors"
+                className="hover:text-green-200 underline transition-colors duration-200"
               >
                 Click here
               </a>{" "}
@@ -25,7 +25,7 @@ const Alert = ({ preview }: Props) => {
               The source code for this blog is{" "}
               <a
                 href="https://github.com/ndom91/home2021"
-                className="underline hover:text-success duration-200 transition-colors"
+                className="hover:text-pink-200 underline transition-colors duration-200"
               >
                 available on GitHub
               </a>

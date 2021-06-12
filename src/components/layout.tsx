@@ -1,3 +1,4 @@
+import { useEffect } from "react"
 // import Alert from './alert'
 import Footer from "./footer"
 import Navbar from "./nav"
@@ -8,16 +9,30 @@ type Props = {
 }
 
 const Layout = ({ children }: Props) => {
+  useEffect(() => {
+    // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+    if (
+      localStorage.theme === "dark" ||
+      (!("theme" in localStorage) &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+      console.log("add dark")
+      document.documentElement.classList.add("dark")
+    } else {
+      console.log("remove dark")
+      document.documentElement.classList.remove("dark")
+    }
+  }, [])
   return (
-    <>
+    <div className="flex flex-col items-center dark:bg-coolGray-900 transition duration-500">
       <Meta />
-      <div className="min-h-screen sm:max-w-screen md:max-w-6xl mx-auto">
+      <div className="sm:max-w-screen mx-auto min-h-screen md:max-w-5xl">
         {/* <Alert preview={preview} /> */}
         <Navbar />
         <main>{children}</main>
       </div>
       <Footer />
-    </>
+    </div>
   )
 }
 

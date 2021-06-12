@@ -2,11 +2,11 @@ import Link from "next/link"
 
 const Intro = () => {
   return (
-    <section className="flex-col md:flex-row flex items-center md:justify-between my-32 md:mb-12 z-10 relative">
-      <h1 className="text-7xl md:text-8xl font-bold tracking-tighter leading-tight md:pr-8">
+    <section className="relative z-10 flex flex-col items-center my-32 md:flex-row md:justify-between md:mb-12">
+      <h1 className="text-7xl font-bold tracking-tighter leading-tight md:pr-8 md:text-8xl">
         ndom91.
       </h1>
-      <h4 className="text-center md:text-left text-lg md:text-xl mt-5 md:pl-8 font-light">
+      <h4 className="mt-5 text-center dark:text-gray-400 text-gray-800 text-lg font-light md:pl-8 md:text-left md:text-xl">
         During the day, I'm a full-stack javascript developer at{" "}
         <a href="https://checklyhq.com" target="_blank">
           Checkly
