@@ -1,17 +1,24 @@
-import fs from 'fs'
-import { join } from 'path'
-import matter from 'gray-matter'
+import fs from "fs"
+import { join } from "path"
+import matter from "gray-matter"
 
-const postsDirectory = join(process.cwd(), '_posts')
+const postsDirectory = join(process.cwd(), "src", "_posts")
 
 export function getPostSlugs() {
   return fs.readdirSync(postsDirectory)
 }
 
+function getMarkdownFile(filePath: string) {
+  let files = fs.readdirSync(filePath)
+  return files.filter((file) => file.match(new RegExp(`.*\.md`, "ig")))[0]
+}
+
 export function getPostBySlug(slug: string, fields: string[] = []) {
-  const realSlug = slug.replace(/\.md$/, '')
-  const fullPath = join(postsDirectory, `${realSlug}.md`)
-  const fileContents = fs.readFileSync(fullPath, 'utf8')
+  const filePath = getMarkdownFile(join(postsDirectory, slug))
+  const fileContents = fs.readFileSync(
+    join(postsDirectory, slug, filePath),
+    "utf8"
+  )
   const { data, content } = matter(fileContents)
 
   type Items = {
@@ -22,10 +29,10 @@ export function getPostBySlug(slug: string, fields: string[] = []) {
 
   // Ensure only the minimal needed data is exposed
   fields.forEach((field) => {
-    if (field === 'slug') {
-      items[field] = realSlug
+    if (field === "slug") {
+      items[field] = slug
     }
-    if (field === 'content') {
+    if (field === "content") {
       items[field] = content
     }
 
