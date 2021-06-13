@@ -21,3 +21,18 @@
     animation-delay: 4s;
   }
 }
+
+.border-underline-grow {
+  background-position: 0 90%;
+  background-repeat: repeat-x;
+  background-size: 6px 8px;
+  text-decoration: none;
+  transition: background-size 0.4s ease-in-out;
+  padding: 2px;
+}
+
+.border-underline-grow:focus,
+.border-underline-grow:hover {
+  outline: none;
+  background-size: 6px 50px;
+}
