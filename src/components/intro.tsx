@@ -3,25 +3,27 @@ import Link from "next/link"
 const Intro = () => {
   return (
     <section className="relative z-10 flex flex-col items-start my-16 text-left md:flex-row md:items-center md:justify-between md:mb-12 md:my-32">
-      <h1 className="dark:text-gray-100 text-7xl font-bold tracking-tighter leading-tight md:pr-8 md:text-8xl">
-        ndom91.
-      </h1>
+      <div className="relative w-2/3 h-16">
+        <h1 className="intro-title dark:text-gray-100 text-7xl font-bold tracking-tighter leading-tight md:pr-8 md:text-8xl">
+          ndom91.
+        </h1>
+      </div>
       <div
-        className="mt-5 text-left dark:text-gray-400 text-gray-800 text-lg font-light tracking-tighter leading-8 md:pl-8 md:text-xl"
+        className="mt-5 w-full text-left dark:text-gray-200 text-gray-800 text-lg font-light tracking-tighter leading-8 md:pl-8 md:w-11/12 md:text-xl"
         style={{ lineHeight: "2.25rem" }}
       >
         During the day, I'm a full-stack javascript developer at{" "}
         <a
           href="https://checklyhq.com"
           target="_blank"
-          className="border-underline-grow bg-gradient-to-r from-pink-300 dark:from-pink-800 to-pink-300 dark:to-pink-800 transition-all duration-500"
+          className="border-underline-grow bg-gradient-to-r dark:from-palevioletred from-pink-300 dark:to-palevioletred to-pink-300 transition-all duration-500"
         >
           Checkly
         </a>{" "}
         🦝. In the evenings you can find me working on open source software,
         like{" "}
         <a
-          className="border-underline-grow bg-gradient-to-r from-pink-300 dark:from-pink-800 to-pink-300 dark:to-pink-800 transition-all duration-500"
+          className="border-underline-grow bg-gradient-to-r dark:from-palevioletred from-pink-300 dark:to-palevioletred to-pink-300 transition-all duration-500"
           href="https://next-auth.js.org"
           target="_blank"
         >
@@ -30,7 +32,7 @@ const Intro = () => {
         , or catching up on the latest Netflix series. I'm based in Frankfurt,
         Germany where I occasionally write about my adventures in tech on my{" "}
         <Link href="/blog">
-          <a className="border-underline-grow bg-gradient-to-r from-pink-300 dark:from-pink-800 to-pink-300 dark:to-pink-800">
+          <a className="border-underline-grow bg-gradient-to-r dark:from-palevioletred from-pink-300 dark:to-palevioletred to-pink-300 transition-all duration-500">
             blog
           </a>
         </Link>{" "}
@@ -40,7 +42,7 @@ const Intro = () => {
           href="https://twitter.com/ndom91"
           target="_blank"
           rel="noopener noreferer"
-          className="border-underline-grow bg-gradient-to-r from-pink-300 dark:from-pink-800 to-pink-300 dark:to-pink-800"
+          className="border-underline-grow bg-gradient-to-r dark:from-palevioletred from-pink-300 dark:to-palevioletred to-pink-300 transition-all duration-500"
         >
           Twitter
         </a>{" "}

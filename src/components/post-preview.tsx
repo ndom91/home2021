@@ -5,17 +5,21 @@ import CoverImage from "@/components/cover-image"
 
 type Props = {
   title: string
-  coverImage: string
+  cover: {
+    image: string
+    width: number
+    height: number
+  }
   date: string
   excerpt: string
   slug: string
 }
 
-const PostPreview = ({ title, coverImage, date, excerpt, slug }: Props) => {
+const PostPreview = ({ title, cover, date, excerpt, slug }: Props) => {
   return (
     <div>
       <div className="mb-5">
-        <CoverImage slug={slug} title={title} src={coverImage} />
+        <CoverImage slug={slug} title={title} cover={cover} />
       </div>
       <h3 className="mb-3 text-3xl leading-snug">
         <Link as={`/posts/${slug}`} href="/posts/[slug]">
@@ -26,7 +30,6 @@ const PostPreview = ({ title, coverImage, date, excerpt, slug }: Props) => {
         <DateFormatter dateString={date} />
       </div>
       <p className="mb-4 text-lg leading-relaxed">{excerpt}</p>
-      <Avatar />
     </div>
   )
 }

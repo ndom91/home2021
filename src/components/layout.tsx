@@ -15,10 +15,10 @@ const Layout = ({ children }: Props) => {
   }
 
   return (
-    <div className="flex flex-col items-center dark:bg-coolGray-900 transition duration-500">
+    <div className="flex flex-col items-center min-h-screen dark:bg-coolGray-900 transition duration-500">
       <Meta />
       {alert.enabled && <Alert header={alert.header} body={alert.body} />}
-      <div className="sm:max-w-screen mx-auto min-h-screen md:max-w-5xl">
+      <div className="sm:max-w-screen flex-1 mx-auto md:max-w-5xl">
         <Navbar />
         <main className="container relative px-4">{children}</main>
       </div>

@@ -2,7 +2,6 @@ import { useRouter } from "next/router"
 import ErrorPage from "next/error"
 import Head from "next/head"
 import PostBody from "@/components/post-body"
-import Header from "@/components/header"
 import PostHeader from "@/components/post-header"
 import Layout from "@/components/layout"
 import PostTitle from "@/components/post-title"
@@ -23,7 +22,6 @@ const Post = ({ post, morePosts, preview }: Props) => {
   }
   return (
     <Layout>
-      <Header />
       {router.isFallback ? (
         <PostTitle>Loading…</PostTitle>
       ) : (
@@ -31,11 +29,7 @@ const Post = ({ post, morePosts, preview }: Props) => {
           <Head>
             <title>{post.title} | ndom91</title>
           </Head>
-          <PostHeader
-            title={post.title}
-            coverImage={post.coverImage}
-            date={post.date}
-          />
+          <PostHeader title={post.title} cover={post.cover} date={post.date} />
           <PostBody content={post.content} />
         </article>
       )}
@@ -57,7 +51,7 @@ export async function getStaticProps({ params }: Params) {
     "date",
     "slug",
     "content",
-    "coverImage",
+    "cover",
     "tags",
     "category",
   ])

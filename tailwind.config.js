@@ -3,15 +3,12 @@ const colors = require("tailwindcss/colors")
 module.exports = {
   purge: ["./src/components/**/*.tsx", "./src/pages/**/*.tsx"],
   darkMode: "class",
-  mode: process.env.NODE_ENV
-    ? // JIT for `npm run dev`.
-      "jit"
-    : // No JIT for IDE class and generation & prettier runs.
-      undefined,
+  mode: process.env.NODE_ENV ? "jit" : undefined,
   theme: {
     extend: {
       colors: {
         coolGray: colors.coolGray,
+        palevioletred: "#DB7093",
       },
       spacing: {
         28: "7rem",
@@ -31,6 +28,9 @@ module.exports = {
       boxShadow: {
         small: "0 5px 10px rgba(0, 0, 0, 0.12)",
         medium: "0 8px 30px rgba(0, 0, 0, 0.12)",
+      },
+      borderWidth: {
+        10: "12px",
       },
       animation: {
         blob: "blob 7s infinite",

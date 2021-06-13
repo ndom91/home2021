@@ -13,10 +13,15 @@ const Blog = ({ allPosts }: Props) => {
   const morePosts = allPosts.slice(1)
   return (
     <Layout>
+      <div className="relative">
+        <h1 className="my-24 dark:text-gray-100 text-7xl font-bold tracking-tighter leading-tight md:pr-8 md:text-8xl">
+          blog.
+        </h1>
+      </div>
       {heroPost && (
         <HeroPost
           title={heroPost.title}
-          coverImage={heroPost.coverImage}
+          cover={heroPost.cover}
           date={heroPost.date}
           slug={heroPost.slug}
           excerpt={heroPost.excerpt}
@@ -35,7 +40,7 @@ export const getStaticProps = async () => {
     "date",
     "slug",
     "author",
-    "coverImage",
+    "cover",
     "excerpt",
   ])
 

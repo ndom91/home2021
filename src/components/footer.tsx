@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className="fixed bottom-0 w-full sm:max-w-screen-sm md:max-w-5xl">
+    <footer className="w-full sm:max-w-screen-sm md:max-w-5xl">
       <div className="max-w flex items-baseline px-4 py-8 space-x-4">
         <a
           href="https://github.com/ndom91"

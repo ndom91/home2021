@@ -5,11 +5,15 @@ import PostTitle from "@/components/post-title"
 
 type Props = {
   title: string
-  coverImage: string
+  cover: {
+    image: string
+    width: number
+    height: number
+  }
   date: string
 }
 
-const PostHeader = ({ title, coverImage, date }: Props) => {
+const PostHeader = ({ title, cover, date }: Props) => {
   return (
     <>
       <PostTitle>{title}</PostTitle>
@@ -17,7 +21,7 @@ const PostHeader = ({ title, coverImage, date }: Props) => {
         <Avatar />
       </div>
       <div className="mb-8 sm:mx-0 md:mb-16">
-        <CoverImage title={title} src={coverImage} />
+        <CoverImage title={title} cover={cover} />
       </div>
       <div className="mx-auto max-w-2xl">
         <div className="block mb-6 md:hidden">

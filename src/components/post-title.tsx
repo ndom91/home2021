@@ -6,7 +6,7 @@ type Props = {
 
 const PostTitle = ({ children }: Props) => {
   return (
-    <h1 className="mb-12 text-center text-6xl font-bold tracking-tighter leading-tight md:text-left md:text-7xl md:leading-none lg:text-8xl">
+    <h1 className="my-12 text-center dark:text-gray-200 text-6xl font-bold tracking-tighter leading-tight md:text-left md:text-7xl md:leading-none lg:text-8xl">
       {children}
     </h1>
   )

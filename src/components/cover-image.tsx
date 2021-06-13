@@ -1,16 +1,31 @@
 import Link from "next/link"
+import Image from "next/image"
 
 type Props = {
   title: string
-  src: string
+  cover: {
+    image: string
+    width: number
+    height: number
+  }
   slug?: string
 }
 
-const CoverImage = ({ title, src, slug }: Props) => {
-  const image = (
-    <img
-      src={src}
+const CoverImage = ({
+  title,
+  cover = { image: "", height: 0, width: 0 },
+  slug,
+}: Props) => {
+  const { image, width, height } = cover
+  const img = (
+    <Image
+      src={`/${image}`}
       alt={`Cover Image for ${title}`}
+      height={height}
+      width={width}
+      quality="100"
+      layout="responsive"
+      objectFit="cover"
       className={
         slug
           ? "shadow-small hover:shadow-medium transition-shadow duration-200"
@@ -22,10 +37,10 @@ const CoverImage = ({ title, src, slug }: Props) => {
     <div className="sm:mx-0">
       {slug ? (
         <Link as={`/posts/${slug}`} href="/posts/[slug]">
-          <a aria-label={title}>{image}</a>
+          <a aria-label={title}>{img}</a>
         </Link>
       ) : (
-        image
+        img
       )}
     </div>
   )
