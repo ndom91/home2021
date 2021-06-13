@@ -1,10 +1,12 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 const DarkToggle = () => {
-  const [dark, setDark] = useState(
-    typeof window !== "undefined" &&
-      document.documentElement.classList.contains("dark")
-  )
+  const [dark, setDark] = useState(true)
+  useEffect(() => {
+    if (document.documentElement.classList.contains("dark")) {
+      setDark(false)
+    }
+  }, [])
 
   const toggleDark = () => {
     setDark(!dark)

@@ -16,10 +16,8 @@ const Layout = ({ children }: Props) => {
       (!("theme" in localStorage) &&
         window.matchMedia("(prefers-color-scheme: dark)").matches)
     ) {
-      console.log("add dark")
       document.documentElement.classList.add("dark")
     } else {
-      console.log("remove dark")
       document.documentElement.classList.remove("dark")
     }
   }, [])
