@@ -2,7 +2,7 @@ import Link from "next/link"
 
 const Intro = () => {
   return (
-    <section className="relative z-10 flex flex-col items-center my-32 md:flex-row md:justify-between md:mb-12">
+    <section className="relative z-10 flex flex-col items-start my-16 text-left md:flex-row md:items-center md:justify-between md:mb-12 md:my-32">
       <h1 className="dark:text-gray-100 text-7xl font-bold tracking-tighter leading-tight md:pr-8 md:text-8xl">
         ndom91.
       </h1>

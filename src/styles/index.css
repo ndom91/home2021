@@ -23,12 +23,12 @@
 }
 
 .border-underline-grow {
-  background-position: 0 90%;
+  background-position: 0 100%;
   background-repeat: repeat-x;
-  background-size: 6px 8px;
+  background-size: 10px 10px;
   text-decoration: none;
-  transition: background-size 0.4s ease-in-out;
-  padding: 2px;
+  transition: background-size 350ms ease-in-out;
+  padding: 3px;
 }
 
 .border-underline-grow:focus,

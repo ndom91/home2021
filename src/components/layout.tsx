@@ -1,5 +1,5 @@
 import { useEffect } from "react"
-// import Alert from './alert'
+import Alert from "./alert"
 import Footer from "./footer"
 import Navbar from "./nav"
 import Meta from "./meta"
@@ -9,6 +9,10 @@ type Props = {
 }
 
 const Layout = ({ children }: Props) => {
+  const alert = {
+    header: "TEST ALERT",
+    body: 'So much stuff to download <a href="#">click here!</a>',
+  }
   useEffect(() => {
     // On page load or when changing themes, best to add inline in `head` to avoid FOUC
     if (
@@ -24,10 +28,10 @@ const Layout = ({ children }: Props) => {
   return (
     <div className="flex flex-col items-center dark:bg-coolGray-900 transition duration-500">
       <Meta />
+      {alert && <Alert header={alert.header} body={alert.body} />}
       <div className="sm:max-w-screen mx-auto min-h-screen md:max-w-5xl">
-        {/* <Alert preview={preview} /> */}
         <Navbar />
-        <main>{children}</main>
+        <main className="container relative px-4">{children}</main>
       </div>
       <Footer />
     </div>
