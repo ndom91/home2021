@@ -1,5 +1,5 @@
 import Link from "next/link"
-import DarkToggle from "./darkToggle"
+import DarkToggle from "@/components/darkToggle"
 
 const Navbar = () => {
   return (
