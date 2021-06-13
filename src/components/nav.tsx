@@ -3,7 +3,7 @@ import DarkToggle from "./darkToggle"
 
 const Navbar = () => {
   return (
-    <div className="space-between flex py-4">
+    <nav className="space-between flex p-4">
       <ul className="flex w-full dark:text-gray-100 text-gray-800 text-xl font-thin space-x-10">
         <li>
           <Link href="/">
@@ -21,7 +21,7 @@ const Navbar = () => {
         </li>
       </ul>
       <DarkToggle />
-    </div>
+    </nav>
   )
 }
 export default Navbar

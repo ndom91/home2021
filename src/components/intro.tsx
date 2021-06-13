@@ -6,7 +6,10 @@ const Intro = () => {
       <h1 className="text-7xl font-bold tracking-tighter leading-tight md:pr-8 md:text-8xl">
         ndom91.
       </h1>
-      <h4 className="mt-5 text-center dark:text-gray-400 text-gray-800 text-lg font-light md:pl-8 md:text-left md:text-xl">
+      <div
+        className="mt-5 text-left dark:text-gray-400 text-gray-800 text-lg font-light tracking-tighter leading-8 md:pl-8 md:text-xl"
+        style={{ lineHeight: "2.25rem" }}
+      >
         During the day, I'm a full-stack javascript developer at{" "}
         <a href="https://checklyhq.com" target="_blank">
           Checkly
@@ -24,7 +27,7 @@ const Intro = () => {
           Twitter
         </a>{" "}
         🐦.
-      </h4>
+      </div>
     </section>
   )
 }
