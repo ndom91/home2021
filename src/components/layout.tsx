@@ -1,8 +1,7 @@
-import { useEffect } from "react"
-import Alert from "./alert"
-import Footer from "./footer"
-import Navbar from "./nav"
-import Meta from "./meta"
+import Alert from "@/components/alert"
+import Footer from "@/components/footer"
+import Navbar from "@/components/nav"
+import Meta from "@/components/meta"
 
 type Props = {
   children: React.ReactNode
@@ -10,25 +9,15 @@ type Props = {
 
 const Layout = ({ children }: Props) => {
   const alert = {
+    enabled: false,
     header: "TEST ALERT",
     body: 'So much stuff to download <a href="#">click here!</a>',
   }
-  useEffect(() => {
-    // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-    if (
-      localStorage.theme === "dark" ||
-      (!("theme" in localStorage) &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches)
-    ) {
-      document.documentElement.classList.add("dark")
-    } else {
-      document.documentElement.classList.remove("dark")
-    }
-  }, [])
+
   return (
     <div className="flex flex-col items-center dark:bg-coolGray-900 transition duration-500">
       <Meta />
-      {alert && <Alert header={alert.header} body={alert.body} />}
+      {alert.enabled && <Alert header={alert.header} body={alert.body} />}
       <div className="sm:max-w-screen mx-auto min-h-screen md:max-w-5xl">
         <Navbar />
         <main className="container relative px-4">{children}</main>
