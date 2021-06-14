@@ -18,6 +18,7 @@ const CoverImage = ({
 }: Props) => {
   const { image, width, height } = cover
   const img = (
+    // @ts-ignore
     <Image
       src={`/${image}`}
       alt={`Cover Image for ${title}`}
