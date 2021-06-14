@@ -26,6 +26,7 @@ const CoverImage = ({
       quality="100"
       layout="responsive"
       objectFit="cover"
+      placeholder="blur"
       className={
         slug
           ? "shadow-small hover:shadow-medium transition-shadow duration-200"
