@@ -6,6 +6,7 @@ const Footer = () => {
           href="https://github.com/ndom91"
           target="_blank"
           className="dark:focus:ring-opacity-10 dark:focus:ring-pink-500 dark:text-gray-100 text-gray-800 rounded-full focus:outline-none transition-shadow duration-500 focus:ring-pink-400 focus:ring-opacity-30 focus:ring-4"
+          rel="noreferrer"
         >
           <svg
             width="40"
@@ -27,6 +28,7 @@ const Footer = () => {
           href="https://twitter.com/ndom91"
           target="_blank"
           className="dark:focus:ring-opacity-10 dark:focus:ring-pink-500 dark:text-gray-100 text-gray-800 rounded-full focus:outline-none transition-shadow duration-500 focus:ring-pink-400 focus:ring-opacity-30 focus:ring-4"
+          rel="noreferrer"
         >
           <svg
             width="40"
@@ -47,6 +49,7 @@ const Footer = () => {
           href="mailto:home2021@ndo.dev"
           target="_blank"
           className="dark:focus:ring-opacity-10 dark:focus:ring-pink-500 dark:text-gray-100 text-gray-800 rounded-full focus:outline-none transition-shadow duration-500 focus:ring-pink-400 focus:ring-opacity-30 focus:ring-4"
+          rel="noreferrer"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

@@ -12,11 +12,12 @@ const Intro = () => {
         className="mt-5 w-full text-left dark:text-gray-200 text-gray-800 text-lg font-light tracking-tighter leading-8 md:pl-8 md:w-11/12 md:text-xl"
         style={{ lineHeight: "2.25rem" }}
       >
-        During the day, I'm a full-stack javascript developer at{" "}
+        During the day, I&lsquo;m a full-stack javascript developer at{" "}
         <a
           href="https://checklyhq.com"
           target="_blank"
           className="border-underline-grow bg-gradient-to-r dark:from-palevioletred from-pink-300 dark:to-palevioletred to-pink-300 transition-all duration-500"
+          rel="noreferrer"
         >
           Checkly
         </a>{" "}
@@ -26,11 +27,13 @@ const Intro = () => {
           className="border-underline-grow bg-gradient-to-r dark:from-palevioletred from-pink-300 dark:to-palevioletred to-pink-300 transition-all duration-500"
           href="https://next-auth.js.org"
           target="_blank"
+          rel="noreferrer"
         >
           NextAuth.js
         </a>
-        , or catching up on the latest Netflix series. I'm based in Frankfurt,
-        Germany where I occasionally write about my adventures in tech on my{" "}
+        , or catching up on the latest Netflix series. I&lsquo;m based in
+        Frankfurt, Germany where I occasionally write about my adventures in
+        tech on my{" "}
         <Link href="/blog">
           <a className="border-underline-grow bg-gradient-to-r dark:from-palevioletred from-pink-300 dark:to-palevioletred to-pink-300 transition-all duration-500">
             blog
@@ -41,7 +44,7 @@ const Intro = () => {
         <a
           href="https://twitter.com/ndom91"
           target="_blank"
-          rel="noopener noreferer"
+          rel="noopener noreferer noreferrer"
           className="border-underline-grow bg-gradient-to-r dark:from-palevioletred from-pink-300 dark:to-palevioletred to-pink-300 transition-all duration-500"
         >
           Twitter

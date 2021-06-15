@@ -17,6 +17,7 @@
     "dev": "next -p 3003",
     "build": "next build",
     "start": "next start",
+    "lint": "next lint",
     "typecheck": "tsc",
     "prepare": "husky install",
     "pre-commit": "pretty-quick --staged"
