@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
 
@@ -16,11 +17,28 @@ const CoverImage = ({
   cover = { image: "", height: 0, width: 0 },
   slug,
 }: Props) => {
-  const { image, width, height } = cover
-  const img = (
+  const { image: imageFilename, width, height } = cover
+
+  const [imageImport, setImage] = useState("")
+  const loadImage = (imgur: string) => {
+    if (!imgur) {
+      return false
+    }
+    import(`../../public/assets/blog/${imgur}`).then((image) => {
+      setImage(image)
+    })
+  }
+
+  useEffect(() => {
+    loadImage(imageFilename)
+  }, [imageFilename])
+
+  const imageComponent = !imageImport ? (
+    <div>Loading..</div>
+  ) : (
     // @ts-ignore
     <Image
-      src={`/${image}`}
+      src={imageImport}
       alt={`Cover Image for ${title}`}
       height={height}
       width={width}
@@ -35,14 +53,15 @@ const CoverImage = ({
       }
     />
   )
+
   return (
     <div className="sm:mx-0">
       {slug ? (
         <Link as={`/posts/${slug}`} href="/posts/[slug]">
-          <a aria-label={title}>{img}</a>
+          <a aria-label={title}>{imageComponent}</a>
         </Link>
       ) : (
-        img
+        imageComponent
       )}
     </div>
   )

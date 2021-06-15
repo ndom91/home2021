@@ -4,7 +4,7 @@ title: "Github Codespaces"
 tags: ["linux", "docker", "code", "github"]
 category: "Development"
 cover:
-  image: "assets/blog/codespaces/cover.png"
+  image: "codespaces/cover.png"
   height: 957
   width: 1557
 ---
