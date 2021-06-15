@@ -6,9 +6,7 @@ import CoverImage from "@/components/cover-image"
 type Props = {
   title: string
   cover: {
-    image: string
-    width: number
-    height: number
+    imageFile: string
   }
   date: string
   excerpt: string

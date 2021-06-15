@@ -6,9 +6,7 @@ import PostTitle from "@/components/post-title"
 type Props = {
   title: string
   cover: {
-    image: string
-    width: number
-    height: number
+    imageFile: string
   }
   date: string
 }

@@ -3,9 +3,7 @@ type PostType = {
   title: string
   date: string
   cover: {
-    image: string
-    width: number
-    height: number
+    imageFile: string
   }
   excerpt: string
   tags: string[]
