@@ -6,9 +6,7 @@ import CoverImage from "@/components/cover-image"
 type Props = {
   title: string
   cover: {
-    image: string
-    height: number
-    width: number
+    imageFile: string
   }
   date: string
   excerpt: string
@@ -18,7 +16,7 @@ type Props = {
 const HeroPost = ({ title, cover, date, excerpt, slug }: Props) => {
   return (
     <section>
-      <div className="mask-bottom mb-8 h-96 border-10 border-b-0 dark:border-palevioletred border-pink-300 overflow-hidden md:mb-16">
+      <div className="mask-bottom mb-8 h-auto border-10 border-b-0 dark:border-palevioletred border-pink-300 overflow-hidden md:mb-16 md:h-96">
         <CoverImage title={title} cover={cover} slug={slug} />
       </div>
       <div className="mb-20 md:grid md:gap-x-16 md:grid-cols-2 md:mb-28 lg:gap-x-8">

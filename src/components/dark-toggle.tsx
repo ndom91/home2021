@@ -12,8 +12,10 @@ const DarkToggle = () => {
     setDark(!dark)
     if (dark) {
       document.documentElement.classList.add("dark")
+      new Audio("/assets/toggle-off.mp3").play()
     } else {
       document.documentElement.classList.remove("dark")
+      new Audio("/assets/toggle-on.mp3").play()
     }
   }
 

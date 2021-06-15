@@ -4,9 +4,7 @@ title: "Github Codespaces"
 tags: ["linux", "docker", "code", "github"]
 category: "Development"
 cover:
-  image: "codespaces/cover.png"
-  height: 957
-  width: 1557
+  imageFile: "codespaces/cover.png"
 ---
 
 Github announced their new web based development environment called _Codespaces_ at their [Satellite 2020](https://github.blog/2020-05-06-new-from-satellite-2020-github-codespaces-github-discussions-securing-code-in-private-repositories-and-more/) Event. To be honest, this was the feature I was most excited about this year. And this evening, I finally got the email that I have access to the beta version of it!

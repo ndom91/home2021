@@ -5,19 +5,13 @@ import Image from "next/image"
 type Props = {
   title: string
   cover: {
-    image: string
-    width: number
-    height: number
+    imageFile: string
   }
   slug?: string
 }
 
-const CoverImage = ({
-  title,
-  cover = { image: "", height: 0, width: 0 },
-  slug,
-}: Props) => {
-  const { image: imageFilename, width, height } = cover
+const CoverImage = ({ title, cover = { imageFile: "" }, slug }: Props) => {
+  const { imageFile } = cover
 
   const [imageImport, setImage] = useState("")
   const loadImage = (imgur: string) => {
@@ -30,21 +24,21 @@ const CoverImage = ({
   }
 
   useEffect(() => {
-    loadImage(imageFilename)
-  }, [imageFilename])
+    loadImage(imageFile)
+  }, [imageFile])
 
   const imageComponent = !imageImport ? (
-    <div>Loading..</div>
+    <div className="relative my-4 py-4 text-center text-gray-200 dark:text-gray-700 font-mono font-thin">
+      Loading..
+    </div>
   ) : (
     // @ts-ignore
     <Image
       src={imageImport}
       alt={`Cover Image for ${title}`}
-      height={height}
-      width={width}
       quality="100"
       layout="responsive"
-      objectFit="cover"
+      objectFit="fill"
       placeholder="blur"
       className={
         slug
@@ -58,7 +52,9 @@ const CoverImage = ({
     <div className="sm:mx-0">
       {slug ? (
         <Link as={`/posts/${slug}`} href="/posts/[slug]">
-          <a aria-label={title}>{imageComponent}</a>
+          <a className="" aria-label={title}>
+            {imageComponent}
+          </a>
         </Link>
       ) : (
         imageComponent
