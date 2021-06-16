@@ -5,7 +5,7 @@ const Footer = () => {
         <a
           href="https://github.com/ndom91"
           target="_blank"
-          className="dark:hover:ring-opacity-30 dark:hover:ring-pink-500 dark:focus:ring-opacity-30 dark:focus:ring-pink-500 p-1 dark:text-gray-100 text-gray-800 rounded-full focus:outline-none transition-shadow duration-500 focus:ring-pink-400 hover:ring-pink-400 focus:ring-opacity-60 hover:ring-opacity-60 focus:ring-4 hover:ring-4"
+          className="dark:hover:ring-opacity-30 dark:hover:ring-pink-500 dark:focus:ring-opacity-30 dark:focus:ring-pink-500 p-1 dark:text-gray-100 text-gray-800 rounded-md focus:outline-none transition-shadow duration-300 focus:ring-pink-300 hover:ring-pink-300 focus:ring-4 hover:ring-4"
           rel="noreferrer"
         >
           <svg
@@ -26,7 +26,7 @@ const Footer = () => {
         <a
           href="https://twitter.com/ndom91"
           target="_blank"
-          className="dark:hover:ring-opacity-30 dark:hover:ring-pink-500 dark:focus:ring-opacity-30 dark:focus:ring-pink-500 p-1 dark:text-gray-100 text-gray-800 rounded-full focus:outline-none transition-shadow duration-500 focus:ring-pink-400 hover:ring-pink-400 focus:ring-opacity-60 hover:ring-opacity-60 focus:ring-4 hover:ring-4"
+          className="dark:hover:ring-opacity-30 dark:hover:ring-pink-500 dark:focus:ring-opacity-30 dark:focus:ring-pink-500 p-1 dark:text-gray-100 text-gray-800 rounded-md focus:outline-none transition-shadow duration-300 focus:ring-pink-300 hover:ring-pink-300 focus:ring-4 hover:ring-4"
           rel="noreferrer"
         >
           <svg
@@ -47,7 +47,7 @@ const Footer = () => {
         <a
           href="mailto:home2021@ndo.dev"
           target="_blank"
-          className="dark:hover:ring-opacity-30 dark:hover:ring-pink-500 dark:focus:ring-opacity-30 dark:focus:ring-pink-500 p-1 dark:text-gray-100 text-gray-800 rounded-full focus:outline-none transition-shadow duration-500 focus:ring-pink-400 hover:ring-pink-400 focus:ring-opacity-60 hover:ring-opacity-60 focus:ring-4 hover:ring-4"
+          className="dark:hover:ring-opacity-30 dark:hover:ring-pink-500 dark:focus:ring-opacity-30 dark:focus:ring-pink-500 p-1 dark:text-gray-100 text-gray-800 rounded-md focus:outline-none transition-shadow duration-300 focus:ring-pink-300 hover:ring-pink-300 focus:ring-4 hover:ring-4"
           rel="noreferrer"
         >
           <svg
