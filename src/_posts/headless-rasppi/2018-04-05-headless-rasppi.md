@@ -1,8 +1,10 @@
 ---
-date: '2018-04-05'
-title: 'Setting up a Raspberry Pi'
-category: 'linux'
-tags: ['raspberry pi', 'linux']
+date: "2018-04-05"
+title: "Setting up a Raspberry Pi"
+category: "linux"
+tags: ["raspberry pi", "linux"]
+cover:
+  imageFile: "headless-rasppi/cover.png"
 ---
 
 When setting up a Raspberry Pi, you first need to write an OS onto an SD Card so your device has something to boot from.

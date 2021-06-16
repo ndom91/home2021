@@ -1,8 +1,10 @@
 ---
-date: '2020-05-22'
-title: 'Installing Overwatch on Arch Linux'
-tags: ['overwatch', 'gaming', 'battle.net', 'arch', 'lutris']
-category: 'linux'
+date: "2020-05-22"
+title: "Installing Overwatch on Arch Linux"
+tags: ["overwatch", "gaming", "battle.net", "arch", "lutris"]
+category: "linux"
+cover:
+  imageFile: "lutris-overwatch/cover.png"
 ---
 
 ## Introduction
@@ -32,4 +34,3 @@ Anyway, after getting the dependencies installed you just launch lutris, search 
 What used to take hours of debugging and googling in 2020 now takes all of 20 minutes!
 
 ![Battle.net](battlenet.png)
-

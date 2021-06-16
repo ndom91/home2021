@@ -1,8 +1,10 @@
 ---
-date: '2018-02-17'
-title: 'First 5 things to do with a new Ubuntu Server'
-tags: ['servers', 'linux']
-category: 'linux'
+date: "2018-02-17"
+title: "First 5 things to do with a new Ubuntu Server"
+tags: ["servers", "linux"]
+category: "linux"
+cover:
+  imageFile: "intro-to-server-setup/cover.png"
 ---
 
 ![ubuntu splash](ubuntu.png)

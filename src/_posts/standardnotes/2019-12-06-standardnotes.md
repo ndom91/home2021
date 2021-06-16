@@ -1,8 +1,8 @@
 ---
-date: '2019-12-06'
-title: 'Standard Notes Selfhosted Installation'
-tags: ['servers', 'linux', 'standardnotes']
-category: 'linux'
+date: "2019-12-06"
+title: "Standard Notes Selfhosted Installation"
+tags: ["servers", "linux", "standardnotes"]
+category: "linux"
 ---
 
 # What?
@@ -11,9 +11,9 @@ Standard Notes is an opensource web-based notes application.
 
 ## Installation
 
-There are a few officially support install methods, including Docker, "Baremetal" and on Heroku.
+There are a few officially supported installation methods, including Docker, baremetal and on Heroku.
 
-I'm going to continue on with the "Baremetal" variant here. I'd tried the Docker version initially, but never could get it running
+I'm going to continue on with the "baremetal" variant here.
 
 1. Get the files
 
@@ -76,7 +76,7 @@ mysql -u root -p
 > quit;
 ```
 
-8. Install some Rubygems:
+8. Install some Rubygems dependencies:
 
 ```
 gem install rubygems-update

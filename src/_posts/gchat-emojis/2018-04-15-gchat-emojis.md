@@ -1,8 +1,8 @@
 ---
-title: 'Hangouts Emojis'
-date: '2018-04-15'
-tags: ['web', 'reverse-engineering']
-category: 'Web'
+title: "Hangouts Emojis"
+date: "2018-04-15"
+tags: ["web", "reverse-engineering"]
+category: "Web"
 ---
 
 So I've been looking for a list of emojis and their text counterparts for google hangouts. This seems like a fairly easy thing for them to publish, right?
@@ -128,7 +128,5 @@ So, without further adieu:
             "}=)": 128520,
             "~@~": 128169
 ```
-
-Pastebin: [hangouts emojis](https://paste.iamnico.xyz/I8vDQZHLTf)
 
 If I have some free time in the future, I will edit this page to make a nice little table with the pictures and what not, but for now I think you should be able to decipher what most of them are just by their text versions.

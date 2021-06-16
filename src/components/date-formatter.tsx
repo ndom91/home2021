@@ -8,7 +8,7 @@ const DateFormatter = ({ dateString }: Props) => {
   const date = parseISO(dateString)
   return (
     <time className="text-palevioletred" dateTime={dateString}>
-      {format(date, "LLLL	d, yyyy")}
+      {format(date, "LLLL d, yyyy")}
     </time>
   )
 }
