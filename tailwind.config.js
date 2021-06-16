@@ -34,6 +34,13 @@ module.exports = {
       },
       animation: {
         blob: "blob 7s infinite",
+        "fade-in": "fade-in 1000ms forwards",
+        "fade-in-down": "fade-in-down 500ms ease-out",
+        "fade-out-down": "fade-out-down 500ms ease-out",
+        "fade-in-up-10": "fade-in-up-10 750ms ease-out forwards",
+        "fade-in-up-30": "fade-in-up-30 750ms ease-out forwards",
+        "fade-in-up-500": "fade-in-up-10 750ms ease-out forwards 500ms",
+        "fade-out-up": "fade-out-up 500ms ease-out",
       },
       keyframes: {
         blob: {
@@ -48,6 +55,64 @@ module.exports = {
           },
           "100%": {
             transform: "translate(0px, 0px) scale(1)",
+          },
+        },
+        "fade-in": {
+          "0%": {
+            opacity: "0",
+          },
+          "100%": {
+            opacity: "1",
+          },
+        },
+        "fade-in-down": {
+          "0%": {
+            opacity: "0",
+            transform: "translateY(-10px)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translateY(0)",
+          },
+        },
+        "fade-out-down": {
+          from: {
+            opacity: "1",
+            transform: "translateY(0px)",
+          },
+          to: {
+            opacity: "0",
+            transform: "translateY(10px)",
+          },
+        },
+        "fade-in-up-10": {
+          "0%": {
+            opacity: "0",
+            transform: "translateY(10px)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translateY(0)",
+          },
+        },
+        "fade-in-up-30": {
+          "0%": {
+            opacity: "0",
+            transform: "translateY(30px)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translateY(0)",
+          },
+        },
+        "fade-out-up": {
+          from: {
+            opacity: "1",
+            transform: "translateY(0px)",
+          },
+          to: {
+            opacity: "0",
+            transform: "translateY(10px)",
           },
         },
       },

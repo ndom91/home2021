@@ -14,7 +14,7 @@ const Blog = ({ allPosts }: Props) => {
   return (
     <Layout>
       <div className="relative">
-        <h1 className="my-24 dark:text-gray-100 text-7xl font-bold tracking-tighter leading-tight md:pr-8 md:text-8xl">
+        <h1 className="my-24 dark:text-gray-100 text-7xl font-bold tracking-tighter leading-tight opacity-0 animate-fade-in-up-10 md:pr-8 md:text-8xl">
           blog.
         </h1>
       </div>

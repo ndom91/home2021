@@ -1,11 +1,11 @@
 const Footer = () => {
   return (
-    <footer className="w-full sm:max-w-screen-sm md:max-w-5xl">
+    <footer className="w-full opacity-0 animate-fade-in sm:max-w-screen-sm md:max-w-5xl">
       <div className="max-w flex items-baseline px-4 py-8 space-x-4">
         <a
           href="https://github.com/ndom91"
           target="_blank"
-          className="dark:focus:ring-opacity-10 dark:focus:ring-pink-500 dark:text-gray-100 text-gray-800 rounded-full focus:outline-none transition-shadow duration-500 focus:ring-pink-400 focus:ring-opacity-30 focus:ring-4"
+          className="dark:focus:ring-opacity-30 dark:focus:ring-pink-500 p-1 dark:text-gray-100 text-gray-800 rounded-full focus:outline-none transition-shadow duration-500 focus:ring-pink-400 focus:ring-opacity-60 focus:ring-4"
           rel="noreferrer"
         >
           <svg
@@ -27,7 +27,7 @@ const Footer = () => {
         <a
           href="https://twitter.com/ndom91"
           target="_blank"
-          className="dark:focus:ring-opacity-10 dark:focus:ring-pink-500 dark:text-gray-100 text-gray-800 rounded-full focus:outline-none transition-shadow duration-500 focus:ring-pink-400 focus:ring-opacity-30 focus:ring-4"
+          className="dark:focus:ring-opacity-30 dark:focus:ring-pink-500 p-1 dark:text-gray-100 text-gray-800 rounded-full focus:outline-none transition-shadow duration-500 focus:ring-pink-400 focus:ring-opacity-60 focus:ring-4"
           rel="noreferrer"
         >
           <svg
@@ -48,7 +48,7 @@ const Footer = () => {
         <a
           href="mailto:home2021@ndo.dev"
           target="_blank"
-          className="dark:focus:ring-opacity-10 dark:focus:ring-pink-500 dark:text-gray-100 text-gray-800 rounded-full focus:outline-none transition-shadow duration-500 focus:ring-pink-400 focus:ring-opacity-30 focus:ring-4"
+          className="dark:focus:ring-opacity-30 dark:focus:ring-pink-500 p-1 dark:text-gray-100 text-gray-800 rounded-full focus:outline-none transition-shadow duration-500 focus:ring-pink-400 focus:ring-opacity-60 focus:ring-4"
           rel="noreferrer"
         >
           <svg

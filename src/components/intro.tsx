@@ -4,12 +4,12 @@ const Intro = () => {
   return (
     <section className="relative z-10 flex flex-col items-start my-16 text-left md:flex-row md:items-center md:justify-between md:mb-12 md:my-32">
       <div className="relative w-2/3 h-16">
-        <h1 className="intro-title dark:text-gray-100 text-7xl font-bold tracking-tighter leading-tight md:pr-8 md:text-8xl">
+        <h1 className="intro-title dark:text-gray-100 text-7xl font-bold tracking-tighter leading-tight opacity-0 animate-fade-in-up-30 md:pr-8 md:text-8xl">
           ndom91.
         </h1>
       </div>
       <div
-        className="mt-5 w-full text-left dark:text-gray-200 text-gray-800 text-lg font-light tracking-tighter leading-8 md:pl-8 md:w-11/12 md:text-xl"
+        className="mt-5 w-full text-left dark:text-gray-200 text-gray-800 text-lg font-light tracking-tighter leading-8 opacity-0 animate-fade-in-up-500 md:pl-8 md:w-11/12 md:text-xl"
         style={{ lineHeight: "2.25rem" }}
       >
         During the day, I&lsquo;m a full-stack javascript developer at{" "}

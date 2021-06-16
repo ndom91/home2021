@@ -42,8 +42,8 @@ const CoverImage = ({ title, cover = { imageFile: "" }, slug }: Props) => {
       placeholder="blur"
       className={
         slug
-          ? "shadow-small hover:shadow-medium transition-shadow duration-200"
-          : "shadow-small"
+          ? "shadow-sm hover:shadow-md transition-shadow duration-200"
+          : "shadow-sm"
       }
     />
   )

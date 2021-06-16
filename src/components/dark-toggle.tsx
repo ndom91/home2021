@@ -20,11 +20,11 @@ const DarkToggle = () => {
   }
 
   return (
-    <div className="relative dark:text-gray-500 text-gray-800">
+    <div className="relative dark:text-gray-400 text-gray-800">
       {dark ? (
         <button
           onClick={toggleDark}
-          className="rounded focus:outline-none transition-shadow duration-500 focus:ring-pink-500 focus:ring-opacity-30 focus:ring-4"
+          className="p-1 rounded-full focus:outline-none transition-shadow duration-500 focus:ring-pink-500 focus:ring-opacity-50 focus:ring-4"
         >
           {/* Sun */}
           <svg
@@ -47,7 +47,7 @@ const DarkToggle = () => {
       ) : (
         <button
           onClick={toggleDark}
-          className="rounded focus:outline-none transition-shadow duration-500 focus:ring-pink-400 focus:ring-opacity-10 focus:ring-4"
+          className="p-1 rounded-full focus:outline-none transition-shadow duration-500 focus:ring-pink-400 focus:ring-opacity-70 focus:ring-4"
         >
           {/* Moon */}
           <svg
