@@ -24,7 +24,7 @@ const DarkToggle = () => {
       {dark ? (
         <button
           onClick={toggleDark}
-          className="p-1 rounded-full focus:outline-none transition-shadow duration-500 focus:ring-pink-500 focus:ring-opacity-50 focus:ring-4"
+          className="p-1 rounded-full focus:outline-none transition-shadow duration-500 focus:ring-pink-300 hover:ring-pink-300 hover:ring-4 focus:ring-4"
         >
           {/* Sun */}
           <svg
@@ -47,7 +47,7 @@ const DarkToggle = () => {
       ) : (
         <button
           onClick={toggleDark}
-          className="p-1 rounded-full focus:outline-none transition-shadow duration-500 focus:ring-pink-400 focus:ring-opacity-70 focus:ring-4"
+          className="duration-400 p-1 rounded-full focus:outline-none transition-shadow hover:ring-pink-400 focus:ring-pink-400 focus:ring-opacity-70 hover:ring-4 focus:ring-4"
         >
           {/* Moon */}
           <svg
