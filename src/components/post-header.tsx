@@ -15,14 +15,11 @@ const PostHeader = ({ title, cover, date }: Props) => {
   return (
     <>
       <PostTitle>{title}</PostTitle>
-      <div className="hidden md:block md:mb-12">
-        <Avatar />
-      </div>
       <div className="mb-8 sm:mx-0 md:mb-16">
         <CoverImage title={title} cover={cover} />
       </div>
-      <div className="mx-auto max-w-2xl">
-        <div className="block mb-6 md:hidden">
+      <div className="flex justify-between mx-auto max-w-2xl">
+        <div className="block mb-6">
           <Avatar />
         </div>
         <div className="mb-6 text-lg">

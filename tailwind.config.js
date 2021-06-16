@@ -4,12 +4,47 @@ module.exports = {
   purge: ["./src/components/**/*.tsx", "./src/pages/**/*.tsx"],
   darkMode: "class",
   mode: process.env.NODE_ENV ? "jit" : undefined,
+  plugins: [require("@tailwindcss/typography")],
   theme: {
     extend: {
       colors: {
         coolGray: colors.coolGray,
         palevioletred: "#DB7093",
       },
+      typography: (theme) => ({
+        pink: {
+          css: {
+            a: { color: "#db7093" },
+          },
+        },
+        dark: {
+          css: {
+            '[class~="lead"]': { color: theme("colors.gray.400") },
+            strong: { color: theme("colors.gray.100") },
+            "ul > li::before": { backgroundColor: theme("colors.gray.700") },
+            hr: { borderColor: theme("colors.gray.800") },
+            blockquote: {
+              color: theme("colors.gray.100"),
+              borderLeftColor: theme("colors.gray.800"),
+            },
+            h1: { color: theme("colors.gray.100") },
+            h2: { color: theme("colors.gray.100") },
+            h3: { color: theme("colors.gray.100") },
+            h4: { color: theme("colors.gray.100") },
+            code: { color: theme("colors.palevioletred") },
+            "a code": { color: theme("colors.palevioletred") },
+            "pre code": {
+              color: theme("colors.gray.200"),
+              backgroundColor: theme("colors.gray.800"),
+            },
+            thead: {
+              color: theme("colors.gray.100"),
+              borderBottomColor: theme("colors.gray.700"),
+            },
+            "tbody tr": { borderBottomColor: theme("colors.gray.800") },
+          },
+        },
+      }),
       spacing: {
         28: "7rem",
       },
