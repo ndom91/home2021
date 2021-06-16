@@ -9,10 +9,11 @@ const Intro = () => {
         </h1>
       </div>
       <div
-        className="mt-5 w-full text-left dark:text-gray-200 text-gray-800 text-lg font-light tracking-tighter leading-8 opacity-0 animate-fade-in-up-500 md:pl-8 md:w-11/12 md:text-xl"
+        className="mt-5 w-full text-left dark:text-gray-200 text-gray-800 text-lg font-light tracking-tight leading-8 opacity-0 animate-fade-in-up-500 md:pl-8 md:w-11/12 md:text-xl"
         style={{ lineHeight: "2.25rem" }}
       >
-        During the day, I&lsquo;m a full-stack javascript developer at{" "}
+        Hi my name is Nico Domino and during the day, I&lsquo;m a full-stack
+        javascript developer at{" "}
         <a
           href="https://checklyhq.com"
           target="_blank"

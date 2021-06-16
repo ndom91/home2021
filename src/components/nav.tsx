@@ -7,14 +7,14 @@ const Navbar = () => {
       <ul className="flex w-full dark:text-gray-100 text-gray-800 text-xl font-thin space-x-10">
         <li>
           <Link href="/">
-            <a className="p-0.5 dark:text-gray-100 text-gray-800 focus:border-b-8 dark:border-palevioletred border-pink-300 focus:outline-none outline-none transition-all duration-500">
+            <a className="p-0.5 dark:text-gray-100 text-gray-800 font-semibold focus:border-b-8 dark:border-palevioletred border-pink-300 focus:outline-none outline-none transition-all duration-500">
               Home
             </a>
           </Link>
         </li>
         <li>
           <Link href="/blog">
-            <a className="p-0.5 dark:text-gray-100 text-gray-800 focus:border-b-8 dark:border-palevioletred border-pink-300 focus:outline-none outline-none transition-all duration-500">
+            <a className="p-0.5 dark:text-gray-100 text-gray-800 font-semibold focus:border-b-8 dark:border-palevioletred border-pink-300 focus:outline-none outline-none transition-all duration-500">
               Blog
             </a>
           </Link>
