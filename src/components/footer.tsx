@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
     <footer className="w-full opacity-0 animate-fade-in sm:max-w-screen-sm md:max-w-5xl">
-      <div className="max-w flex items-baseline px-4 py-8 space-x-4">
+      <div className="max-w flex items-baseline px-4 py-4 space-x-4 md:py-8">
         <a
           href="https://github.com/ndom91"
           target="_blank"

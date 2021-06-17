@@ -22,10 +22,7 @@ const CoverImage = ({ title, cover = { imageFile: "" }, slug }: Props) => {
       setImage(image)
     })
   }
-
-  useEffect(() => {
-    loadImage(imageFile)
-  }, [imageFile])
+  loadImage(imageFile)
 
   const imageComponent = !imageImport ? (
     <div className="relative my-4 py-4 text-center text-gray-200 dark:text-gray-700 font-mono font-thin">

@@ -22,6 +22,15 @@
   }
 }
 
+::selection {
+  background-color: palevioletred;
+  color: #fff;
+}
+
+.prose code {
+  word-break: break-all !important;
+}
+
 .border-underline-grow {
   background-position: 0 100%;
   background-repeat: repeat-x;
