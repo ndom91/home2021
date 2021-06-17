@@ -46,6 +46,11 @@
   background-size: 6px 50px;
 }
 
+.pattern-dots-md {
+  background-image: radial-gradient(currentColor 1px, transparent 1px);
+  background-size: calc(10 * 1px) calc(10 * 1px);
+}
+
 .intro-title {
   position: absolute;
   left: 0;

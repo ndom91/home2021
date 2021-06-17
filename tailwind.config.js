@@ -9,6 +9,7 @@ module.exports = {
     extend: {
       colors: {
         coolGray: colors.coolGray,
+        bgGray: "#0e0307",
         palevioletred: "#DB7093",
       },
       typography: (theme) => ({
