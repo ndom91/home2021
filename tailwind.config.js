@@ -8,8 +8,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        coolGray: colors.coolGray,
-        bgGray: "#0e0307",
+        gray: colors.trueGray,
+        bgGray: "#151216",
         palevioletred: "#DB7093",
       },
       typography: (theme) => ({
@@ -70,6 +70,7 @@ module.exports = {
       },
       animation: {
         blob: "blob 7s infinite",
+        "staggered-lines": "staggered-lines 1000ms forwards 500ms",
         "fade-in": "fade-in 1000ms forwards",
         "fade-in-down": "fade-in-down 500ms ease-out",
         "fade-out-down": "fade-out-down 500ms ease-out",
@@ -79,6 +80,16 @@ module.exports = {
         "fade-out-up": "fade-out-up 500ms ease-out",
       },
       keyframes: {
+        "staggered-lines": {
+          "0%": {
+            opacity: "0",
+            transform: "translateY(-10px)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translateY(0)",
+          },
+        },
         blob: {
           "0%": {
             transform: "translate(0px, 0px) scale(1)",

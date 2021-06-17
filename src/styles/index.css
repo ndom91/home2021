@@ -22,9 +22,24 @@
   }
 }
 
-::selection {
-  background-color: palevioletred;
-  color: #fff;
+#intro-body span {
+  opacity: 0;
+  animation-name: staggeredLines;
+  animation-duration: 750ms;
+  animation-timing-function: cubic-bezier(0.175, 0.885, 0.12, 1.375);
+  animation-delay: calc(150ms * var(--line-index));
+  animation-fill-mode: forwards;
+}
+
+@keyframes staggeredLines {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .prose code {

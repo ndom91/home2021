@@ -15,7 +15,7 @@ const Layout = ({ children }: Props) => {
   }
 
   return (
-    <div className="flex flex-col items-center min-h-screen dark:bg-bgGray transition duration-500">
+    <div className="dark:selection:bg-palevioletred flex flex-col items-center min-h-screen selection:text-white dark:bg-bgGray selection:bg-pink-300 transition duration-500">
       <Meta />
       {alert.enabled && <Alert header={alert.header} body={alert.body} />}
       <div className="flex-1 mx-auto w-full md:max-w-5xl">
