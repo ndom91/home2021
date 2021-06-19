@@ -24,7 +24,7 @@ const Blog = ({ allPosts }: Props) => {
           cover={heroPost.cover}
           date={heroPost.date}
           slug={heroPost.slug}
-          excerpt={heroPost.excerpt}
+          time={heroPost.time}
         />
       )}
       {morePosts.length > 0 && <MoreStories posts={morePosts} />}

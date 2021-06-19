@@ -9,11 +9,16 @@ type Props = {
     imageFile: string
   }
   date: string
-  excerpt: string
   slug: string
+  time: {
+    text: string
+    minutes: number
+    time: number
+    words: number
+  }
 }
 
-const HeroPost = ({ title, cover, date, excerpt, slug }: Props) => {
+const HeroPost = ({ title, cover, date, excerpt, slug, time }: Props) => {
   return (
     <section>
       <div className="mask-bottom mb-8 h-auto border-10 border-b-0 dark:border-palevioletred border-pink-300 overflow-hidden md:mb-16 md:h-96">
@@ -28,8 +33,9 @@ const HeroPost = ({ title, cover, date, excerpt, slug }: Props) => {
               </a>
             </Link>
           </h3>
-          <div className="mb-4 text-lg font-extralight md:mb-0">
+          <div className="flex mb-4 text-lg font-extralight space-x-4 md:mb-0">
             <DateFormatter dateString={date} />
+            <span>{time.text}</span>
           </div>
         </div>
         <div className="flex justify-end">
