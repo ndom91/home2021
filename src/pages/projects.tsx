@@ -24,12 +24,7 @@ const About = ({ projects }: Projects) => {
 export default About
 
 export const getStaticProps = async () => {
-  const server =
-    process.env.NODE_ENV !== "production"
-      ? "http://localhost:3003"
-      : "https://home2021.vercel.app"
-  const res = await fetch(`${server}/api/projects`)
-  const projects = await res.json()
+  const projects = require("../../data/projects.json")
 
   if (!projects) {
     return {
