@@ -1,18 +1,7 @@
 @tailwind base;
-
-/* Write your own custom base styles here */
-
-/* Start purging... */
 @tailwind components;
-/* Stop purging. */
-
-/* Write you own custom component styles here */
-
-/* Start purging... */
 @tailwind utilities;
-/* Stop purging. */
 
-/* Your own custom utilities */
 @layer utilities {
   .animation-delay-2000 {
     animation-delay: 2s;
@@ -21,6 +10,12 @@
     animation-delay: 4s;
   }
 }
+
+body {
+  font-family: "Inter";
+}
+
+@import url("/assets/fonts/inter/inter.css");
 
 #intro-body span {
   opacity: 0;
@@ -47,18 +42,33 @@
 }
 
 .border-underline-grow {
-  background-position: 0 100%;
+  background-position: 0 300%;
   background-repeat: repeat-x;
   background-size: 10px 10px;
   text-decoration: none;
-  transition: background-size 350ms ease-in-out color 350ms ease-in-out;
+  transition: background-size 350ms ease-in-out;
   padding: 3px;
+
+  animation-name: backgroundSizeIntro;
+  animation-duration: 1000ms;
+  animation-delay: 500ms;
+  animation-timing-function: cubic-bezier(0.175, 0.885, 0.12, 1.375);
+  animation-fill-mode: forwards;
+}
+
+@keyframes backgroundSizeIntro {
+  0% {
+    background-position: 0 300%;
+  }
+  100% {
+    background-position: 0 100%;
+  }
 }
 
 .border-underline-grow:focus,
 .border-underline-grow:hover {
   outline: none;
-  background-size: 6px 50px;
+  background-size: 10px 50px;
 }
 
 .pattern-dots-md {
@@ -89,7 +99,6 @@
       0px 270px 3.5px palevioletred, 0px 360px 5px palevioletred,
       0px 450px 6px palevioletred, 0px 540px 4px palevioletred;
     width: 100%;
-    /* height: calc(118px * 4); */
     height: 50vh;
     mask-image: linear-gradient(
       to top,

@@ -29,6 +29,7 @@
     "next": "^11.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-use": "^17.2.4",
     "remark": "13.0.0",
     "remark-html": "13.0.1",
     "splitting": "^1.0.6",
@@ -49,7 +50,7 @@
     "prettier": "^2.3.1",
     "prettier-plugin-tailwind": "^2.2.10",
     "pretty-quick": "^3.1.0",
-    "tailwindcss": "^2.2.0"
+    "tailwindcss": "^2.2.2"
   },
   "prettier": {
     "semi": false

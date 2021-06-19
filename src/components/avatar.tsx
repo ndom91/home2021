@@ -10,7 +10,7 @@ const Avatar = () => {
         className="mr-4 w-12 h-12 rounded-full"
         alt="ndom91"
       />
-      <div className="dark:text-gray-200 text-xl font-thin">ndom91</div>
+      <div className="dark:text-gray-200 text-xl font-extralight">ndom91</div>
     </div>
   )
 }

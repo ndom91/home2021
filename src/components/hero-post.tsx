@@ -23,10 +23,12 @@ const HeroPost = ({ title, cover, date, excerpt, slug }: Props) => {
         <div>
           <h3 className="mb-4 text-4xl leading-tight lg:text-6xl">
             <Link as={`/posts/${slug}`} href="/posts/[slug]">
-              <a className="dark:text-gray-200 font-bold">{title}</a>
+              <a className="dark:text-gray-200 first-letter:text-4xl font-bold">
+                {title}
+              </a>
             </Link>
           </h3>
-          <div className="mb-4 text-lg font-thin md:mb-0">
+          <div className="mb-4 text-lg font-extralight md:mb-0">
             <DateFormatter dateString={date} />
           </div>
         </div>

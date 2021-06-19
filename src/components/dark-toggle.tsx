@@ -24,7 +24,7 @@ const DarkToggle = () => {
       {dark ? (
         <button
           onClick={toggleDark}
-          className="p-1 rounded-md focus:outline-none transition-shadow duration-300 focus:ring-pink-300 hover:ring-pink-300 hover:ring-4 focus:ring-4"
+          className="p-1 rounded-md focus:outline-none transition-shadow duration-300 hover:ring-4 focus:ring-4 focus:ring-pink-300 hover:ring-pink-300"
         >
           {/* Sun */}
           <svg
@@ -39,7 +39,7 @@ const DarkToggle = () => {
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
-              strokeWidth={2}
+              strokeWidth={1.5}
               d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
             />
           </svg>
@@ -47,7 +47,7 @@ const DarkToggle = () => {
       ) : (
         <button
           onClick={toggleDark}
-          className="p-1 rounded-md focus:outline-none transition-shadow duration-300 hover:ring-pink-400 focus:ring-pink-400 focus:ring-opacity-70 hover:ring-4 focus:ring-4"
+          className="p-1 rounded-md focus:outline-none transition-shadow duration-300 hover:ring-4 focus:ring-4 hover:ring-pink-400 focus:ring-pink-400 focus:ring-opacity-70"
         >
           {/* Moon */}
           <svg
@@ -62,7 +62,7 @@ const DarkToggle = () => {
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
-              strokeWidth={2}
+              strokeWidth={1.5}
               d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
             />
           </svg>

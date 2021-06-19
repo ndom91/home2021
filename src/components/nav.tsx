@@ -4,18 +4,25 @@ import DarkToggle from "@/components/dark-toggle"
 const Navbar = () => {
   return (
     <nav className="space-between flex p-4 opacity-0 animate-fade-in">
-      <ul className="flex w-full dark:text-gray-100 text-gray-800 text-xl font-thin space-x-10">
+      <ul className="flex w-full dark:text-gray-100 text-gray-800 text-xl font-extralight space-x-10">
         <li>
           <Link href="/">
-            <a className="p-0.5 dark:text-gray-100 text-gray-800 font-semibold hover:border-b-8 focus:border-b-8 dark:border-palevioletred border-pink-300 focus:outline-none outline-none transition-all duration-200">
-              Home
+            <a className="p-0.5 dark:text-gray-100 text-gray-800 font-light hover:border-b-8 focus:border-b-8 dark:border-palevioletred border-pink-300 focus:outline-none outline-none transition-all duration-200">
+              home
             </a>
           </Link>
         </li>
         <li>
           <Link href="/blog">
-            <a className="p-0.5 dark:text-gray-100 text-gray-800 font-semibold hover:border-b-8 focus:border-b-8 dark:border-palevioletred border-pink-300 focus:outline-none outline-none transition-all duration-200">
-              Blog
+            <a className="p-0.5 dark:text-gray-100 text-gray-800 font-light hover:border-b-8 focus:border-b-8 dark:border-palevioletred border-pink-300 focus:outline-none outline-none transition-all duration-200">
+              blog
+            </a>
+          </Link>
+        </li>
+        <li>
+          <Link href="/projects">
+            <a className="p-0.5 dark:text-gray-100 text-gray-800 font-light hover:border-b-8 focus:border-b-8 dark:border-palevioletred border-pink-300 focus:outline-none outline-none transition-all duration-200">
+              work
             </a>
           </Link>
         </li>

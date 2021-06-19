@@ -1,0 +1,85 @@
+[
+  {
+    "name": "next-auth",
+    "url": "https://next-auth.js.org",
+    "image": "nextauth.png",
+    "desc": "Core-team member of NextAuth.js. A serverless authentication library for Next.js. Supports OAuth2, Passwordless, and Email login. Bring your own DB or just use JWT!",
+    "tech": ["react", "nextjs", "npm"]
+  },
+  {
+    "name": "NewTelco Landing",
+    "url": "https://github.com/ndom91/newtelco-tab",
+    "image": "homenewtelco.png",
+    "desc": "Browser 'New Tab' page for Employees at NewTelco GmbH.",
+    "tech": ["nextjs", "tailwindcss", "fauna", "vercel"]
+  },
+  {
+    "name": "react-timezone-select",
+    "url": "https://github.com/ndom91/react-timezone-select",
+    "image": "reacttimezoneselect.png",
+    "desc": "React component for selecting timezones. ~20k downloads per month 🎉",
+    "tech": ["react", "typescript", "npm"]
+  },
+  {
+    "name": "Corona-API",
+    "url": "https://github.com/ndom91/coronaAWS",
+    "image": "coronaapi.png",
+    "desc": "Coronavirus API for German Government's #wirvsvirus hackathon <br /><br /><svg style='display:inline-block' fill='currentColor' height='16' width='16' viewBox='0 0 20 20' class='w-8 h-8'><path fill-rule='evenodd' d='M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l-1.5 1.5a2 2 0 11-2.828-2.828l3-3z' clip-rule='evenodd'></path></svg><a style='margin-left: 0.2rem' href='/posts/serverless'>Read More</a>",
+    "tech": ["aws-api-gateway", "aws-lambda", "serverless", "vue-js"]
+  },
+  {
+    "name": "NewTelco Homepage 2021",
+    "url": "https://github.com/newtelco/newtelco-dato",
+    "image": "newtelcodev.png",
+    "desc": "Homepage redesign for NewTelco GmbH (2021).",
+    "tech": [
+      "gatsby",
+      "tailwindcss",
+      "framer-motion",
+      "cloudflareworkers",
+      "dato-cms"
+    ]
+  },
+  {
+    "name": "NewTelco Homepage 2020",
+    "url": "https://github.com/newtelco/newtelco-gatsby-netlify",
+    "image": "newtelcohome.png",
+    "desc": "Homepage redesign for NewTelco GmbH (2020).",
+    "tech": ["gatsby", "cloudflareworkers", "reactspring", "netlify"]
+  },
+  {
+    "name": "Company Absences",
+    "url": "https://github.com/newtelco/timeoff",
+    "image": "timeoff.png",
+    "desc": "Company Absences Management application for making, approving, auditing, and checking up on vacation/sick/business trip requests.",
+    "tech": ["nextjs", "nodejs", "activedirectory"]
+  },
+  {
+    "name": "Network Maintenance",
+    "url": "https://github.com/newtelco/next-maintenance",
+    "image": "maintenance.png",
+    "desc": "Application for managing, organizing, and auditing Network Maintenance requests from suppliers and forwarding on notifications to the appropriate customers.",
+    "tech": ["nextjs", "algolia", "express", "nodejs"]
+  },
+  {
+    "name": "Youtube Playlists",
+    "url": "https://github.com/ndom91/youtube-playlists",
+    "image": "youtube.png",
+    "desc": "Side-project for creating dynamic YouTube Playlists. PWA which makes use of the Web Share Target API as well as Google's Cast API (Coming Soon).",
+    "tech": ["react", "cloudflareworkers", "styledcomponents", "netlify"]
+  },
+  {
+    "name": "NOC Dashboard",
+    "url": "https://github.com/newtelco/nt-noc",
+    "image": "nocdashboard.png",
+    "desc": "Network Operations Center Dashboard which is displayed 24/7 on a large display in the office. Includes stats from Grafana and live video feeds transcoded via ffmpeg for displaying in the browser.",
+    "tech": ["preact", "ffmpeg", "snowpack1"]
+  },
+  {
+    "name": "node-snmp",
+    "url": "https://github.com/newtelco/node-snmp",
+    "image": "node-snmp.png",
+    "desc": "SNMP based checker for dry contact I/O and temperature monitoring in the datacenter. Alerts users via Telegram Bot and Email.",
+    "tech": ["nodejs", "telegram", "gmail"]
+  }
+]

@@ -77,7 +77,7 @@ const PostCard = ({ post }: Props) => {
           <div className="relative z-10 p-6 pb-2 overflow-hidden overflow-y-visible">
             <Link href={`/posts/${slug ? slug : ""}`}>
               <a>
-                <div className="dark:text-gray-200 text-gray-600 font-sans text-lg font-thin capitalize md:text-xl">
+                <div className="dark:text-gray-200 text-gray-600 font-sans text-lg font-extralight capitalize md:text-xl">
                   {title}
                 </div>
               </a>
