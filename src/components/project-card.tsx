@@ -48,7 +48,7 @@ const ProjectCard = ({ project }: Props) => {
     window.addEventListener("scroll", updateScrollAttribute)
 
     return imgElement?.removeEventListener("scroll", updateScrollAttribute)
-  }, [html, imgElement, imgElement?.style.top])
+  }, [html, imgElement])
 
   return (
     <div className="mx-8">
