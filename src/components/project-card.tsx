@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import { Parallax } from "react-scroll-parallax"
 import Image from "next/image"
 import Link from "next/link"
 import { Project } from "../types/project"
@@ -28,27 +29,11 @@ const ProjectCard = ({ project }: Props) => {
       setImage(image)
     })
   }
-
-  const html = document.querySelector("html")
-  const imgElement = document.getElementById(`project-image-${image}`)
-
   useEffect(() => {
     if (image) {
       loadImage(image)
     }
   }, [image])
-
-  useEffect(() => {
-    const updateScrollAttribute = () => {
-      if (imgElement && html) {
-        imgElement.style.top = `-${html.scrollTop / 10 + 5}px`
-      }
-    }
-
-    window.addEventListener("scroll", updateScrollAttribute)
-
-    return imgElement?.removeEventListener("scroll", updateScrollAttribute)
-  }, [html, imgElement])
 
   return (
     <div className="mx-8">
@@ -61,15 +46,17 @@ const ProjectCard = ({ project }: Props) => {
                 className="z-10 mb-2 w-full h-32 bg-gray-200 dark:bg-gray-600 rounded-t-xl hover:cursor-pointer"
               >
                 {imageImport && (
-                  <Image
-                    src={imageImport}
-                    id={`project-image-${image}`}
-                    alt={`${name} Image`}
-                    quality="100"
-                    layout="responsive"
-                    placeholder="blur"
-                    className="rounded-t-xl"
-                  />
+                  <Parallax y={[10, -30]}>
+                    <Image
+                      src={imageImport}
+                      id={`project-image-${image}`}
+                      alt={`${name} Image`}
+                      quality="100"
+                      layout="responsive"
+                      placeholder="blur"
+                      className="rounded-t-xl"
+                    />
+                  </Parallax>
                 )}
               </a>
             </Link>

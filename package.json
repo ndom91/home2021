@@ -29,6 +29,7 @@
     "next": "^11.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-scroll-parallax": "^2.4.0",
     "remark": "13.0.0",
     "remark-html": "13.0.1",
     "splitting": "^1.0.6",
