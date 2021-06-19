@@ -9,9 +9,15 @@ type Props = {
     imageFile: string
   }
   date: string
+  time: {
+    text: string
+    minutes: number
+    time: number
+    words: number
+  }
 }
 
-const PostHeader = ({ title, cover, date }: Props) => {
+const PostHeader = ({ title, cover, date, time }: Props) => {
   return (
     <>
       <PostTitle>{title}</PostTitle>
@@ -25,6 +31,7 @@ const PostHeader = ({ title, cover, date }: Props) => {
           <Avatar />
         </div>
         <div className="mb-6 text-lg">
+          <p>{time.text}</p>
           <DateFormatter dateString={date} />
         </div>
       </div>

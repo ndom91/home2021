@@ -29,7 +29,12 @@ const Post = ({ post, morePosts, preview }: Props) => {
           <Head>
             <title>{post.title} | ndom91</title>
           </Head>
-          <PostHeader title={post.title} cover={post.cover} date={post.date} />
+          <PostHeader
+            title={post.title}
+            cover={post.cover}
+            date={post.date}
+            time={post.time}
+          />
           <PostBody content={post.content} />
         </article>
       )}
@@ -54,6 +59,7 @@ export async function getStaticProps({ params }: Params) {
     "cover",
     "tags",
     "category",
+    "time",
   ])
   const content = await markdownToHtml(post.content || "")
 

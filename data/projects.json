@@ -59,7 +59,7 @@
     "url": "https://github.com/newtelco/next-maintenance",
     "image": "maintenance.png",
     "desc": "Application for managing, organizing, and auditing Network Maintenance requests from suppliers and forwarding on notifications to the appropriate customers.",
-    "tech": ["nextjs", "algolia", "express", "nodejs"]
+    "tech": ["nextjs", "algolia", "google", "nodejs"]
   },
   {
     "name": "Youtube Playlists",
@@ -73,13 +73,6 @@
     "url": "https://github.com/newtelco/nt-noc",
     "image": "nocdashboard.png",
     "desc": "Network Operations Center Dashboard which is displayed 24/7 on a large display in the office. Includes stats from Grafana and live video feeds transcoded via ffmpeg for displaying in the browser.",
-    "tech": ["preact", "ffmpeg", "snowpack1"]
-  },
-  {
-    "name": "node-snmp",
-    "url": "https://github.com/newtelco/node-snmp",
-    "image": "node-snmp.png",
-    "desc": "SNMP based checker for dry contact I/O and temperature monitoring in the datacenter. Alerts users via Telegram Bot and Email.",
-    "tech": ["nodejs", "telegram", "gmail"]
+    "tech": ["preact", "ffmpeg", "snowpack"]
   }
 ]

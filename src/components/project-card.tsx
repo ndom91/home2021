@@ -46,7 +46,7 @@ const ProjectCard = ({ project }: Props) => {
                 className="z-10 mb-2 w-full h-32 bg-gray-200 dark:bg-gray-600 rounded-t-xl hover:cursor-pointer"
               >
                 {imageImport && (
-                  <Parallax y={[10, -30]}>
+                  <Parallax y={[15, -15]}>
                     <Image
                       src={imageImport}
                       id={`project-image-${image}`}
@@ -66,7 +66,7 @@ const ProjectCard = ({ project }: Props) => {
             {url && (
               <Link href={url}>
                 <a>
-                  <div className="dark:hover:text-pink-300 dark:text-gray-200 text-gray-600 hover:text-palevioletred hover:underline text-lg font-semibold transition-colors duration-300 md:text-xl">
+                  <div className="dark:hover:text-pink-300 dark:text-gray-200 text-gray-600 hover:text-palevioletred text-lg font-semibold transition-colors duration-300 md:text-xl">
                     {name}
                   </div>
                 </a>
@@ -85,11 +85,12 @@ const ProjectCard = ({ project }: Props) => {
               {tech &&
                 tech.map((type) => (
                   <Image
-                    alt={type}
+                    alt={`${type.charAt(0).toUpperCase() + type.slice(1)} Logo`}
+                    className="text-black dark:text-white fill-current"
                     height="32"
                     width="32"
                     key={type}
-                    title={type}
+                    title={type.charAt(0).toUpperCase() + type.slice(1)}
                     src={`/assets/img/tech/${type}.svg`}
                   />
                 ))}

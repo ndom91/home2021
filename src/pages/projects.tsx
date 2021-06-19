@@ -1,5 +1,4 @@
 import MoreProjects from "@/components/more-projects"
-// import HeroProject from "@/components/hero-project"
 import Layout from "@/components/layout"
 import { Projects } from "../types/project"
 
@@ -11,11 +10,6 @@ const About = ({ projects }: Projects) => {
           projects.
         </h1>
       </div>
-      {/* {projects && (
-        <HeroProject
-          excerpt={heroPost.excerpt}
-        />
-      )} */}
       {projects.length > 0 && <MoreProjects projects={projects} />}
     </Layout>
   )

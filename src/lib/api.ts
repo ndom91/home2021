@@ -1,6 +1,12 @@
 import fs from "fs"
 import { join } from "path"
 import matter from "gray-matter"
+import readingTime from "reading-time"
+
+const firstFourLines = (file: any, options: any): string => {
+  file.excerpt = file.content.split("\n").slice(0, 4).join(" ")
+  return ""
+}
 
 const postsDirectory = join(process.cwd(), "src", "_posts")
 
@@ -19,7 +25,9 @@ export function getPostBySlug(slug: string, fields: string[] = []) {
     join(postsDirectory, slug, filePath),
     "utf8"
   )
-  const { data, content } = matter(fileContents)
+  const { data, content } = matter(fileContents, { excerpt: firstFourLines })
+  const time = readingTime(fileContents)
+  data.time = time
 
   type Items = {
     [key: string]: string

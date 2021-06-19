@@ -12,6 +12,12 @@ type PostType = {
     url: string
   }
   content: string
+  time: {
+    text: string
+    minutes: number
+    time: number
+    words: number
+  }
 }
 
 export default PostType

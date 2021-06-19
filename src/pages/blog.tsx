@@ -44,6 +44,7 @@ export const getStaticProps = async () => {
     "excerpt",
     "tags",
     "category",
+    "time",
   ])
 
   return {
