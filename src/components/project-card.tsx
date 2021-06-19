@@ -1,5 +1,4 @@
-import { useRef, useState, useEffect } from "react"
-import { useIntersection } from "react-use"
+import { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Project } from "../types/project"
@@ -30,14 +29,6 @@ const ProjectCard = ({ project }: Props) => {
     })
   }
 
-  // const intersectionRef = useRef(null);
-  // const intersection = useIntersection(intersectionRef, {
-  //   rootMargin: '0px',
-  //   threshold: 1
-  // });
-
-  // console.log(image, intersection)
-
   const html = document.querySelector("html")
   const imgElement = document.getElementById(`project-image-${image}`)
 
@@ -57,7 +48,7 @@ const ProjectCard = ({ project }: Props) => {
     window.addEventListener("scroll", updateScrollAttribute)
 
     return imgElement?.removeEventListener("scroll", updateScrollAttribute)
-  }, [html, imgElement?.style.top])
+  }, [html, imgElement, imgElement?.style.top])
 
   return (
     <div className="mx-8">
