@@ -27,6 +27,12 @@ type Props = {
     slug: string
     category: string
     tags: string[]
+    time: {
+      text: string
+      minutes: number
+      time: number
+      words: number
+    }
   }
 }
 
@@ -39,6 +45,7 @@ const PostCard = ({ post }: Props) => {
     slug,
     category,
     tags,
+    time,
   } = post
   const { imageFile } = cover
   const [imageImport, setImage] = useState<StaticImport>()
@@ -55,12 +62,9 @@ const PostCard = ({ post }: Props) => {
   return (
     <div className="mx-8">
       <div className="relative m-4">
-        <div className="relative z-10 flex bg-gray-50 dark:bg-warmGray-800 rounded-xl hover:shadow-lg transition duration-500">
+        <div className="relative z-10 flex rounded-xl hover:shadow-lg transition duration-500">
           <Link href={`/posts/${slug ? slug : ""}`}>
-            <a
-              // style={{ clipPath: "polygon(0 0, 100% 0%, 100% 100%, 0 80%)" }}
-              className="z-10 w-44 h-full bg-gray-200 dark:bg-gray-600 rounded-l-xl hover:cursor-pointer"
-            >
+            <a className="z-10 w-44 h-full bg-gray-200 dark:bg-gray-600 rounded-l-xl hover:cursor-pointer">
               {imageImport && (
                 <Image
                   src={imageImport}
@@ -85,34 +89,31 @@ const PostCard = ({ post }: Props) => {
               </Link>
               <div className="flex">
                 <span className="mx-4 text-gray-300 dark:text-gray-600 font-light">
-                  {category}
+                  {time.text}
                 </span>
-                <span className="font-light">
+                <span className="text-medium">
                   <DateFormatter dateString={date} />
                 </span>
               </div>
             </div>
             <div
-              className="prose prose-sm flex p-6 w-full max-w-full dark:text-gray-300 text-gray-600"
+              className="prose prose-sm flex p-6 pb-0 w-full max-w-full dark:text-gray-300 text-gray-600"
               dangerouslySetInnerHTML={{ __html: excerpt }}
             />
+            <div className="relative z-10 flex align-middle px-6 py-4">
+              <div className="relative z-10 flex justify-start overflow-hidden">
+                {tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="mr-2 my-auto px-2 py-1 text-gray-400 whitespace-nowrap text-xs bg-gray-200 dark:bg-gray-700 rounded-full"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
-
-          {/*  TAGS
-          <div className="relative z-10 flex align-middle px-6 py-4">
-            <div className="relative z-10 flex justify-start overflow-hidden">
-              {tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="mr-2 my-auto px-2 py-1 text-gray-400 whitespace-nowrap  text-xs bg-gray-200 dark:bg-gray-700 rounded-full"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div> 
-          </div> */}
         </div>
-        {/* <div className="pattern-dots-md absolute z-0 -bottom-8 -left-8 w-56 h-52 text-palevioletred" /> */}
       </div>
     </div>
   )

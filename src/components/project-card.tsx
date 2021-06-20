@@ -3,7 +3,7 @@ import { Parallax } from "react-scroll-parallax"
 import Image from "next/image"
 import Link from "next/link"
 import { Project } from "../types/project"
-import NextIcon from "@/assets/img/tech/react.svg"
+import { Icon } from "@/components/dynamic-icon"
 
 interface StaticImageData {
   src: string
@@ -24,10 +24,6 @@ type Props = {
 
 const ProjectCard = ({ project }: Props) => {
   const { name, url, desc, image, tech } = project
-
-  // tech.forEach(item => {
-  //   import `${item}` from `/assets/img/tech/${item}.svg`
-  // })
 
   const [imageImport, setImage] = useState<StaticImport>()
   const loadImage = (imgur: string) => {
@@ -52,7 +48,7 @@ const ProjectCard = ({ project }: Props) => {
                 className="z-10 mb-2 w-full h-32 bg-gray-200 dark:bg-gray-600 rounded-t-xl hover:cursor-pointer"
               >
                 {imageImport && (
-                  <Parallax y={[0, -20]}>
+                  <Parallax y={[-20, 10]}>
                     <Image
                       src={imageImport}
                       id={`project-image-${image}`}
@@ -90,17 +86,9 @@ const ProjectCard = ({ project }: Props) => {
             <div className="relative z-10 flex justify-around w-full overflow-hidden">
               {tech &&
                 tech.map((type) => (
-                  <Image
-                    alt={`${type.charAt(0).toUpperCase() + type.slice(1)} Logo`}
-                    className="text-black dark:text-white fill-current"
-                    height="32"
-                    width="32"
-                    key={type}
-                    title={type.charAt(0).toUpperCase() + type.slice(1)}
-                    src={`/assets/img/tech/${type}.svg`}
-                  />
+                  // @ts-ignore
+                  <Icon key={type} name={type} height="32" width="32" />
                 ))}
-              <NextIcon width="32" height="32" />
             </div>
           </div>
         </div>
