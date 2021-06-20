@@ -15,9 +15,10 @@
     "isolatedModules": true,
     "baseUrl": ".",
     "paths": {
-      "@/components/*": ["./src/components/*"]
+      "@/components/*": ["./src/components/*"],
+      "@/assets/*": ["./public/assets/*"]
     }
   },
   "exclude": ["node_modules"],
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "next.config.js"]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
 }

@@ -3,6 +3,7 @@ import { Parallax } from "react-scroll-parallax"
 import Image from "next/image"
 import Link from "next/link"
 import { Project } from "../types/project"
+import NextIcon from "@/assets/img/tech/react.svg"
 
 interface StaticImageData {
   src: string
@@ -23,6 +24,11 @@ type Props = {
 
 const ProjectCard = ({ project }: Props) => {
   const { name, url, desc, image, tech } = project
+
+  // tech.forEach(item => {
+  //   import `${item}` from `/assets/img/tech/${item}.svg`
+  // })
+
   const [imageImport, setImage] = useState<StaticImport>()
   const loadImage = (imgur: string) => {
     import(`../../public/assets/img/screenshots/${imgur}`).then((image) => {
@@ -46,7 +52,7 @@ const ProjectCard = ({ project }: Props) => {
                 className="z-10 mb-2 w-full h-32 bg-gray-200 dark:bg-gray-600 rounded-t-xl hover:cursor-pointer"
               >
                 {imageImport && (
-                  <Parallax y={[15, -15]}>
+                  <Parallax y={[0, -20]}>
                     <Image
                       src={imageImport}
                       id={`project-image-${image}`}
@@ -94,6 +100,7 @@ const ProjectCard = ({ project }: Props) => {
                     src={`/assets/img/tech/${type}.svg`}
                   />
                 ))}
+              <NextIcon width="32" height="32" />
             </div>
           </div>
         </div>
