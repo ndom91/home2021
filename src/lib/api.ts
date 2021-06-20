@@ -2,9 +2,15 @@ import fs from "fs"
 import { join } from "path"
 import matter from "gray-matter"
 import readingTime from "reading-time"
+import remark from "remark"
+import html from "remark-html"
 
 const firstFourLines = (file: any, options: any): any => {
-  file.excerpt = file.content.split("\n").slice(0, 4).join(" ")
+  file.excerpt = file.content
+    .split("\n")
+    .filter((item: string) => item.length)
+    .slice(0, 2)
+    .join(" ")
 }
 
 const postsDirectory = join(process.cwd(), "src", "_posts")
@@ -13,12 +19,17 @@ export function getPostSlugs() {
   return fs.readdirSync(postsDirectory)
 }
 
-function getMarkdownFile(filePath: string) {
+const getMarkdownFile = (filePath: string) => {
   let files = fs.readdirSync(filePath)
   return files.filter((file) => file.match(new RegExp(`.*\.md`, "ig")))[0]
 }
 
-export function getPostBySlug(slug: string, fields: string[] = []) {
+const excerptToHtml = async (excerpt: any, data: any) => {
+  const e1 = await remark().use(html).process(excerpt)
+  return e1.toString()
+}
+
+export async function getPostBySlug(slug: string, fields: string[] = []) {
   const filePath = getMarkdownFile(join(postsDirectory, slug))
   const fileContents = fs.readFileSync(
     join(postsDirectory, slug, filePath),
@@ -28,10 +39,17 @@ export function getPostBySlug(slug: string, fields: string[] = []) {
     excerpt: firstFourLines,
   })
 
+  // Time to Read
   const time = readingTime(fileContents)
   data.time = time
-  data.excerpt = excerpt?.trim()
 
+  // Excerpt
+  if (excerpt) {
+    const htmlExcerpt = await excerptToHtml(excerpt, data)
+    data.excerpt = htmlExcerpt.replace(/\<h[1-4]\/?>/, "")
+  }
+
+  // Setup custom return array of fields
   type Items = {
     [key: string]: string
   }
@@ -55,10 +73,11 @@ export function getPostBySlug(slug: string, fields: string[] = []) {
   return items
 }
 
-export function getAllPosts(fields: string[] = []) {
+export async function getAllPosts(fields: string[] = []) {
   const slugs = getPostSlugs()
-  const posts = slugs
-    .map((slug) => getPostBySlug(slug, fields))
-    .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
+  let posts = await Promise.all(
+    slugs.map(async (slug) => getPostBySlug(slug, fields))
+  )
+  posts = posts.sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
   return posts
 }
