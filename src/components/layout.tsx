@@ -1,3 +1,4 @@
+import Script from "next/script"
 import Alert from "@/components/alert"
 import Footer from "@/components/footer"
 import Navbar from "@/components/nav"
@@ -16,6 +17,11 @@ const Layout = ({ children }: Props) => {
 
   return (
     <div className="dark:selection:bg-palevioletred flex flex-col items-center min-h-screen selection:text-white dark:bg-bgGray selection:bg-pink-300 transition duration-500">
+      <Script
+        src="https://stats.ndo.dev/js/plausible.js"
+        data-domain="home2021.vercel.app"
+        strategy="afterInteractive"
+      />
       <Meta />
       {alert.enabled && <Alert header={alert.header} body={alert.body} />}
       <div className="flex-1 mx-auto w-full md:max-w-5xl">

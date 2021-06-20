@@ -18,7 +18,7 @@ type Props = {
   }
 }
 
-const HeroPost = ({ title, cover, date, excerpt, slug, time }: Props) => {
+const HeroPost = ({ title, cover, date, slug, time }: Props) => {
   return (
     <section>
       <div className="mask-bottom mb-8 h-auto border-10 border-b-0 dark:border-palevioletred border-pink-300 overflow-hidden md:mb-16 md:h-96">
