@@ -16,15 +16,18 @@ const Layout = ({ children }: Props) => {
   }
 
   return (
-    <div className="dark:selection:bg-palevioletred flex flex-col items-center min-h-screen selection:text-white dark:bg-bgGray selection:bg-pink-300 transition duration-500">
-      <Script
-        src="https://stats.ndo.dev/js/plausible.js"
-        data-domain="home2021.vercel.app"
-        strategy="afterInteractive"
-      />
+    <div className="flex flex-col items-center min-h-screen transition duration-500 dark:selection:bg-palevioletred selection:text-white dark:bg-bgGray selection:bg-pink-300">
+      {typeof window !== "undefined" &&
+        window.location.hostname === "home2021.vercel.app" && (
+          <Script
+            src="https://stats.ndo.dev/js/plausible.js"
+            data-domain="home2021.vercel.app"
+            strategy="afterInteractive"
+          />
+        )}
       <Meta />
       {alert.enabled && <Alert header={alert.header} body={alert.body} />}
-      <div className="flex-1 mx-auto w-full md:max-w-5xl">
+      <div className="flex-1 w-full mx-auto md:max-w-5xl">
         <Navbar />
         <main className="relative px-4">{children}</main>
       </div>
