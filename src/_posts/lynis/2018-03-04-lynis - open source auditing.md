@@ -1,8 +1,10 @@
 ---
-date: '2018-03-04'
-title: 'Lynis - Linux Server Auditing'
-tags: ['servers', 'linux']
-category: 'linux'
+date: "2018-03-04"
+title: "Lynis - Linux Server Auditing"
+tags: ["servers", "linux"]
+category: "linux"
+cover:
+  imageFile: "lynis/cover.png"
 ---
 
 So you’ve got your system up and running the way you like it, but your wondering what else can I do to harden my server?

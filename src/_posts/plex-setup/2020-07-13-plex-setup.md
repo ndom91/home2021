@@ -1,8 +1,10 @@
 ---
-date: '2020-07-13'
-title: 'Plex Setup'
-tags: ['servers', 'linux', 'multimedia']
-category: 'Linux'
+date: "2020-07-13"
+title: "Plex Setup"
+tags: ["servers", "linux", "multimedia"]
+category: "Linux"
+cover:
+  imageFile: "plex-setup/cover.png"
 ---
 
 This post will be mostly documentation for myself, but I also want to share with the world my setup for my personal media server.

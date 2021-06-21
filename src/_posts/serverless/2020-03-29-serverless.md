@@ -1,8 +1,10 @@
 ---
-date: '2020-03-29'
-title: 'My journey to serverless and back'
-tags: ['aws', 'lambda', 'netlify', 'serverless']
-category: 'Web'
+date: "2020-03-29"
+title: "My journey to serverless and back"
+tags: ["aws", "lambda", "netlify", "serverless"]
+category: "Web"
+cover:
+  imageFile: "serverless/cover.png"
 ---
 
 ## Introduction

@@ -1,8 +1,10 @@
 ---
-date: '2018-04-06'
-title: 'MagicMirror'
-tags: ['side project', 'self hosted', 'linux']
-category: 'side project'
+date: "2018-04-06"
+title: "MagicMirror"
+tags: ["side project", "self hosted", "linux"]
+category: "side project"
+cover:
+  imageFile: "magicmirror-list/cover.jpg"
 ---
 
 ## Software:

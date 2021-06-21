@@ -1,8 +1,10 @@
 ---
-date: '2018-04-14'
-title: 'Remember the Milk Syntax'
-tags: ['organisation', 'linux']
-category: 'services'
+date: "2018-04-14"
+title: "Remember the Milk Syntax"
+tags: ["organisation", "linux"]
+category: "services"
+cover:
+  imageFile: "rememberthemilk/cover.png"
 ---
 
 So, like any modern person on the internet today, we all have our own workflows. Our own ways of staying on top of our responsibilities.

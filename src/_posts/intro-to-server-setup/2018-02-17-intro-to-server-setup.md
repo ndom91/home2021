@@ -7,8 +7,6 @@ cover:
   imageFile: "intro-to-server-setup/cover.png"
 ---
 
-![ubuntu splash](ubuntu.png)
-
 Here’s where one lands directly after the installation of a fresh Ubuntu image. In this case Ubuntu 16.04.
 
 1. SSH into your machine with your favorite client [Win 32/64: [putty](https://www.putty.org/)]

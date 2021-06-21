@@ -1,8 +1,10 @@
 ---
-date: '2019-12-08'
-title: 'Docker + Localhost MySQL'
-tags: ['servers', 'linux', 'mysql', 'docker']
-category: 'linux'
+date: "2019-12-08"
+title: "Docker + Localhost MySQL"
+tags: ["servers", "linux", "mysql", "docker"]
+category: "linux"
+cover:
+  imageFile: "docker-localhost-mysql/cover.webp"
 ---
 
 I was having the hardest time getting applications in docker containers to connect to the instance of mysql runnning on the host.
@@ -28,5 +30,4 @@ iptables -t filter -I INPUT -i docker0 -d 127.0.0.1 -p tcp --dport 3306 -j ACCEP
 CREATE USER 'username'@'%' IDENTIFIED BY 'password';
 ```
 
-4. Finally, in your docker run command or docker-compose file, change the mysql-server address to `172.17.0.1` - which is the host's IP from the view of the container. 
-
+4. Finally, in your docker run command or docker-compose file, change the mysql-server address to `172.17.0.1` - which is the host's IP from the view of the container.
