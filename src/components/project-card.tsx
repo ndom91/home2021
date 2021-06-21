@@ -40,16 +40,15 @@ const ProjectCard = ({ project }: Props) => {
   return (
     <div className="mx-8">
       <div className="relative m-4">
-        {/* <div className="relative z-10 flex flex-col transition duration-500 bg-gray-100 shadow-md dark:bg-gray-800 rounded-xl hover:shadow-2xl"> */}
         <div className="relative z-10 flex flex-col transition duration-500 bg-gray-100 shadow-md dark:bg-gray-800 rounded-xl hover:shadow-sm-smooth">
           {url && (
             <Link href={url}>
               <a
                 style={{ clipPath: "polygon(0 0, 100% 0%, 100% 100%, 0 80%)" }}
-                className="z-10 w-full h-32 mb-2 bg-gray-200 dark:bg-gray-600 rounded-t-xl hover:cursor-pointer"
+                className="z-10 w-full h-32 mb-2 overflow-y-hidden bg-gray-200 dark:bg-gray-600 rounded-t-xl hover:cursor-pointer"
               >
                 {imageImport && (
-                  <Parallax y={[-20, 10]}>
+                  <Parallax y={[0, -25]}>
                     <Image
                       src={imageImport}
                       id={`project-image-${image}`}

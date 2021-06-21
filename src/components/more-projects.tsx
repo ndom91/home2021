@@ -9,12 +9,12 @@ type Props = {
 const MoreProjects = ({ projects }: Props) => {
   return (
     <section className="mt-36">
-      <div className="grid gap-x-4 gap-y-20 grid-cols-1 mb-32 dark:text-gray-200 sm:gap-x-16 sm:grid-cols-2 md:gap-x-32 lg:gap-x-48 lg:gap-y-32 lg:grid-cols-2">
-        <ParallaxProvider>
-          {projects.map((project) => (
-            <ProjectCard key={project.name} project={project} />
-          ))}
-        </ParallaxProvider>
+      <div className="grid grid-cols-1 mb-32 gap-x-4 gap-y-20 dark:text-gray-200 sm:gap-x-16 sm:grid-cols-2 md:gap-x-32 lg:gap-x-48 lg:gap-y-32 lg:grid-cols-2">
+        {projects.map((project) => (
+          <ParallaxProvider key={project.name}>
+            <ProjectCard project={project} key={project.name} />
+          </ParallaxProvider>
+        ))}
       </div>
     </section>
   )

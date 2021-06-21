@@ -21,7 +21,8 @@ type Props = {
 const HeroPost = ({ title, cover, date, slug, time }: Props) => {
   return (
     <section>
-      <div className="h-auto mb-8 overflow-hidden border-b-0 border-pink-300 mask-bottom border-10 dark:border-palevioletred md:mb-16 md:h-96">
+      {/* <div className="h-auto mb-8 overflow-hidden border-b-0 border-pink-300 mask-bottom border-10 dark:border-palevioletred md:mb-16 md:h-96"> */}
+      <div className="h-auto mb-8 overflow-hidden mask-bottom md:mb-16 md:h-96">
         <CoverImage title={title} cover={cover} slug={slug} />
       </div>
       <div className="mb-10 md:grid md:gap-x-16 md:grid-cols-2 md:mb-16 lg:gap-x-8">
