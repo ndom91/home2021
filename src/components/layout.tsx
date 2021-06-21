@@ -14,7 +14,6 @@ const Layout = ({ children }: Props) => {
     header: "TEST ALERT",
     body: 'So much stuff to download <a href="#">click here!</a>',
   }
-
   return (
     <div className="flex flex-col items-center min-h-screen transition duration-500 dark:selection:bg-palevioletred selection:text-white dark:bg-bgGray selection:bg-pink-300">
       {typeof window !== "undefined" &&

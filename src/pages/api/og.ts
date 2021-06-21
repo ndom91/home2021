@@ -1,17 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from "next"
 import chromium from "chrome-aws-lambda"
 import playwright from "playwright-core"
-
-const getAbsoluteURL = (path: string | string[]) => {
-  const baseURL = process.env.VERCEL_URL
-    ? `https://${process.env.VERCEL_URL}`
-    : "http://localhost:3000"
-  return baseURL + path
-}
+import { getAbsoluteURL } from "../../lib/utils"
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   // Start the browser with the AWS Lambda wrapper (chrome-aws-lambda)
-  console.log(await chromium.executablePath)
   const browser = await playwright.chromium.launch({
     args: chromium.args,
     executablePath: await chromium.executablePath,

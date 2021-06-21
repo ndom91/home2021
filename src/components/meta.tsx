@@ -1,6 +1,14 @@
+import { useState } from "react"
 import Head from "next/head"
+import { useRouter } from "next/router"
+import { getAbsoluteURL } from "../lib/utils"
 
 const Meta = () => {
+  const router = useRouter()
+  const searchParams = new URLSearchParams()
+  searchParams.set("path", router.pathname)
+  const fullImageURL = getAbsoluteURL(`/api/og?${searchParams}`)
+
   return (
     <Head>
       <link
@@ -29,10 +37,10 @@ const Meta = () => {
       <link rel="shortcut icon" href="/favicon/favicon.ico" />
       <meta name="msapplication-TileColor" content="#000000" />
       <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
-      <meta name="theme-color" content="#000" />
+      <meta name="theme-color" content="#FCE7F3" />
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
-      <meta name="description" content={`ndom91 homepage`} />
-      <meta property="og:image" content="https://fillmurray.com/200/300" />
+      <meta name="description" content={`ndom91`} />
+      <meta property="og:image" content={fullImageURL} />
       <title>ndom91</title>
     </Head>
   )

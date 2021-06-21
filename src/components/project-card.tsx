@@ -86,8 +86,14 @@ const ProjectCard = ({ project }: Props) => {
             <div className="relative z-10 flex justify-around w-full overflow-hidden">
               {tech &&
                 tech.map((type) => (
-                  // @ts-ignore
-                  <Icon key={type} name={type} height="32" width="32" />
+                  <Icon
+                    key={type}
+                    name={type}
+                    // @ts-ignore
+                    height="32"
+                    width="32"
+                    title={type}
+                  />
                 ))}
             </div>
           </div>
