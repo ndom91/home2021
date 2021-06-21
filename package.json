@@ -24,14 +24,10 @@
   },
   "dependencies": {
     "date-fns": "2.22.1",
-    "gray-matter": "4.0.3",
     "next": "^11.0.1-canary.4",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scroll-parallax": "^2.4.0",
-    "reading-time": "^1.3.0",
-    "remark": "13.0.0",
-    "remark-html": "13.0.1",
     "splitting": "^1.0.6",
     "typescript": "^4.3.2"
   },
@@ -45,19 +41,40 @@
     "@types/react": "^17.0.11",
     "@types/react-dom": "^17.0.7",
     "autoprefixer": "^10.2.6",
+    "chrome-aws-lambda": "^10.0.0",
     "eslint": "^7.28.0",
     "eslint-config-next": "^11.0.0",
+    "gray-matter": "4.0.3",
     "husky": "^6.0.0",
+    "playwright-core": "^1.12.2",
     "postcss": "^8.3.4",
     "prettier": "^2.3.1",
     "pretty-quick": "^3.1.0",
+    "reading-time": "^1.3.0",
+    "remark": "13.0.0",
+    "remark-html": "13.0.1",
     "tailwindcss": "^2.2.2"
   },
   "prettier": {
     "semi": false
   },
   "eslintConfig": {
-    "extends": "next"
+    "extends": "next",
+    "overrides": [
+      {
+        "files": [
+          "**/pages/api/**/*.[jt]s"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": [
+            "warn",
+            {
+              "allowArrowFunction": true
+            }
+          ]
+        }
+      }
+    ]
   },
   "commitlint": {
     "extends": [
