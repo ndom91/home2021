@@ -1,8 +1,8 @@
-# ndom91 2021 homepage
+# 2021
 
-New portfolio page for ndom91 🎉
+New portfolio page 🎉
 
-![draft1 hero](https://imgur.com/LB2c2nJ.png)
+![draft1 hero](https://imgur.com/BTxG5sa.png)
 
 ## 🚀 Getting Started
 
