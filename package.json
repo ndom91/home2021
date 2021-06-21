@@ -29,6 +29,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scroll-parallax": "^2.4.0",
+    "react-use": "^17.2.4",
     "splitting": "^1.0.6",
     "typescript": "^4.3.2"
   },

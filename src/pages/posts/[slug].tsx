@@ -1,13 +1,19 @@
 import { useRouter } from "next/router"
 import ErrorPage from "next/error"
+import dynamic from "next/dynamic"
 import Head from "next/head"
 import PostBody from "@/components/post-body"
 import PostHeader from "@/components/post-header"
 import Layout from "@/components/layout"
 import PostTitle from "@/components/post-title"
+// import ProgressBar from "@/components/read-progress"
 import { getPostBySlug, getAllPosts } from "../../lib/api"
 import markdownToHtml from "../../lib/markdownToHtml"
 import PostType from "../../types/post"
+
+const ProgressBar = dynamic(() => import("../../components/read-progress"), {
+  ssr: false,
+})
 
 type Props = {
   post: PostType
@@ -21,42 +27,45 @@ const Post = ({ post, morePosts, preview }: Props) => {
     return <ErrorPage statusCode={404} />
   }
   return (
-    <Layout>
-      {router.isFallback ? (
-        <PostTitle>Loading…</PostTitle>
-      ) : (
-        <article className="mb-32">
-          <Head>
-            <title>{post.title} | ndom91</title>
-            <meta property="og:type" content="article" />
-            <meta property="og:title" content={`${post.title} | ndom91`} />
-            <meta
-              property="og:url"
-              content={`https://ndo.dev/${router.pathname}`}
-            />
-            <meta
-              property="og:description"
-              content={`${post.excerpt.replaceAll("<[^>]*>", "")}`}
-            />
-            <meta property="article:author" content="Nico Domino" />
-            <meta property="article:tag" content={post.tags.join(",")} />
+    <>
+      <ProgressBar />
+      <Layout>
+        {router.isFallback ? (
+          <PostTitle>Loading…</PostTitle>
+        ) : (
+          <article className="mb-32">
+            <Head>
+              <title>{post.title} | ndom91</title>
+              <meta property="og:type" content="article" />
+              <meta property="og:title" content={`${post.title} | ndom91`} />
+              <meta
+                property="og:url"
+                content={`https://ndo.dev/${router.pathname}`}
+              />
+              <meta
+                property="og:description"
+                content={`${post.excerpt?.replaceAll("<[^>]*>", "")}`}
+              />
+              <meta property="article:author" content="Nico Domino" />
+              <meta property="article:tag" content={post.tags.join(",")} />
 
-            <meta name="twitter:card" content="summary" />
-            <meta name="twitter:title" content={`${post.title} | ndom91`} />
-            <meta name="twitter:site" content="@ndom91" />
-            <meta name="twitter:description" content={post.excerpt} />
-            <meta name="twitter:image:alt" content={post.title} />
-          </Head>
-          <PostHeader
-            title={post.title}
-            cover={post.cover}
-            date={post.date}
-            time={post.time}
-          />
-          <PostBody content={post.content} />
-        </article>
-      )}
-    </Layout>
+              <meta name="twitter:card" content="summary" />
+              <meta name="twitter:title" content={`${post.title} | ndom91`} />
+              <meta name="twitter:site" content="@ndom91" />
+              <meta name="twitter:description" content={post.excerpt} />
+              <meta name="twitter:image:alt" content={post.title} />
+            </Head>
+            <PostHeader
+              title={post.title}
+              cover={post.cover}
+              date={post.date}
+              time={post.time}
+            />
+            <PostBody content={post.content} />
+          </article>
+        )}
+      </Layout>
+    </>
   )
 }
 
