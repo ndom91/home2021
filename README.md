@@ -12,7 +12,7 @@ New portfolio page 🎉
 
 Now you should have a dev server at http://localhost:3003 available!
 
-## Built With
+## 🔩 Built With
 
 - Next.js
 - TailwindCSS
