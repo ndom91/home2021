@@ -1,22 +1,32 @@
 import type { NextApiRequest, NextApiResponse } from "next"
 import chromium from "chrome-aws-lambda"
-import playwright from "playwright-core"
+// import playwright from "playwright-core"
 import { getAbsoluteURL } from "../../lib/utils"
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   // Start the browser with the AWS Lambda wrapper (chrome-aws-lambda)
-  const browser = await playwright.chromium.launch({
+  // const browser = await playwright.chromium.launch({
+  const browser = await chromium.puppeteer.launch({
     args: chromium.args,
+    defaultViewport: {
+      width: 1200,
+      height: 630,
+      deviceScaleFactor: 1,
+      hasTouch: false,
+      isLandscape: true,
+      isMobile: false,
+    },
     executablePath: await chromium.executablePath,
     headless: chromium.headless,
   })
   // Create a page with the Open Graph image size best practise
-  const page = await browser.newPage({
-    viewport: {
-      width: 1200,
-      height: 630,
-    },
-  })
+  const page = await browser.newPage()
+  // const page = await browser.newPage({
+  //   viewport: {
+  //     width: 1200,
+  //     height: 630,
+  //   },
+  // })
   // Generate the full URL out of the given path (GET parameter)
   const url = getAbsoluteURL(req?.query?.path || "")
   await page.goto(url, {
