@@ -64,7 +64,7 @@
     "overrides": [
       {
         "files": [
-          "**/pages/api/**/*.[jt]s"
+          "**/api/**/*.[jt]s"
         ],
         "rules": {
           "import/no-anonymous-default-export": [

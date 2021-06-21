@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next"
 import chromium from "chrome-aws-lambda"
 // import playwright from "playwright-core"
-import { getAbsoluteURL } from "../../lib/utils"
+import { getAbsoluteURL } from "../src/lib/utils"
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   // Start the browser with the AWS Lambda wrapper (chrome-aws-lambda)
