@@ -26,6 +26,7 @@ const Post = ({ post, morePosts, preview }: Props) => {
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
   }
+
   return (
     <>
       <ProgressBar />
@@ -42,10 +43,7 @@ const Post = ({ post, morePosts, preview }: Props) => {
                 property="og:url"
                 content={`https://ndo.dev/${router.pathname}`}
               />
-              <meta
-                property="og:description"
-                content={`${post.excerpt?.replaceAll("<[^>]*>", "")}`}
-              />
+              <meta property="og:description" content={post.excerpt ?? ""} />
               <meta property="article:author" content="Nico Domino" />
               <meta property="article:tag" content={post.tags.join(",")} />
 
