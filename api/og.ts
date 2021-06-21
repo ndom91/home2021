@@ -10,6 +10,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     executablePath: await chromium.executablePath,
     headless: chromium.headless,
   })
+
   // Create a page with the Open Graph image size best practise
   const page = await browser.newPage({
     viewport: {
@@ -17,6 +18,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       height: 630,
     },
   })
+
   // Generate the full URL out of the given path (GET parameter)
   const url = getAbsoluteURL(req?.query?.path || "")
   await page.goto(url, {
@@ -26,9 +28,11 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     type: "png",
   })
   await browser.close()
+
   // Set the s-maxage property which caches the images then on the Vercel edge
   res.setHeader("Cache-Control", "s-maxage=31536000, stale-while-revalidate")
   res.setHeader("Content-Type", "image/png")
+
   // write the image to the response with the specified Content-Type
   res.end(data)
 }

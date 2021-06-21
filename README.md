@@ -12,12 +12,13 @@ New portfolio page 🎉
 
 Now you should have a dev server at http://localhost:3003 available!
 
-## 🔩 Built With
+## 🔩 Features
 
 - Next.js
 - TailwindCSS
 - Remark
 - Typescript
+- Api Route og:image Generation
 
 ## 🚧 Contributing
 

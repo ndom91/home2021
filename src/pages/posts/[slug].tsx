@@ -28,6 +28,24 @@ const Post = ({ post, morePosts, preview }: Props) => {
         <article className="mb-32">
           <Head>
             <title>{post.title} | ndom91</title>
+            <meta property="og:type" content="article" />
+            <meta property="og:title" content={`${post.title} | ndom91`} />
+            <meta
+              property="og:url"
+              content={`https://ndo.dev/${router.pathname}`}
+            />
+            <meta
+              property="og:description"
+              content={`${post.excerpt.replaceAll("<[^>]*>", "")}`}
+            />
+            <meta property="article:author" content="Nico Domino" />
+            <meta property="article:tag" content={post.tags.join(",")} />
+
+            <meta name="twitter:card" content="summary" />
+            <meta name="twitter:title" content={`${post.title} | ndom91`} />
+            <meta name="twitter:site" content="@ndom91" />
+            <meta name="twitter:description" content={post.excerpt} />
+            <meta name="twitter:image:alt" content={post.title} />
           </Head>
           <PostHeader
             title={post.title}
@@ -58,6 +76,7 @@ export async function getStaticProps({ params }: Params) {
     "content",
     "cover",
     "tags",
+    "excerpt",
     "category",
     "time",
   ])

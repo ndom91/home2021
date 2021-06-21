@@ -40,8 +40,45 @@ const Meta = () => {
       <meta name="theme-color" content="#FCE7F3" />
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
       <meta name="description" content={`ndom91`} />
+
+      <meta property="og:type" content="profile" />
+      <meta property="og:title" content="ndom91" />
+      <meta
+        property="og:description"
+        content="Web Dev @ Checkly | <3 Opensource"
+      />
+      <meta property="og:url" content={`https://ndo.dev/${router.pathname}`} />
       <meta property="og:image" content={fullImageURL} />
+      <meta property="profile:first_name" content="Nico" />
+      <meta property="profile:last_name" content="Domino" />
+      <meta property="profile:username" content="ndom91" />
+      <meta name="twitter:image" content={fullImageURL} />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:title" content="ndom91" />
+      <meta name="twitter:site" content="@ndom91" />
       <title>ndom91</title>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "http://schema.org/",
+            "@type": "Person",
+            name: "Nico Domino",
+            image: "https://home2021.vercel.app/assets/img/avatar.png",
+            url: "https://home2021.vercel.app",
+            jobTitle: "Fullstack Web Developer",
+            worksFor: {
+              "@type": "Organization",
+              name: "Checkly",
+            },
+            sameAs: [
+              "https://www.linkedin.com/in/ndom91/",
+              "https://twitter.com/ndom91",
+              "https://github.com/ndom91",
+            ],
+          }),
+        }}
+      />
     </Head>
   )
 }
