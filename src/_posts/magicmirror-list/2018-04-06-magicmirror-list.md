@@ -4,7 +4,7 @@ title: "MagicMirror"
 tags: ["side project", "self hosted", "linux"]
 category: "side project"
 cover:
-  imageFile: "magicmirror-list/cover.jpg"
+  imageFile: "magicmirror-list/cover.png"
 ---
 
 ## Software:

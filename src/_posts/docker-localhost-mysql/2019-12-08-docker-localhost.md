@@ -4,7 +4,7 @@ title: "Docker + Localhost MySQL"
 tags: ["servers", "linux", "mysql", "docker"]
 category: "linux"
 cover:
-  imageFile: "docker-localhost-mysql/cover.webp"
+  imageFile: "docker-localhost-mysql/cover.png"
 ---
 
 I was having the hardest time getting applications in docker containers to connect to the instance of mysql runnning on the host.
