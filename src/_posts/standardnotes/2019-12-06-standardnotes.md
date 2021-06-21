@@ -4,7 +4,7 @@ title: "Standard Notes Selfhosted Installation"
 tags: ["servers", "linux", "standardnotes"]
 category: "linux"
 cover:
-  imageFile: "standardnotes/cover.jpg"
+  imageFile: "standardnotes/cover.png"
 ---
 
 # What?
