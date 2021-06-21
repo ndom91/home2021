@@ -1,6 +1,6 @@
 {
   "name": "ndom91-home2021",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "ndom91 portfolio page for 2021",
   "license": "MIT",
   "author": "ndom91 <yo@ndo.dev>",
@@ -23,7 +23,6 @@
     "pre-commit": "pretty-quick --staged"
   },
   "dependencies": {
-    "@tailwindcss/typography": "^0.4.1",
     "date-fns": "2.22.1",
     "gray-matter": "4.0.3",
     "next": "^11.0.1-canary.4",
@@ -40,6 +39,7 @@
     "@commitlint/cli": "^12.1.4",
     "@commitlint/config-conventional": "^12.1.4",
     "@svgr/webpack": "^5.5.0",
+    "@tailwindcss/typography": "^0.4.1",
     "@types/jest": "^26.0.23",
     "@types/node": "^15.12.2",
     "@types/react": "^17.0.11",
@@ -50,7 +50,6 @@
     "husky": "^6.0.0",
     "postcss": "^8.3.4",
     "prettier": "^2.3.1",
-    "prettier-plugin-tailwind": "^2.2.10",
     "pretty-quick": "^3.1.0",
     "tailwindcss": "^2.2.2"
   },

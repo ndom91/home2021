@@ -40,12 +40,13 @@ const ProjectCard = ({ project }: Props) => {
   return (
     <div className="mx-8">
       <div className="relative m-4">
-        <div className="relative z-10 flex flex-col bg-gray-100 dark:bg-gray-800 rounded-xl hover:shadow-2xl shadow-md transition duration-500">
+        {/* <div className="relative z-10 flex flex-col transition duration-500 bg-gray-100 shadow-md dark:bg-gray-800 rounded-xl hover:shadow-2xl"> */}
+        <div className="relative z-10 flex flex-col transition duration-500 bg-gray-100 shadow-md dark:bg-gray-800 rounded-xl hover:shadow-sm-smooth">
           {url && (
             <Link href={url}>
               <a
                 style={{ clipPath: "polygon(0 0, 100% 0%, 100% 100%, 0 80%)" }}
-                className="z-10 mb-2 w-full h-32 bg-gray-200 dark:bg-gray-600 rounded-t-xl hover:cursor-pointer"
+                className="z-10 w-full h-32 mb-2 bg-gray-200 dark:bg-gray-600 rounded-t-xl hover:cursor-pointer"
               >
                 {imageImport && (
                   <Parallax y={[-20, 10]}>
@@ -64,11 +65,11 @@ const ProjectCard = ({ project }: Props) => {
             </Link>
           )}
 
-          <div className="relative z-10 mx-2 p-6 pb-2 overflow-hidden overflow-y-visible">
+          <div className="relative z-10 p-6 pb-2 mx-2 overflow-hidden overflow-y-visible">
             {url && (
               <Link href={url}>
                 <a>
-                  <div className="dark:hover:text-pink-300 dark:text-gray-200 text-gray-600 hover:text-palevioletred text-lg font-semibold transition-colors duration-300 md:text-xl">
+                  <div className="text-lg font-semibold text-gray-600 transition-colors duration-300 dark:hover:text-pink-300 dark:text-gray-200 hover:text-palevioletred md:text-xl">
                     {name}
                   </div>
                 </a>
@@ -76,13 +77,13 @@ const ProjectCard = ({ project }: Props) => {
             )}
             <div className="flex pt-1 md:pt-4">
               <span
-                className="text-gray-400 font-light"
+                className="font-light text-gray-400"
                 dangerouslySetInnerHTML={{ __html: desc }}
               />
             </div>
           </div>
 
-          <div className="relative z-10 flex align-middle px-6 py-4">
+          <div className="relative z-10 flex px-6 py-4 align-middle">
             <div className="relative z-10 flex justify-around w-full overflow-hidden">
               {tech &&
                 tech.map((type) => (
@@ -92,7 +93,7 @@ const ProjectCard = ({ project }: Props) => {
             </div>
           </div>
         </div>
-        <div className="pattern-dots-md absolute z-0 -bottom-8 -left-8 w-56 h-52 text-palevioletred" />
+        <div className="absolute z-0 w-56 pattern-dots-md -bottom-8 -left-8 h-52 text-palevioletred" />
       </div>
     </div>
   )

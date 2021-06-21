@@ -62,50 +62,51 @@ const PostCard = ({ post }: Props) => {
   return (
     <div className="mx-8">
       <div className="relative m-4">
-        <div className="relative z-10 flex rounded-xl hover:shadow-lg transition duration-500">
+        <div className="relative flex transition duration-500 rounded-xl hover:shadow-sm-smooth">
           <Link href={`/posts/${slug ? slug : ""}`}>
-            <a className="z-10 w-44 h-full bg-gray-200 dark:bg-gray-600 rounded-l-xl hover:cursor-pointer">
+            <a className="bg-gray-200 w-44 dark:bg-gray-600 rounded-l-xl hover:cursor-pointer post-card-image-wrapper">
               {imageImport && (
                 <Image
                   src={imageImport}
-                  alt={`${title} Image`}
+                  alt={`${title} Cover Image`}
                   quality="100"
                   layout="responsive"
                   placeholder="blur"
-                  className="rounded-l-xl object-bottom"
+                  objectFit="contain"
+                  className="rounded-l-xl"
                 />
               )}
             </a>
           </Link>
 
-          <div className="flex flex-1 flex-col">
-            <div className="relative z-10 flex justify-between p-6 pb-0 w-full">
+          <div className="flex flex-col flex-1 p-10">
+            <div className="relative flex justify-between w-full ">
               <Link href={`/posts/${slug ? slug : ""}`}>
                 <a>
-                  <div className="dark:text-gray-200 text-gray-600 text-lg font-medium capitalize md:text-xl">
+                  <div className="text-lg font-medium text-gray-600 capitalize transition-colors duration-300 dark:text-gray-200 md:text-xl hover:text-palevioletred">
                     {title}
                   </div>
                 </a>
               </Link>
               <div className="flex">
-                <span className="mx-4 text-gray-300 dark:text-gray-600 font-light">
+                <span className="mx-4 font-light text-gray-400 dark:text-gray-600 min-w-max">
                   {time.text}
                 </span>
-                <span className="text-medium">
+                <span className="text-medium min-w-max">
                   <DateFormatter dateString={date} />
                 </span>
               </div>
             </div>
             <div
-              className="prose prose-sm flex p-6 pb-0 w-full max-w-full dark:text-gray-300 text-gray-600"
+              className="flex w-full max-w-full mb-4 prose-sm prose text-gray-600 dark:text-gray-300 prose-pink"
               dangerouslySetInnerHTML={{ __html: excerpt }}
             />
-            <div className="relative z-10 flex align-middle px-6 py-4">
-              <div className="relative z-10 flex justify-start overflow-hidden">
+            <div className="relative flex align-middle">
+              <div className="relative flex justify-start overflow-hidden">
                 {tags.map((tag) => (
                   <span
                     key={tag}
-                    className="mr-2 my-auto px-2 py-1 text-gray-400 whitespace-nowrap text-xs bg-gray-200 dark:bg-gray-700 rounded-full"
+                    className="px-2 py-1 my-auto mr-2 text-xs text-gray-400 bg-gray-200 rounded-full whitespace-nowrap dark:bg-gray-800 dark:text-palevioletred"
                   >
                     {tag}
                   </span>

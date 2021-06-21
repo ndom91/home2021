@@ -91,6 +91,16 @@ body {
   );
 }
 
+.post-card-image-wrapper > div {
+  height: 100%;
+}
+
+.post-card-image-wrapper img {
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: left !important;
+}
+
 @media screen and (min-width: 768px) {
   .intro-title:hover {
     cursor: default;
