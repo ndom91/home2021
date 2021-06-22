@@ -18,18 +18,17 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     },
   })
 
-  console.log(process.env.VERCEL_URL)
-  console.log(process.env.NODE_ENV)
-  console.log(process.env.NEXT_PUBLIC_VERCEL_URL)
   // Generate the full URL out of the given path (GET parameter)
   const url = `https://${process.env.VERCEL_URL}${req?.query?.path}`
   await page.goto(url, {
     timeout: 15 * 1000,
   })
-  console.log(req?.query?.path)
+
+  // If homepage - wait 1s for enter animation to complete
   if (req?.query?.path === "/") {
     await page.waitForTimeout(1000)
   }
+
   const data = await page.screenshot({
     type: "png",
   })
