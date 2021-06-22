@@ -13,17 +13,34 @@ When setting up a Raspberry Pi, you first need to write an OS onto an SD Card so
 
 To get your Pi up and running, first download an OS. For beginners I suggest Raspbian. Its a Debian based OS maintained by the Raspberry Pi Foundation.
 
-[Raspbian for Raspberry Pi 3](https://downloads.raspberrypi.org/raspbian_lite_latest)
-
 - [Download Overview Page](https://www.raspberrypi.org/downloads/raspbian/)
 
-[Ubuntu Server - Raspberry Pi 3](http://cdimage.ubuntu.com/releases/bionic/release/ubuntu-18.04.3-preinstalled-server-arm64+raspi3.img.xz)
+#### Raspi OS
 
-There is unfortunately no official support for Ubuntu Server for the Raspberry Pi 4 yet, but of course the community has made some progress already:
+- [arm64 server](https://downloads.raspberrypi.org/raspios_lite_arm64/images)
+- [arm64 desktop](https://downloads.raspberrypi.org/raspios_arm64/images/)
+- [arm32 desktop](https://downloads.raspberrypi.org/raspios_armhf/images/)
 
-[Blog Post](https://jamesachambers.com/raspberry-pi-4-ubuntu-server-desktop-18-04-3-image-unofficial/) [Github Repo - ISO](https://github.com/TheRemote/Ubuntu-Server-raspi4-unofficial/releases)
+#### Ubuntu Server 20.04 LTS
 
-Once you have your `.iso` downloaded, fire up a terminal window and find out which device your USB Stick is:
+- [arm64](https://ubuntu.com/download/raspberry-pi/thank-you?version=20.04.2&architecture=server-arm64+raspi)
+- [arm32](https://ubuntu.com/download/raspberry-pi/thank-you?version=20.04.2&architecture=server-armhf+raspi)
+
+## Writing SD Card
+
+If you're on a Linux distribution, you can search your package manager for `rpi-imager`. For example, on Ubuntu you can install it via:
+
+```bash
+sudo apt install rpi-imager
+```
+
+Other platforms can be downloaded [here](https://www.raspberrypi.org/software/).
+
+### DD
+
+Alternatively, you can write the image to your SD card via `dd`
+
+First, find out which device your sdcard is:
 
 ```bash
 $(~)-(110MB)> lsblk
@@ -38,37 +55,49 @@ sda      8:0    0   1,8T  0 disk
 └─sda6   8:6    0 140,3G  0 part /
 ```
 
-As you can see from the above output, I have a device named `sdb` which is ~16gb. This is my USB Stick.
+Here you can see I have a device named `sdb` which is ~16gb. This is my SD card.
 
-Therefore we can run `dd`, colloquially known as 'disk destroyer' because if you're not careful you can just write over your entire active OS partition and completely fuck your system.
+Once we have a disk image and figured out which device our sdcard is found under, we can run `dd`.
 
+```bash
+sudo dd if=2021-05-07-raspios-buster-arm64.img of=/dev/sdb status=progress
 ```
-sudo dd if=2019-07-10-raspbian-buster-lite of=/dev/sdb status=progress
-```
-
-A quick break down of the arguments:
 
 - `if` = input file
 - `of` = output file
 - `status=progress` = required for showing output status as it writes the image
 
+> `dd` is colloquially known as 'disk destroyer' because if you're not careful you can write over your entire active disk destroying your system.. So be careful what you enter on the command line with `dd`!
+
 ## Setup
 
-Finally, once you have your USB Stick written, it will most likely mount the two new partitions automatically. You should see a `ROOT` and `BOOT` partition.
+Finally, once you have your SD card written, it will most likely mount the two new partitions automatically. You should see a `ROOT` and `BOOT` partition. If not, mount the `BOOT` partition briefly and navigate to it.
 
-You can now add two small files to enable the SSH Server on boot, and connect to the wifi network of your choosing. This way you never have to plug in a monitor / keyboard / mouse / etc. Simply insert the microSD card, give the thing power, and then find it on your network and ssh in!
+You can now add two small files to enable the SSH Server on boot, and connect to the wifi network of your choosing automatically. This way you never have to plug in a monitor / keyboard / mouse / etc.
 
-> P.S. the default credentials on a Raspbian installation are: `pi/raspberry`
+> The default credentials on a RaspiOS installation are: `pi`/`raspberry`
 
-### SSH
+#### SSH
 
 Create an empty file named `ssh` **without an extension** in the root of the <code>BOOT</code> partition
 
-### WiFi
+```bash
+cd /mnt/tmp
+sudo touch ssh
+```
+
+#### WiFi
 
 Also in the root of the `BOOT` partition:
 
-Create a file named `wpa_supplicant.conf` with the following contents:
+Create a file named `wpa_supplicant.conf`.
+
+```bash
+cd /mnt/tmp
+sudo vim wpa_supplicant.conf
+```
+
+With the following contents:
 
 ```bash
 country=DE
@@ -76,9 +105,98 @@ ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
 update_config=1
 
 network={
-	ssid="MyWifiSSID"
-	scan_ssid=1
-	psk="1234"
-	key_mgmt=WPA-PSK
+  ssid="MyWifiSSID"
+  scan_ssid=1
+  psk="1234"
+  key_mgmt=WPA-PSK
 }
 ```
+
+## First Boot
+
+After booting for the first time, you'll probably want to setup a few things such as deploying your SSH key of choice, setting up a static IP, etc.
+
+### New User
+
+To add a new user, you can use `adduser`.
+
+```bash
+sudo adduser [new username]
+```
+
+This will open a step-by-step wizard type of process which begins by asking for the new password. Then it asks for Fullname, City, State, etc. these fields I always leave empty.
+
+You may also want to add your new user to the `suders` file in order to be able to use `sudo ..` commands.
+
+With your preexisting `pi` user, run:
+
+```bash
+sudo usermod -aG sudo [new username]
+```
+
+Now your new user will be able to run `sudo ..` commands with their new password.
+
+### Hostname
+
+You can set a new hostname via `sudo hostnamectl set-hostname [name]`. You may also have to adjust the local hosts file to set the new hostname as `127.0.0.1`.
+
+```bash
+sudo vim /etc/hosts
+```
+
+And adjust the lines for `127.0.0.1` and `127.0.1.1` to append your new hostname.
+
+### SSH Key
+
+To copy our SSH key to your new raspberry pi, you can use `ssh-copy-id`. You can specify which key to install on the new device with the `-i` flag.
+
+```bash
+ssh-copy-id -i ~/.ssh/id_ndo.pub pi@192.168.0.100
+```
+
+That's all there is to it!
+
+### Static IP
+
+The latest version of RaspiOS is based upon Debian 10 Buster. To set a static IP there, we'll want to use `dhcpcd`. This systemd service and config is started by default in Buster, we'll just have to adjust some config files.
+
+```bash
+sudo vim /etc/dhcpcd.conf
+```
+
+There is a section around line 45 which is commented out describing how to setup a static ip. Simply uncomment this and provide the correct values for your network.
+
+```bash
+interface wlan0
+static ip_address=192.168.0.5/24
+static routers=192.168.0.1
+```
+
+Once that is done, simply restart `dhcpcd` via `systemctl`
+
+```bash
+sudo systemctl restart dhcpcd
+```
+
+It may hang for a minute, but should come right back up because it will have retained your old IP address as well until the next reboot. So for now the device will be reachable under the IP you initially SSHed into it with, and the new IP you just set as static. Upon your next reboot only the new IP should be available.
+
+> ### Pro Tip
+>
+> Setup a `~/.ssh/config` file to make SSHing into your commonly used machines much easier.
+>
+> ```bash
+> sudo vim ~/.ssh/config
+> ```
+>
+> Enter the following contents, adjusted for your keys, device IPs, etc. obviously
+>
+> ```bash
+> host ndo-docker
+>   hostname 192.168.0.5
+>   user pi
+>   port 22
+>   PubKeyAuthentication yes
+>   IdentityFile /home/ndo/.ssh/id_ndo4
+> ```
+>
+> Now you can SSH onto your pi via `ssh ndo-docker`, for example!

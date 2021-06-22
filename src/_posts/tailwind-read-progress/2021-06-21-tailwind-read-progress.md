@@ -9,7 +9,7 @@ cover:
 
 It's that time of year again where I decided to rewrite my personal website 🎉
 
-This year I decided to grab the tools I love and know best instead of trying something new just because. That stack consists of Next.js and TailwindCSS! I won't go into too much more detail about the rest of the rewrite itself as its a relatively standard blog type portfolio site. But, I did want to share one particular feature I'm very happy to have gotten working with (mostly) just Tailwind and bit of Javascript!
+This year I decided to grab the tools I love and know best instead of trying something new just because. That stack consists of Next.js and TailwindCSS! I won't go into too much more detail about the rest of the rewrite itself as its a relatively standard blog type portfolio site. But, I did want to share one particular feature I'm very happy to have gotten working with (mostly) just Tailwind and a bit of Javascript!
 
 And that feature is the read progress bar! You know the ones, they are fixed to the top of the page and indicate to the user how far they have scrolled through the page.
 
@@ -17,7 +17,7 @@ And that feature is the read progress bar! You know the ones, they are fixed to 
 
 Lets just take a look at the markup / Tailwind classes first.
 
-You'll see that all I'm defining is the `bg-gradient-to-r` to set the `background-image` to a linear-gradient. And then two ring colors. The second line are all properties which just generate the line and keep it stuck to the top of the screen.
+The interesting stuff is happening on the first line here - you'll see that all I'm defining is the `bg-gradient-to-r` to set the `background-image` to a linear-gradient. And then two ring colors. The second line just contains all the properties which generate the line and keep it fixed to the top of the screen.
 
 ```jsx
 const ProgressBar = () => {
@@ -35,7 +35,7 @@ const ProgressBar = () => {
 export default ProgressBar
 ```
 
-Now lets dig into some more of the logic. I'm using `react-use` for their wonderful set of hooks, in this case `useWindowScroll` to get the current scroll position easily. I'm also calculating the page height, we'll need this for our calculation later on.
+Now lets dig into some more of the logic. I'm using `react-use` for their wonderful set of hooks, in this case `useWindowScroll`, to get the current scroll position. I'm also calculating the page height, we'll need this for our calculation later on.
 
 Finally, theres a `useEffect` which has only the `y` window scroll position and `pageHeight` as dependencies. We use these two values to calculate the current `percentScrolled` value to determine how far the user is _down_ the page, and therefore how far _across_ the page the progress bar should be!
 
@@ -80,10 +80,16 @@ const ProgressBar = () => {
 export default ProgressBar
 ```
 
-The `bg-gradient-to-r` generates `background-image: linear-gradient(to right, var(--tw-gradient-stops));`. This allows us to completely overwrite the `--tw-gradient-stops` ourselves.
+The `bg-gradient-to-r` generates:
 
-By setting the stop points of the initial color to the percentage scrolled, and transparent to 0, we can achieve the effect of having a sharp edge along the progress bar, moving across the screen. Thanks to `useEffect` this percentage scrolled value is updated constantly as the user scrolls, generating a realistic progress bar along the top of the screen!
+```css
+background-image: linear-gradient(to right, var(--tw-gradient-stops));
+```
 
-Finally, some of you may be wondering if I'd ever mention those `ring-color`s again, while others have probably figured it out already. The ring colors simply provided an easy tailwind custom property to hijack in order to be able to define different colors for the bar via tailwind, based on whether we were in light or dark mode.
+This allows us to completely overwrite the `--tw-gradient-stops` ourselves.
+
+By setting the stop points of the initial color to the percentage scrolled, and the second stop to `transparent 0`, we can achieve the effect of having a sharp edge along the progress bar as it moves across the screen. Thanks to `useEffect` and the `percentScrolled` string interpolation this percentage scrolled value is updated constantly as the user scrolls, generating a realistic progress bar along the top of the screen!
+
+Finally, some of you may be wondering if I'd ever mention those `ring-color`s again, while others have probably figured it out already. The ring colors simply provided an easy Tailwind custom property to hijack in order to be able to define different colors for the bar via Tailwind classes, making it easy for me to use my prefered light/dark classes.
 
 I hope you had fun reading this and maybe even learned something, I know I did working through it!
