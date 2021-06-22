@@ -11,7 +11,7 @@ const ProgressBar = () => {
     if (el) {
       el.style.setProperty(
         "--tw-gradient-stops",
-        `#f9a8d4 ${percentScrolled * 100}%, transparent 0`
+        `var(--tw-ring-color) ${percentScrolled * 100}%, transparent 0`
       )
     }
   }, [y, pageHeight])
@@ -19,7 +19,7 @@ const ProgressBar = () => {
   return (
     <div
       id="scroll-progress"
-      className="fixed top-0 left-0 z-50 w-full h-2 p-0 bg-gradient-to-r from-pink-300 to-transparent via-transparent ring-pink-300 dark:ring-palevioletred"
+      className="fixed top-0 left-0 z-50 w-full h-2 p-0 bg-gradient-to-r ring-pink-300 dark:ring-palevioletred"
     />
   )
 }

@@ -44,6 +44,10 @@ body {
   word-break: break-word !important;
 }
 
+.dark .dark\:prose-dark pre code {
+  background-color: transparent !important;
+}
+
 .border-underline-grow {
   background-position: 0 300%;
   background-repeat: repeat-x;
