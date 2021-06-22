@@ -60,11 +60,11 @@ const PostCard = ({ post }: Props) => {
   loadImage(imageFile)
 
   return (
-    <div className="mx-8">
+    <div className="mx-2 md:mx-8">
       <div className="relative m-4">
-        <div className="relative flex transition duration-500 rounded-xl hover:shadow-sm-smooth">
+        <div className="relative flex flex-col transition duration-500 md:flex-row rounded-xl hover:shadow-sm-smooth">
           <Link href={`/posts/${slug ? slug : ""}`}>
-            <a className="bg-gray-200 w-44 dark:bg-gray-600 rounded-l-xl hover:cursor-pointer post-card-image-wrapper">
+            <a className="w-full mb-4 bg-gray-200 md:mb-0 md:w-44 dark:bg-gray-600 rounded-xl md:rounded-r-none hover:cursor-pointer post-card-image-wrapper">
               {imageImport && (
                 <Image
                   src={imageImport}
@@ -73,14 +73,14 @@ const PostCard = ({ post }: Props) => {
                   layout="responsive"
                   placeholder="blur"
                   objectFit="contain"
-                  className="rounded-l-xl"
+                  className="rounded-xl md:rounded-r-none"
                 />
               )}
             </a>
           </Link>
 
-          <div className="flex flex-col flex-1 p-10">
-            <div className="relative flex justify-between w-full ">
+          <div className="flex flex-col flex-1 p-1 md:p-10">
+            <div className="relative flex flex-col justify-between w-full space-y-2 md:space-y-0 md:flex-row">
               <Link href={`/posts/${slug ? slug : ""}`}>
                 <a>
                   <div className="text-lg font-medium text-gray-600 capitalize transition-colors duration-300 dark:text-gray-200 md:text-xl hover:text-palevioletred">
@@ -88,8 +88,8 @@ const PostCard = ({ post }: Props) => {
                   </div>
                 </a>
               </Link>
-              <div className="flex">
-                <span className="mx-4 font-light text-gray-400 dark:text-gray-600 min-w-max">
+              <div className="flex flex-col space-y-2 md:space-y-0 md:flex-row">
+                <span className="font-light text-gray-400 md:mx-4 dark:text-gray-600 min-w-max">
                   {time.text}
                 </span>
                 <span className="text-medium min-w-max">
@@ -98,7 +98,7 @@ const PostCard = ({ post }: Props) => {
               </div>
             </div>
             <div
-              className="flex w-full max-w-full mb-4 prose-sm prose text-gray-600 dark:text-gray-300 prose-pink"
+              className="flex w-full max-w-full mt-4 mb-4 prose-sm prose text-gray-600 dark:text-gray-300 prose-pink"
               dangerouslySetInnerHTML={{ __html: excerpt }}
             />
             <div className="relative flex align-middle">

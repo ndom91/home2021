@@ -37,8 +37,11 @@ body {
   }
 }
 
+.prose li {
+  word-break: break-word !important;
+}
 .prose code {
-  word-break: break-all !important;
+  word-break: break-word !important;
 }
 
 .border-underline-grow {

@@ -26,7 +26,7 @@ const PostHeader = ({ title, cover, date, time }: Props) => {
           <CoverImage title={title} cover={cover} />
         </div>
       )}
-      <div className="flex justify-between max-w-2xl mx-auto mb-8 md:mt-16">
+      <div className="flex justify-between max-w-2xl mx-auto my-8 md:mt-16">
         <div className="block mb-6">
           <Avatar />
         </div>
