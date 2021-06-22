@@ -24,8 +24,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   await page.goto(url, {
     timeout: 15 * 1000,
   })
-  if (req?.query?.path === "/") {
-    await page.waitForTimeout(2000)
+  if (req?.query?.path === "%2F") {
+    await page.waitForTimeout(1000)
   }
   const data = await page.screenshot({
     type: "png",
