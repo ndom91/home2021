@@ -17,6 +17,7 @@ Now you should have a dev server at http://localhost:3003 available!
 - Next.js
 - TailwindCSS
 - Remark
+- Prism Syntaxhighlighting
 - Typescript
 - Api Route og:image Generation
 

@@ -7,15 +7,17 @@ cover:
   imageFile: "tailwind-read-progress/cover.png"
 ---
 
-It's that time of year again, where I decided to rewrite my personal website.
+It's that time of year again where I decided to rewrite my personal website 🎉
 
-This year I decided to grab the tools I know best instead of trying something brand-new, and landed on a stack of Next.js and TailwindCSS. I won't go into too much more detail about the rewrite itself as its still under way. But, I did want to share one particular feature I'm very happy to have gotten working with (mostly) just Tailwind!
+This year I decided to grab the tools I love and know best instead of trying something new just because. That stack consists of Next.js and TailwindCSS! I won't go into too much more detail about the rest of the rewrite itself as its a relatively standard blog type portfolio site. But, I did want to share one particular feature I'm very happy to have gotten working with (mostly) just Tailwind and bit of Javascript!
 
-And thats the read progress bar on scroll! You know the ones, that are fixed to the top of the page and indicate to the user how far they are through the story.
+And that feature is the read progress bar! You know the ones, they are fixed to the top of the page and indicate to the user how far they have scrolled through the page.
 
 ![Screenshot 1](/assets/blog/tailwind-read-progress/progress.png)
 
-Lets just take a look at the markup / tailwind classes first. You'll see that all I'm defining is the `bg-gradient-to-r` to set the `background-image` to a linear-gradient. And then two ring colors. The second line are all properties which just generate the line and keep it stuck to the top of the screen.
+Lets just take a look at the markup / Tailwind classes first.
+
+You'll see that all I'm defining is the `bg-gradient-to-r` to set the `background-image` to a linear-gradient. And then two ring colors. The second line are all properties which just generate the line and keep it stuck to the top of the screen.
 
 ```jsx
 const ProgressBar = () => {

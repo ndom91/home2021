@@ -98,7 +98,7 @@ const PostCard = ({ post }: Props) => {
               </div>
             </div>
             <div
-              className="flex w-full max-w-full mt-4 mb-4 prose-sm prose text-gray-600 dark:text-gray-300 prose-pink"
+              className="flex w-full max-w-full mt-4 mb-4 prose-sm prose text-gray-600 dark:text-gray-300 prose-pink dark:prose-dark"
               dangerouslySetInnerHTML={{ __html: excerpt }}
             />
             <div className="relative flex align-middle">
