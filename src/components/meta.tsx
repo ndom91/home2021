@@ -1,13 +1,10 @@
-// import { useState } from "react"
 import Head from "next/head"
 import { useRouter } from "next/router"
-// import { getAbsoluteURL } from "../lib/utils"
 
 const Meta = () => {
   const router = useRouter()
   const searchParams = new URLSearchParams()
   searchParams.set("path", router.pathname)
-  // const fullImageURL = getAbsoluteURL(`/api/og?${searchParams}`)
   const fullImageURL = `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/og?${searchParams}`
 
   return (
