@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next"
 import chromium from "chrome-aws-lambda"
 import playwright from "playwright-core"
-import { getAbsoluteURL } from "../src/lib/utils"
+// import { getAbsoluteURL } from "../src/lib/utils"
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   // Start the browser with the AWS Lambda wrapper (chrome-aws-lambda)
@@ -19,8 +19,12 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     },
   })
 
+  console.log(process.env.VERCEL_URL)
+  console.log(process.env.NODE_ENV)
+  console.log(process.env.NEXT_PUBLIC_VERCEL_URL)
   // Generate the full URL out of the given path (GET parameter)
-  const url = getAbsoluteURL(req?.query?.path || "")
+  // const url = getAbsoluteURL(req?.query?.path || "")
+  const url = `https://${process.env.NEXT_PUBLIC_VERCEL_URL}${req?.query?.path}`
   await page.goto(url, {
     timeout: 15 * 1000,
   })
