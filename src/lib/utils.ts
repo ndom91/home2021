@@ -1,6 +1,8 @@
 export const getAbsoluteURL = (path: string | string[]) => {
-  const baseURL = process.env.NEXT_PUBLIC_VERCEL_URL
-    ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
-    : "http://localhost:3003"
+  console.log(process.env.VERCEL_URL)
+  console.log(process.env.NODE_ENV)
+  console.log(process.env.NEXT_PUBLIC_VERCEL_URL)
+
+  const baseURL = `https://${process.env.NEXT_PUBLIC_VERCEL_URL}${path}`
   return baseURL + path
 }
