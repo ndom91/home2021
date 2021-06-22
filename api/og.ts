@@ -18,6 +18,9 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     },
   })
 
+  console.log(process.env.VERCEL_URL)
+  console.log(process.env.NODE_ENV)
+  console.log(process.env.NEXT_PUBLIC_VERCEL_URL)
   // Generate the full URL out of the given path (GET parameter)
   const url = `https://${process.env.VERCEL_URL}${req?.query?.path}`
   await page.goto(url, {
