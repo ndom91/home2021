@@ -36,14 +36,14 @@ sudo apt install rpi-imager
 
 Other platforms can be downloaded [here](https://www.raspberrypi.org/software/).
 
-### DD
+### dd
 
 Alternatively, you can write the image to your SD card via `dd`
 
 First, find out which device your sdcard is:
 
 ```bash
-$(~)-(110MB)> lsblk
+$ lsblk
 NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
 sdb    	 7:0    0  15,9G  1 disk
 sda      8:0    0   1,8T  0 disk
@@ -77,7 +77,7 @@ You can now add two small files to enable the SSH Server on boot, and connect to
 
 > The default credentials on a RaspiOS installation are: `pi`/`raspberry`
 
-#### SSH
+### ssh
 
 Create an empty file named `ssh` **without an extension** in the root of the <code>BOOT</code> partition
 
@@ -86,7 +86,7 @@ cd /mnt/tmp
 sudo touch ssh
 ```
 
-#### WiFi
+### WiFi
 
 Also in the root of the `BOOT` partition:
 
@@ -115,6 +115,14 @@ network={
 ## First Boot
 
 After booting for the first time, you'll probably want to setup a few things such as deploying your SSH key of choice, setting up a static IP, etc.
+
+## Packages
+
+Some of the first packages I like to install on a headless system include:
+
+```bash
+sudo apt install -y net-tools vim git htop docker docker-compose software-properties-common build-essential zip unzip
+```
 
 ### New User
 
@@ -200,3 +208,5 @@ It may hang for a minute, but should come right back up because it will have ret
 > ```
 >
 > Now you can SSH onto your pi via `ssh ndo-docker`, for example!
+
+If you have any other steps you take every time you setup a new raspberry pi, feel free to send them my way!
