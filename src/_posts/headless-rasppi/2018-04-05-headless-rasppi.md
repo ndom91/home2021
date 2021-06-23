@@ -118,10 +118,22 @@ After booting for the first time, you'll probably want to setup a few things suc
 
 ## Packages
 
-Some of the first packages I like to install on a headless system include:
+The very first thing you'll want to do, is update the `apt` cache and do an upgrade to get all the packages up-to-date from when the image was created until now.
 
 ```bash
-sudo apt install -y net-tools vim git htop docker docker-compose software-properties-common build-essential zip unzip
+sudo apt update && sudo apt upgrade -y
+```
+
+Then, some of the first packages I like to install on a headless system include:
+
+```bash
+sudo apt install -y net-tools vim git htop docker docker-compose software-properties-common build-essential zip unzip dnsutils
+```
+
+Then set `vim` as your default editor
+
+```bash
+sudo update-alternatives --config editor
 ```
 
 ### New User

@@ -1,10 +1,10 @@
 {
   "name": "ndom91-home2021",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "ndom91 portfolio page for 2021",
   "license": "MIT",
   "author": "ndom91 <yo@ndo.dev>",
-  "homepage": "https://home2021.vercel.app/",
+  "homepage": "https://ndo.dev/",
   "bugs": "https://github.com/ndom91/home2021/issues",
   "repository": "https://github.com/ndom91/home2021",
   "keywords": [

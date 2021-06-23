@@ -62,8 +62,8 @@ const Meta = () => {
             "@context": "http://schema.org/",
             "@type": "Person",
             name: "Nico Domino",
-            image: "https://home2021.vercel.app/assets/img/avatar.png",
-            url: "https://home2021.vercel.app",
+            image: "https://ndo.dev/assets/img/avatar.png",
+            url: "https://ndo.dev",
             jobTitle: "Fullstack Web Developer",
             worksFor: {
               "@type": "Organization",
