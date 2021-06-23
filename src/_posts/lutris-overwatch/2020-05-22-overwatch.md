@@ -32,5 +32,3 @@ The last `samba` dependency may seem like a bit much to install just for this, h
 Anyway, after getting the dependencies installed you just launch lutris, search for "Overwatch" in the launcher and click **Install**. Lutris takes care of the rest.
 
 What used to take hours of debugging and googling in 2020 now takes all of 20 minutes!
-
-![Battle.net](battlenet.png)

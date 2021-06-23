@@ -65,7 +65,7 @@ It was now time for some performance testing.
 
 After the initial query, all Netlify and Lambda requests were served from the same redis cache. I thought since all three services (the "normal" Lambda functions, the Netlify functions, and Redis itself) were actually running on AWS, the performance should be more or less the same. Boy was I wrong.
 
-![Performance screenshot](performance.png)
+![Performance screenshot](/assets/blog/serverless/performance.png)
 
 The Netlify functions, as you can see in the screenshot above, were often taking over 2! While the EC2 and classic Lambda versions were way more competitive around 200-500ms.
 
@@ -93,6 +93,6 @@ The other option is to mimic what we've been doing on the server and clone the r
 
 So anyway, other than manually importing the data the Lambda implementation has been running great these last few days!
 
-![Performance 2](performance2.png)
+![Performance 2](/assets/blog/serverless/performance2.png)
 
 The performance of the Lambda function, with the Redis cache in front of it, is consistently better than the EC2 instance. On average, almost 200ms better! The workflow via `serverless` also couldn't be any easier, again props to them!

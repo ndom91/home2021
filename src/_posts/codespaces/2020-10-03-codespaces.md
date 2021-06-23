@@ -13,11 +13,9 @@ First things first, I had some trouble finding out how to launch a codespace for
 
 So I fired up my first codespace, and after approximately 45 seconds - 1 minute I was greeted with the all too familiar VS Code layout when you open a new project. They initially launched with a terminal open and a way too bright Github Theme. The first thing I did was install a Dracula Theme, the Vim Extension, and GitLens.
 
-![Codespace Overview](codespace1.png)
-
 To my surprise, the extensions all installed without a hitch and "reloading" VS Code then only took as long as you'd expect a normal Github page reload to take. After which the theme was applied! I continued by doing what I'd do in any development environment, and installed the project's dependencies and fired up the dev server. This is where I noticed the first significant difference.
 
-![Codespace Overview](codespace2.png)
+![Codespace Overview](/assets/blog/codespaces/codespace2.png)
 
 As soon as the development server was started, VS Code popped up a notification telling me the local development port had been forwarded. The action buttons on the notification were "Open in Browser" and "Show Tunnels View". Open in browser opened the dev environment in a new tab under a url such as: `[uuid].apps.codespaces.githubusercontent.com`. The next option, show tunnels view, was something new, however. This focused a new sidebar menu which gave an overview of the current container it was running in - which repo was opened, which ports were forwarded, and a line item which said "Suspend: After 30 Minutes". I assume that's the default time-out. After 30 minutes of inaction it will most likely tear down this container.
 
@@ -25,7 +23,7 @@ After making some minor changes to my code and feeling very at-home in this "new
 
 I realized `apt` was installed in the container, so it had to be a debian-based distro, and installed a few applications. `vim` was already installed by default, by the way!
 
-![htop](codespaces-htop.png)
+![htop](/assets/blog/codespaces/codespaces-htop.png)
 
 `htop` ran without a hitch and reported some interesting stuff. Looks like the container was given access to 2 cores and 4gb of RAM, and there was an odd process running:
 
@@ -37,7 +35,7 @@ What could possibly be the point of this? As far as I can tell, this just loops 
 
 Anyway, what linux based post would be complete without a `screenfetch` screenshot!
 
-![screenfetch](codespaces-screenfetch.png)
+![screenfetch](/assets/blog/codespaces/codespaces-screenfetch.png)
 
 Looks like its running Debian 9 Stretch and a relatively recent kernel (`5.4`). Based on the details here, including the CPU, this looks to be an Azure [Standard_F2s_v2](https://azure.microsoft.com/de-de/blog/fv2-vms-are-now-available-the-fastest-vms-on-azure/) instance.
 
