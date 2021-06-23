@@ -20,7 +20,7 @@ const Layout = ({ children }: Props) => {
         window.location.hostname === "home2021.vercel.app" && (
           <Script
             src="https://stats.ndo.dev/js/plausible.js"
-            data-domain="home2021.vercel.app"
+            data-domain="ndo.dev"
             strategy="afterInteractive"
           />
         )}
