@@ -1,16 +1,16 @@
 const Footer = () => {
   return (
     <footer className="w-full opacity-0 animate-fade-in sm:max-w-screen-sm md:max-w-5xl">
-      <div className="max-w flex items-baseline px-4 py-4 space-x-4 md:py-8">
+      <div className="flex items-baseline px-4 py-4 space-x-4 max-w md:py-8">
         <a
           href="https://github.com/ndom91"
           target="_blank"
-          className="dark:hover:ring-opacity-30 dark:hover:ring-pink-500 dark:focus:ring-opacity-30 dark:focus:ring-pink-500 p-1 dark:text-gray-100 text-gray-800 rounded-md focus:outline-none transition-shadow duration-300 focus:ring-pink-300 hover:ring-pink-300 focus:ring-4 hover:ring-4"
+          className="p-1 text-gray-800 transition-shadow duration-300 rounded-md dark:hover:ring-opacity-30 dark:hover:ring-pink-500 dark:focus:ring-opacity-30 dark:focus:ring-pink-500 dark:text-gray-100 focus:outline-none focus:ring-pink-300 hover:ring-pink-300 focus:ring-4 hover:ring-4"
           rel="noreferrer"
         >
           <svg
-            width="40"
-            height="40"
+            width="32"
+            height="32"
             viewBox="0 0 15 15"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -26,12 +26,12 @@ const Footer = () => {
         <a
           href="https://twitter.com/ndom91"
           target="_blank"
-          className="dark:hover:ring-opacity-30 dark:hover:ring-pink-500 dark:focus:ring-opacity-30 dark:focus:ring-pink-500 p-1 dark:text-gray-100 text-gray-800 rounded-md focus:outline-none transition-shadow duration-300 focus:ring-pink-300 hover:ring-pink-300 focus:ring-4 hover:ring-4"
+          className="p-1 text-gray-800 transition-shadow duration-300 rounded-md dark:hover:ring-opacity-30 dark:hover:ring-pink-500 dark:focus:ring-opacity-30 dark:focus:ring-pink-500 dark:text-gray-100 focus:outline-none focus:ring-pink-300 hover:ring-pink-300 focus:ring-4 hover:ring-4"
           rel="noreferrer"
         >
           <svg
-            width="40"
-            height="40"
+            width="32"
+            height="32"
             viewBox="0 0 15 15"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -47,14 +47,14 @@ const Footer = () => {
         <a
           href="mailto:home2021@ndo.dev"
           target="_blank"
-          className="dark:hover:ring-opacity-30 dark:hover:ring-pink-500 dark:focus:ring-opacity-30 dark:focus:ring-pink-500 p-1 dark:text-gray-100 text-gray-800 rounded-md focus:outline-none transition-shadow duration-300 focus:ring-pink-300 hover:ring-pink-300 focus:ring-4 hover:ring-4"
+          className="p-1 text-gray-800 transition-shadow duration-300 rounded-md dark:hover:ring-opacity-30 dark:hover:ring-pink-500 dark:focus:ring-opacity-30 dark:focus:ring-pink-500 dark:text-gray-100 focus:outline-none focus:ring-pink-300 hover:ring-pink-300 focus:ring-4 hover:ring-4"
           rel="noreferrer"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
-            width="40"
-            height="40"
+            width="32"
+            height="32"
             viewBox="0 0 24 24"
             stroke="currentColor"
           >
