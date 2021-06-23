@@ -13,22 +13,22 @@ const IntroDescription = () => {
     <div
       id="intro-body"
       data-splitting="lines"
-      className="mt-4 p-2 w-full text-left dark:text-gray-200 text-gray-800 text-lg font-light tracking-tight leading-8 md:pl-10 md:w-11/12 md:text-xl"
+      className="w-full p-2 mt-4 text-lg font-light leading-8 tracking-tight text-left text-gray-800 dark:text-gray-200 md:pl-10 md:w-11/12 md:text-xl"
       style={{ lineHeight: "2.25rem" }}
     >
-      Hi! My names Nico Domino and I&lsquo;m a full-stack javascript developer
-      at{" "}
+      Hi! My name&apos;s Nico Domino and I&lsquo;m a full-stack javascript
+      developer at{" "}
       <a
         href="https://checklyhq.com"
         target="_blank"
-        className="border-underline-grow bg-gradient-to-r dark:from-palevioletred from-pink-300 dark:to-palevioletred to-pink-300 transition-all duration-500"
+        className="transition-all duration-500 border-underline-grow bg-gradient-to-r dark:from-palevioletred from-pink-300 dark:to-palevioletred to-pink-300"
         rel="noreferrer"
       >
         Checkly
       </a>{" "}
       🦝. In the evenings you can find me working on open source software, like{" "}
       <a
-        className="border-underline-grow bg-gradient-to-r dark:from-palevioletred from-pink-300 dark:to-palevioletred to-pink-300 transition-all duration-500"
+        className="transition-all duration-500 border-underline-grow bg-gradient-to-r dark:from-palevioletred from-pink-300 dark:to-palevioletred to-pink-300"
         href="https://next-auth.js.org"
         target="_blank"
         rel="noreferrer"
@@ -39,7 +39,7 @@ const IntroDescription = () => {
       Frankfurt, Germany where I occasionally write about my adventures in tech
       on my{" "}
       <Link href="/blog">
-        <a className="border-underline-grow bg-gradient-to-r dark:from-palevioletred from-pink-300 dark:to-palevioletred to-pink-300 transition-all duration-500">
+        <a className="transition-all duration-500 border-underline-grow bg-gradient-to-r dark:from-palevioletred from-pink-300 dark:to-palevioletred to-pink-300">
           blog
         </a>
       </Link>{" "}
@@ -49,7 +49,7 @@ const IntroDescription = () => {
         href="https://twitter.com/ndom91"
         target="_blank"
         rel="noopener noreferer noreferrer"
-        className="border-underline-grow bg-gradient-to-r dark:from-palevioletred from-pink-300 dark:to-palevioletred to-pink-300 transition-all duration-500"
+        className="transition-all duration-500 border-underline-grow bg-gradient-to-r dark:from-palevioletred from-pink-300 dark:to-palevioletred to-pink-300"
       >
         Twitter
       </a>{" "}

@@ -80,13 +80,13 @@ const ProjectCard = ({ project, index }: Props) => {
             )}
             <div className="flex pt-1 md:pt-4">
               <span
-                className="font-light text-gray-400"
+                className="font-light text-gray-500 dark:text-gray-400"
                 dangerouslySetInnerHTML={{ __html: desc }}
               />
             </div>
           </div>
 
-          <div className="relative z-10 flex px-6 py-4 align-middle">
+          <div className="relative z-10 flex p-6 align-middle">
             <div className="relative z-10 flex justify-around w-full overflow-hidden">
               {tech &&
                 tech.map((type) => (
