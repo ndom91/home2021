@@ -8,9 +8,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        gray: colors.trueGray,
+        gray: colors.coolGray,
         warmGray: colors.warmGray,
-        bgGray: "#151216",
+        bgGray: "#0e141b",
         palevioletred: "#DB7093",
       },
       typography: (theme) => ({
@@ -100,7 +100,8 @@ module.exports = {
         "fade-in-down": "fade-in-down 500ms ease-out",
         "fade-out-down": "fade-out-down 500ms ease-out",
         "fade-in-up-10": "fade-in-up-10 750ms ease-out forwards",
-        "fade-in-up-30": "fade-in-up-30 750ms ease-out forwards",
+        "fade-in-up-30":
+          "fade-in-up-30 750ms  cubic-bezier(0.68, -0.6, 0.32, 2.5) forwards",
         "fade-in-up-500": "fade-in-up-10 750ms ease-out forwards 500ms",
         "fade-out-up": "fade-out-up 500ms ease-out",
       },

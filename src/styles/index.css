@@ -17,11 +17,62 @@ body {
 
 @import url("/assets/fonts/inter/inter.css");
 
+/* PROJECTS */
+
+.pattern-dots-md {
+  background-image: radial-gradient(currentColor 1px, transparent 1px);
+  background-size: calc(10 * 1px) calc(10 * 1px);
+}
+
+.more-projects .animate-fade-in {
+  animation-delay: calc(var(--index) * 100ms);
+}
+
+/* BLOG POST */
+
+.prose li {
+  word-break: break-word !important;
+}
+.prose code {
+  word-break: break-word !important;
+}
+
+.dark .dark\:prose-dark pre code {
+  background-color: transparent !important;
+}
+
+.post-card-image-wrapper > div {
+  height: 100%;
+}
+
+.post-card-image-wrapper img {
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: left !important;
+}
+
+/* INTRO */
+
+.intro-title {
+  position: absolute;
+  left: 0;
+  top: -30px;
+}
+
+.mask-bottom {
+  mask-image: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.25) 21%,
+    rgba(255, 255, 255, 1) 100%
+  );
+}
+
 #intro-body span {
   opacity: 0;
   animation-name: staggeredLines;
   animation-duration: 750ms;
-  animation-timing-function: cubic-bezier(0.175, 0.885, 0.12, 1.375);
+  animation-timing-function: cubic-bezier(0.68, -0.6, 0.32, 1.6);
   animation-delay: calc(150ms * var(--line-index));
   animation-fill-mode: forwards;
 }
@@ -37,17 +88,6 @@ body {
   }
 }
 
-.prose li {
-  word-break: break-word !important;
-}
-.prose code {
-  word-break: break-word !important;
-}
-
-.dark .dark\:prose-dark pre code {
-  background-color: transparent !important;
-}
-
 .border-underline-grow {
   background-position: 0 300%;
   background-repeat: repeat-x;
@@ -59,7 +99,7 @@ body {
   animation-name: backgroundSizeIntro;
   animation-duration: 1000ms;
   animation-delay: 500ms;
-  animation-timing-function: cubic-bezier(0.175, 0.885, 0.12, 1.375);
+  animation-timing-function: cubic-bezier(0.68, -0.6, 0.32, 1.6);
   animation-fill-mode: forwards;
 }
 
@@ -78,45 +118,21 @@ body {
   background-size: 10px 50px;
 }
 
-.pattern-dots-md {
-  background-image: radial-gradient(currentColor 1px, transparent 1px);
-  background-size: calc(10 * 1px) calc(10 * 1px);
-}
-
-.intro-title {
-  position: absolute;
-  left: 0;
-  top: -30px;
-}
-
-.mask-bottom {
-  mask-image: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.25) 21%,
-    rgba(255, 255, 255, 1) 100%
-  );
-}
-
-.post-card-image-wrapper > div {
-  height: 100%;
-}
-
-.post-card-image-wrapper img {
-  height: 100% !important;
-  object-fit: cover !important;
-  object-position: left !important;
-}
-
 @media screen and (min-width: 768px) {
+  .intro-title {
+    mask-size: auto 120px;
+  }
+
   .intro-title:hover {
     cursor: default;
-    transition: text-shadow 500ms ease-in-out;
+    transition: text-shadow 1000ms cubic-bezier(0.68, -0.6, 0.32, 1.6),
+      mask-size 500ms ease-in-out;
     text-shadow: 0px 90px 1px palevioletred, 0px 180px 1.5px palevioletred,
       0px 270px 3.5px palevioletred, 0px 360px 5px palevioletred,
       0px 450px 6px palevioletred, 0px 540px 4px palevioletred;
     width: 100%;
     height: 50vh;
+    mask-size: auto 100%;
     mask-image: linear-gradient(
       to top,
       rgba(0, 0, 0, 0),

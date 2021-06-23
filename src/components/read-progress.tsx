@@ -19,7 +19,7 @@ const ProgressBar = () => {
   return (
     <div
       id="scroll-progress"
-      className="fixed top-0 left-0 z-50 w-full h-2 p-0 bg-gradient-to-r ring-pink-300 dark:ring-palevioletred"
+      className="fixed top-0 left-0 z-50 w-full h-2 p-0 bg-gradient-to-r ring-pink-300 dark:ring-palevioletred dark:ring-opacity-75 ring-opacity-75"
     />
   )
 }

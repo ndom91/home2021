@@ -26,6 +26,7 @@ const ProgressBar = () => {
       id="scroll-progress"
       className="
         bg-gradient-to-r ring-pink-300 dark:ring-palevioletred
+        dark:ring-opacity-75 ring-opacity-75
         fixed top-0 left-0 z-50 w-full h-2 p-0 
       "
     />
@@ -71,6 +72,7 @@ const ProgressBar = () => {
       id="scroll-progress"
       className="
         bg-gradient-to-r ring-pink-300 dark:ring-palevioletred
+        dark:ring-opacity-75 ring-opacity-75
         fixed top-0 left-0 z-50 w-full h-2 p-0 
       "
     />
@@ -90,6 +92,6 @@ This allows us to completely overwrite the `--tw-gradient-stops` ourselves.
 
 By setting the stop points of the initial color to the percentage scrolled, and the second stop to `transparent 0`, we can achieve the effect of having a sharp edge along the progress bar as it moves across the screen. Thanks to `useEffect` and the `percentScrolled` string interpolation this percentage scrolled value is updated constantly as the user scrolls, generating a realistic progress bar along the top of the screen!
 
-Finally, some of you may be wondering if I'd ever mention those `ring-color`s again, while others have probably figured it out already. The ring colors simply provided an easy Tailwind custom property to hijack in order to be able to define different colors for the bar via Tailwind classes, making it easy for me to use my prefered light/dark classes.
+Finally, some of you may be wondering if I'd ever mention those `ring-color`s again, while others have probably figured it out already. The ring colors simply provided an easy Tailwind custom property to hijack in order to be able to define different colors for the bar via Tailwind classes, making it easy for me to use my prefered light/dark classes. I can then also adjust the opacity via the ring variables, etc!
 
 I hope you had fun reading this and maybe even learned something, I know I did working through it!

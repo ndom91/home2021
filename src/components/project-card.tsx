@@ -19,10 +19,11 @@ interface StaticRequire {
 type StaticImport = StaticRequire | StaticImageData
 
 type Props = {
+  index: number
   project: Project
 }
 
-const ProjectCard = ({ project }: Props) => {
+const ProjectCard = ({ project, index }: Props) => {
   const { name, url, desc, image, tech } = project
 
   const [imageImport, setImage] = useState<StaticImport>()
@@ -38,7 +39,10 @@ const ProjectCard = ({ project }: Props) => {
   }, [image])
 
   return (
-    <div className="mx-8">
+    <div
+      className="mx-8 opacity-0 animate-fade-in"
+      style={{ ["--index" as string]: index }}
+    >
       <div className="relative m-4">
         <div className="relative z-10 flex flex-col transition duration-500 bg-gray-100 shadow-md dark:bg-gray-800 rounded-xl hover:shadow-sm-smooth">
           {url && (

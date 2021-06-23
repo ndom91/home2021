@@ -20,7 +20,7 @@ type Props = {
 
 const HeroPost = ({ title, cover, date, slug, time }: Props) => {
   return (
-    <section>
+    <section className="opacity-0 animate-fade-in">
       <div className="h-auto mb-8 overflow-hidden mask-bottom md:mb-16 md:h-96">
         <CoverImage title={title} cover={cover} slug={slug} />
       </div>
