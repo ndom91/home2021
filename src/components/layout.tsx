@@ -17,7 +17,7 @@ const Layout = ({ children }: Props) => {
   return (
     <div className="flex flex-col items-center min-h-screen transition duration-500 dark:selection:bg-palevioletred selection:text-white dark:bg-bgGray selection:bg-pink-300">
       {typeof window !== "undefined" &&
-        window.location.hostname === "home2021.vercel.app" && (
+        window.location.hostname === "ndo.dev" && (
           <Script
             src="https://stats.ndo.dev/js/plausible.js"
             data-domain="ndo.dev"
