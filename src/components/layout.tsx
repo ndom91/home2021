@@ -35,7 +35,8 @@ const Layout = ({ children }: Props) => {
         </>
       )}
       <Script
-        src="https://unpkg.com/web-vitals-element@1.0.1/dist/web-vitals-element.styled.min.js"
+        // src="https://unpkg.com/web-vitals-element@1.0.1/dist/web-vitals-element.styled.min.js"
+        src="/assets/web-vitals-element.styled.min.js"
         strategy="afterInteractive"
       />
       <Meta />
