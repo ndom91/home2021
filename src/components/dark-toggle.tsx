@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react"
+import { useLocalStorage } from "react-use"
 
 const DarkToggle = () => {
   const [dark, setDark] = useState(true)
+  const [value, setValue] = useLocalStorage("theme", "", {
+    raw: true,
+  })
   useEffect(() => {
     if (document.documentElement.classList.contains("dark")) {
       setDark(false)
@@ -12,19 +16,21 @@ const DarkToggle = () => {
     setDark(!dark)
     if (dark) {
       document.documentElement.classList.add("dark")
+      setValue("dark")
       new Audio("/assets/toggle-off.mp3").play()
     } else {
       document.documentElement.classList.remove("dark")
+      setValue("light")
       new Audio("/assets/toggle-on.mp3").play()
     }
   }
 
   return (
-    <div className="relative dark:text-gray-400 text-gray-800">
+    <div className="relative text-gray-800 dark:text-gray-400">
       {dark ? (
         <button
           onClick={toggleDark}
-          className="p-1 rounded-md focus:outline-none transition-shadow duration-300 hover:ring-4 focus:ring-4 focus:ring-pink-300 hover:ring-pink-300"
+          className="p-1 transition-shadow duration-300 rounded-md focus:outline-none hover:ring-4 focus:ring-4 focus:ring-pink-300 hover:ring-pink-300"
         >
           {/* Sun */}
           <svg
@@ -47,7 +53,7 @@ const DarkToggle = () => {
       ) : (
         <button
           onClick={toggleDark}
-          className="p-1 rounded-md focus:outline-none transition-shadow duration-300 hover:ring-4 focus:ring-4 hover:ring-pink-400 focus:ring-pink-400 focus:ring-opacity-70"
+          className="p-1 transition-shadow duration-300 rounded-md focus:outline-none hover:ring-4 focus:ring-4 hover:ring-palevioletred focus:ring-palevioletred focus:ring-opacity-70"
         >
           {/* Moon */}
           <svg

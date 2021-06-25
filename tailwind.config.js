@@ -7,9 +7,11 @@ module.exports = {
   plugins: [require("@tailwindcss/typography")],
   theme: {
     extend: {
+      screens: {
+        xs: "375px",
+      },
       colors: {
         gray: colors.coolGray,
-        warmGray: colors.warmGray,
         bgGray: "#0e141b",
         palevioletred: "#DB7093",
       },
@@ -47,9 +49,6 @@ module.exports = {
           },
         },
       }),
-      spacing: {
-        28: "7rem",
-      },
       letterSpacing: {
         tighter: "-.04em",
       },
@@ -57,8 +56,8 @@ module.exports = {
         tight: 1.2,
       },
       fontSize: {
-        "5xl": "2.5rem",
         "6xl": "2.75rem",
+        "6.5xl": "3.25rem",
         "7xl": "4.5rem",
         "8xl": "6.25rem",
       },
@@ -89,9 +88,6 @@ module.exports = {
           0 48.9px 17.9px rgba(0, 0, 0, 0.077),
           0 91.5px 33.4px rgba(0, 0, 0, 0.093),
           0 219px 80px rgba(0, 0, 0, 0.13)`,
-      },
-      borderWidth: {
-        10: "12px",
       },
       animation: {
         blob: "blob 7s infinite",

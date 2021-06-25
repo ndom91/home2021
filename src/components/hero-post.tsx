@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { Parallax, ParallaxProvider } from "react-scroll-parallax"
 import Avatar from "@/components/avatar"
 import DateFormatter from "@/components/date-formatter"
 import CoverImage from "@/components/cover-image"
@@ -22,7 +23,11 @@ const HeroPost = ({ title, cover, date, slug, time }: Props) => {
   return (
     <section className="opacity-0 animate-fade-in">
       <div className="h-auto mb-8 overflow-hidden mask-bottom md:mb-16 md:h-96">
-        <CoverImage title={title} cover={cover} slug={slug} />
+        <ParallaxProvider>
+          <Parallax y={[10, -10]}>
+            <CoverImage title={title} cover={cover} slug={slug} />
+          </Parallax>
+        </ParallaxProvider>
       </div>
       <div className="mb-10 sm:grid md:gap-x-16 sm:grid-cols-5 md:mb-16 lg:gap-x-8">
         <div className="col-span-4">

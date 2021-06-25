@@ -23,8 +23,22 @@ type Props = {
   project: Project
 }
 
+const random = (min: number, max: number) =>
+  Math.floor(Math.random() * (max - min)) + min
+
+const colorMap = [
+  "bg-purple-300",
+  "bg-pink-300",
+  "bg-red-300",
+  "bg-pink-200",
+  "bg-yellow-100",
+  "bg-purple-400",
+  "bg-red-200",
+]
+
 const ProjectCard = ({ project, index }: Props) => {
   const { name, url, desc, image, tech } = project
+  const colorNumber = random(0, 6)
 
   const [imageImport, setImage] = useState<StaticImport>()
   const loadImage = (imgur: string) => {
@@ -40,11 +54,11 @@ const ProjectCard = ({ project, index }: Props) => {
 
   return (
     <div
-      className="mx-8 opacity-0 animate-fade-in"
+      className="mx-1 opacity-0 animate-fade-in"
       style={{ ["--index" as string]: index }}
     >
-      <div className="relative m-4">
-        <div className="relative z-10 flex flex-col transition duration-500 bg-gray-100 shadow-md dark:bg-gray-800 rounded-xl hover:shadow-sm-smooth">
+      <div className="relative m-4 bg-gray-100 dark:bg-gray-800 rounded-xl group">
+        <div className="relative z-10 flex flex-col transition duration-500 bg-gray-100 dark:bg-gray-800 rounded-xl">
           {url && (
             <Link href={url}>
               <a
@@ -68,11 +82,11 @@ const ProjectCard = ({ project, index }: Props) => {
             </Link>
           )}
 
-          <div className="relative z-10 p-6 pb-2 mx-2 overflow-hidden overflow-y-visible">
+          <div className="relative z-10 p-6 pb-2 mx-2 overflow-hidden overflow-y-visible ">
             {url && (
               <Link href={url}>
                 <a>
-                  <div className="text-lg font-semibold text-gray-600 transition-colors duration-300 dark:hover:text-pink-300 dark:text-gray-200 hover:text-palevioletred md:text-xl">
+                  <div className="text-lg font-semibold text-gray-600 transition-colors duration-300 dark:hover:text-palevioletred dark:text-gray-200 hover:text-pink-300 md:text-xl">
                     {name}
                   </div>
                 </a>
@@ -86,7 +100,7 @@ const ProjectCard = ({ project, index }: Props) => {
             </div>
           </div>
 
-          <div className="relative z-10 flex p-6 align-middle">
+          <div className="relative z-10 flex p-6 align-middle rounded-b-xl">
             <div className="relative z-10 flex justify-around w-full overflow-hidden">
               {tech &&
                 tech.map((type) => (
@@ -102,7 +116,10 @@ const ProjectCard = ({ project, index }: Props) => {
             </div>
           </div>
         </div>
-        <div className="absolute z-0 w-56 pattern-dots-md -bottom-8 -left-8 h-52 text-palevioletred" />
+        {/* <div
+          className={`absolute top-1/2 -translate-y-1/2 ${colorMap[colorNumber]} rounded-full right-4 w-80 h-80 opacity-80 dark:opacity-25 blur-2xl filter z-0 dark:group-hover:opacity-30 transition-all duration-300 group-hover:h-96 group-hover:opacity-100 `}
+        /> */}
+        <div className="absolute z-0 w-56 pattern-dots-md -bottom-6 -left-6 h-52 text-palevioletred" />
       </div>
     </div>
   )

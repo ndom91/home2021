@@ -1,5 +1,4 @@
 import { useState } from "react"
-import { Parallax, ParallaxProvider } from "react-scroll-parallax"
 import Link from "next/link"
 import Image from "next/image"
 
@@ -30,24 +29,20 @@ const CoverImage = ({ title, cover = { imageFile: "" }, slug }: Props) => {
       Loading..
     </div>
   ) : (
-    <ParallaxProvider>
-      <Parallax y={[10, -10]}>
-        {/* @ts-ignore */}
-        <Image
-          src={imageImport}
-          alt={`Cover Image for ${title}`}
-          quality="100"
-          layout="responsive"
-          objectFit="fill"
-          placeholder="blur"
-          className={
-            slug
-              ? "shadow-sm hover:shadow-md transition-shadow duration-200"
-              : "shadow-sm bg-blend-overlay"
-          }
-        />
-      </Parallax>
-    </ParallaxProvider>
+    /* @ts-ignore */
+    <Image
+      src={imageImport}
+      alt={`Cover Image for ${title}`}
+      quality="100"
+      layout="responsive"
+      objectFit="fill"
+      placeholder="blur"
+      className={
+        slug
+          ? "shadow-sm hover:shadow-md transition-shadow duration-200"
+          : "shadow-sm bg-blend-overlay"
+      }
+    />
   )
 
   return (

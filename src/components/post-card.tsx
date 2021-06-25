@@ -80,16 +80,16 @@ const PostCard = ({ post }: Props) => {
           </Link>
 
           <div className="flex flex-col flex-1 p-1 md:p-10">
-            <div className="relative flex flex-col justify-between w-full space-y-2 md:space-y-0 md:flex-row">
+            <div className="relative flex flex-col justify-between w-full md:flex-row">
               <Link href={`/posts/${slug ? slug : ""}`}>
                 <a>
-                  <div className="text-lg font-medium text-gray-600 capitalize transition-colors duration-300 dark:text-gray-200 md:text-xl hover:text-palevioletred">
+                  <div className="text-xl font-medium text-gray-600 capitalize transition-colors duration-300 dark:text-gray-200 hover:text-palevioletred">
                     {title}
                   </div>
                 </a>
               </Link>
-              <div className="flex flex-col space-y-2 md:space-y-0 md:flex-row">
-                <span className="font-light text-gray-400 md:mx-4 dark:text-gray-600 min-w-max">
+              <div className="flex flex-col-reverse text-sm md:flex-row md:text-base">
+                <span className="font-light text-gray-400 md:mx-4 dark:text-gray-500 min-w-max">
                   {time.text}
                 </span>
                 <span className="text-medium min-w-max">
