@@ -18,7 +18,7 @@ const Layout = ({ children }: Props) => {
     dismissed: false,
   })
   const alert = {
-    enabled: true && !value?.dismissed,
+    enabled: false && !value?.dismissed,
     header: "TEST ALERT",
     body: 'So much stuff to download <a href="#">click here!</a>',
   }
