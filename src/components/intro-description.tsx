@@ -1,37 +1,13 @@
-import { useState, useEffect } from "react"
-import Link from "next/link"
+import { useEffect } from "react"
 import "splitting/dist/splitting.css"
 import "splitting/dist/splitting-cells.css"
 import Splitting from "splitting"
-const mql = require("@microlink/mql")
+import ScreenshotLink from "@/components/screenshot-link"
 
 const IntroDescription = () => {
-  const [screenshots, setScreenshots] = useState({
-    checkly: "",
-    twitter: "",
-    blog: "",
-    nextauth: "",
-  })
-  const [linkScreenshots, setLinkScreenshots] = useState({
-    checkly: false,
-    twitter: false,
-    blog: false,
-    nextauth: false,
-  })
   useEffect(() => {
     typeof document !== "undefined" && Splitting()
   }, [])
-
-  const fetchImage = async (url: string, site: string) => {
-    const { status, data } = await mql(url, {
-      screenshot: true,
-      meta: false,
-    })
-    setLinkScreenshots({ ...linkScreenshots, [site]: true })
-    if (status === "success") {
-      setScreenshots({ ...screenshots, [site]: data.screenshot.url })
-    }
-  }
 
   return (
     <div
@@ -42,107 +18,32 @@ const IntroDescription = () => {
     >
       Hi! My name&apos;s Nico Domino and I&lsquo;m a full-stack javascript
       developer at{" "}
-      {linkScreenshots.checkly && (
-        <div className="absolute z-10 hidden w-32 pointer-events-none lg:block -top-12 left-32 animate-fade-in-up-5">
-          <img
-            src={screenshots.checkly}
-            alt="Checkly Screenshot"
-            className="rounded-md"
-          />
-        </div>
-      )}
-      <a
-        href="https://checklyhq.com"
-        target="_blank"
-        onMouseEnter={() => fetchImage("https://checklyhq.com", "checkly")}
-        onMouseOut={() =>
-          setLinkScreenshots({
-            ...linkScreenshots,
-            checkly: false,
-          })
-        }
-        className="transition-all duration-500 border-underline-grow bg-gradient-to-r dark:from-palevioletred from-pink-300 dark:to-palevioletred to-pink-300"
-        rel="noreferrer"
-      >
-        Checkly
-      </a>{" "}
+      <ScreenshotLink
+        url="https://checklyhq.com"
+        text="Checkly"
+        className="opacity-0 animate-fade-in-up animation-delay-200"
+      />
       🦝. In the evenings you can find me working on open source software, like{" "}
-      {linkScreenshots.nextauth && (
-        <div className="hidden lg:block absolute z-10 w-32 pointer-events-none -top-4 right-[5.2rem] animate-fade-in-up-5">
-          <img
-            src={screenshots.nextauth}
-            alt="Checkly Screenshot"
-            className="rounded-md"
-          />
-        </div>
-      )}
-      <a
-        onMouseEnter={() => fetchImage("https://next-auth.js.org", "nextauth")}
-        onMouseOut={() =>
-          setLinkScreenshots({
-            ...linkScreenshots,
-            nextauth: false,
-          })
-        }
-        className="transition-all duration-500 border-underline-grow bg-gradient-to-r dark:from-palevioletred from-pink-300 dark:to-palevioletred to-pink-300"
-        href="https://next-auth.js.org"
-        target="_blank"
-        rel="noreferrer"
-      >
-        NextAuth.js
-      </a>
+      <ScreenshotLink
+        url="https://next-auth.js.org"
+        text="NextAuth.js"
+        className="opacity-0 animate-fade-in-up animation-delay-300"
+      />
       , or catching up on the latest Netflix series. I&lsquo;m based in
       Frankfurt, Germany where I occasionally write about my adventures in tech
       on my{" "}
-      {linkScreenshots.blog && (
-        <div className="absolute z-10 hidden w-32 pointer-events-none lg:block top-24 left-56 animate-fade-in-up-5">
-          <img
-            src={screenshots.blog}
-            alt="Checkly Screenshot"
-            className="rounded-md"
-          />
-        </div>
-      )}
-      <Link href="/blog">
-        <a
-          onMouseEnter={() => fetchImage("https://ndo.dev/blog", "blog")}
-          onMouseOut={() =>
-            setLinkScreenshots({
-              ...linkScreenshots,
-              blog: false,
-            })
-          }
-          className="transition-all duration-500 border-underline-grow bg-gradient-to-r dark:from-palevioletred from-pink-300 dark:to-palevioletred to-pink-300"
-        >
-          blog
-        </a>
-      </Link>{" "}
+      <ScreenshotLink
+        url="https://ndo.dev/blog"
+        text="blog"
+        className="opacity-0 animate-fade-in-up animation-delay-600"
+      />
       📓 and if you like memes, movies, and web development you might also enjoy
       following me on{" "}
-      {linkScreenshots.twitter && (
-        <div className="hidden lg:block absolute z-10 w-32 pointer-events-none bottom-[3.5rem] left-[9.5rem] animate-fade-in-up-5">
-          <img
-            src={screenshots.twitter}
-            alt="Checkly Screenshot"
-            className="rounded-md"
-          />
-        </div>
-      )}
-      <a
-        href="https://twitter.com/ndom91"
-        onMouseEnter={() => fetchImage("https://twitter.com/ndom91", "twitter")}
-        onMouseOut={() =>
-          setLinkScreenshots({
-            ...linkScreenshots,
-            twitter: false,
-          })
-        }
-        target="_blank"
-        rel="noopener noreferer noreferrer"
-        className="transition-all duration-500 border-underline-grow bg-gradient-to-r dark:from-palevioletred from-pink-300 dark:to-palevioletred to-pink-300"
-      >
-        Twitter
-      </a>{" "}
+      <ScreenshotLink
+        url="https://twitter.com/ndom91"
+        text="Twitter"
+        className="opacity-0 animate-fade-in-up animation-delay-800"
+      />
       🐦.
     </div>
   )

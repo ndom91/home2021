@@ -6,4 +6,7 @@ module.exports = {
     })
     return config
   },
+  images: {
+    domains: ["iad.microlink.io"],
+  },
 }
