@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
-// import Image from "next/image"
 import "splitting/dist/splitting.css"
 import "splitting/dist/splitting-cells.css"
 import Splitting from "splitting"
@@ -24,12 +23,11 @@ const IntroDescription = () => {
   }, [])
 
   const fetchImage = async (url: string, site: string) => {
-    const { status, data, response } = await mql(url, {
+    const { status, data } = await mql(url, {
       screenshot: true,
       meta: false,
       overlay: {
-        background:
-          "linear-gradient(225deg, #8D0B93 0%, #FF057C 50%, #de7de7 100%)",
+        background: "#fff",
         browser: "dark",
       },
     })
@@ -53,7 +51,7 @@ const IntroDescription = () => {
           <img
             src={screenshots.checkly}
             alt="Checkly Screenshot"
-            className="rounded-md"
+            className="rounded-md shadow-xl"
           />
         </div>
       )}
@@ -78,7 +76,7 @@ const IntroDescription = () => {
           <img
             src={screenshots.nextauth}
             alt="Checkly Screenshot"
-            className="rounded-md"
+            className="rounded-md shadow-xl"
           />
         </div>
       )}
@@ -105,7 +103,7 @@ const IntroDescription = () => {
           <img
             src={screenshots.blog}
             alt="Checkly Screenshot"
-            className="rounded-md"
+            className="rounded-md shadow-xl"
           />
         </div>
       )}
@@ -130,7 +128,7 @@ const IntroDescription = () => {
           <img
             src={screenshots.twitter}
             alt="Checkly Screenshot"
-            className="rounded-md"
+            className="rounded-md shadow-xl"
           />
         </div>
       )}
