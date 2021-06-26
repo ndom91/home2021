@@ -43,7 +43,7 @@ const IntroDescription = () => {
       Hi! My name&apos;s Nico Domino and I&lsquo;m a full-stack javascript
       developer at{" "}
       {linkScreenshots.checkly && (
-        <div className="absolute z-10 w-32 pointer-events-none -top-12 left-32 animate-fade-in-up-5">
+        <div className="absolute z-10 hidden w-32 pointer-events-none lg:block -top-12 left-32 animate-fade-in-up-5">
           <img
             src={screenshots.checkly}
             alt="Checkly Screenshot"
@@ -68,7 +68,7 @@ const IntroDescription = () => {
       </a>{" "}
       🦝. In the evenings you can find me working on open source software, like{" "}
       {linkScreenshots.nextauth && (
-        <div className="absolute z-10 w-32 pointer-events-none -top-4 right-[5.2rem] animate-fade-in-up-5">
+        <div className="hidden lg:block absolute z-10 w-32 pointer-events-none -top-4 right-[5.2rem] animate-fade-in-up-5">
           <img
             src={screenshots.nextauth}
             alt="Checkly Screenshot"
@@ -95,7 +95,7 @@ const IntroDescription = () => {
       Frankfurt, Germany where I occasionally write about my adventures in tech
       on my{" "}
       {linkScreenshots.blog && (
-        <div className="absolute z-10 w-32 pointer-events-none top-24 left-56 animate-fade-in-up-5">
+        <div className="absolute z-10 hidden w-32 pointer-events-none lg:block top-24 left-56 animate-fade-in-up-5">
           <img
             src={screenshots.blog}
             alt="Checkly Screenshot"
@@ -120,7 +120,7 @@ const IntroDescription = () => {
       📓 and if you like memes, movies, and web development you might also enjoy
       following me on{" "}
       {linkScreenshots.twitter && (
-        <div className="absolute z-10 w-32 pointer-events-none bottom-[3.5rem] left-[9.5rem] animate-fade-in-up-5">
+        <div className="hidden lg:block absolute z-10 w-32 pointer-events-none bottom-[3.5rem] left-[9.5rem] animate-fade-in-up-5">
           <img
             src={screenshots.twitter}
             alt="Checkly Screenshot"
