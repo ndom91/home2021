@@ -23,11 +23,12 @@
     "pretty-quick": "pretty-quick --staged"
   },
   "dependencies": {
-    "@mdx-js/loader": "^1.6.22",
+    "@mapbox/rehype-prism": "^0.6.0",
     "@microlink/mql": "^0.9.5",
     "@next/mdx": "^11.0.1",
     "date-fns": "2.22.1",
     "next": "^11.0.1-canary.4",
+    "next-mdx-remote": "^3.0.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scroll-parallax": "^2.4.0",

@@ -16,13 +16,22 @@ module.exports = {
         palevioletred: "#DB7093",
       },
       typography: (theme) => ({
-        pink: {
+        DEFAULT: {
           css: {
-            a: { color: "#db7093" },
+            a: {
+              color: theme("colors.gray.700"),
+              textDecoration: "none",
+              fontWeight: "400",
+            },
           },
         },
         dark: {
           css: {
+            a: {
+              color: theme("colors.gray.300"),
+              textDecoration: "none",
+              fontWeight: "400",
+            },
             '[class~="lead"]': { color: theme("colors.gray.400") },
             strong: { color: theme("colors.gray.100") },
             "ul > li::before": { backgroundColor: theme("colors.gray.700") },

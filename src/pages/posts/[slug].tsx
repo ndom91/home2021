@@ -1,28 +1,44 @@
-import { useRouter } from "next/router"
 import ErrorPage from "next/error"
 import dynamic from "next/dynamic"
 import Head from "next/head"
 import PostBody from "@/components/post-body"
 import PostHeader from "@/components/post-header"
 import Layout from "@/components/layout"
-import PostTitle from "@/components/post-title"
-import { getPostBySlug, getAllPosts } from "../../lib/api"
-import markdownToHtml from "../../lib/markdownToHtml"
 import PostType from "../../types/post"
+import ScreenshotLink from "@/components/screenshot-link"
+
+import fs from "fs"
+import matter from "gray-matter"
+import path from "path"
+import readingTime from "reading-time"
+import { MDXRemote } from "next-mdx-remote"
+import { serialize } from "next-mdx-remote/serialize"
+const rehypePrism = require("@mapbox/rehype-prism")
+
+import { postFilePaths, POSTS_PATH } from "../../lib/mdxUtils"
+
+const components = {
+  ScreenshotLink: ScreenshotLink,
+  PostBody: PostBody,
+  // // It also works with dynamically-imported components, which is especially
+  // // useful for conditionally loading components for certain routes.
+  // // See the notes in README.md for more details.
+  // TestComponent: dynamic(() => import('../../components/TestComponent')),
+  // Head,
+}
 
 const ProgressBar = dynamic(() => import("../../components/read-progress"), {
   ssr: false,
 })
 
 type Props = {
-  post: PostType
-  morePosts: PostType[]
-  preview?: boolean
+  source: any
+  frontMatter: PostType
+  slug: string
 }
 
-const Post = ({ post, morePosts, preview }: Props) => {
-  const router = useRouter()
-  if (!router.isFallback && !post?.slug) {
+const Post = ({ source, frontMatter, slug }: Props) => {
+  if (!frontMatter?.title) {
     return <ErrorPage statusCode={404} />
   }
 
@@ -30,37 +46,41 @@ const Post = ({ post, morePosts, preview }: Props) => {
     <>
       <ProgressBar />
       <Layout>
-        {router.isFallback ? (
-          <PostTitle>Loading…</PostTitle>
-        ) : (
-          <article className="mb-32">
-            <Head>
-              <title>{post.title} | ndom91</title>
-              <meta property="og:type" content="article" />
-              <meta property="og:title" content={`${post.title} | ndom91`} />
-              <meta
-                property="og:url"
-                content={`https://ndo.dev/${router.pathname}`}
-              />
-              <meta property="og:description" content={post.excerpt ?? ""} />
-              <meta property="article:author" content="Nico Domino" />
-              <meta property="article:tag" content={post.tags.join(",")} />
-
-              <meta name="twitter:card" content="summary" />
-              <meta name="twitter:title" content={`${post.title} | ndom91`} />
-              <meta name="twitter:site" content="@ndom91" />
-              <meta name="twitter:description" content={post.excerpt} />
-              <meta name="twitter:image:alt" content={post.title} />
-            </Head>
-            <PostHeader
-              title={post.title}
-              cover={post.cover}
-              date={post.date}
-              time={post.time}
+        <article className="mb-32">
+          <Head>
+            <title>{frontMatter.title} | ndom91</title>
+            <meta property="og:type" content="article" />
+            <meta
+              property="og:title"
+              content={`${frontMatter.title} | ndom91`}
             />
-            <PostBody content={post.content} />
-          </article>
-        )}
+            <meta property="og:url" content={`https://ndo.dev/posts/${slug}`} />
+            <meta
+              property="og:description"
+              content={frontMatter.excerpt ?? ""}
+            />
+            <meta property="article:author" content="Nico Domino" />
+            <meta property="article:tag" content={frontMatter.tags.join(",")} />
+
+            <meta name="twitter:card" content="summary" />
+            <meta
+              name="twitter:title"
+              content={`${frontMatter.title} | ndom91`}
+            />
+            <meta name="twitter:site" content="@ndom91" />
+            <meta name="twitter:description" content={frontMatter.excerpt} />
+            <meta name="twitter:image:alt" content={frontMatter.title} />
+          </Head>
+          <PostHeader
+            title={frontMatter.title}
+            cover={frontMatter.cover}
+            date={frontMatter.date}
+            time={frontMatter.time ?? "1 min"}
+          />
+          <div className="max-w-2xl mx-auto prose-sm prose dark:prose-dark md:prose-lg dark:text-gray-200">
+            <MDXRemote {...source} components={components} />
+          </div>
+        </article>
       </Layout>
     </>
   )
@@ -75,40 +95,43 @@ type Params = {
 }
 
 export async function getStaticProps({ params }: Params) {
-  const post = await getPostBySlug(params.slug, [
-    "title",
-    "date",
-    "slug",
-    "content",
-    "cover",
-    "tags",
-    "excerpt",
-    "category",
-    "time",
-  ])
-  const content = await markdownToHtml(post.content || "")
+  const postFilePath = path.join(POSTS_PATH, params.slug, "index.mdx")
+  const source = fs.readFileSync(postFilePath)
+
+  const { content, data } = matter(source)
+
+  data.excerpt = content
+    .split("\n")
+    .filter((item: string) => item.length)
+    .slice(0, 2)
+    .join(" ")
+
+  data.time = readingTime(content)
+
+  const mdxSource = await serialize(content, {
+    mdxOptions: {
+      remarkPlugins: [],
+      rehypePlugins: [rehypePrism],
+    },
+    scope: data,
+  })
 
   return {
     props: {
-      post: {
-        ...post,
-        content,
-      },
+      source: mdxSource,
+      frontMatter: data,
+      slug: params.slug,
     },
   }
 }
 
-export async function getStaticPaths() {
-  const posts = await getAllPosts(["slug"])
+export const getStaticPaths = async () => {
+  const paths = postFilePaths
+    .map((path) => path.replace(/\.mdx?$/, ""))
+    .map((slug) => ({ params: { slug } }))
 
   return {
-    paths: await Promise.all(
-      posts.map(async (posts) => ({
-        params: {
-          slug: posts.slug,
-        },
-      }))
-    ),
+    paths,
     fallback: false,
   }
 }

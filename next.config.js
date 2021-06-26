@@ -1,5 +1,9 @@
-module.exports = {
-  webpack(config, options) {
+const withMDX = require("@next/mdx")({
+  extension: /\.mdx$/,
+})
+
+module.exports = withMDX({
+  webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
       use: ["@svgr/webpack"],
@@ -9,4 +13,5 @@ module.exports = {
   images: {
     domains: ["iad.microlink.io"],
   },
-}
+  pageExtensions: ["tsx", "md", "mdx"],
+})

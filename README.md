@@ -15,11 +15,12 @@ Now you should have a dev server at http://localhost:3003 available!
 ## 🔩 Features
 
 - Next.js
-- TailwindCSS
-- Remark
-- Prism Syntaxhighlighting
 - Typescript
-- Api Route og:image Generation
+- TailwindCSS
+- MDX
+- Remark
+- Prism Syntax Highlighting
+- API Route - Dynamic `og:image` Generation
 
 ## 🚧 Contributing
 
