@@ -95,9 +95,11 @@ module.exports = {
         "fade-in": "fade-in 1000ms forwards",
         "fade-in-down": "fade-in-down 500ms ease-out",
         "fade-out-down": "fade-out-down 500ms ease-out",
+        "fade-in-up-5":
+          "fade-in-up-5 750ms cubic-bezier(0.68, -0.6, 0.32, 1.6) forwards",
         "fade-in-up-10": "fade-in-up-10 750ms ease-out forwards",
         "fade-in-up-30":
-          "fade-in-up-30 750ms  cubic-bezier(0.68, -0.6, 0.32, 2.5) forwards",
+          "fade-in-up-30 750ms cubic-bezier(0.68, -0.6, 0.32, 2.5) forwards",
         "fade-in-up-500": "fade-in-up-10 750ms ease-out forwards 500ms",
         "fade-out-up": "fade-out-up 500ms ease-out",
       },
@@ -152,6 +154,16 @@ module.exports = {
           to: {
             opacity: "0",
             transform: "translateY(10px)",
+          },
+        },
+        "fade-in-up-5": {
+          "0%": {
+            opacity: "0",
+            transform: "translateY(20px)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translateY(0)",
           },
         },
         "fade-in-up-10": {
