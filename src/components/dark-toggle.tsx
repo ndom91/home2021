@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { useLocalStorage } from "react-use"
+import setFlickerAnimation from "../lib/flicker"
 
 const DarkToggle = () => {
   const [dark, setDark] = useState(true)
@@ -17,10 +18,12 @@ const DarkToggle = () => {
     if (dark) {
       document.documentElement.classList.add("dark")
       setValue("dark")
+      setFlickerAnimation()
       new Audio("/assets/toggle-off.mp3").play()
     } else {
       document.documentElement.classList.remove("dark")
       setValue("light")
+      setFlickerAnimation()
       new Audio("/assets/toggle-on.mp3").play()
     }
   }
@@ -55,7 +58,7 @@ const DarkToggle = () => {
         <button
           aria-label="Dark Toggle"
           onClick={toggleDark}
-          className="p-1 transition-shadow duration-300 rounded-md focus:outline-none hover:ring-4 focus:ring-4 hover:ring-palevioletred focus:ring-palevioletred focus:ring-opacity-70"
+          className="p-1 transition-shadow duration-300 rounded-md focus:outline-none hover:ring-4 focus:ring-4 hover:ring-palevioletred focus:ring-palevioletred"
         >
           {/* Moon */}
           <svg

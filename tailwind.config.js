@@ -1,7 +1,10 @@
 const colors = require("tailwindcss/colors")
 
 module.exports = {
-  purge: ["./src/components/**/*.tsx", "./src/pages/**/*.tsx"],
+  purge: {
+    content: ["./src/components/**/*.tsx", "./src/pages/**/*.tsx"],
+    safelist: ["animate-flicker"],
+  },
   darkMode: "class",
   mode: "jit",
   plugins: [require("@tailwindcss/typography")],
@@ -113,6 +116,7 @@ module.exports = {
           "fade-in-up-30 750ms cubic-bezier(0.68, -0.6, 0.32, 2.5) forwards",
         "fade-in-up-500": "fade-in-up-10 750ms ease-out forwards 500ms",
         "fade-out-up": "fade-out-up 500ms ease-out",
+        flicker: "flicker 3s linear forwards alternate infinite",
       },
       keyframes: {
         "staggered-lines": {
@@ -215,6 +219,50 @@ module.exports = {
           to: {
             opacity: "0",
             transform: "translateY(10px)",
+          },
+        },
+        flicker: {
+          "0%": {
+            opacity: 1,
+          },
+          "19.999%": {
+            opacity: 1,
+          },
+          "22%": {
+            opacity: 1,
+          },
+          "62.999%": {
+            opacity: 1,
+          },
+          "64%": {
+            opacity: 1,
+          },
+          "64.999%": {
+            opacity: 1,
+          },
+          "72%": {
+            opacity: 1,
+          },
+          "100%": {
+            opacity: 1,
+          },
+          "20%": {
+            opacity: 0.33,
+          },
+          "21.999%": {
+            opacity: 0.33,
+          },
+          "63%": {
+            opacity: 0.33,
+          },
+          "63.999%": {
+            opacity: 0.33,
+          },
+          "65%": {
+            opacity: 0.33,
+          },
+          "71.999%": {
+            opacity: 0.33,
           },
         },
       },

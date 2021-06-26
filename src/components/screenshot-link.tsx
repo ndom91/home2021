@@ -24,12 +24,15 @@ const ScreenshotLink = ({ url, text, className }: Props) => {
         : "light"
     }
     try {
+      setIsHovering(true)
       // const { status, data } = await mql(url, {
       //   screenshot: true,
       //   colorScheme,
       //   meta: false,
       // })
-      const req = await fetch(`/api/og?path=${encodeURIComponent(url)}`)
+      const req = await fetch(
+        `/api/og?path=${encodeURIComponent(url)}&colorScheme=${colorScheme}`
+      )
       const image = await req.blob()
       // console.log(image)
       if (status === "success") {
@@ -44,7 +47,6 @@ const ScreenshotLink = ({ url, text, className }: Props) => {
       reader.onloadend = function () {
         setLinkScreenshot(String(reader.result))
       }
-      setIsHovering(true)
     } catch (e) {
       console.error(e)
     }
@@ -69,7 +71,7 @@ const ScreenshotLink = ({ url, text, className }: Props) => {
         href={url}
         target="_blank"
         onMouseEnter={() => fetchImage(url)}
-        onMouseOut={() => setIsHovering(false)}
+        onMouseLeave={() => setIsHovering(false)}
         className="transition-all duration-500 border-underline-grow bg-gradient-to-r dark:from-palevioletred from-pink-300 dark:to-palevioletred to-pink-300"
         rel="noreferrer"
       >

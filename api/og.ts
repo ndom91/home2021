@@ -24,14 +24,20 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   // Generate the full URL out of the given path (GET parameter)
   // const url = `https://${process.env.VERCEL_URL}${req?.query?.path}`
-  const url = req?.query?.path
+  const url: string = req.query.path as string
+  const colorScheme: "light" | "dark" = req.query.colorScheme as
+    | "light"
+    | "dark"
+
+  await page.emulateMedia({ colorScheme: colorScheme })
+
   // @ts-ignore
   await page.goto(url, {
     timeout: 15 * 1000,
   })
 
   // If homepage - wait 1s for enter animation to complete
-  if (req?.query?.path === "/") {
+  if (req?.query?.path === "https://ndo.dev/") {
     await page.waitForTimeout(1000)
   }
 
@@ -44,6 +50,5 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   res.setHeader("Cache-Control", "s-maxage=31536000, stale-while-revalidate")
   res.setHeader("Content-Type", "image/png")
 
-  // write the image to the response with the specified Content-Type
   res.end(data)
 }

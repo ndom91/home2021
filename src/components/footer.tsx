@@ -7,7 +7,7 @@ const Footer = () => {
             href="https://github.com/ndom91"
             target="_blank"
             aria-label="ndom91 github link"
-            className="p-1 text-gray-800 transition-shadow duration-300 rounded-md dark:hover:ring-opacity-30 dark:hover:ring-pink-500 dark:focus:ring-opacity-30 dark:focus:ring-pink-500 dark:text-gray-100 focus:outline-none focus:ring-pink-300 hover:ring-pink-300 focus:ring-4 hover:ring-4"
+            className="p-1 text-gray-800 transition-shadow duration-300 rounded-md dark:hover:ring-palevioletred dark:focus:ring-palevioletred dark:text-gray-100 focus:outline-none focus:ring-pink-300 hover:ring-pink-300 focus:ring-4 hover:ring-4"
             rel="noreferrer"
           >
             <svg
@@ -29,7 +29,7 @@ const Footer = () => {
             href="https://twitter.com/ndom91"
             target="_blank"
             aria-label="ndom91 twitter link"
-            className="p-1 text-gray-800 transition-shadow duration-300 rounded-md dark:hover:ring-opacity-30 dark:hover:ring-pink-500 dark:focus:ring-opacity-30 dark:focus:ring-pink-500 dark:text-gray-100 focus:outline-none focus:ring-pink-300 hover:ring-pink-300 focus:ring-4 hover:ring-4"
+            className="p-1 text-gray-800 transition-shadow duration-300 rounded-md dark:hover:ring-palevioletred dark:focus:ring-palevioletred dark:text-gray-100 focus:outline-none focus:ring-pink-300 hover:ring-pink-300 focus:ring-4 hover:ring-4"
             rel="noreferrer"
           >
             <svg
@@ -51,7 +51,7 @@ const Footer = () => {
             href="mailto:home2021@ndo.dev"
             target="_blank"
             aria-label="ndom91 email link"
-            className="p-1 text-gray-800 transition-shadow duration-300 rounded-md dark:hover:ring-opacity-30 dark:hover:ring-pink-500 dark:focus:ring-opacity-30 dark:focus:ring-pink-500 dark:text-gray-100 focus:outline-none focus:ring-pink-300 hover:ring-pink-300 focus:ring-4 hover:ring-4"
+            className="p-1 text-gray-800 transition-shadow duration-300 rounded-md dark:hover:ring-palevioletred dark:focus:ring-palevioletred dark:text-gray-100 focus:outline-none focus:ring-pink-300 hover:ring-pink-300 focus:ring-4 hover:ring-4"
             rel="noreferrer"
           >
             <svg
