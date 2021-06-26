@@ -64,6 +64,7 @@ declare module "@microlink/mql" {
     prerender: boolean | "auto"
     proxy: string
     screenshot: boolean | ScreenshotOptions
+    colorScheme: "light" | "dark"
     ttl: string | number
     url: string
     video: boolean

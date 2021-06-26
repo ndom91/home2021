@@ -17,8 +17,15 @@ const ScreenshotLink = ({ url, text, className }: Props) => {
   })
 
   const fetchImage = async (url: string) => {
+    let colorScheme: "light" | "dark" = "light"
+    if (typeof document !== "undefined") {
+      colorScheme = document.documentElement.classList.contains("dark")
+        ? "dark"
+        : "light"
+    }
     const { status, data } = await mql(url, {
       screenshot: true,
+      colorScheme,
       meta: false,
     })
     if (status === "success") {
