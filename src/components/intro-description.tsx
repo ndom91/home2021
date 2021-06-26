@@ -26,10 +26,6 @@ const IntroDescription = () => {
     const { status, data } = await mql(url, {
       screenshot: true,
       meta: false,
-      overlay: {
-        background: "#fff",
-        browser: "dark",
-      },
     })
     setLinkScreenshots({ ...linkScreenshots, [site]: true })
     if (status === "success") {
@@ -47,11 +43,11 @@ const IntroDescription = () => {
       Hi! My name&apos;s Nico Domino and I&lsquo;m a full-stack javascript
       developer at{" "}
       {linkScreenshots.checkly && (
-        <div className="absolute z-10 w-32 h-32 rounded-md pointer-events-none -top-12 left-32 animate animate-fade-in-up-5">
+        <div className="absolute z-10 w-32 pointer-events-none -top-12 left-32 animate-fade-in-up-5">
           <img
             src={screenshots.checkly}
             alt="Checkly Screenshot"
-            className="rounded-md shadow-xl"
+            className="rounded-md"
           />
         </div>
       )}
@@ -72,11 +68,11 @@ const IntroDescription = () => {
       </a>{" "}
       🦝. In the evenings you can find me working on open source software, like{" "}
       {linkScreenshots.nextauth && (
-        <div className="absolute z-10 w-32 h-32 rounded-md pointer-events-none -top-4 right-[5.2rem] animate animate-fade-in-up-5">
+        <div className="absolute z-10 w-32 pointer-events-none -top-4 right-[5.2rem] animate-fade-in-up-5">
           <img
             src={screenshots.nextauth}
             alt="Checkly Screenshot"
-            className="rounded-md shadow-xl"
+            className="rounded-md"
           />
         </div>
       )}
@@ -99,11 +95,11 @@ const IntroDescription = () => {
       Frankfurt, Germany where I occasionally write about my adventures in tech
       on my{" "}
       {linkScreenshots.blog && (
-        <div className="absolute z-10 w-32 h-32 rounded-md pointer-events-none top-24 left-56 animate animate-fade-in-up-5">
+        <div className="absolute z-10 w-32 pointer-events-none top-24 left-56 animate-fade-in-up-5">
           <img
             src={screenshots.blog}
             alt="Checkly Screenshot"
-            className="rounded-md shadow-xl"
+            className="rounded-md"
           />
         </div>
       )}
@@ -124,11 +120,11 @@ const IntroDescription = () => {
       📓 and if you like memes, movies, and web development you might also enjoy
       following me on{" "}
       {linkScreenshots.twitter && (
-        <div className="absolute z-10 w-32 h-32 rounded-md pointer-events-none bottom-2 left-[9.5rem] animate animate-fade-in-up-5">
+        <div className="absolute z-10 w-32 pointer-events-none bottom-[3.5rem] left-[9.5rem] animate-fade-in-up-5">
           <img
             src={screenshots.twitter}
             alt="Checkly Screenshot"
-            className="rounded-md shadow-xl"
+            className="rounded-md"
           />
         </div>
       )}
