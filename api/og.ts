@@ -6,8 +6,12 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   // Start the browser with the AWS Lambda wrapper (chrome-aws-lambda)
   const browser = await playwright.chromium.launch({
     args: chromium.args,
+    // DEPLOY
     executablePath: await chromium.executablePath,
     headless: chromium.headless,
+    // LOCAL
+    // executablePath: "/usr/bin/chromium",
+    // headless: true,
   })
 
   // Create a page with the Open Graph image size best practise
@@ -19,7 +23,9 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   })
 
   // Generate the full URL out of the given path (GET parameter)
-  const url = `https://${process.env.VERCEL_URL}${req?.query?.path}`
+  // const url = `https://${process.env.VERCEL_URL}${req?.query?.path}`
+  const url = req?.query?.path
+  // @ts-ignore
   await page.goto(url, {
     timeout: 15 * 1000,
   })
