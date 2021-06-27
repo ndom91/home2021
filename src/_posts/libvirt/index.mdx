@@ -27,9 +27,13 @@ So lets get started..
 
 No matter which distro you're on, you'll want to install a few packages. On arch we're going to execute:
 
+<CodeEditor>
+
 ```bash
 yay qemu libvirt virt-install
 ```
+
+</CodeEditor>
 
 I believe the packages have the same name in the Debian / Ubuntu world, so just replace `yay` with `sudo apt install`.
 
@@ -39,9 +43,13 @@ First we have to create a disk image for the OS to install into. The following c
 
 We're going to use the `qemu-img` binary which ships with `qemu` to generate this 15GB image at `/var/lib/libvirt/images/`. Feel free to adjust the path, but this is the default storage location for `libvirt` images.
 
+<CodeEditor>
+
 ```bash
 sudo qemu-img create -o preallocation=metadata -f qcow2 /var/lib/libvirt/images/test1.qcow2 15G
 ```
+
+</CodeEditor>
 
 2. Create Network Interface
 
@@ -49,11 +57,17 @@ The easiest setup to provide a network connection to a VM is via whats known as 
 
 First, we'll need to create a bridge definition in `/var/lib/libvirt/network`.
 
+<CodeEditor>
+
 ```bash
 sudo vim /var/lib/libvirt/network/br10.xml
 ```
 
+</CodeEditor>
+
 Then enter the following:
+
+<CodeEditor>
 
 ```bash
 <network>
@@ -72,9 +86,13 @@ Then enter the following:
 </network>
 ```
 
+</CodeEditor>
+
 Feel free to adjust the above ip ranges, bridge name, etc.
 
 After you've saved the file, we'll go into `virsh` and define the network.
+
+<CodeEditor>
 
 ```bash
 sudo virsh
@@ -83,6 +101,8 @@ net-start br10
 quit
 ```
 
+</CodeEditor>
+
 Now if you check your available network interfaces (`ip link show`), you should see `br10` listed among your physical interface, loopback, maybe wifi, etc.
 
 3. Start Installation
@@ -90,6 +110,8 @@ Now if you check your available network interfaces (`ip link show`), you should 
 Finally, we can begin the installation with the disk and network interface we just created!
 
 With `virt-install`, you can actually automate the entire installation process if you wanted to so as to do a completely unattended install. However, we're going to do a bog standard install today with the following command:
+
+<CodeEditor>
 
 ```bash
 sudo virt-install --virt-type kvm --name ubuntu2010 --ram 2048 \
@@ -100,6 +122,8 @@ sudo virt-install --virt-type kvm --name ubuntu2010 --ram 2048 \
    --cdrom=/opt/images/ubuntu-20.10-beta-desktop-amd64.iso
 ```
 
+</CodeEditor>
+
 You'll see here we're defining a few things, the type of vm (`kvm`), the name (`ubuntu2010`), the amount of ram in mb (`2048`), the disk image we created earlier as well as its format, the network bridge we just created, as well as a graphics settings (in this case, start vnc and listen on 0.0.0.0). Finally, we're telling it what type of OS we're install (`linux`) and where to find the boot image.
 
 There are many flags for `virt-install`, so I won't go over all of them here, but you can view its man page either on your system if you have it installed, or online [here](https://manpages.debian.org/testing/virtinst/virt-install.1.en.html)
@@ -107,6 +131,8 @@ There are many flags for `virt-install`, so I won't go over all of them here, bu
 4. Using your new VM
 
 Finally, once the install is complete and you've shut it down for the first time, you're probably wondering how do I start the VM again?! Easy!
+
+<CodeEditor>
 
 ```bash
 virsh start [vm name]
@@ -117,6 +143,8 @@ virsh console [vm id]
 # alternatively print VNC connection string
 virsh domdisplay [vm name]
 ```
+
+</CodeEditor>
 
 You can use `virt-viewer` and directly connect via the qemu socket like so, `virt-viewer --connect qemu:///system 7`
 

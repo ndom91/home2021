@@ -6,6 +6,7 @@ import PostHeader from "@/components/post-header"
 import Layout from "@/components/layout"
 import PostType from "../../types/post"
 import ScreenshotLink from "@/components/screenshot-link"
+import CodeEditor from "@/components/mdx/code-editor"
 
 import fs from "fs"
 import matter from "gray-matter"
@@ -20,6 +21,7 @@ import { postFilePaths, POSTS_PATH } from "../../lib/mdxUtils"
 const components = {
   ScreenshotLink: ScreenshotLink,
   PostBody: PostBody,
+  CodeEditor: CodeEditor,
   // // It also works with dynamically-imported components, which is especially
   // // useful for conditionally loading components for certain routes.
   // // See the notes in README.md for more details.
