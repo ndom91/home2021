@@ -20,7 +20,8 @@ Now you should have a dev server at http://localhost:3003 available!
 - MDX
 - Remark
 - Prism Syntax Highlighting
-- API Route - Dynamic `og:image` Generation
+- API Route - Dynamic `og:image` + Page Screenshot Generation
+- React-Spring
 
 ## 🚧 Contributing
 

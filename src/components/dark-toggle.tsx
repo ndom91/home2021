@@ -1,8 +1,29 @@
+import { useRouter } from "next/router"
+import { animated, useSpring } from "react-spring"
 import { useEffect, useState } from "react"
 import { useLocalStorage } from "react-use"
 import setFlickerAnimation from "../lib/flicker"
 
+const properties = {
+  dark: {
+    r: 9,
+    transform: "rotate(50deg)",
+    cx: 11,
+    cy: 4,
+    opacity: 0,
+  },
+  light: {
+    r: 5,
+    transform: "rotate(90deg)",
+    cx: 30,
+    cy: 0,
+    opacity: 1,
+  },
+  springConfig: { mass: 4, tension: 350, friction: 30 },
+}
+
 const DarkToggle = () => {
+  const router = useRouter()
   const [dark, setDark] = useState(true)
   const [value, setValue] = useLocalStorage("theme", "", {
     raw: true,
@@ -13,25 +34,47 @@ const DarkToggle = () => {
     }
   }, [])
 
+  // Animate Toggle
+  const { r, transform, cx, cy, opacity } = properties[!dark ? "dark" : "light"]
+  const svgContainerProps = useSpring({
+    transform,
+    config: properties.springConfig,
+  })
+  const centerCircleProps = useSpring({ r, config: properties.springConfig })
+  const maskedCircleProps = useSpring({
+    cx,
+    cy,
+    config: properties.springConfig,
+  })
+  const linesProps = useSpring({ opacity, config: properties.springConfig })
+
   const toggleDark = () => {
     setDark(!dark)
     if (dark) {
       document.documentElement.classList.add("dark")
       setValue("dark")
       setFlickerAnimation()
+
+      // Switch Off
       const jsSoundOff = document.getElementById(
         "js-sound-off"
       ) as HTMLAudioElement
       jsSoundOff?.play()
-      setTimeout(() => {
-        const jsNeonBulb = document.getElementById(
-          "js-sound-neon-bulb"
-        ) as HTMLAudioElement
-        jsNeonBulb?.play()
-      }, 500)
+
+      if (router.pathname === "/") {
+        // Neon Bulb Sound - play only on homepage
+        setTimeout(() => {
+          const jsNeonBulb = document.getElementById(
+            "js-sound-neon-bulb"
+          ) as HTMLAudioElement
+          jsNeonBulb?.play()
+        }, 500)
+      }
     } else {
       document.documentElement.classList.remove("dark")
       setValue("light")
+
+      // Switch On
       setFlickerAnimation()
       const jsSoundOn = document.getElementById(
         "js-sound-on"
@@ -42,55 +85,52 @@ const DarkToggle = () => {
 
   return (
     <div className="relative text-gray-800 dark:text-gray-400">
-      {dark ? (
-        <button
-          aria-label="Light Toggle"
-          onClick={toggleDark}
-          className="p-1 transition-shadow duration-300 rounded-md focus:outline-none hover:ring-4 focus:ring-4 focus:ring-pink-300 hover:ring-pink-300"
+      <button
+        aria-label="Dark Toggle"
+        onClick={toggleDark}
+        className="p-1 transition-shadow duration-300 rounded-md focus:outline-none hover:ring-4 focus:ring-4 dark:hover:ring-palevioletred dark:focus:ring-palevioletred focus:ring-pink-300 hover:ring-pink-300"
+      >
+        <animated.svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          stroke="currentColor"
+          style={{
+            cursor: "pointer",
+            ...svgContainerProps,
+          }}
         >
-          {/* Sun */}
-          <svg
-            className="m-0.5 w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            height={32}
-            width={32}
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={1.5}
-              d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
-            />
-          </svg>
-        </button>
-      ) : (
-        <button
-          aria-label="Dark Toggle"
-          onClick={toggleDark}
-          className="p-1 transition-shadow duration-300 rounded-md focus:outline-none hover:ring-4 focus:ring-4 hover:ring-palevioletred focus:ring-palevioletred"
-        >
-          {/* Moon */}
-          <svg
-            className="m-0.5 w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            height={32}
-            width={32}
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={1.5}
-              d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-            />
-          </svg>
-        </button>
-      )}
+          <mask id="myMask2">
+            <rect x="0" y="0" width="100%" height="100%" fill="white" />
+            {/* @ts-ignore */}
+            <animated.circle style={maskedCircleProps} r="10" fill="black" />
+          </mask>
+
+          <animated.circle
+            cx="12"
+            cy="12"
+            // @ts-ignore
+            style={centerCircleProps}
+            fill="currentColor"
+            mask="url(#myMask2)"
+          />
+          <animated.g stroke="currentColor" style={linesProps}>
+            <line x1="12" y1="1" x2="12" y2="3" />
+            <line x1="12" y1="21" x2="12" y2="23" />
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+            <line x1="1" y1="12" x2="3" y2="12" />
+            <line x1="21" y1="12" x2="23" y2="12" />
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+          </animated.g>
+        </animated.svg>
+      </button>
       <audio
         src="/assets/toggle-off.mp3"
         id="js-sound-off"
