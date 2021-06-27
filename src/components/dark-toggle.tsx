@@ -9,7 +9,7 @@ const properties = {
     r: 9,
     transform: "rotate(50deg)",
     cx: 11,
-    cy: 4,
+    cy: 5,
     opacity: 0,
   },
   light: {
@@ -19,7 +19,7 @@ const properties = {
     cy: 0,
     opacity: 1,
   },
-  springConfig: { mass: 4, tension: 350, friction: 30 },
+  springConfig: { mass: 2, tension: 200, friction: 20 },
 }
 
 const DarkToggle = () => {
@@ -96,10 +96,10 @@ const DarkToggle = () => {
           height="24"
           viewBox="0 0 24 24"
           fill="none"
-          strokeWidth="2"
+          strokeWidth="1.5"
           strokeLinecap="round"
           strokeLinejoin="round"
-          stroke="currentColor"
+          stroke="transparent"
           style={{
             cursor: "pointer",
             ...svgContainerProps,
@@ -108,12 +108,17 @@ const DarkToggle = () => {
           <mask id="myMask2">
             <rect x="0" y="0" width="100%" height="100%" fill="white" />
             {/* @ts-ignore */}
-            <animated.circle style={maskedCircleProps} r="10" fill="black" />
+            <animated.circle
+              style={maskedCircleProps}
+              r="10"
+              fill="black"
+              stroke="black"
+            />
           </mask>
 
           <animated.circle
             cx="12"
-            cy="12"
+            cy="13"
             // @ts-ignore
             style={centerCircleProps}
             fill="currentColor"

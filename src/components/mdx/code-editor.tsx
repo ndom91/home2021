@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react"
+import { useState, FunctionComponent } from "react"
 import { useCopyToClipboard } from "react-use"
 import textContent from "react-addons-text-content"
 
@@ -7,7 +7,18 @@ type EditorProps = {
 }
 
 const CodeEditor: FunctionComponent<EditorProps> = ({ title, children }) => {
+  const [success, setSuccess] = useState(false)
   const [state, copyToClipboard] = useCopyToClipboard()
+
+  const copyCode = () => {
+    copyToClipboard(textContent(children))
+    if (!state.error) {
+      setSuccess(true)
+    }
+    setTimeout(() => {
+      setSuccess(false)
+    }, 3000)
+  }
 
   return (
     <div>
@@ -25,23 +36,40 @@ const CodeEditor: FunctionComponent<EditorProps> = ({ title, children }) => {
           </div>
         </div>
         <button
-          className="inline-flex p-1 mr-2 transition-opacity duration-300 rounded-md opacity-25 rounded-t-md hover:opacity-100 hover:cursor-pointer focus:outline-none hover:outline-none focus:ring-2 dark:ring-palevioletred hover:ring-palevioletred hover:ring-2 focus:opacity-100"
-          onClick={() => copyToClipboard(textContent(children))}
+          className="inline-flex p-1 mr-2 transition-shadow duration-300 rounded-md tra rounded-t-md hover:opacity-100 hover:cursor-pointer focus:outline-none hover:outline-none focus:ring-2 dark:ring-palevioletred hover:ring-palevioletred hover:ring-2 focus:opacity-100"
+          onClick={copyCode}
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-5 h-5"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"
-            />
-          </svg>
+          {success ? (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-5 h-5 transition-all duration-1000 opacity-100"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="#56caa3"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"
+              />
+            </svg>
+          ) : (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-5 h-5 transition-all duration-1000 opacity-100"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"
+              />
+            </svg>
+          )}
         </button>
       </div>
       <div className="z-10">{children}</div>
