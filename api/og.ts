@@ -6,24 +6,22 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   // Start the browser with the AWS Lambda wrapper (chrome-aws-lambda)
   const browser = await playwright.chromium.launch({
     args: chromium.args,
-    // DEPLOY
-    executablePath: await chromium.executablePath,
-    headless: chromium.headless,
-    // LOCAL
-    // executablePath: "/usr/bin/chromium",
-    // headless: true,
+    executablePath:
+      process.env.NODE_ENV !== "development"
+        ? await chromium.executablePath
+        : "/usr/bin/chromium",
+    headless: process.env.NODE_ENV !== "development" ? chromium.headless : true,
   })
 
   // Create a page with the Open Graph image size best practise
   const page = await browser.newPage({
     viewport: {
       width: 1200,
-      height: 630,
+      height: 720,
     },
   })
 
   // Generate the full URL out of the given path (GET parameter)
-  // const url = `https://${process.env.VERCEL_URL}${req?.query?.path}`
   const url: string = req.query.path as string
   const colorScheme: "light" | "dark" = req.query.colorScheme as
     | "light"
@@ -50,5 +48,5 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   res.setHeader("Cache-Control", "s-maxage=31536000, stale-while-revalidate")
   res.setHeader("Content-Type", "image/png")
 
-  res.end(data)
+  res.end(data.toString("base64"))
 }

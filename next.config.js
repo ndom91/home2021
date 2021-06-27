@@ -11,7 +11,7 @@ const nextConfig = withMDX({
     return config
   },
   images: {
-    domains: ["iad.microlink.io"],
+    domains: ["iad.microlink.io", ""],
   },
   pageExtensions: ["tsx", "md", "mdx"],
 })

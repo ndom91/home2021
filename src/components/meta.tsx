@@ -4,8 +4,12 @@ import { useRouter } from "next/router"
 const Meta = () => {
   const router = useRouter()
   const searchParams = new URLSearchParams()
-  searchParams.set("path", router.pathname)
-  const fullImageURL = `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/og?${searchParams}`
+  searchParams.set("path", `https://ndo.dev${router.pathname}`)
+  const fullImageURL = `${
+    process.env.NODE_ENV === "development"
+      ? "http://localhost:3003"
+      : "https://ndo.dev"
+  }/api/og?${searchParams}`
 
   return (
     <Head>
