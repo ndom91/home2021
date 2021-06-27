@@ -19,12 +19,24 @@ const DarkToggle = () => {
       document.documentElement.classList.add("dark")
       setValue("dark")
       setFlickerAnimation()
-      new Audio("/assets/toggle-off.mp3").play()
+      const jsSoundOff = document.getElementById(
+        "js-sound-off"
+      ) as HTMLAudioElement
+      jsSoundOff?.play()
+      setTimeout(() => {
+        const jsNeonBulb = document.getElementById(
+          "js-sound-neon-bulb"
+        ) as HTMLAudioElement
+        jsNeonBulb?.play()
+      }, 500)
     } else {
       document.documentElement.classList.remove("dark")
       setValue("light")
       setFlickerAnimation()
-      new Audio("/assets/toggle-on.mp3").play()
+      const jsSoundOn = document.getElementById(
+        "js-sound-on"
+      ) as HTMLAudioElement
+      jsSoundOn?.play()
     }
   }
 
@@ -79,6 +91,24 @@ const DarkToggle = () => {
           </svg>
         </button>
       )}
+      <audio
+        src="/assets/toggle-off.mp3"
+        id="js-sound-off"
+        preload="auto"
+        hidden
+      ></audio>
+      <audio
+        src="/assets/toggle-on.mp3"
+        id="js-sound-on"
+        preload="auto"
+        hidden
+      ></audio>
+      <audio
+        src="/assets/neon-bulb.mp3"
+        id="js-sound-neon-bulb"
+        preload="auto"
+        hidden
+      ></audio>
     </div>
   )
 }

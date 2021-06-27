@@ -38,6 +38,10 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   if (req?.query?.path === "https://ndo.dev/") {
     await page.waitForTimeout(1000)
   }
+  // If twitter - wait for intro load animation to complete
+  if (req?.query?.path === "https://twitter.com/ndom91") {
+    await page.waitForTimeout(500)
+  }
 
   const data = await page.screenshot({
     type: "png",

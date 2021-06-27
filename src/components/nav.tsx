@@ -1,5 +1,8 @@
 import Link from "next/link"
-import DarkToggle from "@/components/dark-toggle"
+import dynamic from "next/dynamic"
+// import DarkToggle from "@/components/dark-toggle"
+
+const DarkToggle = dynamic(() => import("@/components/dark-toggle"))
 
 const Navbar = () => {
   return (
@@ -28,18 +31,6 @@ const Navbar = () => {
         </li>
       </ul>
       <DarkToggle />
-      <audio
-        src="/assets/toggle-off.mp3"
-        id="js-sound-off"
-        preload="auto"
-        hidden
-      ></audio>
-      <audio
-        src="/assets/toggle-on.mp3"
-        id="js-sound-on"
-        preload="auto"
-        hidden
-      ></audio>
     </nav>
   )
 }
