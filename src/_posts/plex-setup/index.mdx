@@ -20,7 +20,7 @@ My goal is to run the VPS as a 24/7 torrent box, and the baremetal server will t
 
 For torrents themselves, I plan to continue to use qBittorrent, with which I've had good experience with in the past.
 
-For managing TV shows I'm partial to Sickrage / [Sickchill](https://github.com/sickchill/sickchill) or whichever fork is currently active in the community. For movies I prefer [Couchpotato](https://github.com/CouchPotato/CouchPotatoServer), as great as this project is, it is currently unmaintained so if anyone has any suggestions for a project that is at least feature equivalent to Couchpotato that'd be great.
+For managing TV shows I'm partial to Sickrage / <ScreenshotLink text="Sickchill" url="https://github.com/sickchill/sickchill" /> or whichever fork is currently active in the community. For movies I prefer <ScreenshotLink text="Couchpotato" url="https://github.com/CouchPotato/CouchPotatoServer" />, as great as this project is, it is currently unmaintained so if anyone has any suggestions for a project that is at least feature equivalent to Couchpotato that'd be great.
 
 ### DNS
 
@@ -32,12 +32,12 @@ We need to create a few subdomains for the services we are about to setup, the n
 
 Go to your DNS overview, click "Create" and make the following subdomains:
 
-- `dl.domain.tld` - for qBittorrent
-- `movies.domain.tld` - for Couchpotato
-- `tv.domain.tld` - for Sickchill
-- `watch.domain.tld` - for Plex
+- `qbittorrent.domain.tld` - for qBittorrent
+- `couchpotato.domain.tld` - for Couchpotato
+- `sickchill.domain.tld` - for Sickchill
+- `plex.domain.tld` - for Plex
 
-`dl`, `movies`, and `tv` will all point to our torrent box, and `watch` will point to our bare metal plex box.
+`qbittorrent`, `couchpotato`, and `sickchill` will all point to our torrent box (rented VPS), and `plex` will point to our bare metal server.
 
 ## Server 1
 
@@ -45,10 +45,16 @@ Go to your DNS overview, click "Create" and make the following subdomains:
 
 Let's get started with the VPS. This is a brand new Ubuntu 20.04 installation, so well begin by updating and installing some necessary packages.
 
+<CodeEditor>
+
 ```bash
 sudo apt update && sudo apt upgrade -y
-sudo apt install -y vim git net-tools nginx certbot python3-certbot-nginx python2 software-properties-common python-pip-whl
+sudo apt install -y vim git net-tools nginx \
+  certbot python3-certbot-nginx python2 \
+  software-properties-common python-pip-whl
 ```
+
+</CodeEditor>
 
 Once we have those, we can get started with the tools. This box will need the following:
 
@@ -58,13 +64,19 @@ Once we have those, we can get started with the tools. This box will need the fo
 
 First things first, we'll create a user/group for all of these applications to run under
 
+<CodeEditor>
+
 ```bash
 sudo useradd media -g media -u 420 -s /usr/sbin/nologin -Um
 ```
 
+</CodeEditor>
+
 > This command does a few things for us, first it creates the user `media` with the GUID 420, then it creates a group with the same name, creates a home directory for it at `/home/media` and sets the default shell to `/usr/sbin/nologin` so one cannot login with it - its for application use only.
 
 Next, lets setup some directories for the ongoing and completed downloads:
+
+<CodeEditor>
 
 ```bash
 sudo mkdir -p /opt/{downloads,media}/{tv,movies}
@@ -72,26 +84,38 @@ sudo chown -R media: /opt/media
 sudo chown -R media: /opt/downloads
 ```
 
+</CodeEditor>
+
 Now we can begin installing stuff!
 
 ### qBittorrent
 
 There is a version of the headless qBittorrent package in the Ubuntu repos, but its pretty old. So we'll be adding the PPA from qbittorrent themselves.
 
+<CodeEditor>
+
 ```bash
 sudo add-apt-repository ppa:qbittorrent-team/qbittorrent-stable
 sudo apt update && sudo apt install -y qbittorrent-nox
 ```
 
+</CodeEditor>
+
 Then we must setup a systemd unit file for this,
+
+<CodeEditor>
 
 ```bash
 sudo vim /etc/systemd/system/qbittorrent.service
 ```
 
+</CodeEditor>
+
 And copy the following contents in:
 
-```
+<CodeEditor>
+
+```bash
 [Unit]
 Description=qBittorrent Command Line Client
 After=network.target
@@ -108,13 +132,19 @@ Restart=on-failure
 WantedBy=multi-user.target
 ```
 
+</CodeEditor>
+
 Close vim, and activate this systemd service.
+
+<CodeEditor>
 
 ```bash
 sudo systemctl daemon-reload
 sudo systemctl enable qbittorrent
 sudo systemctl start qbittorrent
 ```
+
+</CodeEditor>
 
 > If you get any errors starting it, you can troubleshoot the systemd process with the following command `sudo journalctl -xeu qbittorrent`
 
@@ -126,32 +156,42 @@ Finally we need to setup the reverse proxy nginx config for this application.
 
 I like to do the certificate first so I don't have to fiddle around with nginx beforehand. To run certbot in standalone mode though, it needs to spin up its own temporary web server, so we need to stop nginx so the ports aren't blocked.
 
+<CodeEditor>
+
 ```bash
 sudo systemctl stop nginx
 sudo certbot certonly --standalone -d dl.host.tld -d movies.host.tld -d tv.host.tld
 sudo systemctl start nginx
 ```
 
+</CodeEditor>
+
 Now we have certificates for our application(s) domains. Make a note of which folder they got saved in exactly. It is usually under: `/etc/letsencrypt/live/...`, we will need it in the next steps for the nginx config.
+
+<CodeEditor>
 
 ```bash
 sudo vim /etc/nginx/conf.d/qbittorrent.conf
 ```
 
-Copy in the following and make sure to change `dl.domain.tld` to the domain you chose! This config is relatively simple, we're just reverse proxying port 8080, on which qBittorrent is running, out to the internet under the domain `dl.domain.tld`.
+</CodeEditor>
 
-```
+Copy in the following and make sure to change `qbittorrent.domain.tld` to the domain you chose! This config is relatively simple, we're just reverse proxying port 8080, on which qBittorrent is running, out to the internet under the domain `qbittorrent.domain.tld`.
+
+<CodeEditor>
+
+```bash
 server {
   listen 80;
-  server_name dl.domain.tld;
+  server_name qbittorrent.domain.tld;
 
-  return 301 https://dl.domain.tld$request_uri;
+  return 301 https://qbittorrent.domain.tld$request_uri;
 }
 
 server {
 
   listen 443 ssl http2; # managed by Certbot
-  server_name dl.domain.tld;
+  server_name qbittorrent.domain.tld;
 
   location /{
     proxy_pass http://127.0.0.1:8080;
@@ -166,12 +206,14 @@ server {
     # internal;
   }
 
-  ssl_certificate /etc/letsencrypt/live/dl.domain.tld/fullchain.pem; # managed by Certbot
-  ssl_certificate_key /etc/letsencrypt/live/dl.domain.tld/privkey.pem; # managed by Certbot
+  ssl_certificate /etc/letsencrypt/live/qbittorrent.domain.tld/fullchain.pem; # managed by Certbot
+  ssl_certificate_key /etc/letsencrypt/live/qbittorrent.domain.tld/privkey.pem; # managed by Certbot
   include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
   ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
 }
 ```
+
+</CodeEditor>
 
 Finally, close vim and run `sudo nginx -t` to lint the config, and `sudo nginx -s reload` to reload the nginx and pick up the new config. Now your qBittorrent instance should be available at the URL of your chosing!
 
@@ -190,19 +232,29 @@ Next, close the settings window and in the left hand column menu, right click on
 
 This application is installed by simply cloning their repo. So we will clone this into `/opt/SickChill` by doing the following
 
+<CodeEditor>
+
 ```bash
 cd /opt
 sudo git clone https://github.com/SickChill/SickChill.git
 sudo chown -R media: /opt/SickChill
 ```
 
+</CodeEditor>
+
 Then we can setup a systemd service file for it.
+
+<CodeEditor>
 
 ```bash
 sudo vim /etc/systemd/system/sickchill.service
 ```
 
+</CodeEditor>
+
 And copy the following into it:
+
+<CodeEditor>
 
 ```
 [Unit]
@@ -219,7 +271,11 @@ ExecStart=/usr/bin/python2 /opt/SickChill/SickBeard.py -q --daemon --nolaunch --
 WantedBy=multi-user.target
 ```
 
+</CodeEditor>
+
 And don't forget to enable the systemd service.
+
+<CodeEditor>
 
 ```bash
 sudo systemctl daemon-reload
@@ -227,32 +283,40 @@ sudo systemctl enable sickchill
 sudo systemctl start sickchill
 ```
 
+</CodeEditor>
+
 > If you get any errors starting it, you can troubleshoot the systemd process with the following command `sudo journalctl -xeu sickchill`
 
 If everything went smoothly, we should have this service running on port `8081` now. Again, you can use `netstat -tlpn` to confirm this.
 
-We now need to setup the nginx config file for sickchill as well. Remember in the previous section for qBittorrent, we used certbot to request a certificate for `tv.domain.tld` already, therefore we can skip that step this time and simply apply the preexisting cert here.
+We now need to setup the nginx config file for sickchill as well. Remember in the previous section for qBittorrent, we used certbot to request a certificate for `sickchill.domain.tld` already, therefore we can skip that step this time and simply apply the preexisting cert here.
 
 So open up a new nginx config
+
+<CodeEditor>
 
 ```bash
 sudo vim /etc/nginx/conf.d/sickchill.conf
 ```
 
+</CodeEditor>
+
 And paste in the following:
 
-```
+<CodeEditor>
+
+```bash
 server {
   listen 80;
-  server_name tv.domain.tld;
+  server_name sickchill.domain.tld;
 
-  return 301 https://tv.domain.tld$request_uri;
+  return 301 https://sickchill.domain.tld$request_uri;
 }
 
 server {
 
   listen 443 ssl http2; # managed by Certbot
-  server_name tv.domain.tld;
+  server_name sickchill.domain.tld;
 
   location /{
     proxy_pass http://127.0.0.1:8081;
@@ -267,15 +331,17 @@ server {
     # internal;
   }
 
-  ssl_certificate /etc/letsencrypt/live/dl.domain.tld/fullchain.pem; # managed by Certbot
-  ssl_certificate_key /etc/letsencrypt/live/dl.domain.tld/privkey.pem; # managed by Certbot
+  ssl_certificate /etc/letsencrypt/live/qbittorrent.domain.tld/fullchain.pem; # managed by Certbot
+  ssl_certificate_key /etc/letsencrypt/live/qbittorrent.domain.tld/privkey.pem; # managed by Certbot
   include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
   ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
 }
 
 ```
 
-> Don't forget to swap out `tv.domain.tld` for your chosen tv domain.
+</CodeEditor>
+
+> Don't forget to swap out `sickchill.domain.tld` for your chosen sickchill.domain.
 
 Now, visit your chosen URL and login with the default credentials:
 
@@ -304,29 +370,43 @@ There are a few other settings you should adjust in Sickchill, but I won't go ov
 
 Last, but not least - Couchpotato. This is also simply a matter of cloning their repository:
 
+<CodeEditor>
+
 ```bash
 cd /opt
 sudo git clone https://github.com/CouchPotato/CouchPotatoServer.git couchpotato
 sudo chown -R media: couchpotato
 ```
 
+</CodeEditor>
+
 We also have to install `PyOpenSSL`,
+
+<CodeEditor>
 
 ```bash
 pip install --upgrade pyopenssl
 ```
 
+</CodeEditor>
+
 > If `pip` is not installed, you can install it via `sudo apt install python3-pip` or manually from pypa.io's script: `cd ~/ && wget https://bootstrap.pypa.io/get-pip.py && python get-pip.py`
 
 Next, lets setup a systemd service file for couchpotato as well.
+
+<CodeEditor>
 
 ```bash
 sudo vim /etc/systemd/system/couchpotato.service
 ```
 
+</CodeEditor>
+
 And paste in the following:
 
-```
+<CodeEditor>
+
+```bash
 [Unit]
 Description=CouchPotato application instance
 After=network.target
@@ -343,7 +423,11 @@ RestartSec=2s
 WantedBy=multi-user.target
 ```
 
+</CodeEditor>
+
 Then enable it as well.
+
+<CodeEditor>
 
 ```bash
 sudo systemctl daemon-reload
@@ -352,27 +436,35 @@ sudo systemctl start couchpotato
 sudo systemctl status couchpotato
 ```
 
+</CodeEditor>
+
 If all went well, you should now also have couchpotato running on port `5050`.
 
 Now we need to setup the nginx config for couchpotato.
+
+<CodeEditor>
 
 ```bash
 sudo vim /etc/nginx/conf.d/couchpotato.conf
 ```
 
+</CodeEditor>
+
 Copy in the following:
 
-```
+<CodeEditor>
+
+```bash
 server {
   listen 80;
-  server_name movies.domain.tld;
+  server_name couchpotato.domain.tld;
 
-  return 301 https://movies.domain.tld$request_uri;
+  return 301 https://couchpotato.domain.tld$request_uri;
 }
 
 server {
   listen 443 ssl http2; # managed by Certbot
-  server_name movies.domain.tld;
+  server_name couchpotato.domain.tld;
 
   location / {
     proxy_pass http://127.0.0.1:5050;
@@ -387,12 +479,14 @@ server {
     # internal;
   }
 
-  ssl_certificate /etc/letsencrypt/live/dl.domain.tld/fullchain.pem; # managed by Certbot
-  ssl_certificate_key /etc/letsencrypt/live/dl.domain.tld/privkey.pem; # managed by Certbot
+  ssl_certificate /etc/letsencrypt/live/qbittorrent.domain.tld/fullchain.pem; # managed by Certbot
+  ssl_certificate_key /etc/letsencrypt/live/qbittorrent.domain.tld/privkey.pem; # managed by Certbot
   include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
   ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
 }
 ```
+
+</CodeEditor>
 
 Once this is in place, we can let nginx check its configs again and reload it, `sudo nginx -t` and `sudo nginx -s reload`.
 
@@ -400,12 +494,16 @@ Now when we visit our domain, we are greeted with the Couchpotato setup wizard. 
 
 Under the section **Downloaders**, check the box next to qBittorrent and enter the following details:
 
-```
+<CodeEditor>
+
+```bash
 Host: http://127.0.0.1:8080
 Username: selected Username
 Password: selected Password
 Torrent Label: movies
 ```
+
+</CodeEditor>
 
 Once that is up and running we can finally take a breather, grab a coffee, maybe a smoke - because we're 90% of the way finished!
 
@@ -419,43 +517,61 @@ So we'll begin by installing Plex. There are many ways to do this, but I'm parti
 
 So SSH into your new box, and execute the following:
 
+<CodeEditor>
+
 ```bash
 bash -c "$(wget -qO - https://raw.githubusercontent.com/mrworf/plexupdate/master/extras/installer.sh)"
 ```
+
+</CodeEditor>
 
 After this is done, you should have Plex running on port `32400` and a systemd unit file called `plexmediaserver`. This means you can stop/restart Plex via `sudo systemctl restart plexmediaserver` or check the status / logs via `sudo journalctl -xeu plexmediaserver`.
 
 Now we'll want to install nginx and certbot on this server as well to grab an SSL cert and reverse proxy Plex out to the internet.
 
+<CodeEditor>
+
 ```bash
 sudo apt install -y vim git net-tools nginx certbot python3-certbot-nginx software-properties-common python-pip-whl
 ```
 
-Now we'll grab the SSL certificate for our `watch.domain.tld` domain.
+</CodeEditor>
 
+Now we'll grab the SSL certificate for our `plex.domain.tld` domain.
+
+<CodeEditor>
+
+```bash
+sudo certbot certonly --standalone -d plex.domain.tld
 ```
-sudo certbot certonly --standalone -d watch.domain.tld
-```
+
+</CodeEditor>
 
 Then lets create the nginx config file for Plex:
 
-```
+<CodeEditor>
+
+```bash
 sudo vim /etc/nginx/conf.d/plex.conf
 ```
 
+</CodeEditor>
+
 And paste in the following:
 
-```
+<CodeEditor>
+
+```bash
 server {
   listen 80;
-  server_name watch.domain.tld;
+  server_name plex.domain.tld;
 
-  return 301 https://watch.domain.tld$request_uri;
+  return 301 https://plex.domain.tld$request_uri;
 }
 
 server {
   listen 443 ssl http2;
-  server_name watch.domain.tld;
+  server_name plex.domain.tld;
 
   location / {
     proxy_pass http://127.0.0.1:32400;
@@ -476,21 +592,27 @@ server {
 
   error_log /var/log/nginx/plex.error.log info;
 
-  ssl_certificate /etc/letsencrypt/live/watch.domain.tld/fullchain.pem; # managed by Certbot
-  ssl_certificate_key /etc/letsencrypt/live/watch.domain.tld/privkey.pem; # managed by Certbot
+  ssl_certificate /etc/letsencrypt/live/plex.domain.tld/fullchain.pem; # managed by Certbot
+  ssl_certificate_key /etc/letsencrypt/live/plex.domain.tld/privkey.pem; # managed by Certbot
   include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
   ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
 }
 ```
 
+</CodeEditor>
+
 Save and exit vim, and reload nginx to pick up the config file.
 
-```
+<CodeEditor>
+
+```bash
 sudo nginx -t
 sudo nginx -s reload
 ```
 
-Now you can visit your chosen `watch.domain.tld` domain and go through the Plex setup wizard!
+</CodeEditor>
+
+Now you can visit your chosen `plex.domain.tld` domain and go through the Plex setup wizard!
 
 ### Break
 

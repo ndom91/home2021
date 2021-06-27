@@ -30,9 +30,15 @@
   .animation-delay-4000 {
     animation-delay: 4s;
   }
+  .reset {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
 }
 
 @import url("/assets/fonts/inter/inter.css");
+@import url("../styles/prism-coldark-light.css");
+@import url("../styles/prism-coldark-dark.css");
 
 body {
   font-family: "Inter";

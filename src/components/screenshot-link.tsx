@@ -5,9 +5,10 @@ type Props = {
   url: string
   text: string
   className: string
+  underline?: boolean
 }
 
-const ScreenshotLink = ({ url, text, className }: Props) => {
+const ScreenshotLink = ({ url, text, className, underline = true }: Props) => {
   const [isHovering, setIsHovering] = useState(false)
   const [linkScreenshot, setLinkScreenshot] = useState("") //{
 
@@ -51,7 +52,11 @@ const ScreenshotLink = ({ url, text, className }: Props) => {
         target="_blank"
         onMouseOver={() => fetchImage(url)}
         onMouseOut={() => setIsHovering(false)}
-        className="transition-all duration-500 border-underline-grow bg-gradient-to-r dark:from-palevioletred from-pink-300 dark:to-palevioletred to-pink-300"
+        className={
+          underline
+            ? `transition-all duration-500 border-underline-grow bg-gradient-to-r dark:from-palevioletred from-pink-300 dark:to-palevioletred to-pink-300`
+            : ""
+        }
         rel="noreferrer"
       >
         {text}

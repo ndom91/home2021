@@ -21,7 +21,7 @@ const CodeEditor: FunctionComponent<EditorProps> = ({ title, children }) => {
   }
 
   return (
-    <div>
+    <div className="w-full">
       <div className="relative flex items-center justify-between w-full h-10 -mb-3 bg-gray-100 rounded-t-md dark:bg-gray-800">
         <div>
           <div className="inline-flex items-center h-full ml-4 space-x-2">
@@ -36,16 +36,16 @@ const CodeEditor: FunctionComponent<EditorProps> = ({ title, children }) => {
           </div>
         </div>
         <button
-          className="inline-flex p-1 mr-2 transition-shadow duration-300 rounded-md tra rounded-t-md hover:opacity-100 hover:cursor-pointer focus:outline-none hover:outline-none focus:ring-2 dark:ring-palevioletred hover:ring-palevioletred hover:ring-2 focus:opacity-100"
+          className="inline-flex p-1 mr-2 transition-shadow duration-300 rounded-md tra rounded-t-md hover:opacity-100 hover:cursor-pointer focus:outline-none hover:outline-none focus:ring-2 dark:ring-palevioletred dark:hover:ring-palevioletred hover:ring-2 focus:opacity-100 hover:ring-pink-300 ring-pink-300 focus:ring-pink-300 dark:focus:ring-palevioletred"
           onClick={copyCode}
         >
           {success ? (
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="w-5 h-5 transition-all duration-1000 opacity-100"
+              className="w-5 h-5 text-pink-300 transition-all duration-1000 opacity-100 dark:text-palevioletred"
               fill="none"
               viewBox="0 0 24 24"
-              stroke="#56caa3"
+              stroke="currentColor"
             >
               <path
                 strokeLinecap="round"

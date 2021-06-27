@@ -3,7 +3,7 @@ const colors = require("tailwindcss/colors")
 module.exports = {
   purge: {
     content: ["./src/components/**/*.tsx", "./src/pages/**/*.tsx"],
-    safelist: ["animate-flicker"],
+    safelist: ["animate-flicker", "reset"],
   },
   darkMode: "class",
   mode: "jit",
@@ -111,7 +111,8 @@ module.exports = {
           "fade-in-up 750ms cubic-bezier(0.68, -0.6, 0.32, 1.6) forwards",
         "fade-in-up-5":
           "fade-in-up-5 750ms cubic-bezier(0.68, -0.6, 0.32, 1.6) forwards",
-        "fade-in-up-10": "fade-in-up-10 750ms ease-out forwards",
+        "fade-in-up-10":
+          "fade-in-up-10 750ms cubic-bezier(0.68, -0.6, 0.32, 2.2) forwards",
         "fade-in-up-30":
           "fade-in-up-30 750ms cubic-bezier(0.68, -0.6, 0.32, 2.5) forwards",
         "fade-in-up-500": "fade-in-up-10 750ms ease-out forwards 500ms",
