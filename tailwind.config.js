@@ -10,9 +10,6 @@ module.exports = {
   plugins: [require("@tailwindcss/typography")],
   theme: {
     extend: {
-      screens: {
-        xs: "375px",
-      },
       colors: {
         gray: colors.coolGray,
         bgGray: "#0e141b",
