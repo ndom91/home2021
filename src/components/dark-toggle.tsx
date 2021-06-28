@@ -87,6 +87,7 @@ const DarkToggle = () => {
     <div className="relative text-gray-800 dark:text-gray-400">
       <button
         aria-label="Dark Toggle"
+        type="button"
         onClick={toggleDark}
         className="p-1 transition-shadow duration-300 rounded-md focus:outline-none hover:ring-4 focus:ring-4 dark:hover:ring-palevioletred dark:focus:ring-palevioletred focus:ring-pink-300 hover:ring-pink-300"
       >

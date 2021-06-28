@@ -50,6 +50,7 @@ const ScreenshotLink = ({ url, text, className, underline = true }: Props) => {
       <a
         href={url}
         target="_blank"
+        rel="noopener noreferrer"
         onMouseOver={() => fetchImage(url)}
         onMouseOut={() => setIsHovering(false)}
         className={
@@ -57,7 +58,6 @@ const ScreenshotLink = ({ url, text, className, underline = true }: Props) => {
             ? `transition-all duration-500 border-underline-grow bg-gradient-to-r dark:from-palevioletred from-pink-300 dark:to-palevioletred to-pink-300`
             : ""
         }
-        rel="noreferrer"
       >
         {text}
       </a>
