@@ -37,8 +37,8 @@
 }
 
 @import url("/assets/fonts/inter/inter.css");
-@import url("../styles/prism-coldark-light.css");
-@import url("../styles/prism-coldark-dark.css");
+/* @import url("../styles/prism-coldark-dark.css");
+@import url("../styles/prism-coldark-light.css"); */
 
 body {
   font-family: "Inter";
