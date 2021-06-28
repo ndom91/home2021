@@ -1,4 +1,5 @@
 const colors = require("tailwindcss/colors")
+const defaultTheme = require("tailwindcss/defaultTheme")
 
 module.exports = {
   purge: {
@@ -9,6 +10,9 @@ module.exports = {
   mode: "jit",
   plugins: [require("@tailwindcss/typography")],
   theme: {
+    fontFamily: {
+      sans: ["'Inter var', 'Inter'", ...defaultTheme.fontFamily.sans],
+    },
     extend: {
       colors: {
         gray: colors.coolGray,

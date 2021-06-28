@@ -36,13 +36,29 @@
   }
 }
 
-@import url("/assets/fonts/inter/inter.css");
-/* @import url("../styles/prism-coldark-dark.css");
-@import url("../styles/prism-coldark-light.css"); */
+/* FONTS */
 
-body {
-  font-family: "Inter";
+@layer base {
+  @font-face {
+    font-family: "Inter var";
+    font-weight: 100 900;
+    font-display: swap;
+    font-style: normal;
+    font-named-instance: "Regular";
+    src: url("/assets/fonts/inter/Inter-roman.var.woff2?v=3.19") format("woff2");
+  }
+  @font-face {
+    font-family: "Inter var";
+    font-weight: 100 900;
+    font-display: swap;
+    font-style: italic;
+    font-named-instance: "Italic";
+    src: url("/assets/fonts/inter/Inter-italic.var.woff2?v=3.19")
+      format("woff2");
+  }
 }
+
+/* SCROLLBAR */
 
 ::-webkit-scrollbar {
   width: 16px;
