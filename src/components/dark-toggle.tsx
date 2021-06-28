@@ -108,8 +108,8 @@ const DarkToggle = () => {
         >
           <mask id="myMask2">
             <rect x="0" y="0" width="100%" height="100%" fill="white" />
-            {/* @ts-ignore */}
             <animated.circle
+              // @ts-ignore
               style={maskedCircleProps}
               r="10"
               fill="black"
