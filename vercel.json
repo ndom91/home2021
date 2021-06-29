@@ -25,7 +25,7 @@
       "destination": "https://stats.ndo.dev/js/plausible.outbound-links.js"
     },
     {
-      "source": "/api/event",
+      "source": "/a/e",
       "destination": "https://stats.ndo.dev/api/event"
     }
   ]
