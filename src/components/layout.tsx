@@ -27,7 +27,7 @@ const Layout = ({ children }: Props) => {
     <div className="flex flex-col items-center min-h-screen transition duration-500 dark:selection:bg-palevioletred selection:text-white dark:bg-bgGray selection:bg-pink-300">
       {typeof window !== "undefined" && window.location.hostname === "ndo.dev" && (
         <>
-          <Script src="/a/b.js" data-domain="ndo.dev" data-api="/a/e" />
+          <Script src="/p.js" data-domain="ndo.dev" data-api="/a/e" />
         </>
       )}
       <Script src="/assets/web-vitals-element.styled.min.js" />
