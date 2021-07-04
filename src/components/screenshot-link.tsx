@@ -25,8 +25,8 @@ const ScreenshotLink = ({ url, text, className, underline = true }: Props) => {
         `/api/og?path=${encodeURIComponent(url)}&colorScheme=${colorScheme}`
       )
       // const image = await req.blob()
-      const image = await req.text()
       // setLinkScreenshot(URL.createObjectURL(image))
+      const image = await req.text()
       setLinkScreenshot(`data:image/png;base64, ${image}`)
     } catch (e) {
       console.error(e)
@@ -34,7 +34,11 @@ const ScreenshotLink = ({ url, text, className, underline = true }: Props) => {
   }
 
   return (
-    <div className={`relative inline-block word ${className}`}>
+    <div
+      className={`relative inline-block word ${className}`}
+      onMouseOver={() => fetchImage(url)}
+      onMouseOut={() => setIsHovering(false)}
+    >
       {isHovering && linkScreenshot && (
         <div className="absolute z-10 block w-32 pointer-events-none right-1/2 lg:block bottom-[2.0rem] animate-fade-in-up-5">
           <Image
@@ -51,8 +55,6 @@ const ScreenshotLink = ({ url, text, className, underline = true }: Props) => {
         href={url}
         target="_blank"
         rel="noopener noreferrer"
-        onMouseOver={() => fetchImage(url)}
-        onMouseOut={() => setIsHovering(false)}
         className={
           underline
             ? `transition-all duration-500 border-underline-grow bg-gradient-to-r dark:from-palevioletred from-pink-300 dark:to-palevioletred to-pink-300`

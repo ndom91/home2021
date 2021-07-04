@@ -49,7 +49,10 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   await browser.close()
 
   // Set the s-maxage property which caches the images then on the Vercel edge
-  res.setHeader("Cache-Control", "s-maxage=31536000, stale-while-revalidate")
+  res.setHeader(
+    "Cache-Control",
+    "s-maxage=31536000, max-age=31536000, stale-while-revalidate"
+  )
   res.setHeader("Content-Type", "image/png")
 
   res.end(data.toString("base64"))
