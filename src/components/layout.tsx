@@ -14,7 +14,7 @@ type Props = {
 }
 
 const Layout = ({ children }: Props) => {
-  const [value, setValue, remove] = useLocalStorage("ndom91-alert", {
+  const [value, setValue] = useLocalStorage("ndom91-alert", {
     dismissed: false,
   })
   const alert = {
@@ -30,7 +30,6 @@ const Layout = ({ children }: Props) => {
           <Script src="/p.js" data-domain="ndo.dev" data-api="/a/e" />
         </>
       )}
-      <Script src="/assets/web-vitals-element.styled.min.js" />
       <Meta />
       {alert.enabled && !value?.dismissed && (
         <Alert header={alert.header} body={alert.body} setValue={setValue} />
