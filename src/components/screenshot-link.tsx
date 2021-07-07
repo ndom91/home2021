@@ -47,7 +47,7 @@ const ScreenshotLink = ({ url, text, className, underline = true }: Props) => {
             width={300}
             unoptimized
             alt={text}
-            className="rounded-md"
+            className="rounded-sm"
           />
         </div>
       )}

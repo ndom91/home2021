@@ -9,7 +9,6 @@ interface StaticImageData {
   src: string
   height: number
   width: number
-  blurDataURL?: string
 }
 
 interface StaticRequire {
@@ -23,23 +22,12 @@ type Props = {
   project: Project
 }
 
-const random = (min: number, max: number) =>
-  Math.floor(Math.random() * (max - min)) + min
-
-const colorMap = [
-  "bg-purple-300",
-  "bg-pink-300",
-  "bg-red-300",
-  "bg-pink-200",
-  "bg-yellow-100",
-  "bg-purple-400",
-  "bg-red-200",
-]
+function randomNumber(min: number, max: number) {
+  return Math.random() * (max - min) + min * -1
+}
 
 const ProjectCard = ({ project, index }: Props) => {
   const { name, url, desc, image, tech } = project
-  const colorNumber = random(0, 6)
-
   const [imageImport, setImage] = useState<StaticImport>()
   const loadImage = (imgur: string) => {
     import(`../../public/assets/img/screenshots/${imgur}`).then((image) => {
@@ -66,7 +54,7 @@ const ProjectCard = ({ project, index }: Props) => {
                 className="z-10 w-full h-32 mb-2 overflow-y-hidden bg-gray-200 dark:bg-gray-600 rounded-t-xl hover:cursor-pointer"
               >
                 {imageImport && (
-                  <Parallax y={[0, -25]}>
+                  <Parallax y={[0, randomNumber(20, 40)]}>
                     <Image
                       src={imageImport}
                       id={`project-image-${image}`}
@@ -116,9 +104,6 @@ const ProjectCard = ({ project, index }: Props) => {
             </div>
           </div>
         </div>
-        {/* <div
-          className={`absolute top-1/2 -translate-y-1/2 ${colorMap[colorNumber]} rounded-full right-4 w-80 h-80 opacity-80 dark:opacity-25 blur-2xl filter z-0 dark:group-hover:opacity-30 transition-all duration-300 group-hover:h-96 group-hover:opacity-100 `}
-        /> */}
         <div className="absolute z-0 w-56 pattern-dots-md -bottom-6 -left-6 h-52 text-palevioletred" />
       </div>
     </div>

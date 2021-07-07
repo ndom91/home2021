@@ -33,6 +33,7 @@ const CoverImage = ({ title, cover = { imageFile: "" }, slug }: Props) => {
     <Image
       src={imageImport}
       alt={`Cover Image for ${title}`}
+      priority
       quality="100"
       layout="responsive"
       objectFit="fill"

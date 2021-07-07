@@ -24,6 +24,15 @@
   .animation-delay-800 {
     animation-delay: 800ms;
   }
+  .animation-delay-900 {
+    animation-delay: 900ms;
+  }
+  .animation-delay-1100 {
+    animation-delay: 1100ms;
+  }
+  .animation-delay-1000 {
+    animation-delay: 1000ms;
+  }
   .animation-delay-2000 {
     animation-delay: 2s;
   }
@@ -100,7 +109,7 @@ html.dark ::-webkit-scrollbar-track {
 @media screen and (min-width: 768px) {
   .more-projects {
     column-count: 3;
-    column-gap: 0.5em;
+    column-gap: 1em;
   }
 }
 
@@ -192,7 +201,7 @@ html.dark .js-darkmode-flicker {
 
   animation-name: backgroundSizeIntro;
   animation-duration: 1000ms;
-  animation-delay: 500ms;
+  animation-delay: 750ms;
   animation-timing-function: cubic-bezier(0.68, -0.6, 0.32, 1.6);
   animation-fill-mode: forwards;
 }
@@ -215,7 +224,7 @@ html.dark .js-darkmode-flicker {
 @media screen and (min-width: 768px) {
   html:not(.dark) .intro-title:hover {
     cursor: default;
-    transition: text-shadow 1000ms cubic-bezier(0.68, -0.6, 0.32, 1.6),
+    transition: text-shadow 1000ms cubic-bezier(0.98, -0.4, 0.32, 2.2),
       mask-size 500ms ease-in-out;
     text-shadow: 0px 90px 1px palevioletred, 0px 180px 1.5px palevioletred,
       0px 270px 3.5px palevioletred, 0px 360px 5px palevioletred,
