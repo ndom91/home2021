@@ -48,14 +48,26 @@ const CoverImage = ({ title, cover = { imageFile: "" }, slug }: Props) => {
 
   return (
     <div className="sm:mx-0">
-      {slug ? (
+      {!imageFile.includes(".gif") ? (
+        // slug ? (
         <Link as={`/posts/${slug}`} href="/posts/[slug]">
           <a aria-label={title} className="bg-pink-300 ">
             {imageComponent}
           </a>
         </Link>
       ) : (
-        imageComponent
+        // ) : (
+        //   imageComponent
+        // )
+        <Link as={`/posts/${slug}`} href="/posts/[slug]">
+          <a aria-label={title} className="bg-pink-300 ">
+            <img
+              alt={slug}
+              src={`/assets/blog/${imageFile}`}
+              className="mx-auto"
+            />
+          </a>
+        </Link>
       )}
     </div>
   )

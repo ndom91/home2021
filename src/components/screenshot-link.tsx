@@ -55,12 +55,7 @@ const ScreenshotLink = ({ url, text, className, underline = true }: Props) => {
         href={url}
         target="_blank"
         rel="noopener noreferrer"
-        className="transition-all border-underline-grow"
-        // className={
-        //   underline
-        //     ? `transition-all duration-500 border-underline-grow bg-gradient-to-r dark:from-palevioletred from-pink-300 dark:to-palevioletred to-pink-300`
-        //     : ""
-        // }
+        className="transition-all border-underline-grow dark:ring-palevioletred"
       >
         {text}
       </a>

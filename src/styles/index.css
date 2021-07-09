@@ -191,74 +191,6 @@ html.dark .js-darkmode-flicker {
   }
 }
 
-/* .border-underline-grow {
-  background-position: 0 300%;
-  background-repeat: repeat-x;
-  background-size: 10px 10px;
-  text-decoration: none;
-  transition: background-size 350ms ease-in-out;
-  padding: 3px;
-
-  animation-name: backgroundSizeIntro;
-  animation-duration: 1000ms;
-  animation-delay: 750ms;
-  animation-timing-function: cubic-bezier(0.68, -0.6, 0.32, 1.6);
-  animation-fill-mode: forwards;
-}
-
-@keyframes backgroundSizeIntro {
-  0% {
-    background-position: 0 300%;
-  }
-  100% {
-    background-position: 0 100%;
-  }
-}
-
-.border-underline-grow:focus,
-.border-underline-grow:hover {
-  outline: none;
-  background-size: 10px 50px;
-} */
-
-/* Sweep To Top */
-/* .border-underline-grow {
-  padding: 0 4px;
-  display: inline-block;
-  vertical-align: middle;
-  transform: perspective(1px) translateZ(0);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-  position: relative;
-  transition-property: color;
-  transition-duration: 0.3s;
-}
-.border-underline-grow:before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: #cf7ac1;
-  transform: scaleY(0.2);
-  transform-origin: 50% 80%;
-  transition-property: transform;
-  transition-duration: 0.3s;
-  transition-timing-function: ease-out;
-}
-.border-underline-grow:hover,
-.border-underline-grow:focus,
-.border-underline-grow:active {
-  color: white;
-}
-.border-underline-grow:hover:before,
-.border-underline-grow:focus:before,
-.border-underline-grow:active:before {
-  transform: scaleY(1);
-} */
-
-/* Bounce To Top */
 .border-underline-grow {
   display: inline-block;
   vertical-align: middle;
@@ -272,16 +204,16 @@ html.dark .js-darkmode-flicker {
   content: "";
   position: absolute;
   z-index: -1;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: #d99fdf;
+  inset: 0;
+  background: rgba(249, 168, 212, 1);
   transform: scaleY(0.2);
   transform-origin: 50% 80%;
   transition-property: transform;
   transition-duration: 0.5s;
   transition-timing-function: ease-out;
+}
+html[class="dark"] .border-underline-grow:before {
+  background: rgba(219, 112, 147, 1);
 }
 html[class="dark"] .border-underline-grow:hover,
 html[class="dark"] .border-underline-grow:focus,
@@ -291,8 +223,9 @@ html[class="dark"] .border-underline-grow:active {
 .border-underline-grow:hover:before,
 .border-underline-grow:focus:before,
 .border-underline-grow:active:before {
-  transform: scaleY(1);
-  transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+  transform: scaleY(0.95);
+  transform-origin: 20% 85%;
+  transition-timing-function: cubic-bezier(0.98, -0.4, 0.32, 1.6);
 }
 
 @media screen and (min-width: 768px) {

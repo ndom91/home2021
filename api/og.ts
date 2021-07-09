@@ -39,7 +39,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     await page.waitForTimeout(1000)
   }
   // If twitter - wait for intro load animation to complete
-  if (req?.query?.path === "https://twitter.com/ndom91") {
+  if (req?.query?.path.includes("https://twitter.com")) {
     await page.waitForTimeout(500)
   }
 
