@@ -45,6 +45,13 @@
   }
 }
 
+:root {
+  --dark-text: #374151;
+  --dark-border: #1f2937;
+  --pink-300: 249, 168, 212;
+  --palevioletred: 219, 112, 147;
+}
+
 /* FONTS */
 
 @layer base {
@@ -92,6 +99,37 @@ html.dark ::-webkit-scrollbar-thumb {
 
 html.dark ::-webkit-scrollbar-track {
   background-color: #0e141b;
+}
+
+/* NAV */
+
+ul a {
+  display: inline-block;
+  transform: perspective(1px) translateZ(0);
+  position: relative;
+  overflow: hidden;
+}
+ul a:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  right: 100%;
+  bottom: 0;
+  background: rgba(var(--pink-300), 1);
+  height: 5px;
+  transition-property: right;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.28, -0.4, 2.32, 1.6);
+}
+ul a:hover:before,
+ul a:focus:before,
+ul a:active:before {
+  right: 0;
+}
+
+html[class="dark"] ul a:before {
+  background: rgba(var(--palevioletred), 1);
 }
 
 /* PROJECTS */
@@ -205,15 +243,15 @@ html.dark .js-darkmode-flicker {
   position: absolute;
   z-index: -1;
   inset: 0;
-  background: rgba(249, 168, 212, 1);
+  background: rgba(var(--pink-300), 0.7);
   transform: scaleY(0.2);
-  transform-origin: 50% 80%;
+  transform-origin: 50% 70%;
   transition-property: transform;
   transition-duration: 0.5s;
   transition-timing-function: ease-out;
 }
 html[class="dark"] .border-underline-grow:before {
-  background: rgba(219, 112, 147, 1);
+  background: rgba(var(--palevioletred), 0.6);
 }
 html[class="dark"] .border-underline-grow:hover,
 html[class="dark"] .border-underline-grow:focus,
@@ -224,7 +262,7 @@ html[class="dark"] .border-underline-grow:active {
 .border-underline-grow:focus:before,
 .border-underline-grow:active:before {
   transform: scaleY(0.95);
-  transform-origin: 20% 85%;
+  transform-origin: 20% 75%;
   transition-timing-function: cubic-bezier(0.98, -0.4, 0.32, 1.6);
 }
 
@@ -283,18 +321,18 @@ html[class="dark"] .border-underline-grow:active {
   }
   html.dark .web-vitals {
     opacity: 0.05;
-    border: 1px solid #1f2937;
+    border: 1px solid var(--dark-border);
   }
   html.dark .web-vitals:hover {
     opacity: 1;
   }
   html.dark .web-vitals a {
-    color: #374151;
+    color: var(--dark-text);
   }
   html.dark .web-vitals dd::after {
     opacity: 0.2;
   }
   html.dark .web-vitals dd {
-    color: #374151;
+    color: var(--dark-text);
   }
 }
