@@ -24,10 +24,8 @@ const ScreenshotLink = ({ url, text, className, underline = true }: Props) => {
       const req = await fetch(
         `/api/og?path=${encodeURIComponent(url)}&colorScheme=${colorScheme}`
       )
-      // const image = await req.blob()
-      // setLinkScreenshot(URL.createObjectURL(image))
-      const image = await req.text()
-      setLinkScreenshot(`data:image/png;base64, ${image}`)
+      const image = await req.blob()
+      setLinkScreenshot(URL.createObjectURL(image))
     } catch (e) {
       console.error(e)
     }

@@ -3,7 +3,7 @@ import chromium from "chrome-aws-lambda"
 import playwright from "playwright-core"
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-  // Start the browser with the AWS Lambda wrapper (chrome-aws-lambda)
+  // Start Playwright with the dynamic chrome-aws-lambda args
   const browser = await playwright.chromium.launch({
     args: chromium.args,
     executablePath:
@@ -13,7 +13,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     headless: process.env.NODE_ENV !== "development" ? chromium.headless : true,
   })
 
-  // Create a page with the Open Graph image size best practise
+  // Create a page with the recommended Open Graph image size
   const page = await browser.newPage({
     viewport: {
       width: 1200,
@@ -55,5 +55,5 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   )
   res.setHeader("Content-Type", "image/png")
 
-  res.end(data.toString("base64"))
+  res.end(data)
 }
