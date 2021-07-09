@@ -41,7 +41,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   }
 
   const data = await page.screenshot({
-    type: "png",
+    type: "jpeg",
   })
   await browser.close()
 
@@ -50,6 +50,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     "Cache-Control",
     "s-maxage=31536000, max-age=31536000, stale-while-revalidate"
   )
-  res.setHeader("Content-Type", "image/png")
+  res.setHeader("Content-Type", "image/jpeg")
   res.end(data)
 }
