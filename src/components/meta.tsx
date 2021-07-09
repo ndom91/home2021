@@ -4,7 +4,7 @@ import { useRouter } from "next/router"
 const Meta = () => {
   const router = useRouter()
   const searchParams = new URLSearchParams()
-  searchParams.set("path", `https://ndo.dev${router.pathname}`)
+  searchParams.set("path", `https://ndo.dev${router.asPath}`)
   const fullImageURL = `${
     process.env.NODE_ENV === "development"
       ? "http://localhost:3003"

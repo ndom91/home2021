@@ -19,9 +19,9 @@ const rehypePrism = require("@mapbox/rehype-prism")
 import { postFilePaths, POSTS_PATH } from "../../lib/mdxUtils"
 
 const components = {
+  CodeEditor: CodeEditor,
   ScreenshotLink: ScreenshotLink,
   PostBody: PostBody,
-  CodeEditor: CodeEditor,
   // // It also works with dynamically-imported components, which is especially
   // // useful for conditionally loading components for certain routes.
   // // See the notes in README.md for more details.
@@ -48,31 +48,25 @@ const Post = ({ source, frontMatter, slug }: Props) => {
     <>
       <ProgressBar />
       <Layout>
-        <article className="mb-32">
-          <Head>
-            <title>{frontMatter.title} | ndom91</title>
-            <meta property="og:type" content="article" />
-            <meta
-              property="og:title"
-              content={`${frontMatter.title} | ndom91`}
-            />
-            <meta property="og:url" content={`https://ndo.dev/posts/${slug}`} />
-            <meta
-              property="og:description"
-              content={frontMatter.excerpt ?? ""}
-            />
-            <meta property="article:author" content="Nico Domino" />
-            <meta property="article:tag" content={frontMatter.tags.join(",")} />
+        <Head>
+          <title>{frontMatter.title} | ndom91</title>
+          <meta property="og:type" content="article" />
+          <meta property="og:title" content={`${frontMatter.title} | ndom91`} />
+          <meta property="og:url" content={`https://ndo.dev/posts/${slug}`} />
+          <meta property="og:description" content={frontMatter.excerpt ?? ""} />
+          <meta property="article:author" content="Nico Domino" />
+          <meta property="article:tag" content={frontMatter.tags.join(",")} />
 
-            <meta name="twitter:card" content="summary" />
-            <meta
-              name="twitter:title"
-              content={`${frontMatter.title} | ndom91`}
-            />
-            <meta name="twitter:site" content="@ndom91" />
-            <meta name="twitter:description" content={frontMatter.excerpt} />
-            <meta name="twitter:image:alt" content={frontMatter.title} />
-          </Head>
+          <meta name="twitter:card" content="summary" />
+          <meta
+            name="twitter:title"
+            content={`${frontMatter.title} | ndom91`}
+          />
+          <meta name="twitter:site" content="@ndom91" />
+          <meta name="twitter:description" content={frontMatter.excerpt} />
+          <meta name="twitter:image:alt" content={frontMatter.title} />
+        </Head>
+        <article className="mb-32">
           <PostHeader
             title={frontMatter.title}
             cover={frontMatter.cover}

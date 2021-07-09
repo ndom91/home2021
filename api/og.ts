@@ -21,7 +21,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     },
   })
 
-  // Generate the full URL out of the given path (GET parameter)
+  // Extract the url from the query parameter `path`
   const url: string = req.query.path as string
   const colorScheme: "light" | "dark" = req.query.colorScheme as
     | "light"
@@ -29,12 +29,9 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   await page.emulateMedia({ colorScheme: colorScheme })
 
-  // @ts-ignore
-  await page.goto(url, {
-    timeout: 15 * 1000,
-  })
+  await page.goto(url)
 
-  // If homepage - wait 1s for enter animation to complete
+  // If homepage - wait for enter animation to complete
   if (req?.query?.path === "https://ndo.dev/") {
     await page.waitForTimeout(1000)
   }
@@ -48,12 +45,11 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   })
   await browser.close()
 
-  // Set the s-maxage property which caches the images then on the Vercel edge
+  // Set the s-maxage property to cache at the CDN layer, and max-age for the client browser cache
   res.setHeader(
     "Cache-Control",
     "s-maxage=31536000, max-age=31536000, stale-while-revalidate"
   )
   res.setHeader("Content-Type", "image/png")
-
   res.end(data)
 }

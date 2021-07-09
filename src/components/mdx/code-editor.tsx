@@ -21,7 +21,7 @@ const CodeEditor: FunctionComponent<EditorProps> = ({ title, children }) => {
   }
 
   return (
-    <div className="w-full">
+    <div className="w-full" style={{ width: "100%" }}>
       <div className="relative flex items-center justify-between w-full h-10 -mb-3 bg-gray-100 rounded-t-md dark:bg-gray-800">
         <div>
           <div className="inline-flex items-center h-full ml-4 space-x-2">
