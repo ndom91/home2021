@@ -1,8 +1,8 @@
 # 2021
 
-New portfolio page 🎉
+Portfolio page redesign for 2021 🎉
 
-![draft1 hero](https://imgur.com/BTxG5sa.png)
+![ndodev_home1](https://user-images.githubusercontent.com/7415984/125351477-6d985f00-e360-11eb-83f9-6c5271d77d53.gif)
 
 ## 🚀 Getting Started
 
@@ -20,12 +20,12 @@ Now you should have a dev server at http://localhost:3003 available!
 - MDX
 - Remark
 - Prism Syntax Highlighting
-- API Route - Dynamic `og:image` + Page Screenshot Generation
+- Generate page screenshots on-demand
 - React-Spring
 
 ## 🚧 Contributing
 
-Any contributions are welcome, just please stick to the prettier settings!
+All contributions are welcome, please stick to the `prettier` settings!
 
 ## 📖 License
 
