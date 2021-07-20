@@ -65,6 +65,7 @@ const CoverImage = ({ title, cover = { imageFile: "" }, slug }: Props) => {
               alt={slug}
               src={`/assets/blog/${imageFile}`}
               className="mx-auto"
+              loading="eager"
             />
           </a>
         </Link>
