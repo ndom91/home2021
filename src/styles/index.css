@@ -184,6 +184,26 @@ html[class="dark"] ul a:before {
   object-position: left !important;
 }
 
+.prose blockquote {
+  font-style: normal;
+  font-weight: 300;
+}
+
+.prose blockquote p:first-of-type::after,
+.prose blockquote p:first-of-type::before {
+  content: "";
+}
+
+.dark .dark\:prose-dark p a {
+  color: rgba(var(--palevioletred), 1);
+  text-decoration: underline;
+}
+
+.prose a {
+  color: rgba(var(--palevioletred), 1);
+  text-decoration: underline;
+}
+
 /* INTRO */
 
 .intro-title {
