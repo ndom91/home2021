@@ -194,12 +194,12 @@ html[class="dark"] ul a:before {
   content: "";
 }
 
-.dark .dark\:prose-dark p a {
+.dark .dark\:prose-dark p a:not(.border-underline-grow) {
   color: rgba(var(--palevioletred), 1);
   text-decoration: underline;
 }
 
-.prose a {
+.prose a:not(.border-underline-grow) {
   color: rgba(var(--palevioletred), 1);
   text-decoration: underline;
 }
