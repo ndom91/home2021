@@ -1,6 +1,6 @@
 # 🏠 2021
 
-![Vercel Status Badge](https://vercelbadge.vercel.app/api/ndom91/home2021?style=flat-square)
+[![GitHub deployments](https://img.shields.io/github/deployments/ndom91/home2021/Production?label=vercel&logo=vercel&style=flat-square)](https://ndo.dev)
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/ndom91/home2021?style=flat-square)
 ![GitHub last commit](https://img.shields.io/github/last-commit/ndom91/home2021?style=flat-square)
 
