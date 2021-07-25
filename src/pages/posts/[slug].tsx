@@ -73,7 +73,7 @@ const Post = ({ source, frontMatter, slug }: Props) => {
             date={frontMatter.date}
             time={frontMatter.time ?? "1 min"}
           />
-          <div className="max-w-2xl mx-auto prose-sm prose dark:prose-dark md:prose-lg dark:text-gray-200">
+          <div className="max-w-2xl mx-auto prose-sm prose dark:prose-dark md:prose-lg dark:text-gray-100">
             <MDXRemote {...source} components={components} />
           </div>
         </article>

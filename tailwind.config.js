@@ -16,8 +16,18 @@ module.exports = {
     },
     extend: {
       colors: {
-        gray: colors.coolGray,
-        bgGray: "#0e141b",
+        gray: {
+          50: "#f3f3f4",
+          100: "#e7e8e8",
+          200: "#c3c4c6",
+          300: "#9fa1a4",
+          400: "#565b5f",
+          500: "#0e141b",
+          600: "#0d1218",
+          700: "#0b0f14",
+          800: "#080c10",
+          900: "#05080a",
+        },
         palevioletred: "#DB7093",
       },
       typography: (theme) => ({
@@ -33,17 +43,18 @@ module.exports = {
         dark: {
           css: {
             a: {
-              color: theme("colors.gray.300"),
+              color: theme("colors.gray.100"),
               textDecoration: "none",
               fontWeight: "400",
             },
             '[class~="lead"]': { color: theme("colors.gray.400") },
             strong: { color: theme("colors.gray.100") },
-            "ul > li::before": { backgroundColor: theme("colors.gray.700") },
+            "ul > li::before": { backgroundColor: theme("colors.gray.900") },
+            "ol > li::before": { color: theme("colors.gray.900") },
             hr: { borderColor: theme("colors.gray.800") },
             blockquote: {
               color: theme("colors.gray.100"),
-              borderLeftColor: theme("colors.gray.800"),
+              borderLeftColor: theme("colors.gray.900"),
             },
             h1: { color: theme("colors.gray.100") },
             h2: { color: theme("colors.gray.100") },

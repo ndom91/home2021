@@ -37,7 +37,7 @@ const Alert = ({ header, body, setValue }: Alert) => {
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="w-10 h-10 text-gray-400 dark:text-gray-500"
+            className="w-10 h-10 text-gray-400 dark:text-gray-800"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"

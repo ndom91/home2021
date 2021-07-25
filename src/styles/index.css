@@ -71,6 +71,7 @@ body {
     font-named-instance: "Regular";
     src: url("/assets/fonts/inter/Inter-roman.var.woff2?v=3.19") format("woff2");
   }
+
   @font-face {
     font-family: "Inter var";
     font-weight: 100 900;
@@ -117,6 +118,7 @@ ul a {
   position: relative;
   overflow: hidden;
 }
+
 ul a:before {
   content: "";
   position: absolute;
@@ -130,6 +132,7 @@ ul a:before {
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.28, -0.4, 2.32, 1.6);
 }
+
 ul a:hover:before,
 ul a:focus:before,
 ul a:active:before {
@@ -270,6 +273,7 @@ html.dark .js-darkmode-flicker {
   transition-property: color;
   transition-duration: 0.5s;
 }
+
 .border-underline-grow:before {
   content: "";
   position: absolute;
@@ -277,24 +281,27 @@ html.dark .js-darkmode-flicker {
   inset: 0;
   background: rgba(var(--pink-300), 0.7);
   transform: scaleY(0.2);
-  transform-origin: 50% 70%;
+  transform-origin: 0% 75%;
   transition-property: transform;
   transition-duration: 0.5s;
   transition-timing-function: ease-out;
 }
+
 html[class="dark"] .border-underline-grow:before {
   background: rgba(var(--palevioletred), 0.6);
 }
+
 html[class="dark"] .border-underline-grow:hover,
 html[class="dark"] .border-underline-grow:focus,
 html[class="dark"] .border-underline-grow:active {
   color: white;
 }
+
 .border-underline-grow:hover:before,
 .border-underline-grow:focus:before,
 .border-underline-grow:active:before {
   transform: scaleY(0.95);
-  transform-origin: 20% 75%;
+  transform-origin: 0% 75%;
   transition-timing-function: cubic-bezier(0.98, -0.4, 0.32, 1.6);
 }
 

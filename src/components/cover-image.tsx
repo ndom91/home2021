@@ -49,18 +49,15 @@ const CoverImage = ({ title, cover = { imageFile: "" }, slug }: Props) => {
   return (
     <div className="sm:mx-0">
       {!imageFile.includes(".gif") ? (
-        // slug ? (
-        <Link as={`/posts/${slug}`} href="/posts/[slug]">
+        <Link as={slug ? `/posts/${slug}` : "#"} href="/posts/[slug]">
           <a aria-label={title} className="bg-pink-300 ">
             {imageComponent}
           </a>
         </Link>
       ) : (
-        // ) : (
-        //   imageComponent
-        // )
-        <Link as={`/posts/${slug}`} href="/posts/[slug]">
+        <Link as={slug ? `/posts/${slug}` : "#"} href="/posts/[slug]">
           <a aria-label={title} className="bg-pink-300 ">
+            {/* eslint-disable @next/next/no-img-element */}
             <img
               alt={slug}
               src={`/assets/blog/${imageFile}`}

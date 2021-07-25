@@ -22,15 +22,15 @@ const CodeEditor: FunctionComponent<EditorProps> = ({ title, children }) => {
 
   return (
     <div className="w-full" style={{ width: "100%" }}>
-      <div className="relative flex items-center justify-between w-full h-10 -mb-3 bg-gray-100 rounded-t-md dark:bg-gray-800">
-        <div>
+      <div className="relative flex items-center justify-between w-full h-10 -mb-3 bg-gray-100 rounded-t-md dark:bg-gray-700">
+        <div className="inline-flex justify-center h-full">
           <div className="inline-flex items-center h-full ml-4 space-x-2">
             <span className="w-3 h-3 bg-red-400 rounded-full"></span>
             <span className="w-3 h-3 bg-yellow-200 rounded-full"></span>
             <span className="w-3 h-3 bg-green-300 rounded-full"></span>
           </div>
-          <div className="inline-flex items-end p-2 ml-6 rounded-t-md">
-            <div className="inline-flex h-full font-mono text-xs font-light text-gray-700 dark:text-gray-200">
+          <div className="inline-flex items-center p-2 ml-6 rounded-t-md">
+            <div className="font-mono text-xs font-light text-gray-700 dark:text-gray-100">
               {title}
             </div>
           </div>

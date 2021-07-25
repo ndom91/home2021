@@ -46,7 +46,7 @@ const ProjectCard = ({ project, index }: Props) => {
       style={{ ["--index" as string]: index }}
     >
       <div className="relative m-4 bg-gray-100 dark:bg-gray-800 rounded-xl group">
-        <div className="relative z-10 flex flex-col transition duration-500 bg-gray-100 dark:bg-gray-800 rounded-xl">
+        <div className="relative z-10 flex flex-col transition duration-500 bg-gray-100 dark:bg-gray-700 rounded-xl">
           {url && (
             <Link href={url}>
               <a
@@ -54,7 +54,7 @@ const ProjectCard = ({ project, index }: Props) => {
                 className="z-10 w-full h-32 mb-2 overflow-y-hidden bg-gray-200 dark:bg-gray-600 rounded-t-xl hover:cursor-pointer"
               >
                 {imageImport && (
-                  <Parallax y={[0, randomNumber(20, 40)]}>
+                  <Parallax y={[0, randomNumber(30, 60)]}>
                     <Image
                       src={imageImport}
                       id={`project-image-${image}`}
@@ -74,7 +74,7 @@ const ProjectCard = ({ project, index }: Props) => {
             {url && (
               <Link href={url}>
                 <a>
-                  <div className="text-lg font-semibold text-gray-600 transition-colors duration-300 dark:hover:text-palevioletred dark:text-gray-200 hover:text-pink-300 md:text-xl">
+                  <div className="text-lg font-semibold text-gray-600 transition-colors duration-300 dark:hover:text-palevioletred dark:text-gray-100 hover:text-pink-300 md:text-xl">
                     {name}
                   </div>
                 </a>

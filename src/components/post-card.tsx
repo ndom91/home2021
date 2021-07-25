@@ -83,13 +83,13 @@ const PostCard = ({ post }: Props) => {
             <div className="relative flex flex-col justify-between w-full md:flex-row">
               <Link href={`/posts/${slug ? slug : ""}`}>
                 <a>
-                  <div className="text-xl font-medium text-gray-600 capitalize transition-colors duration-300 dark:text-gray-200 hover:text-palevioletred">
+                  <div className="text-xl font-medium text-gray-600 capitalize transition-colors duration-300 dark:text-gray-100 hover:text-palevioletred">
                     {title}
                   </div>
                 </a>
               </Link>
               <div className="flex flex-col-reverse text-sm md:flex-row md:text-base">
-                <span className="font-light text-gray-400 md:mx-4 dark:text-gray-500 min-w-max">
+                <span className="font-light text-gray-400 md:mx-4 dark:text-gray-900 min-w-max">
                   {time.text}
                 </span>
                 <span className="text-medium min-w-max">
@@ -98,7 +98,7 @@ const PostCard = ({ post }: Props) => {
               </div>
             </div>
             <div
-              className="flex w-full max-w-full mt-4 mb-4 prose-sm prose text-gray-600 dark:text-gray-300 prose-pink dark:prose-dark"
+              className="flex w-full max-w-full mt-4 mb-4 prose-sm prose text-gray-600 dark:text-gray-200 prose-pink dark:prose-dark"
               dangerouslySetInnerHTML={{ __html: excerpt }}
             />
             <div className="relative flex align-middle">

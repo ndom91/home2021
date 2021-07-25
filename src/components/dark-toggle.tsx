@@ -84,7 +84,7 @@ const DarkToggle = () => {
   }
 
   return (
-    <div className="relative text-gray-800 dark:text-gray-400">
+    <div className="relative text-gray-800 dark:text-gray-200">
       <button
         aria-label="Dark Toggle"
         type="button"

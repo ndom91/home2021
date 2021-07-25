@@ -33,7 +33,7 @@ const HeroPost = ({ title, cover, date, slug, time }: Props) => {
         <div className="col-span-4">
           <h3 className="mb-2 text-4xl leading-tight lg:text-6xl">
             <Link as={`/posts/${slug}`} href="/posts/[slug]">
-              <a className="font-bold dark:text-gray-200 first-letter:text-4xl">
+              <a className="font-bold dark:text-gray-100 first-letter:text-4xl">
                 {title}
               </a>
             </Link>
