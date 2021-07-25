@@ -45,11 +45,19 @@
   }
 }
 
+/* GLOBAL */
+
 :root {
   --dark-text: #374151;
   --dark-border: #1f2937;
   --pink-300: 249, 168, 212;
   --palevioletred: 219, 112, 147;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* FONTS */
