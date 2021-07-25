@@ -22,12 +22,14 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   })
 
   // Extract the url from the query parameter `path`
-  const url: string = req.query.path as string
-  const colorScheme: "light" | "dark" = req.query.colorScheme as
+  const url = req.query.path as string
+  const colorScheme = req.query.colorScheme as
     | "light"
     | "dark"
+    | "no-preference"
+    | null
 
-  await page.emulateMedia({ colorScheme: colorScheme })
+  await page.emulateMedia({ colorScheme })
 
   await page.goto(url)
 

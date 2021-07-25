@@ -212,6 +212,10 @@ html[class="dark"] ul a:before {
   text-decoration: underline;
 }
 
+.prose summary::marker {
+  content: "👉 ";
+}
+
 /* INTRO */
 
 .intro-title {
