@@ -1,4 +1,8 @@
-# 2021
+# 🏠 2021
+
+![Vercel Status Badge](https://vercelbadge.vercel.app/api/ndom91/home2021?style=flat-square)
+![GitHub package.json version](https://img.shields.io/github/package-json/v/ndom91/home2021?style=flat-square)
+![GitHub last commit](https://img.shields.io/github/last-commit/ndom91/home2021?style=flat-square)
 
 Portfolio page redesign for 2021 🎉
 
