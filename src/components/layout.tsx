@@ -24,7 +24,7 @@ const Layout = ({ children }: Props) => {
   }
 
   return (
-    <div className="flex flex-col items-center min-h-screen duration-500 dark:selection:bg-palevioletred selection:text-white dark:bg-gray-500 selection:bg-pink-300">
+    <div className="flex flex-col items-center min-h-screen overflow-hidden duration-500 dark:selection:bg-palevioletred selection:text-white dark:bg-gray-500 selection:bg-pink-300">
       {typeof window !== "undefined" && window.location.hostname === "ndo.dev" && (
         <>
           <Script src="/p.js" data-domain="ndo.dev" data-api="/a/e" />
