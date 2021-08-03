@@ -1,6 +1,5 @@
 import Link from "next/link"
 import dynamic from "next/dynamic"
-// import DarkToggle from "@/components/dark-toggle"
 
 const DarkToggle = dynamic(() => import("@/components/dark-toggle"))
 
