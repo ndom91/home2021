@@ -2,7 +2,7 @@ import fs from "fs"
 import { join } from "path"
 import matter from "gray-matter"
 import readingTime from "reading-time"
-import remark from "remark"
+import { remark } from "remark"
 import html from "remark-html"
 
 const firstFourLines = (file: any, options: any): any => {
