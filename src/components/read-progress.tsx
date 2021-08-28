@@ -6,14 +6,12 @@ const ProgressBar = () => {
   const pageHeight = document.body.scrollHeight - window.innerHeight
 
   useEffect(() => {
-    const percentScrolled = Math.abs(y) / pageHeight
+    const percentScrolled = (Math.abs(y) / pageHeight) * 100
     const el = document.getElementById("scroll-progress")
-    if (el) {
-      el.style.setProperty(
-        "--tw-gradient-stops",
-        `var(--tw-ring-color) ${percentScrolled * 100}%, transparent 0`
-      )
-    }
+    el?.style.setProperty(
+      "--tw-gradient-stops",
+      `var(--tw-ring-color) ${percentScrolled}%, transparent 0`
+    )
   }, [y, pageHeight])
 
   return (
