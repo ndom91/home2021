@@ -1,4 +1,5 @@
 import { useWindowSize } from "react-use"
+import { useRouter } from "next/router"
 import dynamic from "next/dynamic"
 
 const WebVitals = dynamic(() => import("./web-vitals"), {
@@ -7,6 +8,7 @@ const WebVitals = dynamic(() => import("./web-vitals"), {
 
 const Footer = () => {
   const { width } = useWindowSize()
+  const router = useRouter()
   return (
     <footer className="w-full opacity-0 animate-fade-in sm:max-w-screen-sm md:max-w-5xl">
       <div className="flex items-center justify-between px-4 py-4 max-w md:pt-8">
@@ -79,7 +81,7 @@ const Footer = () => {
             </svg>
           </a>
         </div>
-        {width > 768 && <WebVitals />}
+        {width > 768 && router.pathname === "/" && <WebVitals />}
       </div>
     </footer>
   )

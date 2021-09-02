@@ -25,7 +25,7 @@ const properties = {
 const DarkToggle = () => {
   const router = useRouter()
   const [dark, setDark] = useState(true)
-  const [value, setValue] = useLocalStorage("theme", "", {
+  const [_, setValue] = useLocalStorage("theme", "", {
     raw: true,
   })
   useEffect(() => {
