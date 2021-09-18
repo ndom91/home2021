@@ -7,6 +7,7 @@ import Layout from "@/components/layout"
 import PostType from "../../types/post"
 import ScreenshotLink from "@/components/screenshot-link"
 import CodeEditor from "@/components/mdx/code-editor"
+import { Giscus } from "@giscus/react"
 
 import fs from "fs"
 import matter from "gray-matter"
@@ -75,6 +76,19 @@ const Post = ({ source, frontMatter, slug }: Props) => {
           />
           <div className="max-w-2xl mx-auto prose-sm prose dark:prose-dark md:prose-lg dark:text-gray-100">
             <MDXRemote {...source} components={components} />
+          </div>
+          <div className="max-w-2xl mx-auto prose-sm prose dark:prose-dark md:prose-lg dark:text-gray-100">
+            <Giscus
+              repo="ndom91/home2021"
+              repoId="MDEwOlJlcG9zaXRvcnkzNzYyNzQ4MTk="
+              category="Q&A"
+              categoryId="DIC_kwDOFm1_g84B_GqA"
+              mapping="title"
+              reactionsEnabled="1"
+              emitMetadata="0"
+              // theme={theme as Theme}
+              theme="preferred_color_scheme"
+            />
           </div>
         </article>
       </Layout>

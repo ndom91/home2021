@@ -23,6 +23,7 @@
     "pretty-quick": "pretty-quick --staged"
   },
   "dependencies": {
+    "@giscus/react": "^1.0.0",
     "@mapbox/rehype-prism": "^0.7.0",
     "@next/mdx": "^11.1.0",
     "date-fns": "2.23.0",

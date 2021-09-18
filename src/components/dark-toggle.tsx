@@ -50,6 +50,8 @@ const DarkToggle = () => {
 
   const toggleDark = () => {
     setDark(!dark)
+    // const giscusFrame = document?.querySelector('.giscus-frame') as HTMLIFrameElement
+    // giscusFrame?.contentWindow?.postMessage(dark, "*")
     if (dark) {
       document.documentElement.classList.add("dark")
       setValue("dark")
