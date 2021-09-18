@@ -1,7 +1,8 @@
 import { useRouter } from "next/router"
 import { animated, useSpring } from "react-spring"
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { useLocalStorage } from "react-use"
+import useStore from "../lib/zustand"
 import setFlickerAnimation from "../lib/flicker"
 
 const properties = {
@@ -24,18 +25,21 @@ const properties = {
 
 const DarkToggle = () => {
   const router = useRouter()
-  const [dark, setDark] = useState(true)
+  // @ts-ignore
+  const theme: "light" | "dark" = useStore((state) => state.theme)
+  // @ts-ignore
+  const setTheme = useStore((state) => state.setTheme)
   const [_, setValue] = useLocalStorage("theme", "", {
     raw: true,
   })
   useEffect(() => {
     if (document.documentElement.classList.contains("dark")) {
-      setDark(false)
+      setTheme("dark")
     }
   }, [])
 
   // Animate Toggle
-  const { r, transform, cx, cy, opacity } = properties[!dark ? "dark" : "light"]
+  const { r, transform, cx, cy, opacity } = properties[theme]
   const svgContainerProps = useSpring({
     transform,
     config: properties.springConfig,
@@ -49,12 +53,10 @@ const DarkToggle = () => {
   const linesProps = useSpring({ opacity, config: properties.springConfig })
 
   const toggleDark = () => {
-    setDark(!dark)
-    // const giscusFrame = document?.querySelector('.giscus-frame') as HTMLIFrameElement
-    // giscusFrame?.contentWindow?.postMessage(dark, "*")
-    if (dark) {
+    if (theme === "light") {
       document.documentElement.classList.add("dark")
-      setValue("dark")
+      document.documentElement.style.setProperty("color-scheme", "dark")
+      setValue(theme)
       setFlickerAnimation()
 
       // Switch Off
@@ -72,9 +74,11 @@ const DarkToggle = () => {
           jsNeonBulb?.play()
         }, 500)
       }
+      setTheme("dark")
     } else {
       document.documentElement.classList.remove("dark")
-      setValue("light")
+      document.documentElement.style.setProperty("color-scheme", "light")
+      setValue(theme)
 
       // Switch On
       setFlickerAnimation()
@@ -82,6 +86,7 @@ const DarkToggle = () => {
         "js-sound-on"
       ) as HTMLAudioElement
       jsSoundOn?.play()
+      setTheme("light")
     }
   }
 

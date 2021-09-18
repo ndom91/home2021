@@ -7,7 +7,8 @@ import Layout from "@/components/layout"
 import PostType from "../../types/post"
 import ScreenshotLink from "@/components/screenshot-link"
 import CodeEditor from "@/components/mdx/code-editor"
-import { Giscus } from "@giscus/react"
+import { Giscus, Theme } from "@giscus/react"
+import useStore from "../../lib/zustand"
 
 import fs from "fs"
 import matter from "gray-matter"
@@ -41,6 +42,8 @@ type Props = {
 }
 
 const Post = ({ source, frontMatter, slug }: Props) => {
+  // @ts-ignore
+  const theme = useStore((state) => state.theme)
   if (!frontMatter?.title) {
     return <ErrorPage statusCode={404} />
   }
@@ -77,7 +80,7 @@ const Post = ({ source, frontMatter, slug }: Props) => {
           <div className="max-w-2xl mx-auto prose-sm prose dark:prose-dark md:prose-lg dark:text-gray-100">
             <MDXRemote {...source} components={components} />
           </div>
-          <div className="max-w-2xl mx-auto prose-sm prose dark:prose-dark md:prose-lg dark:text-gray-100">
+          <div className="max-w-2xl mt-20 mx-auto prose-sm prose dark:prose-dark md:prose-lg dark:text-gray-100">
             <Giscus
               repo="ndom91/home2021"
               repoId="MDEwOlJlcG9zaXRvcnkzNzYyNzQ4MTk="
@@ -86,8 +89,7 @@ const Post = ({ source, frontMatter, slug }: Props) => {
               mapping="title"
               reactionsEnabled="1"
               emitMetadata="0"
-              // theme={theme as Theme}
-              theme="preferred_color_scheme"
+              theme={theme as Theme}
             />
           </div>
         </article>
