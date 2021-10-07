@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import DateFormatter from "@/components/date-formatter"
 import Image from "next/image"
 import Link from "next/link"
@@ -77,6 +77,7 @@ const PostCard = ({ post, index }: Props) => {
                 alt={`${title} Cover Image`}
                 quality="100"
                 placeholder={
+                  // @ts-expect-error
                   imageImport?.default?.src?.includes("gif")
                     ? undefined
                     : "blur"
