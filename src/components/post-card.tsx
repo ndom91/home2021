@@ -76,7 +76,11 @@ const PostCard = ({ post, index }: Props) => {
                 src={imageImport}
                 alt={`${title} Cover Image`}
                 quality="100"
-                placeholder="blur"
+                placeholder={
+                  imageImport?.default?.src?.includes("gif")
+                    ? undefined
+                    : "blur"
+                }
                 objectFit="contain"
                 className={`md:overflow-visible ${
                   odd ? "md:-translate-x-10" : "md:translate-x-10"
