@@ -40,7 +40,7 @@ const HeroPost = ({ title, cover, date, slug, time }: Props) => {
           </h3>
           <div className="flex mb-4 space-x-4 text-lg font-light md:justify-start">
             <DateFormatter dateString={date} />
-            <span className="dark:text-gray-400">{time.text}</span>
+            <span className="dark:text-gray-300">{time.text}</span>
           </div>
         </div>
         <div className="flex justify-start sm:justify-end">

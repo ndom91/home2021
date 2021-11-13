@@ -49,12 +49,14 @@ module.exports = {
             },
             '[class~="lead"]': { color: theme("colors.gray.400") },
             strong: { color: theme("colors.gray.100") },
-            "ul > li::before": { backgroundColor: theme("colors.gray.900") },
-            "ol > li::before": { color: theme("colors.gray.900") },
-            hr: { borderColor: theme("colors.gray.800") },
+            "ul > li::before": {
+              backgroundColor: theme("colors.palevioletred"),
+            },
+            "ol > li::before": { color: theme("colors.palevioletred") },
+            hr: { borderColor: theme("colors.palevioletred") },
             blockquote: {
               color: theme("colors.gray.100"),
-              borderLeftColor: theme("colors.gray.900"),
+              borderLeftColor: theme("colors.palevioletred"),
             },
             h1: { color: theme("colors.gray.100") },
             h2: { color: theme("colors.gray.100") },

@@ -15,7 +15,7 @@ const Blog = ({ allPosts }: Props) => {
     <Layout>
       <div className="relative">
         <h1 className="mt-8 mb-24 font-bold leading-tight tracking-tighter opacity-0 dark:text-gray-100 text-7xl animate-fade-in-up-10 md:pr-8 md:text-8xl">
-          blog.
+          blog.{" "}
         </h1>
       </div>
       {heroPost && (

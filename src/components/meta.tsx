@@ -1,4 +1,5 @@
 import Head from "next/head"
+import Script from "next/script"
 import { useRouter } from "next/router"
 
 const Meta = () => {
@@ -81,6 +82,10 @@ const Meta = () => {
           }),
         }}
       />
+      {typeof window !== "undefined" &&
+        window.location.hostname === "ndo.dev" && (
+          <Script src="/p.js" data-domain="ndo.dev" data-api="/a/e" />
+        )}
     </Head>
   )
 }

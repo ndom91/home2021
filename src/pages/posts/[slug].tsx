@@ -77,10 +77,10 @@ const Post = ({ source, frontMatter, slug }: Props) => {
             date={frontMatter.date}
             time={frontMatter.time ?? "1 min"}
           />
-          <div className="max-w-2xl mx-auto prose-sm prose dark:prose-dark md:prose-lg dark:text-gray-100">
+          <div className="max-w-4xl mx-auto prose-sm prose dark:prose-dark md:prose-lg dark:text-gray-100">
             <MDXRemote {...source} components={components} />
           </div>
-          <div className="max-w-2xl mt-20 mx-auto prose-sm prose dark:prose-dark md:prose-lg dark:text-gray-100">
+          <div className="max-w-4xl mt-20 mx-auto prose-sm prose dark:prose-dark md:prose-lg dark:text-gray-100">
             <Giscus
               repo="ndom91/home2021"
               repoId="MDEwOlJlcG9zaXRvcnkzNzYyNzQ4MTk="

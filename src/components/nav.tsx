@@ -5,7 +5,7 @@ const DarkToggle = dynamic(() => import("@/components/dark-toggle"))
 
 const Navbar = () => {
   return (
-    <nav className="flex p-4 opacity-0 space-between animate-fade-in">
+    <nav className="flex py-4 opacity-0 space-between animate-fade-in">
       <ul className="flex items-center w-full space-x-10 text-xl text-gray-800 dark:text-gray-100 font-extralight">
         <li>
           <Link href="/">

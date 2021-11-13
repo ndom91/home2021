@@ -11,7 +11,7 @@ const IntroDescription = () => {
     <div
       id="intro-body"
       data-splitting="lines"
-      className="relative w-full p-2 mt-4 text-lg font-light leading-8 tracking-tight text-left text-gray-800 dark:text-gray-100 md:pl-10 md:w-11/12 md:text-xl"
+      className="relative w-full p-2 mt-4 text-lg font-light leading-8 tracking-tight text-left text-gray-800 dark:text-gray-100 lg:pl-10 lg:w-11/12 md:text-xl"
       style={{ lineHeight: "2.25rem" }}
     >
       Hi! My name&apos;s Nico Domino and I&lsquo;m a full-stack javascript
@@ -27,7 +27,7 @@ const IntroDescription = () => {
         text="NextAuth.js"
         className="opacity-0 animate-fade-in-up animation-delay-600"
       />
-      , or catching up on the latest Netflix series. I&lsquo;m based in
+      🔒 , or catching up on the latest Netflix series. I&lsquo;m based in
       Frankfurt, Germany where I occasionally write about my adventures in tech
       on my{" "}
       <ScreenshotLink
@@ -42,7 +42,7 @@ const IntroDescription = () => {
         text="Twitter"
         className="opacity-0 animate-fade-in-up animation-delay-1100"
       />
-      🐦.
+      🐦
     </div>
   )
 }

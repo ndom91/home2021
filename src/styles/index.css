@@ -81,6 +81,14 @@ body {
     src: url("/assets/fonts/inter/Inter-italic.var.woff2?v=3.19")
       format("woff2");
   }
+
+  @font-face {
+    font-family: "Px Grotesk Bold";
+    font-weight: 100 900;
+    font-display: swap;
+    font-named-instance: "Regular";
+    src: url("/assets/fonts/px-grotesk-bold.woff") format("woff");
+  }
 }
 
 /* SCROLLBAR */
@@ -325,57 +333,5 @@ html[class="dark"] .border-underline-grow:active {
       rgba(255, 255, 255, 1) 85%,
       rgba(255, 255, 255, 1)
     );
-  }
-}
-
-/* FOOTER */
-
-.web-vitals {
-  display: none;
-}
-
-@media screen and (min-width: 768px) {
-  .web-vitals {
-    display: inline-block;
-    background: transparent !important;
-    max-width: unset !important;
-    position: relative !important;
-    bottom: unset !important;
-    right: unset !important;
-    font-family: "Inter" !important;
-    box-shadow: none !important;
-    opacity: 0.2;
-    border: 1px solid rgba(204, 204, 204, 0.75);
-    transition: opacity 500ms ease-in-out;
-  }
-  .web-vitals:hover {
-    opacity: 1;
-  }
-  .web-vitals div {
-    margin-left: 1em;
-    display: flex !important;
-  }
-  .web-vitals dd {
-    width: max-content;
-    margin-left: 0.5em !important;
-  }
-  .web-vitals > dl {
-    display: flex;
-  }
-  html.dark .web-vitals {
-    opacity: 0.05;
-    border: 1px solid var(--dark-border);
-  }
-  html.dark .web-vitals:hover {
-    opacity: 1;
-  }
-  html.dark .web-vitals a {
-    color: var(--dark-text);
-  }
-  html.dark .web-vitals dd::after {
-    opacity: 0.2;
-  }
-  html.dark .web-vitals dd {
-    color: var(--dark-text);
   }
 }

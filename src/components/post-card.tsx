@@ -46,7 +46,6 @@ const PostCard = ({ post, index }: Props) => {
     date,
     excerpt,
     slug,
-    category,
     tags,
     time,
   } = post
@@ -104,7 +103,7 @@ const PostCard = ({ post, index }: Props) => {
             <span className="text-medium">
               <DateFormatter dateString={date} />
             </span>
-            <span className="text-gray-400 dark:text-gray-900 ">
+            <span className="text-gray-400 dark:text-gray-200 ">
               {time.text}
             </span>
           </div>

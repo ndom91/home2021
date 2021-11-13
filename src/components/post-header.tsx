@@ -26,13 +26,13 @@ const PostHeader = ({ title, cover, date, time }: Props) => {
           <CoverImage title={title} cover={cover} />
         </div>
       )}
-      <div className="flex justify-between max-w-2xl mx-auto my-8 md:mt-16">
+      <div className="flex justify-between max-w-4xl mx-auto my-8 md:mt-16">
         <div className="block mb-6">
           <Avatar />
         </div>
         <div className="mb-6 text-lg text-right">
           <DateFormatter dateString={date} />
-          <p className="text-gray-700 dark:text-gray-900">{time.text}</p>
+          <p className="text-gray-700 dark:text-gray-300">{time.text}</p>
         </div>
       </div>
     </>

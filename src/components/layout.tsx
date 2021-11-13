@@ -1,4 +1,3 @@
-import Script from "next/script"
 import dynamic from "next/dynamic"
 import { useLocalStorage } from "react-use"
 import Footer from "@/components/footer"
@@ -24,21 +23,16 @@ const Layout = ({ children }: Props) => {
   }
 
   return (
-    <div className="flex flex-col items-center min-h-screen overflow-hidden duration-500 dark:selection:bg-palevioletred selection:text-white dark:bg-gray-500 selection:bg-pink-300">
-      {typeof window !== "undefined" && window.location.hostname === "ndo.dev" && (
-        <>
-          <Script src="/p.js" data-domain="ndo.dev" data-api="/a/e" />
-        </>
-      )}
+    <div className="flex flex-col items-center min-h-screen duration-500 dark:selection:bg-palevioletred selection:text-white dark:bg-gray-500 selection:bg-pink-300">
       <Meta />
       {alert.enabled && !value?.dismissed && (
         <Alert header={alert.header} body={alert.body} setValue={setValue} />
       )}
-      <div className="flex-1 w-full mx-auto overflow-x-hidden md:max-w-5xl md:overflow-x-visible">
+      <div className="flex flex-col w-full h-screen px-4 md:px-8 overflow-x-hidden md:max-w-7xl md:overflow-x-visible">
         <Navbar />
-        <main className="relative px-4">{children}</main>
+        <main className="flex-1 relative">{children}</main>
+        <Footer />
       </div>
-      <Footer />
     </div>
   )
 }
