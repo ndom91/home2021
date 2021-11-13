@@ -81,14 +81,6 @@ body {
     src: url("/assets/fonts/inter/Inter-italic.var.woff2?v=3.19")
       format("woff2");
   }
-
-  @font-face {
-    font-family: "Px Grotesk Bold";
-    font-weight: 100 900;
-    font-display: swap;
-    font-named-instance: "Regular";
-    src: url("/assets/fonts/px-grotesk-bold.woff") format("woff");
-  }
 }
 
 /* SCROLLBAR */

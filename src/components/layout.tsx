@@ -28,7 +28,7 @@ const Layout = ({ children }: Props) => {
       {alert.enabled && !value?.dismissed && (
         <Alert header={alert.header} body={alert.body} setValue={setValue} />
       )}
-      <div className="flex flex-col w-full h-screen px-4 md:px-8 overflow-x-hidden md:max-w-7xl md:overflow-x-visible">
+      <div className="flex flex-col w-full h-screen px-4 lg:py-4 md:px-8 overflow-x-hidden md:max-w-7xl md:overflow-x-visible">
         <Navbar />
         <main className="flex-1 relative">{children}</main>
         <Footer />
