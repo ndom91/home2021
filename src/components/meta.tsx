@@ -12,6 +12,9 @@ const Meta = () => {
       : "https://ndo.dev"
   }/api/og?${searchParams}`
 
+  console.log(window.location.hostname)
+  console.log(typeof window)
+
   return (
     <Head>
       <link
