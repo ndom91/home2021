@@ -35,11 +35,13 @@ const PostCard = ({ post }: Props) => {
           <span className="text-medium">
             <DateFormatter dateString={date} />
           </span>
-          <span className="text-gray-400 dark:text-gray-200 ">{time.text}</span>
+          <span className="text-gray-400 dark:text-gray-200 font-medium">
+            {time.text}
+          </span>
         </div>
       </div>
       <div
-        className="flex w-full max-w-full mt-4 mb-4 prose-sm prose text-gray-600 dark:text-gray-200 prose-pink dark:prose-dark"
+        className="flex w-full max-w-full mt-4 mb-4 prose-md prose font-light text-gray-600 dark:text-gray-200 prose-pink dark:prose-dark"
         dangerouslySetInnerHTML={{ __html: excerpt }}
       />
       <div className="relative flex align-middle">
@@ -47,7 +49,7 @@ const PostCard = ({ post }: Props) => {
           {tags.map((tag) => (
             <span
               key={tag}
-              className="px-2 py-1 my-auto mr-2 text-xs text-gray-400 bg-gray-200 rounded-full whitespace-nowrap dark:bg-gray-800 dark:text-palevioletred"
+              className="px-3 py-2 my-auto mr-2 text-sm text-gray-400 bg-gray-200 rounded-full whitespace-nowrap dark:bg-gray-800 dark:text-palevioletred"
             >
               {tag}
             </span>
