@@ -185,10 +185,6 @@ html[class="dark"] ul a:before {
   background-color: transparent !important;
 }
 
-.post-image div {
-  overflow: visible !important;
-}
-
 .post-card-image-wrapper > div {
   height: 100%;
 }

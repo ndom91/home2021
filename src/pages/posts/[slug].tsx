@@ -10,7 +10,7 @@ import CodeEditor from "@/components/mdx/code-editor"
 import { Giscus, Theme } from "@giscus/react"
 import useStore from "../../lib/zustand"
 
-import fs from "fs"
+import fs from "fs/promises"
 import matter from "gray-matter"
 import path from "path"
 import readingTime from "reading-time"
@@ -24,16 +24,17 @@ const components = {
   CodeEditor: CodeEditor,
   ScreenshotLink: ScreenshotLink,
   PostBody: PostBody,
-  // // It also works with dynamically-imported components, which is especially
-  // // useful for conditionally loading components for certain routes.
-  // // See the notes in README.md for more details.
-  // TestComponent: dynamic(() => import('../../components/TestComponent')),
-  // Head,
 }
 
 const ProgressBar = dynamic(() => import("../../components/read-progress"), {
   ssr: false,
 })
+
+type Params = {
+  params: {
+    slug: string
+  }
+}
 
 type Props = {
   source: any
@@ -100,15 +101,9 @@ const Post = ({ source, frontMatter, slug }: Props) => {
 
 export default Post
 
-type Params = {
-  params: {
-    slug: string
-  }
-}
-
 export async function getStaticProps({ params }: Params) {
   const postFilePath = path.join(POSTS_PATH, params.slug, "index.mdx")
-  const source = fs.readFileSync(postFilePath)
+  const source = await fs.readFile(postFilePath)
 
   const { content, data } = matter(source)
 
@@ -138,9 +133,10 @@ export async function getStaticProps({ params }: Params) {
 }
 
 export const getStaticPaths = async () => {
-  const paths = postFilePaths
-    .map((path) => path.replace(/\.mdx?$/, ""))
-    .map((slug) => ({ params: { slug } }))
+  const filePaths = await postFilePaths()
+  const paths = filePaths
+    .map((path: string) => path.replace(/\.mdx?$/, ""))
+    .map((slug: string) => ({ params: { slug } }))
 
   return {
     paths,

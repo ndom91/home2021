@@ -1,9 +1,14 @@
-import fs from "fs"
+import fs from "fs/promises"
 import { join } from "path"
 import matter from "gray-matter"
 import readingTime from "reading-time"
 import { remark } from "remark"
 import html from "remark-html"
+
+// Setup custom return array of fields
+type Items = {
+  [key: string]: string
+}
 
 const firstFourLines = (file: any, options: any): any => {
   file.excerpt = file.content
@@ -15,23 +20,24 @@ const firstFourLines = (file: any, options: any): any => {
 
 const postsDirectory = join(process.cwd(), "src", "_posts")
 
-export function getPostSlugs() {
-  return fs.readdirSync(postsDirectory)
+export async function getPostSlugs() {
+  return fs.readdir(postsDirectory)
 }
 
-const getMarkdownFile = (filePath: string) => {
-  let files = fs.readdirSync(filePath)
+const getMarkdownFile = async (filePath: string) => {
+  let files = await fs.readdir(filePath)
   return files.filter((file) => file.match(new RegExp(`.*\.md`, "ig")))[0]
 }
 
-const excerptToHtml = async (excerpt: any, data: any) => {
+const excerptToHtml = async (excerpt: string, data: any) => {
   const e1 = await remark().use(html).process(excerpt)
   return e1.toString()
 }
 
 export async function getPostBySlug(slug: string, fields: string[] = []) {
-  const filePath = getMarkdownFile(join(postsDirectory, slug))
-  const fileContents = fs.readFileSync(
+  const items: Items = {}
+  const filePath = await getMarkdownFile(join(postsDirectory, slug))
+  const fileContents = await fs.readFile(
     join(postsDirectory, slug, filePath),
     "utf8"
   )
@@ -40,21 +46,13 @@ export async function getPostBySlug(slug: string, fields: string[] = []) {
   })
 
   // Time to Read
-  const time = readingTime(fileContents)
-  data.time = time
+  data.time = readingTime(fileContents)
 
   // Excerpt
   if (excerpt) {
     const htmlExcerpt = await excerptToHtml(excerpt, data)
     data.excerpt = htmlExcerpt.replace(/\<h[1-4]\/?>/, "")
   }
-
-  // Setup custom return array of fields
-  type Items = {
-    [key: string]: string
-  }
-
-  const items: Items = {}
 
   // Ensure only the minimal needed data is exposed
   fields.forEach((field) => {
@@ -74,7 +72,7 @@ export async function getPostBySlug(slug: string, fields: string[] = []) {
 }
 
 export async function getAllPosts(fields: string[] = []) {
-  const slugs = getPostSlugs()
+  const slugs = await getPostSlugs()
   let posts = await Promise.all(
     slugs.map(async (slug) => getPostBySlug(slug, fields))
   )

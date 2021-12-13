@@ -36,7 +36,7 @@ const DarkToggle = () => {
     if (document.documentElement.classList.contains("dark")) {
       setTheme("dark")
     }
-  }, [])
+  }, [setTheme])
 
   // Animate Toggle
   const { r, transform, cx, cy, opacity } = properties[theme]

@@ -18,13 +18,7 @@ const About = ({ projects }: Projects) => {
 export default About
 
 export const getStaticProps = async () => {
-  const projects = require("../../data/projects.json")
-
-  if (!projects) {
-    return {
-      notFound: true,
-    }
-  }
+  const projects = require("../data/projects.json")
 
   return {
     props: { projects },

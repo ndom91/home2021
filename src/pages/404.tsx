@@ -1,7 +1,6 @@
 import Layout from "@/components/layout"
 import Image from "next/image"
 import { useRouter } from "next/router"
-import Travolta from "../../public/assets/travolta.webp"
 
 const FourOhFour = () => {
   const router = useRouter()
