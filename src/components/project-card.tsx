@@ -42,7 +42,7 @@ const ProjectCard = ({ project, index }: Props) => {
 
   return (
     <div
-      className="mx-1 opacity-0 animate-fade-in"
+      className="mx-1 opacity-0 animate-fade_in"
       style={{ ["--index" as string]: index }}
     >
       <div className="relative m-4 bg-gray-100 dark:bg-gray-800 rounded-xl group">

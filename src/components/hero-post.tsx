@@ -21,7 +21,7 @@ type Props = {
 
 const HeroPost = ({ title, cover, date, slug, time }: Props) => {
   return (
-    <section className="opacity-0 animate-fade-in">
+    <section className="opacity-0 animate-fade_in">
       <div className="h-auto mb-8 overflow-hidden mask-bottom md:mb-16 md:h-96">
         <ParallaxProvider>
           <Parallax y={[10, -10]}>

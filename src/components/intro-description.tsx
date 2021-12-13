@@ -19,13 +19,13 @@ const IntroDescription = () => {
       <ScreenshotLink
         url="https://checklyhq.com"
         text="Checkly"
-        className="opacity-0 animate-fade-in-up animation-delay-500"
+        className="opacity-0 animate-fade_in_up animation-delay-500"
       />
       🦝. In the evenings you can find me working on open source software, like{" "}
       <ScreenshotLink
         url="https://next-auth.js.org"
         text="NextAuth.js"
-        className="opacity-0 animate-fade-in-up animation-delay-600"
+        className="opacity-0 animate-fade_in_up animation-delay-600"
       />
       🔒 , or catching up on the latest Netflix series. I&lsquo;m based in
       Frankfurt, Germany where I occasionally write about my adventures in tech
@@ -33,14 +33,14 @@ const IntroDescription = () => {
       <ScreenshotLink
         url="https://ndo.dev/blog"
         text="blog"
-        className="opacity-0 animate-fade-in-up animation-delay-900"
+        className="opacity-0 animate-fade_in_up animation-delay-900"
       />
       📓 and if you like memes, movies, and web development you might also enjoy
       following me on{" "}
       <ScreenshotLink
         url="https://twitter.com/ndom91"
         text="Twitter"
-        className="opacity-0 animate-fade-in-up animation-delay-1100"
+        className="opacity-0 animate-fade_in_up animation-delay-1100"
       />
       🐦
     </div>

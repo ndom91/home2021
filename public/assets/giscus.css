@@ -231,12 +231,12 @@ a {
 .highlight .zeroclipboard-container,
 .snippet-clipboard-content .zeroclipboard-container {
   @apply opacity-0;
-  animation: fade-out 0.2s both;
+  animation: fade_out 0.2s both;
 }
 .highlight:hover .zeroclipboard-container,
 .snippet-clipboard-content:hover .zeroclipboard-container {
   @apply opacity-100;
-  animation: fade-in 0.2s both;
+  animation: fade_in 0.2s both;
 }
 .zeroclipboard-link {
   @apply p-0 m-0 cursor-pointer;

@@ -44,7 +44,7 @@ const ScreenshotLink = ({
         onMouseOut={() => setIsHovering(false)}
       >
         {isHovering && linkScreenshot && (
-          <div className="absolute z-10 block w-32 pointer-events-none right-1/2 lg:block bottom-[2.0rem] animate-fade-in-up-5">
+          <div className="absolute z-10 block w-32 pointer-events-none right-1/2 lg:block bottom-[2.0rem] animate-fade_in_up_5">
             <Image
               src={linkScreenshot}
               height={180}

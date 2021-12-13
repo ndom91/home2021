@@ -2,19 +2,19 @@ const colors = require("tailwindcss/colors")
 const defaultTheme = require("tailwindcss/defaultTheme")
 
 module.exports = {
-  purge: {
-    content: ["./src/components/**/*.tsx", "./src/pages/**/*.tsx"],
-    safelist: ["animate-flicker", "reset"],
-  },
+  content: [
+    "./src/components/**/*.tsx",
+    "./src/pages/*.tsx",
+    "./src/pages/**/*.tsx",
+  ],
+  safelist: ["animate-*", "reset", "fade_*"],
   darkMode: "class",
-  mode: "jit",
   plugins: [require("@tailwindcss/typography")],
   theme: {
-    fontFamily: {
-      sans: ["'Inter var', 'Inter'", ...defaultTheme.fontFamily.sans],
-      mono: [...defaultTheme.fontFamily.mono],
-    },
     extend: {
+      fontFamily: {
+        sans: ["'Inter var', 'Inter'", ...defaultTheme.fontFamily.sans],
+      },
       colors: {
         gray: {
           50: "#f3f3f4",
@@ -119,19 +119,19 @@ module.exports = {
       animation: {
         blob: "blob 7s infinite",
         "staggered-lines": "staggered-lines 1000ms forwards 500ms",
-        "fade-in": "fade-in 1000ms forwards",
-        "fade-in-down": "fade-in-down 500ms ease-out",
-        "fade-out-down": "fade-out-down 500ms ease-out",
-        "fade-in-up":
-          "fade-in-up 750ms cubic-bezier(0.68, -0.6, 0.32, 1.6) forwards",
-        "fade-in-up-5":
-          "fade-in-up-5 750ms cubic-bezier(0.68, -0.6, 0.32, 1.6) forwards",
-        "fade-in-up-10":
-          "fade-in-up-10 750ms cubic-bezier(0.68, -0.6, 0.32, 2.2) forwards",
-        "fade-in-up-30":
-          "fade-in-up-30 750ms cubic-bezier(0.68, -0.6, 0.32, 2.5) forwards",
-        "fade-in-up-500": "fade-in-up-10 750ms ease-out forwards 500ms",
-        "fade-out-up": "fade-out-up 500ms ease-out",
+        fade_in: "fade_in 1000ms forwards",
+        fade_in_down: "fade_in_down 500ms ease-out",
+        fade_out_down: "fade_out-down 500ms ease-out",
+        fade_in_up:
+          "fade_in_up 750ms cubic-bezier(0.68, -0.6, 0.32, 1.6) forwards",
+        fade_in_up_5:
+          "fade_in_up_5 750ms cubic-bezier(0.68, -0.6, 0.32, 1.6) forwards",
+        fade_in_up_10:
+          "fade_in_up_10 750ms cubic-bezier(0.68, -0.6, 0.32, 2.2) forwards",
+        fade_in_up_30:
+          "fade_in_up_30 750ms cubic-bezier(0.68, -0.6, 0.32, 2.5) forwards",
+        fade_in_up_500: "fade_in_up_10 750ms ease-out forwards 500ms",
+        fade_out_up: "fade_out_up 500ms ease-out",
         flicker: "flicker 3s linear forwards alternate infinite",
       },
       keyframes: {
@@ -159,7 +159,7 @@ module.exports = {
             transform: "translate(0px, 0px) scale(1)",
           },
         },
-        "fade-in": {
+        fade_in: {
           "0%": {
             opacity: "0",
           },
@@ -167,7 +167,7 @@ module.exports = {
             opacity: "1",
           },
         },
-        "fade-in-down": {
+        fade_in_down: {
           "0%": {
             opacity: "0",
             transform: "translateY(-10px)",
@@ -177,7 +177,7 @@ module.exports = {
             transform: "translateY(0)",
           },
         },
-        "fade-out-down": {
+        fade_out_down: {
           from: {
             opacity: "1",
             transform: "translateY(0px)",
@@ -187,7 +187,7 @@ module.exports = {
             transform: "translateY(10px)",
           },
         },
-        "fade-in-up": {
+        fade_in_up: {
           "0%": {
             opacity: "0",
             transform: "translateY(20px)",
@@ -197,7 +197,7 @@ module.exports = {
             transform: "translateY(0)",
           },
         },
-        "fade-in-up-5": {
+        fade_in_up_5: {
           "0%": {
             opacity: "0",
             transform: "translateX(50%) translateY(20px)",
@@ -207,7 +207,7 @@ module.exports = {
             transform: "translateX(50%) translateY(0)",
           },
         },
-        "fade-in-up-10": {
+        fade_in_up_10: {
           "0%": {
             opacity: "0",
             transform: "translateY(10px)",
@@ -217,7 +217,7 @@ module.exports = {
             transform: "translateY(0)",
           },
         },
-        "fade-in-up-30": {
+        fade_in_up_30: {
           "0%": {
             opacity: "0",
             transform: "translateY(30px)",
@@ -227,7 +227,7 @@ module.exports = {
             transform: "translateY(0)",
           },
         },
-        "fade-out-up": {
+        fade_out_up: {
           from: {
             opacity: "1",
             transform: "translateY(0px)",

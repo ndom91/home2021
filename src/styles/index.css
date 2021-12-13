@@ -168,7 +168,7 @@ html[class="dark"] ul a:before {
   page-break-inside: avoid;
 }
 
-.more-projects .animate-fade-in {
+.more-projects .animate-fade_in {
   animation-delay: calc(var(--index) * 100ms);
 }
 

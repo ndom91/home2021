@@ -275,7 +275,7 @@ So with the logic out of the way, let's look at the markup of this LinkScreensho
       onMouseOut={() => setIsHovering(false)}
     >
       {isHovering && linkScreenshot && (
-        <div className="absolute z-10 block w-32 pointer-events-none right-1/2 lg:block bottom-[2.0rem] animate-fade-in-up">
+        <div className="absolute z-10 block w-32 pointer-events-none right-1/2 lg:block bottom-[2.0rem] animate-fade_in_up">
           <Image
             src={linkScreenshot}
             height={180}
@@ -307,10 +307,10 @@ This part is relatively straight forward, the most important part is the `onMous
 
 As you can see, we're also only displaying the `next/image` element once we both have a linkScreenshot _and_ `isHovering` is true. Otherwise we might display the image element early and get one of those super ugly image failed placeholder icons with the alt text next to it.
 
-The image container `div` also has a custom class named `animate-fade-in-up` which is simply a custom animation defined in my `tailwind.config.js` which fades in the image nice and smoothly and looks like this:
+The image container `div` also has a custom class named `animate-fade_in_up` which is simply a custom animation defined in my `tailwind.config.js` which fades in the image nice and smoothly and looks like this:
 
 ```js
-"fade-in-up-5": {
+"fade_in_up_5": {
   "0%": {
     opacity: "0",
     transform: "translateX(50%) translateY(20px)",
@@ -367,7 +367,7 @@ const ScreenshotLink = ({ url, text }: Props) => {
       onMouseOut={() => setIsHovering(false)}
     >
       {isHovering && linkScreenshot && (
-        <div className="absolute z-10 block w-32 pointer-events-none right-1/2 lg:block bottom-[2.0rem] animate-fade-in-up">
+        <div className="absolute z-10 block w-32 pointer-events-none right-1/2 lg:block bottom-[2.0rem] animate-fade_in_up">
           <Image
             src={linkScreenshot}
             height={180}
