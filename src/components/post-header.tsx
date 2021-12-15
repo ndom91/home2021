@@ -22,7 +22,7 @@ const PostHeader = ({ title, cover, date, time }: Props) => {
     <>
       <PostTitle>{title}</PostTitle>
       {cover && (
-        <div className="sm:mx-0">
+        <div className="sm:mx-0 mb-16">
           <CoverImage title={title} cover={cover} />
         </div>
       )}
@@ -30,7 +30,7 @@ const PostHeader = ({ title, cover, date, time }: Props) => {
         <div className="block mb-6">
           <Avatar />
         </div>
-        <div className="mb-6 text-lg text-right">
+        <div className="mb-16 text-lg text-right font-mono font-light">
           <DateFormatter dateString={date} />
           <p className="text-gray-700 dark:text-gray-300">{time.text}</p>
         </div>

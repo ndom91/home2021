@@ -3,7 +3,6 @@ import { Parallax } from "react-scroll-parallax"
 import Image from "next/image"
 import Link from "next/link"
 import { Project } from "../types/project"
-import { Icon } from "@/components/dynamic-icon"
 
 interface StaticImageData {
   src: string
@@ -42,7 +41,7 @@ const ProjectCard = ({ project, index }: Props) => {
 
   return (
     <div
-      className="mx-1 opacity-0 animate-fade_in"
+      className="mx-1 opacity-0 animate-fade_in drop-shadow-md"
       style={{ ["--index" as string]: index }}
     >
       <div className="relative m-4 bg-gray-100 dark:bg-gray-800 rounded-xl group">
@@ -74,7 +73,7 @@ const ProjectCard = ({ project, index }: Props) => {
             {url && (
               <Link href={url}>
                 <a>
-                  <div className="text-lg font-semibold text-gray-600 transition-colors duration-300 dark:hover:text-palevioletred dark:text-gray-100 hover:text-pink-300 md:text-xl">
+                  <div className="text-lg font-mono font-extralight text-gray-600 transition-colors duration-300 dark:hover:text-palevioletred dark:text-gray-100 hover:text-pink-300 md:text-xl">
                     {name}
                   </div>
                 </a>
@@ -92,10 +91,10 @@ const ProjectCard = ({ project, index }: Props) => {
             <div className="relative z-10 flex justify-around w-full overflow-hidden">
               {tech &&
                 tech.map((type) => (
-                  <Icon
+                  <Image
                     key={type}
-                    name={type}
-                    // @ts-ignore
+                    src={`/assets/img/tech/${type}.svg`}
+                    alt={`${type} Icon`}
                     height="32"
                     width="32"
                     title={type}
@@ -104,7 +103,7 @@ const ProjectCard = ({ project, index }: Props) => {
             </div>
           </div>
         </div>
-        <div className="absolute z-0 w-56 pattern-dots-md -bottom-6 -left-6 h-52 text-palevioletred" />
+        <div className="absolute z-0 w-56 pattern-dots-md -bottom-6 -left-8 h-52 text-palevioletred" />
       </div>
     </div>
   )

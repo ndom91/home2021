@@ -71,7 +71,7 @@ const Post = ({ source, frontMatter, slug }: Props) => {
           <meta name="twitter:description" content={frontMatter.excerpt} />
           <meta name="twitter:image:alt" content={frontMatter.title} />
         </Head>
-        <article className="mb-32">
+        <article className="mb-32 mt-20 md:mt-32">
           <PostHeader
             title={frontMatter.title}
             cover={frontMatter.cover}

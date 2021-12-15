@@ -1,3 +1,4 @@
+const { abort } = require("process")
 const colors = require("tailwindcss/colors")
 const defaultTheme = require("tailwindcss/defaultTheme")
 
@@ -7,13 +8,14 @@ module.exports = {
     "./src/pages/*.tsx",
     "./src/pages/**/*.tsx",
   ],
-  safelist: ["animate-*", "reset", "fade_*"],
+  safelist: ["animate-flicker", "reset", "fade_*"],
   darkMode: "class",
   plugins: [require("@tailwindcss/typography")],
   theme: {
     extend: {
       fontFamily: {
         sans: ["'Inter var', 'Inter'", ...defaultTheme.fontFamily.sans],
+        mono: ["JetBrains Mono", ...defaultTheme.fontFamily.mono],
       },
       colors: {
         gray: {
@@ -38,6 +40,18 @@ module.exports = {
               textDecoration: "none",
               fontWeight: "400",
             },
+            h2: {
+              fontFamily: "JetBrains Mono",
+              fontWeight: "200",
+            },
+            h3: {
+              fontFamily: "JetBrains Mono",
+              fontWeight: "200",
+            },
+            h4: {
+              fontFamily: "JetBrains Mono",
+              fontWeight: "200",
+            },
           },
         },
         dark: {
@@ -49,10 +63,11 @@ module.exports = {
             },
             '[class~="lead"]': { color: theme("colors.gray.400") },
             strong: { color: theme("colors.gray.100") },
-            "ul > li::before": {
-              backgroundColor: theme("colors.palevioletred"),
+            "ul > li::marker": {
+              color: theme("colors.palevioletred"),
             },
             "ol > li::before": { color: theme("colors.palevioletred") },
+            "ol > li::marker": { color: theme("colors.palevioletred") },
             hr: { borderColor: theme("colors.palevioletred") },
             blockquote: {
               color: theme("colors.gray.100"),

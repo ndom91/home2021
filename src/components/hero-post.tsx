@@ -33,12 +33,12 @@ const HeroPost = ({ title, cover, date, slug, time }: Props) => {
         <div className="col-span-4">
           <h3 className="mb-2 text-4xl leading-tight lg:text-6xl">
             <Link as={`/posts/${slug}`} href="/posts/[slug]">
-              <a className="font-bold dark:text-gray-100 first-letter:text-4xl">
+              <a className="font-extralight font-sans dark:text-gray-100 first-letter:text-4xl">
                 {title}
               </a>
             </Link>
           </h3>
-          <div className="flex mb-4 space-x-4 text-lg font-light md:justify-start">
+          <div className="flex mb-4 space-x-4 text-lg font-light md:justify-start font-mono">
             <DateFormatter dateString={date} />
             <span className="dark:text-gray-300">{time.text}</span>
           </div>

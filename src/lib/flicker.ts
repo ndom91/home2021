@@ -9,7 +9,7 @@ const setFlickerAnimation = () => {
 
   // ENABLE EFFECT
   const animatedElements = Array.from(
-    document.querySelectorAll(".js-darkmode-flicker")
+    document.querySelectorAll(".js_darkmode_flicker")
   )
   if (!animatedElements.length) {
     return false
