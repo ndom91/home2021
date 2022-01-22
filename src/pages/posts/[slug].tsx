@@ -43,7 +43,6 @@ type Props = {
 }
 
 const Post = ({ source, frontMatter, slug }: Props) => {
-  // @ts-ignore
   const theme = useStore((state) => state.theme)
   if (!frontMatter?.title) {
     return <ErrorPage statusCode={404} />

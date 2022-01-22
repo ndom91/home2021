@@ -1,12 +1,18 @@
-import create, { SetState } from "zustand"
+import create from "zustand"
 
-interface ThemeState {
-  theme: string
+enum ThemeType {
+  light = "light",
+  dark = "dark",
 }
 
-const useStore = create((set: SetState<ThemeState>) => ({
+interface ThemeState {
+  theme: keyof typeof ThemeType
+  setTheme: (theme: keyof typeof ThemeType) => void
+}
+
+const useStore = create<ThemeState>((set) => ({
   theme: "light",
-  setTheme: (theme: "light" | "dark") => set({ theme }),
+  setTheme: (theme) => set({ theme }),
 }))
 
 export default useStore
