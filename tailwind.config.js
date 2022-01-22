@@ -132,7 +132,7 @@ module.exports = {
           0 219px 80px rgba(0, 0, 0, 0.13)`,
       },
       animation: {
-        blob: "blob 7s infinite",
+        blob: "blob 12s infinite",
         "staggered-lines": "staggered-lines 1000ms forwards 500ms",
         fade_in: "fade_in 1000ms forwards",
         fade_in_down: "fade_in_down 500ms ease-out",
@@ -162,16 +162,16 @@ module.exports = {
         },
         blob: {
           "0%": {
-            transform: "translate(0px, 0px) scale(1)",
+            transform: "translate(0px, 0px) scale(1) skew(0deg, 0deg)",
           },
           "33%": {
-            transform: "translate(50px, -50px) scale(1.1)",
+            transform: "translate(75px, -100px) scale(1.2) skew(10deg)",
           },
           "66%": {
-            transform: "translate(-40px, 20px) scale(0.9)",
+            transform: "translate(-60px, 40px) scale(0.8) skew(-10deg)",
           },
           "100%": {
-            transform: "translate(0px, 0px) scale(1)",
+            transform: "translate(0px, 0px) scale(1) skew(0deg, 0deg)",
           },
         },
         fade_in: {
