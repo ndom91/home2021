@@ -25,9 +25,7 @@ const properties = {
 
 const DarkToggle = () => {
   const router = useRouter()
-  // @ts-ignore
-  const theme: "light" | "dark" = useStore((state) => state.theme)
-  // @ts-ignore
+  const theme = useStore((state) => state.theme)
   const setTheme = useStore((state) => state.setTheme)
   const [_, setValue] = useLocalStorage("theme", "", {
     raw: true,
@@ -56,7 +54,6 @@ const DarkToggle = () => {
     if (theme === "light") {
       document.documentElement.classList.add("dark")
       document.documentElement.style.setProperty("color-scheme", "dark")
-      setValue(theme)
       setFlickerAnimation()
 
       // Switch Off
@@ -75,10 +72,10 @@ const DarkToggle = () => {
         }, 500)
       }
       setTheme("dark")
+      setValue("dark")
     } else {
       document.documentElement.classList.remove("dark")
       document.documentElement.style.setProperty("color-scheme", "light")
-      setValue(theme)
 
       // Switch On
       setFlickerAnimation()
@@ -87,6 +84,7 @@ const DarkToggle = () => {
       ) as HTMLAudioElement
       jsSoundOn?.play()
       setTheme("light")
+      setValue("light")
     }
   }
 
