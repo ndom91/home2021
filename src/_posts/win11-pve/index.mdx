@@ -7,6 +7,8 @@ cover:
   imageFile: "win11-pve/cover.png"
 ---
 
+> Note: I've discovered a great new Windows 11 MediaCreationTool modification repo on Github. This will download the official Windows 11 ISO from Microsoft and adjust it to allow installation without TPM, SecureBoot, etc. There are a few options for generating the image, including language and Windows edition (Pro/Enterprise/Home) as well as which Windows Version you're coming from. Check it out here: [AveYo/MediaCreationTool.bat](https://github.com/AveYo/MediaCreationTool.bat)
+
 ## Introduction
 
 Windows 11 is here and I'm sure even Linux geeks like me want to give it a spin in a VM! If you've heard anything about Windows 11, however, its that it comes with some onerous restrictions. Your CPU has to be of a certain generation, there needs to be a TPM chip available, SecureBoot, etc. At the moment the latest Proxmox (7.0) does not have support for emulating a TPM chip, but the `pve-devel` mailing list has some promising chatter from back in July 2021 ([Source](https://lists.proxmox.com/pipermail/pve-devel/2021-July/049405.html)). So, for now we've got to find a way around these Windows 11 installer checks.
