@@ -11,23 +11,37 @@ I was having the hardest time getting applications in docker containers to conne
 
 I finally found a great solution, so I figured I'd post it here for myself and so that others may find it as well.
 
+The idea is to simply enable some local routing rules and use `iptables` to allow access to port 3306 for MySQL.
+
 1. Enable `route_localnet` for docker0 interface:
 
 ```bash
 sysctl -w net.ipv4.conf.docker0.route_localnet=1
 ```
 
-2. Add these rules to iptables:
+2. At this point, you'll want to double check and see which subnet is being used by your container for its internal docker network. The default network is `172.17.0.0/24`, however if you have multiple containers / docker networks this network may be slightly different. You can check easily by either entering an interactive shell in your container and running `ifconfig` or `ip addr` to see which network your container is on. Alternatively, you can view the docker inspect info with the command `docker inspect <container name>` and look for the `"Gateway"` address in the network config towards the bottom of the inspect information.
+
+Finally, once you've confirmed the network your container is on, add these rules to iptables:
 
 ```
 iptables -t nat -I PREROUTING -i docker0 -d 172.17.0.1 -p tcp --dport 3306 -j DNAT --to 127.0.0.1:3306
 iptables -t filter -I INPUT -i docker0 -d 127.0.0.1 -p tcp --dport 3306 -j ACCEPT
 ```
 
-3. Make sure you have a Mysql user who can connect from _outside_ of 'localhost', i.e. from '%'. If you don't have one, you can create one like so:
+At this point, we should be able to route on our local machine on port `3306`. That is, from the docker subnet's gateway (`172.17.0.1` aka the localhost) to our hosts localhost loopback address where the MySQL instance is listening (`127.0.0.1:3306`).
+
+3. Make sure you have a mysql user in your local instance who is allowed to connect from _outside_ of 'localhost', i.e. from '%'. If you're having trouble with authentication still, you may need to add a user who is explicitly allowed to connect from the Docker subnet on your computer.
+
+For example, with wide open privileges, allowing the user `username` to connect from any host:
 
 ```
 CREATE USER 'username'@'%' IDENTIFIED BY 'password';
 ```
 
-4. Finally, in your docker run command or docker-compose file, change the mysql-server address to `172.17.0.1` - which is the host's IP from the view of the container.
+Alternatively, you can lock it down a bit more and only allow `username` to connect from the Docker subnet:
+
+```
+CREATE USER 'username'@'172.17.0.%' IDENTIFIED BY 'password';
+```
+
+4. Finally, in your docker container setup, whether that's in a config value in the `docker-compose.yml` file or elsewhere in your dockerized application, make sure to change the mysql server address to `172.17.0.1`. This is the default host's IP address from the view of the container.
