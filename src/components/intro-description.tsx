@@ -17,13 +17,13 @@ const IntroDescription = () => {
       Hi! My name&apos;s Nico Domino and I&lsquo;m a full-stack javascript
       developer at{" "}
       <ScreenshotLink
-        url="https://checklyhq.com"
+        url="https://checklyhq.com?utm_source=ndom91&utm_medium=referral"
         text="Checkly"
         className="opacity-0 animate-fade_in_up animation-delay-500"
       />
       🦝. In the evenings you can find me working on open source software, like{" "}
       <ScreenshotLink
-        url="https://next-auth.js.org"
+        url="https://next-auth.js.org?utm_source=ndom91"
         text="NextAuth.js"
         className="opacity-0 animate-fade_in_up animation-delay-600"
       />
