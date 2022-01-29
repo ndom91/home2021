@@ -4,10 +4,12 @@ import Blur from "@/components/blur"
 
 const Index = () => {
   return (
-    <Layout>
-      <Intro />
-      <Blur />
-    </Layout>
+    <div className="overflow-hidden">
+      <Layout>
+        <Intro />
+        <Blur />
+      </Layout>
+    </div>
   )
 }
 

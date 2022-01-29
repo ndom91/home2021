@@ -59,7 +59,7 @@ const ScreenshotLink = ({
           href={url}
           target="_blank"
           rel="noopener noreferrer"
-          className="transition-all border-underline-grow dark:ring-palevioletred"
+          className="transition-all border-underline-grow dark:ring-palevioletred outline-none"
         >
           {text}
         </a>
