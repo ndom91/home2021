@@ -24,7 +24,7 @@ const HeroPost = ({ title, cover, date, slug, time }: Props) => {
     <section className="opacity-0 animate-fade_in">
       <div className="h-auto mb-8 overflow-hidden mask-bottom md:mb-16 md:h-96">
         <ParallaxProvider>
-          <Parallax y={[20, -20]}>
+          <Parallax y={[10, -10]}>
             <CoverImage title={title} cover={cover} slug={slug} />
           </Parallax>
         </ParallaxProvider>
@@ -33,7 +33,7 @@ const HeroPost = ({ title, cover, date, slug, time }: Props) => {
         <div className="col-span-4">
           <h3 className="mb-2 text-4xl leading-tight lg:text-6xl">
             <Link as={`/posts/${slug}`} href="/posts/[slug]">
-              <a className="font-extralight font-sans dark:text-gray-100 first-letter:text-4xl">
+              <a className="font-extralight font-sans dark:text-gray-100 first-letter:text-4xl outline-none hover:outline-none focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-offset-white focus:dark:ring-offset-gray-500 focus:ring-pink-300 focus:dark:ring-palevioletred rounded-sm">
                 {title}
               </a>
             </Link>

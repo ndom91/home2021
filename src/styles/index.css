@@ -424,8 +424,12 @@ html.dark .js_darkmode_flicker {
   transition-timing-function: ease-out;
 }
 
+#intro-body .border-underline-grow:before {
+  background: rgba(var(--pink-300), 1);
+}
+
 html[class="dark"] .border-underline-grow:before {
-  background: rgba(var(--palevioletred), 0.6);
+  background: rgba(var(--palevioletred), 1);
 }
 
 html[class="dark"] .border-underline-grow:hover,

@@ -37,10 +37,8 @@ const PostCard = ({ post }: Props) => {
       </div>
       <div className="relative flex flex-col justify-between w-full md:flex-row ">
         <Link href={`/posts/${slug ? slug : ""}`}>
-          <a>
-            <div className="text-4xl font-extralight text-gray-600 capitalize transition-colors duration-300 dark:text-gray-100 hover:text-palevioletred">
-              {title}
-            </div>
+          <a className="text-4xl font-extralight text-gray-600 capitalize transition-colors duration-300 dark:text-gray-100 hover:text-palevioletred outline-none hover:outline-none focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-offset-white focus:dark:ring-offset-gray-500 focus:ring-pink-300 focus:dark:ring-palevioletred rounded-sm">
+            {title}
           </a>
         </Link>
         <div className="flex flex-col text-sm text-left md:text-right md:text-base font-light font-mono">

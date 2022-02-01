@@ -5,15 +5,9 @@ type Props = {
   url: string
   text: string
   className: string
-  underline?: boolean
 }
 
-const ScreenshotLink = ({
-  url,
-  text,
-  className = "",
-  underline = true,
-}: Props) => {
+const ScreenshotLink = ({ url, text, className = "" }: Props) => {
   const [isHovering, setIsHovering] = useState(false)
   const [linkScreenshot, setLinkScreenshot] = useState("")
 
@@ -42,6 +36,8 @@ const ScreenshotLink = ({
         className={`relative inline-block word ${className}`}
         onMouseOver={() => fetchImage(url)}
         onMouseOut={() => setIsHovering(false)}
+        onFocus={() => fetchImage(url)}
+        onBlur={() => setIsHovering(false)}
       >
         {isHovering && linkScreenshot && (
           <div className="absolute z-10 block w-32 pointer-events-none right-1/2 lg:block bottom-[2.0rem] animate-fade_in_up_5">

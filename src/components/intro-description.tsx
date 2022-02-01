@@ -8,7 +8,7 @@ const IntroDescription = () => {
   }, [])
 
   return (
-    <div
+    <p
       id="intro-body"
       data-splitting="lines"
       className="relative w-full p-2 mt-4 text-lg font-extralight font-mono leading-8 tracking-tight text-left text-gray-800 dark:text-gray-100 lg:pl-10 lg:w-11/12 md:text-xl"
@@ -43,7 +43,7 @@ const IntroDescription = () => {
         className="opacity-0 animate-fade_in_up animation-delay-1100"
       />
       🐦
-    </div>
+    </p>
   )
 }
 

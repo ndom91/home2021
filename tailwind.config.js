@@ -160,16 +160,16 @@ module.exports = {
         },
         blob: {
           "0%": {
-            transform: "translate(0px, 0px) scale(1) skew(0deg, 0deg)",
+            transform: "translate(0px, 0px) scale(1)",
           },
           "33%": {
-            transform: "translate(75px, -100px) scale(1.2) skew(10deg)",
+            transform: "translate(75px, -100px) scale(1.2)",
           },
           "66%": {
-            transform: "translate(-60px, 40px) scale(0.8) skew(-10deg)",
+            transform: "translate(-60px, 40px) scale(0.8)",
           },
           "100%": {
-            transform: "translate(0px, 0px) scale(1) skew(0deg, 0deg)",
+            transform: "translate(0px, 0px) scale(1)",
           },
         },
         fade_in: {

@@ -50,13 +50,13 @@ const CoverImage = ({ title, cover = { imageFile: "" }, slug }: Props) => {
     <div className="sm:mx-0">
       {!imageFile.includes(".gif") ? (
         <Link as={slug ? `/posts/${slug}` : "#"} href="/posts/[slug]">
-          <a aria-label={title} className="bg-pink-300 ">
+          <a aria-label={title} className="bg-pink-300 " tabIndex={-1}>
             {imageComponent}
           </a>
         </Link>
       ) : (
         <Link as={slug ? `/posts/${slug}` : "#"} href="/posts/[slug]">
-          <a aria-label={title} className="bg-pink-300 ">
+          <a aria-label={title} className="bg-pink-300 " tabIndex={-1}>
             {/* eslint-disable @next/next/no-img-element */}
             <img
               alt={slug}
