@@ -52,6 +52,8 @@ const ProjectCard = ({ project, index }: Props) => {
               <a
                 style={{ clipPath: "polygon(0 0, 100% 0%, 100% 100%, 0 80%)" }}
                 tabIndex={-1}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="z-10 w-full h-32 mb-2 overflow-y-hidden bg-gray-200 dark:bg-gray-600 rounded-t-xl hover:cursor-pointer"
               >
                 {imageImport && (
@@ -74,7 +76,11 @@ const ProjectCard = ({ project, index }: Props) => {
           <div className="relative z-10 p-6 pb-2 mx-2 overflow-hidden overflow-y-visible ">
             {url && (
               <Link href={url}>
-                <a className="text-lg font-mono font-extralight text-gray-600 transition-all duration-300 dark:hover:text-palevioletred dark:text-gray-100 hover:text-pink-300 md:text-xl outline-none hover:outline-none focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-offset-gray-100 focus:dark:ring-offset-gray-800 focus:ring-pink-300 focus:dark:ring-palevioletred rounded-sm">
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-lg font-mono font-extralight text-gray-600 transition-all duration-300 dark:hover:text-palevioletred dark:text-gray-100 hover:text-pink-300 md:text-xl outline-none hover:outline-none focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-offset-gray-100 focus:dark:ring-offset-gray-800 focus:ring-pink-300 focus:dark:ring-palevioletred rounded-sm"
+                >
                   {name}
                 </a>
               </Link>
