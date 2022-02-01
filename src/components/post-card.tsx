@@ -1,4 +1,6 @@
 import DateFormatter from "@/components/date-formatter"
+import { Parallax, ParallaxProvider } from "react-scroll-parallax"
+import CoverImage from "@/components/cover-image"
 import Link from "next/link"
 
 type Props = {
@@ -9,6 +11,9 @@ type Props = {
     slug: string
     category: string
     tags: string[]
+    cover: {
+      imageFile: string
+    }
     time: {
       text: string
       minutes: number
@@ -19,10 +24,17 @@ type Props = {
 }
 
 const PostCard = ({ post }: Props) => {
-  const { title, date, excerpt, slug, tags, time } = post
+  const { title, date, excerpt, slug, tags, time, cover } = post
 
   return (
     <div className="flex-col md:inline-flex w-full md:my-16">
+      <div className="h-auto mb-8 overflow-hidden mask-bottom-strong md:mb-12 md:h-64 rounded-t-xl">
+        <ParallaxProvider>
+          <Parallax y={[0, -10]}>
+            <CoverImage title={title} cover={cover} slug={slug} />
+          </Parallax>
+        </ParallaxProvider>
+      </div>
       <div className="relative flex flex-col justify-between w-full md:flex-row ">
         <Link href={`/posts/${slug ? slug : ""}`}>
           <a>

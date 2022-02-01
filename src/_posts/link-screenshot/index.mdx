@@ -1,6 +1,6 @@
 ---
 date: "2021-07-08"
-title: "Link Screenshots"
+title: "Link Screenshot Previews"
 tags: ["web", "ux"]
 category: "Development"
 cover:
@@ -100,7 +100,7 @@ Next we'll use `playwright` to visit the url we passed to the route as an argume
 
 As you can see, we're grabbing the URL query parameter via `req.query.path` and passing it to `page.goto()`. Finally, towards the bottom here we're taking the screenshot via `page.screenshot()`. And thats really the meat of it! Everything else is plumbing to get the arguments and image data around, etc.
 
-The final part of this API route is returning the image data and setting some cache headers.
+The final part of this API route is returning the image data and setting some cache headers. You can also add similar `max-age` headers to your `vercel.json` config file to enable caching at the client (browser) level.
 
 <CodeEditor title="/api/image.ts">
 
@@ -108,11 +108,7 @@ The final part of this API route is returning the image data and setting some ca
 ...
 
   // Set the `s-maxage` property to cache at the CDN layer
-  // and `max-age` for the client browser cache
-  res.setHeader(
-    "Cache-Control",
-    "s-maxage=31536000, max-age=31536000, stale-while-revalidate"
-  )
+  res.setHeader("Cache-Control", "s-maxage=31536000, public")
   res.setHeader("Content-Type", "image/png")
   res.end(data)
 }
@@ -189,11 +185,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   await browser.close()
 
   // Set the `s-maxage` property to cache at the CDN layer
-  // and `max-age` for the client browser cache
-  res.setHeader(
-    "Cache-Control",
-    "s-maxage=31536000, max-age=31536000, stale-while-revalidate"
-  )
+  res.setHeader("Cache-Control", "s-maxage=31536000, public")
   res.setHeader("Content-Type", "image/png")
   res.end(data)
 }
