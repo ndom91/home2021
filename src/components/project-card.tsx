@@ -3,6 +3,7 @@ import { Parallax } from "react-scroll-parallax"
 import Image from "next/image"
 import Link from "next/link"
 import { Project } from "../types/project"
+import Icon from "./icon"
 
 interface StaticImageData {
   src: string
@@ -41,7 +42,7 @@ const ProjectCard = ({ project, index }: Props) => {
 
   return (
     <div
-      className="mx-1 opacity-0 animate-fade_in drop-shadow-md"
+      className="lg:mx-4 opacity-0 animate-fade_in drop-shadow-md"
       style={{ ["--index" as string]: index }}
     >
       <div className="relative m-4 bg-gray-100 dark:bg-gray-800 rounded-xl group">
@@ -53,7 +54,7 @@ const ProjectCard = ({ project, index }: Props) => {
                 className="z-10 w-full h-32 mb-2 overflow-y-hidden bg-gray-200 dark:bg-gray-600 rounded-t-xl hover:cursor-pointer"
               >
                 {imageImport && (
-                  <Parallax y={[0, randomNumber(30, 60)]}>
+                  <Parallax y={[0, randomNumber(60, 120)]}>
                     <Image
                       src={imageImport}
                       id={`project-image-${image}`}
@@ -91,19 +92,20 @@ const ProjectCard = ({ project, index }: Props) => {
             <div className="relative z-10 flex justify-around w-full overflow-hidden">
               {tech &&
                 tech.map((type) => (
-                  <Image
-                    key={type}
-                    src={`/assets/img/tech/${type}.svg`}
-                    alt={`${type} Icon`}
-                    height="32"
-                    width="32"
-                    title={type}
-                  />
+                  <span title={type} key={type}>
+                    <Icon
+                      name={type}
+                      className="image-color"
+                      alt={`${type} icon`}
+                      height="32"
+                      width="32"
+                    />
+                  </span>
                 ))}
             </div>
           </div>
         </div>
-        <div className="absolute z-0 w-56 pattern-dots-md -bottom-6 -left-8 h-52 text-palevioletred" />
+        <div className="absolute z-0 w-64 pattern-dots-md -bottom-4 -right-4 h-64 text-palevioletred" />
       </div>
     </div>
   )
