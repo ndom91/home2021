@@ -390,7 +390,7 @@ html.dark .js_darkmode_flicker {
   bottom: 0;
   z-index: -1;
   height: 100%;
-  max-height: 7px;
+  max-height: 9px;
   width: 100%;
   background: rgba(var(--pink-300), 0.7);
   transform: scaleY(0.4);
