@@ -41,6 +41,10 @@
     {
       "source": "/a/e",
       "destination": "https://stats.ndo.dev/api/event"
+    },
+    {
+      "source": "/sc/:match",
+      "destination": "https://ndo-link.netlify.app/:match"
     }
   ]
 }
