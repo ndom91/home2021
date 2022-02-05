@@ -26,6 +26,7 @@ Now you should have a dev server at http://localhost:3003 available!
 - Prism Syntax Highlighting
 - Generate page screenshots on-demand
 - React-Spring
+- [supabase-comments-extension](https://github.com/malerba118/supabase-comments-extension)
 
 ## 🚧 Contributing
 
