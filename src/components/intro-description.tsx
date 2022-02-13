@@ -20,28 +20,28 @@ const IntroDescription = () => {
         url="https://checklyhq.com?utm_source=ndom91&utm_medium=referral"
         text="Checkly"
         className="opacity-0 animate-fade_in_up animation-delay-500"
-      />
+      />{" "}
       🦝. In the evenings you can find me working on open source software, like{" "}
       <ScreenshotLink
         url="https://next-auth.js.org?utm_source=ndom91"
         text="NextAuth.js"
         className="opacity-0 animate-fade_in_up animation-delay-600"
-      />
-      🔒 , or catching up on the latest Netflix series. I&lsquo;m based in
+      />{" "}
+      🔒, or catching up on the latest Netflix series. I&lsquo;m based in
       Frankfurt, Germany where I occasionally write about my adventures in tech
       on my{" "}
       <ScreenshotLink
         url="https://ndo.dev/blog"
         text="blog"
         className="opacity-0 animate-fade_in_up animation-delay-900"
-      />
+      />{" "}
       📓 and if you like memes, movies, and web development you might also enjoy
       following me on{" "}
       <ScreenshotLink
         url="https://twitter.com/ndom91"
         text="Twitter"
         className="opacity-0 animate-fade_in_up animation-delay-1100"
-      />
+      />{" "}
       🐦
     </p>
   )

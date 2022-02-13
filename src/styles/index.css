@@ -468,3 +468,34 @@ html[class="dark"] .border-underline-grow:active {
     );
   }
 }
+
+html[class="dark"] .glass-card {
+  border-radius: 25px;
+  backdrop-filter: blur(18px);
+  padding: 2rem;
+  box-shadow: 0 2px 5px rgb(0 0 0 / 10%), 0 10px 15px rgb(0 0 0 / 10%);
+  box-sizing: border-box;
+  background-image: linear-gradient(
+    45deg,
+    rgba(76, 52, 52, 0.35),
+    rgba(76, 52, 52, 0.35)
+  );
+  width: 100%;
+  min-height: 70px;
+  mix-blend-mode: hard-light;
+}
+.glass-card {
+  border-radius: 25px;
+  backdrop-filter: blur(18px);
+  padding: 2rem;
+  box-shadow: 0 2px 5px rgb(0 0 0 / 10%), 0 5px 20px rgb(0 0 0 / 10%);
+  box-sizing: border-box;
+  background-image: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.6),
+    rgba(255, 255, 255, 0.6)
+  );
+  width: 100%;
+  min-height: 70px;
+  mix-blend-mode: hard-light;
+}
