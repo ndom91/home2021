@@ -11,9 +11,9 @@ const Intro = () => {
   }, [])
 
   return (
-    <section className="relative z-10 flex flex-col items-start my-16 text-left lg:flex-row lg:items-center lg:justify-between lg:my-[20vh]">
-      <div className="relative w-2/3 h-16">
-        <h1 className="pl-4 font-extrabold font-sans leading-tight tracking-tighter opacity-0 js_darkmode_flicker text-7xl intro-title dark:text-gray-100 animate-fade_in_up_30 lg:pl-0 lg:pr-8 lg:text-8xl">
+    <section className="relative z-10 my-16 flex flex-col items-start text-left lg:my-[20vh] lg:flex-row lg:items-center lg:justify-between">
+      <div className="relative h-16 w-2/3">
+        <h1 className="js_darkmode_flicker intro-title animate-fade_in_up_30 pl-4 font-sans text-7xl font-extrabold leading-tight tracking-tighter opacity-0 dark:text-gray-100 lg:pl-0 lg:pr-8 lg:text-8xl">
           ndom91.
         </h1>
       </div>

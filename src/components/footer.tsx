@@ -1,12 +1,12 @@
 const Footer = () => {
   return (
-    <footer className="w-full opacity-0 animate-fade_in sm:max-w-screen-sm md:max-w-7xl flex items-center justify-between py-4 max-w">
+    <footer className="max-w flex w-full animate-fade_in items-center justify-between py-4 opacity-0 sm:max-w-screen-sm md:max-w-7xl">
       <div className="flex space-x-4">
         <a
           href="https://github.com/ndom91"
           target="_blank"
           aria-label="ndom91 github link"
-          className="p-1 text-gray-800 transition-shadow duration-300 rounded-md dark:hover:ring-palevioletred dark:focus:ring-palevioletred dark:text-gray-100 focus:outline-none focus:ring-pink-300 hover:ring-pink-300 focus:ring-4 hover:ring-4"
+          className="rounded-md p-1 text-gray-800 transition-shadow duration-300 hover:ring-4 hover:ring-pink-300 focus:outline-none focus:ring-4 focus:ring-pink-300 dark:text-gray-100 dark:hover:ring-palevioletred dark:focus:ring-palevioletred"
           rel="noopener noreferrer"
         >
           <svg
@@ -28,7 +28,7 @@ const Footer = () => {
           href="https://twitter.com/ndom91"
           target="_blank"
           aria-label="ndom91 twitter link"
-          className="p-1 text-gray-800 transition-shadow duration-300 rounded-md dark:hover:ring-palevioletred dark:focus:ring-palevioletred dark:text-gray-100 focus:outline-none focus:ring-pink-300 hover:ring-pink-300 focus:ring-4 hover:ring-4"
+          className="rounded-md p-1 text-gray-800 transition-shadow duration-300 hover:ring-4 hover:ring-pink-300 focus:outline-none focus:ring-4 focus:ring-pink-300 dark:text-gray-100 dark:hover:ring-palevioletred dark:focus:ring-palevioletred"
           rel="noopener noreferrer"
         >
           <svg
@@ -50,7 +50,7 @@ const Footer = () => {
           href="mailto:home2021@ndo.dev"
           target="_blank"
           aria-label="ndom91 email link"
-          className="p-1 text-gray-800 transition-shadow duration-300 rounded-md dark:hover:ring-palevioletred dark:focus:ring-palevioletred dark:text-gray-100 focus:outline-none focus:ring-pink-300 hover:ring-pink-300 focus:ring-4 hover:ring-4"
+          className="rounded-md p-1 text-gray-800 transition-shadow duration-300 hover:ring-4 hover:ring-pink-300 focus:outline-none focus:ring-4 focus:ring-pink-300 dark:text-gray-100 dark:hover:ring-palevioletred dark:focus:ring-palevioletred"
           rel="noopener noreferrer"
         >
           <svg

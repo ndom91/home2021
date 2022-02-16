@@ -23,14 +23,14 @@ const Layout = ({ children }: Props) => {
   }
 
   return (
-    <div className="flex flex-col items-center min-h-screen duration-500 dark:selection:bg-palevioletred selection:text-white dark:bg-gray-500 selection:bg-pink-300">
+    <div className="flex min-h-screen flex-col items-center duration-500 selection:bg-pink-300 selection:text-white dark:bg-gray-500 dark:selection:bg-palevioletred">
       <Meta />
       {alert.enabled && !value?.dismissed && (
         <Alert header={alert.header} body={alert.body} setValue={setValue} />
       )}
-      <div className="flex flex-col w-full h-screen px-4 lg:py-4 md:px-8 overflow-x-hidden md:max-w-7xl md:overflow-x-visible">
+      <div className="flex h-screen w-full flex-col overflow-x-hidden px-4 md:max-w-7xl md:overflow-x-visible md:px-8 lg:py-4">
         <Navbar />
-        <main className="flex-1 relative">{children}</main>
+        <main className="relative flex-1">{children}</main>
         <Footer />
       </div>
     </div>

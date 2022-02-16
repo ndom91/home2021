@@ -94,7 +94,7 @@ const DarkToggle = () => {
         aria-label="Dark Toggle"
         type="button"
         onClick={toggleDark}
-        className="p-1 transition-shadow duration-300 rounded-md focus:outline-none hover:ring-4 focus:ring-4 dark:hover:ring-palevioletred dark:focus:ring-palevioletred focus:ring-pink-300 hover:ring-pink-300"
+        className="rounded-md p-1 transition-shadow duration-300 hover:ring-4 hover:ring-pink-300 focus:outline-none focus:ring-4 focus:ring-pink-300 dark:hover:ring-palevioletred dark:focus:ring-palevioletred"
       >
         <animated.svg
           xmlns="http://www.w3.org/2000/svg"

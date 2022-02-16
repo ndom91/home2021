@@ -42,11 +42,11 @@ const ProjectCard = ({ project, index }: Props) => {
 
   return (
     <div
-      className="lg:mx-4 opacity-0 animate-fade_in drop-shadow-md"
+      className="animate-fade_in opacity-0 drop-shadow-md lg:mx-4"
       style={{ ["--index" as string]: index }}
     >
-      <div className="relative m-4 bg-gray-100 dark:bg-gray-800 rounded-xl group">
-        <div className="relative z-10 flex flex-col transition duration-500 bg-gray-100 dark:bg-gray-700 rounded-xl">
+      <div className="group relative m-4 rounded-xl bg-gray-100 dark:bg-gray-800">
+        <div className="relative z-10 flex flex-col rounded-xl bg-gray-100 transition duration-500 dark:bg-gray-700">
           {url && (
             <Link href={url}>
               <a
@@ -54,7 +54,7 @@ const ProjectCard = ({ project, index }: Props) => {
                 tabIndex={-1}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="z-10 w-full h-32 mb-2 overflow-y-hidden bg-gray-200 dark:bg-gray-600 rounded-t-xl hover:cursor-pointer"
+                className="z-10 mb-2 h-32 w-full overflow-y-hidden rounded-t-xl bg-gray-200 hover:cursor-pointer dark:bg-gray-600"
               >
                 {imageImport && (
                   <Parallax y={[0, randomNumber(60, 120)]}>
@@ -73,13 +73,13 @@ const ProjectCard = ({ project, index }: Props) => {
             </Link>
           )}
 
-          <div className="relative z-10 p-6 pb-2 mx-2 overflow-hidden overflow-y-visible ">
+          <div className="relative z-10 mx-2 overflow-hidden overflow-y-visible p-6 pb-2 ">
             {url && (
               <Link href={url}>
                 <a
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-lg font-mono font-extralight text-gray-600 transition-all duration-300 dark:hover:text-palevioletred dark:text-gray-100 hover:text-pink-300 md:text-xl outline-none hover:outline-none focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-offset-gray-100 focus:dark:ring-offset-gray-800 focus:ring-pink-300 focus:dark:ring-palevioletred rounded-sm"
+                  className="rounded-sm font-mono text-lg font-extralight text-gray-600 outline-none transition-all duration-300 hover:text-pink-300 hover:outline-none focus:outline-none focus:ring-4 focus:ring-pink-300 focus:ring-offset-2 focus:ring-offset-gray-100 dark:text-gray-100 dark:hover:text-palevioletred focus:dark:ring-palevioletred focus:dark:ring-offset-gray-800 md:text-xl"
                 >
                   {name}
                 </a>
@@ -93,8 +93,8 @@ const ProjectCard = ({ project, index }: Props) => {
             </div>
           </div>
 
-          <div className="relative z-10 flex p-6 align-middle rounded-b-xl">
-            <div className="relative z-10 flex justify-around w-full overflow-hidden">
+          <div className="relative z-10 flex rounded-b-xl p-6 align-middle">
+            <div className="relative z-10 flex w-full justify-around overflow-hidden">
               {tech &&
                 tech.map((type) => (
                   <span title={type} key={type}>
@@ -110,7 +110,7 @@ const ProjectCard = ({ project, index }: Props) => {
             </div>
           </div>
         </div>
-        <div className="absolute z-0 w-64 pattern-dots-md -bottom-4 -right-4 h-64 text-palevioletred" />
+        <div className="pattern-dots-md absolute -bottom-4 -right-4 z-0 h-64 w-64 text-palevioletred" />
       </div>
     </div>
   )

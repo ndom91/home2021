@@ -90,10 +90,10 @@ const Post = ({ source, frontMatter, slug }: Props) => {
             date={frontMatter.date}
             time={frontMatter.time ?? "1 min"}
           />
-          <div className="max-w-4xl mx-auto prose-sm prose dark:prose-dark md:prose-lg dark:text-gray-100">
+          <div className="prose prose-sm mx-auto max-w-4xl dark:prose-dark dark:text-gray-100 md:prose-lg">
             <MDXRemote {...source} components={components} />
           </div>
-          <div className="max-w-4xl mt-20 mx-auto prose-sm prose dark:prose-dark md:prose-lg dark:text-gray-100 not-prose">
+          <div className="not-prose prose prose-sm mx-auto mt-20 max-w-4xl dark:prose-dark dark:text-gray-100 md:prose-lg">
             <CommentsProvider
               supabaseClient={supabase}
               onAuthRequested={() => setModalVisible(true)}

@@ -22,15 +22,15 @@ const PostHeader = ({ title, cover, date, time }: Props) => {
     <>
       <PostTitle>{title}</PostTitle>
       {cover && (
-        <div className="sm:mx-0 mb-16">
+        <div className="mb-16 sm:mx-0">
           <CoverImage title={title} cover={cover} />
         </div>
       )}
-      <div className="flex justify-between max-w-4xl mx-auto my-8 md:mt-16">
-        <div className="block mb-6">
+      <div className="mx-auto my-8 flex max-w-4xl justify-between md:mt-16">
+        <div className="mb-6 block">
           <Avatar />
         </div>
-        <div className="mb-16 text-lg text-right font-mono font-light">
+        <div className="mb-16 text-right font-mono text-lg font-light">
           <DateFormatter dateString={date} />
           <p className="text-gray-700 dark:text-gray-300">{time.text}</p>
         </div>

@@ -8,8 +8,8 @@ type Props = {
 
 const MoreProjects = ({ projects }: Props) => {
   return (
-    <section className="py-4 mt-36">
-      <div className="dark:text-gray-100 more-projects">
+    <section className="mt-36 py-4">
+      <div className="more-projects dark:text-gray-100">
         {projects.map((project, index) => (
           <ParallaxProvider key={project.name}>
             <ProjectCard

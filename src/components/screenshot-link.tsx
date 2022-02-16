@@ -33,14 +33,14 @@ const ScreenshotLink = ({ url, text, className = "" }: Props) => {
   return (
     <span>
       <div
-        className={`relative inline-block word ${className}`}
+        className={`word relative inline-block ${className}`}
         onMouseOver={() => fetchImage(url)}
         onMouseOut={() => setIsHovering(false)}
         onFocus={() => fetchImage(url)}
         onBlur={() => setIsHovering(false)}
       >
         {isHovering && linkScreenshot && (
-          <div className="absolute z-10 block w-32 pointer-events-none right-1/2 lg:block bottom-[2.0rem] animate-fade_in_up_5">
+          <div className="pointer-events-none absolute right-1/2 bottom-[2.0rem] z-10 block w-32 animate-fade_in_up_5 lg:block">
             <Image
               src={linkScreenshot}
               height={180}
@@ -55,7 +55,7 @@ const ScreenshotLink = ({ url, text, className = "" }: Props) => {
           href={url}
           target="_blank"
           rel="noopener noreferrer"
-          className="transition-all border-underline-grow dark:ring-palevioletred outline-none"
+          className="border-underline-grow outline-none transition-all dark:ring-palevioletred"
         >
           {text}
         </a>

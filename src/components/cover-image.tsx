@@ -25,7 +25,7 @@ const CoverImage = ({ title, cover = { imageFile: "" }, slug }: Props) => {
   loadImage(imageFile)
 
   const imageComponent = !imageImport ? (
-    <div className="relative py-4 my-4 font-mono text-center text-gray-200 dark:text-gray-700 font-extralight">
+    <div className="relative my-4 py-4 text-center font-mono font-extralight text-gray-200 dark:text-gray-700">
       Loading..
     </div>
   ) : (
@@ -40,8 +40,8 @@ const CoverImage = ({ title, cover = { imageFile: "" }, slug }: Props) => {
       placeholder="blur"
       className={
         slug
-          ? "shadow-sm hover:shadow-md transition-shadow duration-200"
-          : "shadow-sm bg-blend-overlay"
+          ? "shadow-sm transition-shadow duration-200 hover:shadow-md"
+          : "bg-blend-overlay shadow-sm"
       }
     />
   )

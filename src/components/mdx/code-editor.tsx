@@ -22,26 +22,26 @@ const CodeEditor: FunctionComponent<EditorProps> = ({ title, children }) => {
 
   return (
     <div className="w-full" style={{ width: "100%" }}>
-      <div className="relative flex items-center justify-between w-full h-10 -mb-3 bg-gray-100 rounded-t-md dark:bg-gray-700">
-        <div className="inline-flex justify-center h-full">
-          <div className="inline-flex items-center h-full ml-4 space-x-2">
-            <span className="w-3 h-3 bg-red-400 rounded-full"></span>
-            <span className="w-3 h-3 bg-yellow-200 rounded-full"></span>
-            <span className="w-3 h-3 bg-green-300 rounded-full"></span>
+      <div className="relative -mb-3 flex h-10 w-full items-center justify-between rounded-t-md bg-gray-100 dark:bg-gray-700">
+        <div className="inline-flex h-full justify-center">
+          <div className="ml-4 inline-flex h-full items-center space-x-2">
+            <span className="h-3 w-3 rounded-full bg-red-400"></span>
+            <span className="h-3 w-3 rounded-full bg-yellow-200"></span>
+            <span className="h-3 w-3 rounded-full bg-green-300"></span>
           </div>
-          <div className="inline-flex items-center p-2 ml-6 rounded-t-md">
+          <div className="ml-6 inline-flex items-center rounded-t-md p-2">
             <div className="font-mono text-xs font-light text-gray-700 dark:text-gray-100">
               {title}
             </div>
           </div>
         </div>
         <button
-          className="inline-flex p-1 mr-2 transition-shadow duration-300 rounded-md tra rounded-t-md hover:opacity-100 hover:cursor-pointer focus:outline-none hover:outline-none focus:ring-2 dark:ring-palevioletred dark:hover:ring-palevioletred hover:ring-2 focus:opacity-100 hover:ring-pink-300 ring-pink-300 focus:ring-pink-300 dark:focus:ring-palevioletred"
+          className="tra mr-2 inline-flex rounded-md rounded-t-md p-1 ring-pink-300 transition-shadow duration-300 hover:cursor-pointer hover:opacity-100 hover:outline-none hover:ring-2 hover:ring-pink-300 focus:opacity-100 focus:outline-none focus:ring-2 focus:ring-pink-300 dark:ring-palevioletred dark:hover:ring-palevioletred dark:focus:ring-palevioletred"
           onClick={copyCode}
         >
           {success ? (
             <svg
-              className="w-5 h-5 transition-all duration-1000 opacity-100"
+              className="h-5 w-5 opacity-100 transition-all duration-1000"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -57,7 +57,7 @@ const CodeEditor: FunctionComponent<EditorProps> = ({ title, children }) => {
           ) : (
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="w-5 h-5 transition-all duration-1000 opacity-100"
+              className="h-5 w-5 opacity-100 transition-all duration-1000"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"

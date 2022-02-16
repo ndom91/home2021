@@ -27,22 +27,22 @@ const PostCard = ({ post }: Props) => {
   const { title, date, excerpt, slug, tags, time, cover } = post
 
   return (
-    <div className="relative flex-col md:inline-flex w-full md:my-4">
-      <div className="glass-content p-10 z-20">
-        <div className="h-auto mb-8 overflow-hidden mask-bottom-strong md:mb-12 md:h-64 rounded-t-xl z-20">
+    <div className="relative w-full flex-col md:my-4 md:inline-flex">
+      <div className="glass-content z-20 p-10">
+        <div className="mask-bottom-strong z-20 mb-8 h-auto overflow-hidden rounded-t-xl md:mb-12 md:h-64">
           <ParallaxProvider>
             <Parallax y={[0, -10]}>
               <CoverImage title={title} cover={cover} slug={slug} />
             </Parallax>
           </ParallaxProvider>
         </div>
-        <div className="relative flex flex-col justify-between w-full md:flex-row z-20">
+        <div className="relative z-20 flex w-full flex-col justify-between md:flex-row">
           <Link href={`/posts/${slug ? slug : ""}`}>
-            <a className="text-4xl font-extralight text-gray-600 capitalize transition-colors duration-300 dark:text-gray-100 hover:text-palevioletred outline-none hover:outline-none focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-offset-white focus:dark:ring-offset-gray-500 focus:ring-pink-300 focus:dark:ring-palevioletred rounded-sm">
+            <a className="rounded-sm text-4xl font-extralight capitalize text-gray-600 outline-none transition-colors duration-300 hover:text-palevioletred hover:outline-none focus:outline-none focus:ring-4 focus:ring-pink-300 focus:ring-offset-2 focus:ring-offset-white dark:text-gray-100 focus:dark:ring-palevioletred focus:dark:ring-offset-gray-500">
               {title}
             </a>
           </Link>
-          <div className="flex flex-col text-sm text-left md:text-right md:text-base font-light font-mono">
+          <div className="flex flex-col text-left font-mono text-sm font-light md:text-right md:text-base">
             <span className="text-medium">
               <DateFormatter dateString={date} />
             </span>
@@ -52,15 +52,15 @@ const PostCard = ({ post }: Props) => {
           </div>
         </div>
         <div
-          className="flex w-full max-w-full mt-4 prose-md prose font-light text-gray-600 dark:text-gray-200 prose-pink dark:prose-dark z-20"
+          className="prose-md prose prose-pink z-20 mt-4 flex w-full max-w-full font-light text-gray-600 dark:prose-dark dark:text-gray-200"
           dangerouslySetInnerHTML={{ __html: excerpt }}
         />
-        <div className="relative flex align-middle mt-6 z-20">
+        <div className="relative z-20 mt-6 flex align-middle">
           <div className="relative flex justify-start overflow-hidden">
             {tags.map((tag) => (
               <span
                 key={tag}
-                className="px-4 py-2 my-auto mr-2 text-sm text-gray-400 bg-gray-200 rounded-full whitespace-nowrap dark:bg-gray-800 dark:text-palevioletred font-mono font-light"
+                className="my-auto mr-2 whitespace-nowrap rounded-full bg-gray-200 px-4 py-2 font-mono text-sm font-light text-gray-400 dark:bg-gray-800 dark:text-palevioletred"
               >
                 {tag}
               </span>
@@ -68,7 +68,7 @@ const PostCard = ({ post }: Props) => {
           </div>
         </div>
       </div>
-      <div className="absolute w-full h-full glass-card z-10" />
+      <div className="glass-card absolute z-10 h-full w-full" />
     </div>
   )
 }
