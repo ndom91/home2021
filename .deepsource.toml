@@ -1,9 +1,6 @@
 version = 1
 
-test_patterns = [
-  "src/**",
-  "api/**"
-]
+exclude_patterns = ["public/**"]
 
 [[analyzers]]
 name = "javascript"
