@@ -133,59 +133,6 @@ body {
       url("/assets/fonts/jetbrainsmono/jetbrains-mono-v6-latin-700.ttf")
         format("truetype");
   }
-  /* spectral-200 - latin */
-  @font-face {
-    font-family: "Spectral";
-    font-style: normal;
-    font-weight: 200;
-    src: local(""),
-      url("/assets/fonts/spectral/spectral-v7-latin-200.woff2") format("woff2"),
-      url("/assets/fonts/spectral/spectral-v7-latin-200.woff") format("woff"),
-      url("/assets/fonts/spectral/spectral-v7-latin-200.ttf") format("truetype");
-  }
-  /* spectral-300 - latin */
-  @font-face {
-    font-family: "Spectral";
-    font-style: normal;
-    font-weight: 300;
-    src: local(""),
-      url("/assets/fonts/spectral/spectral-v7-latin-300.woff2") format("woff2"),
-      url("/assets/fonts/spectral/spectral-v7-latin-300.woff") format("woff"),
-      url("/assets/fonts/spectral/spectral-v7-latin-300.ttf") format("truetype");
-  }
-  /* spectral-regular - latin */
-  @font-face {
-    font-family: "Spectral";
-    font-style: normal;
-    font-weight: 400;
-    src: local(""),
-      url("/assets/fonts/spectral/spectral-v7-latin-regular.woff2")
-        format("woff2"),
-      url("/assets/fonts/spectral/spectral-v7-latin-regular.woff")
-        format("woff"),
-      url("/assets/fonts/spectral/spectral-v7-latin-regular.ttf")
-        format("truetype");
-  }
-  /* spectral-600 - latin */
-  @font-face {
-    font-family: "Spectral";
-    font-style: normal;
-    font-weight: 600;
-    src: local(""),
-      url("/assets/fonts/spectral/spectral-v7-latin-600.woff2") format("woff2"),
-      url("/assets/fonts/spectral/spectral-v7-latin-600.woff") format("woff"),
-      url("/assets/fonts/spectral/spectral-v7-latin-600.ttf") format("truetype");
-  }
-  /* spectral-700 - latin */
-  @font-face {
-    font-family: "Spectral";
-    font-style: normal;
-    font-weight: 700;
-    src: local(""),
-      url("/assets/fonts/spectral/spectral-v7-latin-700.woff2") format("woff2"),
-      url("/assets/fonts/spectral/spectral-v7-latin-700.woff") format("woff"),
-      url("/assets/fonts/spectral/spectral-v7-latin-700.ttf") format("truetype");
-  }
 }
 
 /* SCROLLBAR */
