@@ -11,7 +11,8 @@
     "next.js",
     "tailwindcss",
     "blog",
-    "portfolio"
+    "portfolio",
+    "2022"
   ],
   "scripts": {
     "dev": "next dev -p 3003",
