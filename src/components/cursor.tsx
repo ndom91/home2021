@@ -2,27 +2,15 @@ type CursorProps = {
   position: {
     x: number
     y: number
+    lastUpdate: number
   }
+  color: string
 }
 
-const cursorColors = [
-  "#F2CDCD",
-  "#DDB6F2",
-  "#F5C2E7",
-  "#E8A2AF",
-  "#F28FAD",
-  "#F8BD96",
-  "#FAE3B0",
-  "#ABE9B3",
-  "#B5E8E0",
-  "#96CDFB",
-  "#89DCEB",
-]
-const color = cursorColors[Math.floor(Math.random() * 11)]
-
-const Cursor = ({ position }: CursorProps) => {
+const Cursor = ({ position, color }: CursorProps) => {
   if (!position || (position.x === 0 && position.y === 0)) return null
-  const { x, y } = position
+  const { x, y, lastUpdate } = position
+  if (Date.now() - lastUpdate > 120000) return null
   return (
     <svg
       className="absolute"

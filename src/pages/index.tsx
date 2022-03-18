@@ -6,16 +6,30 @@ import Cursor from "@/components/cursor"
 import Torus from "@/components/torus"
 import { useLiveStore } from "../lib/zustand"
 
+const cursorColors = [
+  "#F28FAD",
+  "#89DCEB",
+  "#ABE9B3",
+  "#F2CDCD",
+  "#DDB6F2",
+  "#F5C2E7",
+  "#E8A2AF",
+  "#F8BD96",
+  "#FAE3B0",
+  "#B5E8E0",
+  "#96CDFB",
+]
+
 const Index = () => {
   const {
     liveblocks: { enterRoom, leaveRoom },
   } = useLiveStore()
 
   useEffect(() => {
-    enterRoom("ndom91/home2021", {})
+    enterRoom(`ndom91/home2021/${process.env.NODE_ENV}`, {})
 
     return () => {
-      leaveRoom("ndom91/home2021")
+      leaveRoom(`ndom91/home2021/${process.env.NODE_ENV}`)
     }
   }, [enterRoom, leaveRoom])
 
@@ -26,12 +40,22 @@ const Index = () => {
   return (
     <div
       className="overflow-hidden"
-      onPointerMove={(e) => setCursor({ x: e.clientX, y: e.clientY })}
+      onPointerMove={(e) =>
+        setCursor({
+          x: e.clientX,
+          y: e.clientY,
+          lastUpdate: Date.now(),
+        })
+      }
     >
       <Layout>
         <Torus />
         {others.map((person, i) => (
-          <Cursor key={i} position={person.presence?.cursor} />
+          <Cursor
+            key={i}
+            color={cursorColors[i]}
+            position={person.presence?.cursor}
+          />
         ))}
         <Intro />
         <Blur />
