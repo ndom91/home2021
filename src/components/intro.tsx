@@ -1,22 +1,22 @@
 import { useEffect } from "react"
 import dynamic from "next/dynamic"
 import setFlickerAnimation from "../lib/flicker"
+import Torus from "@/components/torus"
+import useStore from "../lib/zustand"
 const IntroDescription = dynamic(() => import("./intro-description"), {
   ssr: false,
 })
 
 const Intro = () => {
+  const theme = useStore((state) => state.theme)
+
   useEffect(() => {
     setFlickerAnimation()
   }, [])
 
   return (
-    <section className="relative z-10 my-16 flex flex-col items-start text-left lg:my-[20vh] lg:flex-row lg:items-center lg:justify-between">
-      <div className="relative h-16 w-2/3">
-        <h1 className="js_darkmode_flicker intro-title animate-fade_in_up_30 pl-4 font-sans text-7xl font-extrabold leading-tight tracking-tighter opacity-0 dark:text-gray-100 lg:pl-0 lg:pr-8 lg:text-8xl">
-          ndom91.
-        </h1>
-      </div>
+    <section className="relative my-16 flex flex-col items-start text-left lg:my-[16vh] lg:flex-row lg:items-center lg:justify-between">
+      <Torus key={theme} />
       <IntroDescription />
     </section>
   )
