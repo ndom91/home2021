@@ -1,4 +1,10 @@
 import create from "zustand"
+import { createClient } from "@liveblocks/client"
+import { middleware } from "@liveblocks/zustand"
+
+const client = createClient({
+  publicApiKey: process.env.NEXT_PUBLIC_LIVEBLOCKS_KEY,
+})
 
 enum ThemeType {
   light = "light",
@@ -10,9 +16,27 @@ interface ThemeState {
   setTheme: (theme: keyof typeof ThemeType) => void
 }
 
+interface LiveThemeState {
+  cursor: {
+    x: number
+    y: number
+  }
+  setCursor: (cursor: { x: number; y: number }) => void
+}
+
 const useStore = create<ThemeState>((set) => ({
   theme: "light",
   setTheme: (theme) => set({ theme }),
 }))
 
-export default useStore
+const useLiveStore = create(
+  middleware(
+    (set): LiveThemeState => ({
+      cursor: { x: 0, y: 0 },
+      setCursor: (cursor: any) => set({ cursor }),
+    }),
+    { client, presenceMapping: { cursor: true } }
+  )
+)
+
+export { useStore as default, useLiveStore }

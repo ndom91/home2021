@@ -24,6 +24,8 @@
     "pretty-quick": "pretty-quick --staged"
   },
   "dependencies": {
+    "@liveblocks/client": "^0.15.3",
+    "@liveblocks/zustand": "^0.15.3",
     "@mapbox/rehype-prism": "^0.8.0",
     "@next/mdx": "^12.0.8",
     "@supabase/supabase-js": "^1.30.0",
