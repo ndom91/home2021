@@ -3,7 +3,7 @@ import { createClient } from "@liveblocks/client"
 import { middleware } from "@liveblocks/zustand"
 
 const client = createClient({
-  publicApiKey: process.env.NEXT_PUBLIC_LIVEBLOCKS_KEY,
+  publicApiKey: process.env.NEXT_PUBLIC_LIVEBLOCKS_KEY as string,
 })
 
 enum ThemeType {

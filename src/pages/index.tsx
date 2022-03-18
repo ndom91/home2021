@@ -3,6 +3,7 @@ import Intro from "@/components/intro"
 import Layout from "@/components/layout"
 import Blur from "@/components/blur"
 import Cursor from "@/components/cursor"
+import Torus from "@/components/torus"
 import { useLiveStore } from "../lib/zustand"
 
 const Index = () => {
@@ -28,6 +29,7 @@ const Index = () => {
       onPointerMove={(e) => setCursor({ x: e.clientX, y: e.clientY })}
     >
       <Layout>
+        <Torus />
         {others.map((person, i) => (
           <Cursor key={i} position={person.presence?.cursor} />
         ))}
