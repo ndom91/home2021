@@ -2,13 +2,15 @@ type CursorProps = {
   position: {
     x: number
     y: number
+    lastUpdate: number
   }
   color: string
 }
 
 const Cursor = ({ position, color }: CursorProps) => {
   if (!position || (position.x === 0 && position.y === 0)) return null
-  const { x, y } = position
+  const { x, y, lastUpdate } = position
+  if (Date.now() - lastUpdate > 120000) return null
   return (
     <svg
       className="absolute"
