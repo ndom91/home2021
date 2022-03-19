@@ -13,7 +13,7 @@ export default function Torus() {
         <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
         <pointLight position={[-10, -10, -10]} />
         <Torusknot scale={1.3} castShadow />
-        <OrbitControls autoRotate autoRotateSpeed={0.3} />
+        <OrbitControls />
         <AsciiRenderer invert />
       </Canvas>
     </div>
@@ -27,7 +27,7 @@ function Torusknot(props: any) {
   useFrame(
     (state, delta) =>
       // @ts-ignore
-      (ref.current.rotation.x = ref.current.rotation.y += delta / 2)
+      (ref.current.rotation.x = ref.current.rotation.y += delta / 3)
   )
   return (
     <mesh
@@ -46,7 +46,7 @@ function Torusknot(props: any) {
 
 function AsciiRenderer({
   renderIndex = 1,
-  characters = " .:-+*=%@#",
+  characters = " .:-*=%@#",
   ...options
 }) {
   // Reactive state
@@ -64,6 +64,7 @@ function AsciiRenderer({
     effect.domElement.style.backgroundColor =
       theme === "light" ? "white" : "#0e141b"
     effect.domElement.style.pointerEvents = "none"
+    effect.domElement.className = "transition-all duration-200"
     return effect
   }, [characters, options.invert])
 
