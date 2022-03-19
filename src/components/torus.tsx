@@ -1,14 +1,14 @@
 // Threejs example: threejs.org/examples/?q=asc#webgl_effects_ascii
-import { useEffect, useRef, useState, useMemo } from "react"
+import { useEffect, useRef, useMemo } from "react"
 import { Canvas, useFrame, useThree } from "@react-three/fiber"
-import { OrbitControls, useCursor } from "@react-three/drei"
+import { OrbitControls } from "@react-three/drei"
 import { AsciiEffect } from "three-stdlib"
 import useStore, { useLiveStore } from "../lib/zustand"
 
 export default function Torus() {
   return (
     <div className="pointer-events-all h-96 w-full select-none hover:cursor-move md:h-[38rem] md:w-[60%]">
-      <Canvas shadows>
+      <Canvas>
         <color attach="background" args={["black"]} />
         <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
         <pointLight position={[-10, -10, -10]} />
@@ -25,34 +25,27 @@ const CameraControls = () => {
     camera,
     gl: { domElement },
   } = useThree()
-  const controls = useRef()
+  const ref = useRef()
   const setTorusRotation = useLiveStore((state) => state.setTorusRotation)
-  const torusRotation = useLiveStore((state) => state.torusRotation)
 
   const updateControls = (e: any) => {
+    console.log("UPDATING!", e)
     if (e.target.object.rotation.x !== "undefined") {
       setTorusRotation({
-        x: camera.rotation._x,
-        y: camera.rotation._y,
-        z: camera.rotation._z,
+        x: e.target.object.rotation._x,
+        y: e.target.object.rotation._y,
+        z: e.target.object.rotation._z,
+        // x: camera.rotation._x,
+        // y: camera.rotation._y,
+        // z: camera.rotation._z,
       })
     }
   }
-  useFrame(() => {
-    console.log("TR", torusRotation)
-    // FIXME: this `object.rotation` value seems to change position(?)
-    controls.current?.object.rotation.x = torusRotation.x
-    controls.current?.object.rotation.y = torusRotation.y
-    controls.current?.object.rotation.z = torusRotation.z
-    // controls.current?.object.position = [0, 0, 0]
-    // controls.current?.update()
-  })
 
   return (
     <OrbitControls
-      ref={controls}
+      ref={ref}
       args={[camera, domElement]}
-      // makeDefault
       enableZoom={false}
       enablePan={false}
       onChange={(e) => updateControls(e)}
@@ -62,15 +55,16 @@ const CameraControls = () => {
 
 function TorusKnot(props: any) {
   const ref = useRef()
-  const [hovered, hover] = useState(false)
-  useCursor(hovered)
+  const torusRotation = useLiveStore((state) => state.torusRotation)
+
+  useFrame(() => {
+    ref.current.rotation.x = torusRotation.x
+    ref.current.rotation.y = torusRotation.y
+    ref.current.rotation.z = torusRotation.z
+    // ref.current.rotation.y += 0.001
+  })
   return (
-    <mesh
-      {...props}
-      ref={ref}
-      onPointerOver={() => hover(true)}
-      onPointerOut={() => hover(false)}
-    >
+    <mesh {...props} ref={ref}>
       <torusKnotGeometry args={[1, 0.2, 128, 32]} />
       <meshStandardMaterial color="white" />
     </mesh>
@@ -79,7 +73,7 @@ function TorusKnot(props: any) {
 
 function AsciiRenderer({
   renderIndex = 1,
-  characters = " *:-*=%@#",
+  characters = " .:;*=%@#",
   ...options
 }) {
   // Reactive state
@@ -97,7 +91,7 @@ function AsciiRenderer({
     effect.domElement.style.backgroundColor =
       theme === "light" ? "white" : "#0e141b"
     effect.domElement.style.pointerEvents = "none"
-    effect.domElement.className = "transition-all duration-200"
+    // effect.domElement.className = "transition-all duration-200"
     return effect
   }, [characters, options.invert])
 
