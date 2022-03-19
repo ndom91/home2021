@@ -12,7 +12,7 @@ export default function Torus() {
         <color attach="background" args={["black"]} />
         <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
         <pointLight position={[-10, -10, -10]} />
-        <Torusknot scale={1.3} castShadow />
+        <Torusknot scale={1.3} />
         <OrbitControls enableZoom={false} enablePan={false} />
         <AsciiRenderer invert />
       </Canvas>
@@ -46,7 +46,7 @@ function Torusknot(props: any) {
 
 function AsciiRenderer({
   renderIndex = 1,
-  characters = " .:-*=%@#",
+  characters = " *:-*=%@#",
   ...options
 }) {
   // Reactive state
