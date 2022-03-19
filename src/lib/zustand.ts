@@ -22,6 +22,12 @@ interface LiveThemeState {
     y: number
   }
   setCursor: (cursor: { x: number; y: number }) => void
+  torusRotation: {
+    x: number
+    y: number
+    z: number
+  }
+  setTorusRotation: (torusRotation: { x: number; y: number; z: number }) => void
 }
 
 const useStore = create<ThemeState>((set) => ({
@@ -34,8 +40,14 @@ const useLiveStore = create(
     (set): LiveThemeState => ({
       cursor: { x: 0, y: 0 },
       setCursor: (cursor: any) => set({ cursor }),
+      torusRotation: { x: 0, y: 0, z: 0 },
+      setTorusRotation: (torusRotation: any) => set({ torusRotation }),
     }),
-    { client, presenceMapping: { cursor: true } }
+    {
+      client,
+      presenceMapping: { cursor: true },
+      storageMapping: { torusRotation: true },
+    }
   )
 )
 

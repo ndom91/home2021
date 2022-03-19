@@ -3,7 +3,7 @@ import { useEffect, useRef, useState, useMemo } from "react"
 import { Canvas, useFrame, useThree } from "@react-three/fiber"
 import { OrbitControls, useCursor } from "@react-three/drei"
 import { AsciiEffect } from "three-stdlib"
-import useStore from "../lib/zustand"
+import useStore, { useLiveStore } from "../lib/zustand"
 
 export default function Torus() {
   return (
@@ -12,29 +12,62 @@ export default function Torus() {
         <color attach="background" args={["black"]} />
         <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
         <pointLight position={[-10, -10, -10]} />
-        <Torusknot scale={1.3} />
-        <OrbitControls enableZoom={false} enablePan={false} />
+        <TorusKnot scale={1.3} />
+        <CameraControls />
         <AsciiRenderer invert />
       </Canvas>
     </div>
   )
 }
 
-function Torusknot(props: any) {
+const CameraControls = () => {
+  const {
+    camera,
+    gl: { domElement },
+  } = useThree()
+  const controls = useRef()
+  const setTorusRotation = useLiveStore((state) => state.setTorusRotation)
+  const torusRotation = useLiveStore((state) => state.torusRotation)
+
+  const updateControls = (e: any) => {
+    if (e.target.object.rotation.x !== "undefined") {
+      setTorusRotation({
+        x: camera.rotation._x,
+        y: camera.rotation._y,
+        z: camera.rotation._z,
+      })
+    }
+  }
+  useFrame(() => {
+    console.log("TR", torusRotation)
+    // FIXME: this `object.rotation` value seems to change position(?)
+    controls.current?.object.rotation.x = torusRotation.x
+    controls.current?.object.rotation.y = torusRotation.y
+    controls.current?.object.rotation.z = torusRotation.z
+    // controls.current?.object.position = [0, 0, 0]
+    // controls.current?.update()
+  })
+
+  return (
+    <OrbitControls
+      ref={controls}
+      args={[camera, domElement]}
+      // makeDefault
+      enableZoom={false}
+      enablePan={false}
+      onChange={(e) => updateControls(e)}
+    />
+  )
+}
+
+function TorusKnot(props: any) {
   const ref = useRef()
   const [hovered, hover] = useState(false)
   useCursor(hovered)
-  useFrame(
-    (state, delta) =>
-      // @ts-ignore
-      (ref.current.rotation.x = ref.current.rotation.y += delta / 3)
-  )
   return (
     <mesh
       {...props}
-      rotation={[-Math.PI / 2, 0, 0]}
       ref={ref}
-      // onClick={() => click(!clicked)}
       onPointerOver={() => hover(true)}
       onPointerOut={() => hover(false)}
     >

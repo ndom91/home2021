@@ -25,7 +25,13 @@ const Index = () => {
   } = useLiveStore()
 
   useEffect(() => {
-    enterRoom(`ndom91/home2021/${process.env.NODE_ENV}`, {})
+    enterRoom(`ndom91/home2021/${process.env.NODE_ENV}`, {
+      torusRotation: {
+        x: 0,
+        y: 0,
+        z: 0,
+      },
+    })
 
     return () => {
       leaveRoom(`ndom91/home2021/${process.env.NODE_ENV}`)
