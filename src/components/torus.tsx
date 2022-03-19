@@ -7,13 +7,13 @@ import useStore from "../lib/zustand"
 
 export default function Torus() {
   return (
-    <div className="pointer-events-all h-[38rem] w-[60%] hover:cursor-move">
+    <div className="pointer-events-all h-96 w-full select-none hover:cursor-move md:h-[38rem] md:w-[60%]">
       <Canvas shadows>
         <color attach="background" args={["black"]} />
         <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
         <pointLight position={[-10, -10, -10]} />
         <Torusknot scale={1.3} castShadow />
-        <OrbitControls />
+        <OrbitControls enableZoom={false} enablePan={false} />
         <AsciiRenderer invert />
       </Canvas>
     </div>
