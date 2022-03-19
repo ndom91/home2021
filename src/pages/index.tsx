@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import Intro from "@/components/intro"
 import Layout from "@/components/layout"
 import Blur from "@/components/blur"
@@ -18,6 +18,14 @@ const cursorColors = [
   "#B5E8E0",
   "#96CDFB",
 ]
+type cfResponseType = {
+  country: string
+  region: string
+  city: string
+  organization: string
+  asn: string
+  ip: string
+}
 
 const Index = () => {
   const {
@@ -35,6 +43,32 @@ const Index = () => {
   // @ts-expect-error
   const setCursor = useLiveStore((state) => state.setCursor)
   const others = useLiveStore((state) => state.liveblocks.others)
+  const [visitorDetails, setVisitorDetails] = useState<{
+    [index: string]: string
+  }>({})
+
+  useEffect(() => {
+    if (!visitorDetails["loc"]) {
+      fetchCountry()
+    }
+  }, [visitorDetails])
+
+  const fetchCountry = async () => {
+    const url = "https://www.cloudflare.com/cdn-cgi/trace"
+    const cfResp = await fetch(url)
+    const cfPlaintext = await cfResp.text()
+    const cfJson = cfPlaintext
+      .trim()
+      .split("\n")
+      .reduce((obj, line) => {
+        const pair = line.split("=")
+        // console.log(pair)
+        obj[pair[0]] = pair[1]
+        return obj
+      }, {} as { [index: string]: string })
+
+    setVisitorDetails(cfJson)
+  }
 
   return (
     <div
@@ -44,6 +78,7 @@ const Index = () => {
           x: e.clientX,
           y: e.clientY,
           lastUpdate: Date.now(),
+          country: visitorDetails["loc"],
         })
       }
     >
@@ -52,7 +87,7 @@ const Index = () => {
           <Cursor
             key={i}
             color={cursorColors[i]}
-            position={person.presence?.cursor}
+            cursor={person.presence?.cursor}
           />
         ))}
         <Intro />
