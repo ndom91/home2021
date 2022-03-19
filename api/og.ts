@@ -2,9 +2,18 @@ import type { NextApiRequest, NextApiResponse } from "next"
 import chromium from "chrome-aws-lambda"
 import playwright from "playwright-core"
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+const hosts = ["https://ndo.dev/", "http://localhost:3003/"]
+
+const generateImage = async (req: NextApiRequest, res: NextApiResponse) => {
+  // Super basic security check
+  if (req.headers["referer"] && !hosts.includes(req.headers["referer"])) {
+    return res.status(401).json({
+      error: "Not allowed",
+    })
+  }
+
   try {
-    // Start Playwright with the dynamic chrome-aws-lambda args
+    // Start Playwright with the dynamic chrome-aws-lambda args and path
     const browser = await playwright.chromium.launch({
       args: chromium.args,
       executablePath:
@@ -32,7 +41,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       | null
 
     await page.emulateMedia({ colorScheme })
-
     await page.goto(url)
 
     // If homepage - wait for enter animation to complete
@@ -41,12 +49,10 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     }
     // If twitter - wait for intro load animation to complete
     if (req?.query?.path.includes("https://twitter.com")) {
-      await page.waitForTimeout(500)
+      await page.waitForTimeout(1000)
     }
 
-    const data = await page.screenshot({
-      type: "jpeg",
-    })
+    const data = await page.screenshot()
     await browser.close()
 
     // Set the s-maxage property to cache at the CDN layer
@@ -58,3 +64,5 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     res.status(500).end(error)
   }
 }
+
+export default generateImage

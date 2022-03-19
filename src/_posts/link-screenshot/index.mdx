@@ -397,6 +397,8 @@ You will notice the first hover over a new link may take 2-3 seconds, at worst, 
 
 If you have any questions or are more curious, this whole thing is implemented on this webpage obviously and its code is opensource and available at [ndom91/home2021](https://github.com/ndom91/home2021).
 
+> Update: I've come across another way to achieve this same effect. Instead of taking the screenshots dynamically at the time the user hovers on the link, which can be slow the first time when the image isn't pregenerated and cached already, this author has gone about it a bit differently and is generating the screenshots every 12 hours via a cron triggered Github Action. See their [blog post](https://www.mariusflorescu.io/writing/statically-generating-screenshots) for more details.
+
 ### BONUS: `og:image`
 
 I also used this API route to dynamically generate `og:image`'s which are screenshots of either the homepage of my site for shares directly to the main page, or screenshots of the blog post page (including its large header image) for shares to individual posts. This can be achieved by setting a global meta tag with the `path` parameter set to the currently selected URL.
