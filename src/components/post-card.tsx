@@ -31,7 +31,7 @@ const PostCard = ({ post }: Props) => {
       <div className="glass-content z-20 p-10">
         <div className="mask-bottom-strong z-20 mb-8 h-auto overflow-hidden rounded-t-xl md:mb-12 md:h-64">
           <ParallaxProvider>
-            <Parallax y={[0, -10]}>
+            <Parallax translateY={[0, -10]}>
               <CoverImage title={title} cover={cover} slug={slug} />
             </Parallax>
           </ParallaxProvider>

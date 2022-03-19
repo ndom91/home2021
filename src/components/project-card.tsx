@@ -57,7 +57,7 @@ const ProjectCard = ({ project, index }: Props) => {
                 className="z-10 mb-2 h-32 w-full overflow-y-hidden rounded-t-xl bg-gray-200 hover:cursor-pointer dark:bg-gray-600"
               >
                 {imageImport && (
-                  <Parallax y={[0, randomNumber(60, 120)]}>
+                  <Parallax translateY={[0, randomNumber(60, 120)]}>
                     <Image
                       src={imageImport}
                       id={`project-image-${image}`}

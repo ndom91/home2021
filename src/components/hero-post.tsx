@@ -24,7 +24,7 @@ const HeroPost = ({ title, cover, date, slug, time }: Props) => {
     <section className="animate-fade_in opacity-0">
       <div className="mask-bottom mb-8 h-auto overflow-hidden md:mb-16 md:h-96">
         <ParallaxProvider>
-          <Parallax y={[10, -10]}>
+          <Parallax translateY={[10, -10]}>
             <CoverImage title={title} cover={cover} slug={slug} />
           </Parallax>
         </ParallaxProvider>
