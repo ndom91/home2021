@@ -30,7 +30,7 @@ const PostHeader = ({ title, cover, date, time }: Props) => {
         <div className="mb-6 block">
           <Avatar />
         </div>
-        <div className="mb-16 text-right font-mono text-lg font-light">
+        <div className="mb-16 text-right font-mono text-lg font-thin">
           <DateFormatter dateString={date} />
           <p className="text-gray-700 dark:text-gray-300">{time.text}</p>
         </div>

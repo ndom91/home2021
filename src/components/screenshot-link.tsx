@@ -1,13 +1,13 @@
 import { useState } from "react"
 import Image from "next/image"
 
-type Props = {
+type ScreenshotLinkProps = {
   url: string
   text: string
   className: string
 }
 
-const ScreenshotLink = ({ url, text, className = "" }: Props) => {
+const ScreenshotLink = ({ url, text, className = "" }: ScreenshotLinkProps) => {
   const [isHovering, setIsHovering] = useState(false)
   const [linkScreenshot, setLinkScreenshot] = useState("")
 
@@ -26,7 +26,7 @@ const ScreenshotLink = ({ url, text, className = "" }: Props) => {
       const image = await res.blob()
       setLinkScreenshot(URL.createObjectURL(image))
     } catch (e) {
-      console.error(e)
+      console.error("Error fetching screenshot image", e)
     }
   }
 
@@ -47,7 +47,7 @@ const ScreenshotLink = ({ url, text, className = "" }: Props) => {
               width={300}
               unoptimized
               alt={text}
-              className="rounded-sm"
+              className="rounded-md"
             />
           </div>
         )}

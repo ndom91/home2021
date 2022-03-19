@@ -30,18 +30,18 @@ const CodeEditor: FunctionComponent<EditorProps> = ({ title, children }) => {
             <span className="h-3 w-3 rounded-full bg-green-300"></span>
           </div>
           <div className="ml-6 inline-flex items-center rounded-t-md p-2">
-            <div className="font-mono text-xs font-light text-gray-700 dark:text-gray-100">
+            <div className="font-mono text-xs font-normal text-gray-700 dark:text-gray-100">
               {title}
             </div>
           </div>
         </div>
         <button
-          className="tra mr-2 inline-flex rounded-md rounded-t-md p-1 ring-pink-300 transition-shadow duration-300 hover:cursor-pointer hover:opacity-100 hover:outline-none hover:ring-2 hover:ring-pink-300 focus:opacity-100 focus:outline-none focus:ring-2 focus:ring-pink-300 dark:ring-palevioletred dark:hover:ring-palevioletred dark:focus:ring-palevioletred"
+          className="tra transition-hover mr-2 inline-flex rounded-md rounded-t-md p-1.5 outline-none ring-pink-300 duration-300 hover:cursor-pointer hover:bg-pink-300 hover:bg-opacity-30  hover:opacity-100 hover:outline-none hover:ring-pink-300 focus:opacity-100 focus:outline-none focus:ring-2 focus:ring-pink-300 dark:ring-palevioletred dark:hover:ring-palevioletred dark:focus:ring-palevioletred"
           onClick={copyCode}
         >
           {success ? (
             <svg
-              className="h-5 w-5 opacity-100 transition-all duration-1000"
+              className="h-4 w-4 opacity-100 transition-all duration-1000"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -56,20 +56,21 @@ const CodeEditor: FunctionComponent<EditorProps> = ({ title, children }) => {
             </svg>
           ) : (
             <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5 opacity-100 transition-all duration-1000"
+              className="h-4 w-4 opacity-100 transition-all duration-1000"
               fill="none"
-              viewBox="0 0 24 24"
               stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
             >
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth={2}
-                d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"
+                d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
               />
             </svg>
           )}
+          <span className="ml-1 text-xs tracking-tight">Copy Source</span>
         </button>
       </div>
       <div className="z-10">{children}</div>
