@@ -11,7 +11,7 @@ const IntroDescription = () => {
     <p
       id="intro-body"
       data-splitting="lines"
-      className="relative mt-4 w-full p-2 text-left font-mono text-lg font-extralight leading-8 tracking-tight text-gray-800 dark:text-gray-100 md:text-xl lg:w-11/12 lg:pl-10"
+      className="relative z-20 mt-4 w-full p-2 text-left font-mono text-lg font-extralight leading-8 tracking-tight text-gray-800 dark:text-gray-100 md:text-xl lg:w-11/12 lg:pl-10"
       style={{ lineHeight: "2.25rem" }}
     >
       Hi! My name&apos;s Nico Domino and I&lsquo;m a full-stack javascript
