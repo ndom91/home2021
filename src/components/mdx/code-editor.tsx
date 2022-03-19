@@ -36,7 +36,7 @@ const CodeEditor: FunctionComponent<EditorProps> = ({ title, children }) => {
           </div>
         </div>
         <button
-          className="tra transition-hover mr-2 inline-flex rounded-md rounded-t-md p-1.5 outline-none ring-pink-300 duration-300 hover:cursor-pointer hover:bg-pink-300 hover:bg-opacity-30  hover:opacity-100 hover:outline-none hover:ring-pink-300 focus:opacity-100 focus:outline-none focus:ring-2 focus:ring-pink-300 dark:ring-palevioletred dark:hover:ring-palevioletred dark:focus:ring-palevioletred"
+          className="transition-hover mr-2 inline-flex rounded-md rounded-t-md p-1.5 outline-none ring-pink-300 duration-300 hover:cursor-pointer hover:opacity-100 hover:outline-none hover:ring-2 hover:ring-pink-300 focus:opacity-100 focus:outline-none focus:ring-2 focus:ring-pink-300 dark:ring-palevioletred dark:hover:ring-2 dark:hover:ring-palevioletred dark:focus:ring-palevioletred"
           onClick={copyCode}
         >
           {success ? (
