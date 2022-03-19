@@ -18,19 +18,17 @@ const cursorColors = [
   "#B5E8E0",
   "#96CDFB",
 ]
-type cfResponseType = {
-  country: string
-  region: string
-  city: string
-  organization: string
-  asn: string
-  ip: string
-}
 
 const Index = () => {
   const {
     liveblocks: { enterRoom, leaveRoom },
   } = useLiveStore()
+  // @ts-expect-error
+  const setCursor = useLiveStore((state) => state.setCursor)
+  const others = useLiveStore((state) => state.liveblocks.others)
+  const [visitorDetails, setVisitorDetails] = useState<{
+    [index: string]: string
+  }>({})
 
   useEffect(() => {
     enterRoom(`ndom91/home2021/${process.env.NODE_ENV}`, {})
@@ -39,13 +37,6 @@ const Index = () => {
       leaveRoom(`ndom91/home2021/${process.env.NODE_ENV}`)
     }
   }, [enterRoom, leaveRoom])
-
-  // @ts-expect-error
-  const setCursor = useLiveStore((state) => state.setCursor)
-  const others = useLiveStore((state) => state.liveblocks.others)
-  const [visitorDetails, setVisitorDetails] = useState<{
-    [index: string]: string
-  }>({})
 
   useEffect(() => {
     if (!visitorDetails["loc"]) {
@@ -62,7 +53,6 @@ const Index = () => {
       .split("\n")
       .reduce((obj, line) => {
         const pair = line.split("=")
-        // console.log(pair)
         obj[pair[0]] = pair[1]
         return obj
       }, {} as { [index: string]: string })
