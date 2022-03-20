@@ -69,6 +69,7 @@ const Index = () => {
           y: e.clientY,
           lastUpdate: Date.now(),
           country: visitorDetails["loc"],
+          colo: visitorDetails["colo"],
         })
       }
     >

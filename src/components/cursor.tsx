@@ -4,6 +4,7 @@ type CursorProps = {
     y: number
     lastUpdate: number
     country: string
+    colo: string
   }
   color: string
 }
@@ -40,7 +41,7 @@ const letters = {
 const Cursor = ({ cursor, color }: CursorProps) => {
   if (!cursor || (cursor.x === 0 && cursor.y === 0)) return null
   if (Date.now() - cursor.lastUpdate > 120000) return null
-  const { x, y, country } = cursor
+  const { x, y, country, colo } = cursor
 
   return (
     <div
@@ -68,9 +69,19 @@ const Cursor = ({ cursor, color }: CursorProps) => {
         ></path>
       </svg>
       {country && (
-        <span className="absolute -translate-y-12 translate-x-2">
-          {letters[country[0].toUpperCase()]}
-          {letters[country[1].toUpperCase()]}
+        <span
+          className="absolute flex -translate-y-5 translate-x-3 rounded-md px-2 py-1"
+          style={{
+            backgroundColor: `${color}60`,
+          }}
+        >
+          <span className="mr-1 align-middle font-mono text-sm font-medium leading-6 text-gray-200">
+            {colo}
+          </span>
+          <span>
+            {letters[country[0].toUpperCase()]}
+            {letters[country[1].toUpperCase()]}
+          </span>
         </span>
       )}
     </div>
