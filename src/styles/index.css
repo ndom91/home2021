@@ -60,6 +60,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.index *,
+.index {
+  cursor: none;
+}
+
 /* FONTS */
 
 @layer base {
