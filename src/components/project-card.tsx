@@ -110,7 +110,7 @@ const ProjectCard = ({ project, index }: Props) => {
             </div>
           </div>
         </div>
-        <div className="pattern-dots-md absolute -bottom-4 -right-4 z-0 h-64 w-64 text-palevioletred" />
+        <div className="absolute -bottom-4 -right-4 z-0 h-64 w-64 text-palevioletred" />
       </div>
     </div>
   )

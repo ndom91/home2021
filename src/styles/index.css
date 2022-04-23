@@ -46,7 +46,6 @@
 }
 
 /* GLOBAL */
-
 :root {
   --dark-text: #374151;
   --dark-border: #1f2937;
@@ -201,20 +200,6 @@ html[class="dark"] ul a:before {
 }
 
 /* PROJECTS */
-
-.pattern-dots-md {
-  background-image: repeating-linear-gradient(
-    45deg,
-    currentColor 0,
-    currentColor 0.5px,
-    transparent 0,
-    transparent 50%
-  );
-  background-size: 15px 15px;
-}
-html[class="dark"] .pattern-dots-md {
-  opacity: 0.5;
-}
 
 .more-projects {
   column-count: 1;
@@ -402,6 +387,38 @@ html[class="dark"] .border-underline-grow:active {
   fill: #fff;
 }
 
+html[class="dark"] .glass-card {
+  border-radius: 25px;
+  backdrop-filter: blur(18px);
+  padding: 2rem;
+  box-shadow: 0 2px 5px rgb(0 0 0 / 10%), 0 10px 15px rgb(0 0 0 / 10%);
+  box-sizing: border-box;
+  background-image: linear-gradient(
+    45deg,
+    rgba(76, 52, 52, 0.1),
+    rgba(76, 52, 52, 0.1)
+  );
+  width: 100%;
+  min-height: 70px;
+  mix-blend-mode: hard-light;
+}
+
+.glass-card {
+  border-radius: 25px;
+  backdrop-filter: blur(18px);
+  padding: 2rem;
+  box-shadow: 0 2px 5px rgb(0 0 0 / 10%), 0 5px 20px rgb(0 0 0 / 10%);
+  box-sizing: border-box;
+  background-image: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.6),
+    rgba(255, 255, 255, 0.6)
+  );
+  width: 100%;
+  min-height: 70px;
+  mix-blend-mode: hard-light;
+}
+
 @media screen and (min-width: 768px) {
   html:not(.dark) .intro-title:hover {
     cursor: default;
@@ -419,35 +436,4 @@ html[class="dark"] .border-underline-grow:active {
       rgba(255, 255, 255, 1)
     );
   }
-}
-
-html[class="dark"] .glass-card {
-  border-radius: 25px;
-  backdrop-filter: blur(18px);
-  padding: 2rem;
-  box-shadow: 0 2px 5px rgb(0 0 0 / 10%), 0 10px 15px rgb(0 0 0 / 10%);
-  box-sizing: border-box;
-  background-image: linear-gradient(
-    45deg,
-    rgba(76, 52, 52, 0.35),
-    rgba(76, 52, 52, 0.35)
-  );
-  width: 100%;
-  min-height: 70px;
-  mix-blend-mode: hard-light;
-}
-.glass-card {
-  border-radius: 25px;
-  backdrop-filter: blur(18px);
-  padding: 2rem;
-  box-shadow: 0 2px 5px rgb(0 0 0 / 10%), 0 5px 20px rgb(0 0 0 / 10%);
-  box-sizing: border-box;
-  background-image: linear-gradient(
-    45deg,
-    rgba(255, 255, 255, 0.6),
-    rgba(255, 255, 255, 0.6)
-  );
-  width: 100%;
-  min-height: 70px;
-  mix-blend-mode: hard-light;
 }
