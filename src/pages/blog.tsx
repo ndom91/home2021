@@ -11,6 +11,7 @@ type Props = {
 const Blog = ({ allPosts }: Props) => {
   const heroPost = allPosts[0]
   const morePosts = allPosts.slice(1)
+
   return (
     <Layout>
       <div className="relative">

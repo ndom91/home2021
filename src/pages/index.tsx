@@ -3,6 +3,7 @@ import Intro from "@/components/intro"
 import Layout from "@/components/layout"
 import Blur from "@/components/blur"
 import Cursor from "@/components/cursor"
+import MyCursor from "@/components/my-cursor"
 import { useLiveStore } from "../lib/zustand"
 
 const cursorColors = [
@@ -19,7 +20,13 @@ const cursorColors = [
   "#96CDFB",
 ]
 
+type MyCursor = {
+  x: number
+  y: number
+}
+
 const Index = () => {
+  let offset = { x: 0, y: 0 }
   const {
     liveblocks: { enterRoom, leaveRoom },
   } = useLiveStore()
@@ -29,6 +36,8 @@ const Index = () => {
   const [visitorDetails, setVisitorDetails] = useState<{
     [index: string]: string
   }>({})
+
+  const [myCursor, setMyCursor] = useState<MyCursor>({ x: 200, y: 200 })
 
   useEffect(() => {
     enterRoom(`ndom91/home2021/${process.env.NODE_ENV}`, {})
@@ -60,20 +69,30 @@ const Index = () => {
     setVisitorDetails(cfJson)
   }
 
+  if (typeof document !== "undefined") {
+    const main = document?.querySelector("main")
+    offset = main?.getBoundingClientRect() ?? { x: 0, y: 0 }
+  }
+
   return (
     <div
-      className="overflow-hidden"
-      onPointerMove={(e) =>
+      className="index overflow-hidden"
+      onPointerMove={(e) => {
         setCursor({
-          x: e.clientX,
-          y: e.clientY,
+          x: e.clientX - offset.x,
+          y: e.clientY - offset.y,
           lastUpdate: Date.now(),
           country: visitorDetails["loc"],
           colo: visitorDetails["colo"],
         })
-      }
+        setMyCursor({
+          x: e.clientX - offset.x,
+          y: e.clientY - offset.y,
+        })
+      }}
     >
       <Layout>
+        <MyCursor cursor={myCursor} />
         {others.map((person, i) => (
           <Cursor
             key={i}

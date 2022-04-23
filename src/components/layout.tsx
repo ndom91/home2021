@@ -10,9 +10,10 @@ const Alert = dynamic(() => import("./alert"), {
 
 type Props = {
   children: React.ReactNode
+  onPointerMove?: (e: PointerEvent) => void
 }
 
-const Layout = ({ children }: Props) => {
+const Layout = ({ children, onPointerMove }: Props) => {
   const [value, setValue] = useLocalStorage("ndom91-alert", {
     dismissed: false,
   })
@@ -23,7 +24,15 @@ const Layout = ({ children }: Props) => {
   }
 
   return (
-    <div className="flex min-h-screen flex-col items-center duration-500 selection:bg-pink-300 selection:text-white dark:bg-gray-500 dark:selection:bg-palevioletred">
+    <div
+      className="flex min-h-screen flex-col items-center duration-500 selection:bg-pink-300 selection:text-white dark:bg-gray-500 dark:selection:bg-palevioletred"
+      style={{
+        opacity: "0.9",
+        backgroundImage:
+          "radial-gradient(#33333390 0.75px, rgba(0,0,0,0) 0.95px)",
+        backgroundSize: "19px 19px",
+      }}
+    >
       <Meta />
       {alert.enabled && !value?.dismissed && (
         <Alert header={alert.header} body={alert.body} setValue={setValue} />
