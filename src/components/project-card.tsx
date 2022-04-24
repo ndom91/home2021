@@ -46,7 +46,7 @@ const ProjectCard = ({ project, index }: Props) => {
       style={{ ["--index" as string]: index }}
     >
       <div className="group relative m-4 rounded-xl bg-gray-100 dark:bg-gray-800">
-        <div className="relative z-10 flex flex-col rounded-xl bg-gray-100 transition duration-500 dark:bg-gray-700">
+        <div className="relative z-10 flex flex-col rounded-xl bg-gray-50 transition duration-500 dark:bg-gray-700">
           {url && (
             <Link href={url}>
               <a
@@ -79,7 +79,7 @@ const ProjectCard = ({ project, index }: Props) => {
                 <a
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-sm font-mono text-lg font-extralight text-gray-600 outline-none transition-all duration-300 hover:text-pink-300 hover:outline-none focus:outline-none focus:ring-4 focus:ring-pink-300 focus:ring-offset-2 focus:ring-offset-gray-100 dark:text-gray-100 dark:hover:text-palevioletred focus:dark:ring-palevioletred focus:dark:ring-offset-gray-800 md:text-xl"
+                  className="rounded-sm font-mono text-lg font-bold text-gray-600 outline-none transition-all duration-300 hover:text-palevioletred hover:outline-none focus:outline-none focus:ring-4 focus:ring-pink-300 focus:ring-offset-2 focus:ring-offset-gray-100 dark:text-gray-100 dark:hover:text-palevioletred focus:dark:ring-palevioletred focus:dark:ring-offset-gray-800 md:text-xl"
                 >
                   {name}
                 </a>
