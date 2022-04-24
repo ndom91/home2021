@@ -32,13 +32,14 @@ const Layout = ({ children, onPointerMove }: Props) => {
           "radial-gradient(#33333390 0.75px, rgba(0,0,0,0) 0.95px)",
         backgroundSize: "19px 19px",
         backgroundRepeat: "repeat",
+        maskImage: "linear-gradient(rgba(0, 0, 0, 1.0), transparent)",
       }}
     >
       <Meta />
       {alert.enabled && !value?.dismissed && (
         <Alert header={alert.header} body={alert.body} setValue={setValue} />
       )}
-      <div className="flex w-full flex-col overflow-x-hidden px-4 md:max-w-7xl md:overflow-x-visible md:px-8 lg:py-4">
+      <div className="flex min-h-screen w-full flex-col px-4 md:max-w-7xl md:overflow-x-visible md:px-8 lg:py-4">
         <Navbar />
         <main className="relative flex-1">{children}</main>
         <Footer />
