@@ -29,7 +29,6 @@ const CoverImage = ({ title, cover = { imageFile: "" }, slug }: Props) => {
       Loading..
     </div>
   ) : (
-    /* @ts-ignore */
     <Image
       src={imageImport}
       alt={`Cover Image for ${title}`}
@@ -40,8 +39,8 @@ const CoverImage = ({ title, cover = { imageFile: "" }, slug }: Props) => {
       placeholder="blur"
       className={
         slug
-          ? "shadow-sm transition-shadow duration-200 hover:shadow-md"
-          : "bg-blend-overlay shadow-sm"
+          ? "rounded-xl shadow-sm transition-shadow duration-200 hover:shadow-md"
+          : "rounded-xl bg-blend-overlay shadow-sm"
       }
     />
   )

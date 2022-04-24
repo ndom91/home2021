@@ -21,15 +21,15 @@ type Props = {
 
 const HeroPost = ({ title, cover, date, slug, time }: Props) => {
   return (
-    <section className="animate-fade_in opacity-0">
-      <div className="mask-bottom mb-8 h-auto overflow-hidden md:mb-16 md:h-96">
+    <section className="animate-fade_in rounded-2xl bg-white p-8 opacity-0 shadow-xl dark:bg-gray-700 md:p-16">
+      <div className="mask-bottom-strong mb-8 h-auto overflow-hidden md:mb-16 md:h-96">
         <ParallaxProvider>
           <Parallax translateY={[10, -10]}>
             <CoverImage title={title} cover={cover} slug={slug} />
           </Parallax>
         </ParallaxProvider>
       </div>
-      <div className="mb-10 sm:grid sm:grid-cols-5 md:mb-16 md:gap-x-16 lg:gap-x-8">
+      <div className="sm:grid sm:grid-cols-5 md:gap-x-16 lg:gap-x-8">
         <div className="col-span-4">
           <h3 className="mb-2 text-4xl leading-tight lg:text-6xl">
             <Link as={`/posts/${slug}`} href="/posts/[slug]">

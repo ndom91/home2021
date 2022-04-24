@@ -27,8 +27,8 @@ const PostCard = ({ post }: Props) => {
   const { title, date, excerpt, slug, tags, time, cover } = post
 
   return (
-    <div className="relative w-full flex-col md:my-4 md:inline-flex">
-      <div className="glass-content z-20 p-10">
+    <div className="relative w-full flex-col rounded-2xl bg-white p-2 shadow-xl dark:bg-gray-700 md:my-4 md:inline-flex md:p-4">
+      <div className="z-20 p-10">
         <div className="mask-bottom-strong z-20 mb-8 h-auto overflow-hidden rounded-t-xl md:mb-12 md:h-64">
           <ParallaxProvider>
             <Parallax translateY={[0, -10]}>
@@ -68,7 +68,6 @@ const PostCard = ({ post }: Props) => {
           </div>
         </div>
       </div>
-      <div className="glass-card absolute z-10 h-full w-full" />
     </div>
   )
 }
