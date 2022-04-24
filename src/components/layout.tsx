@@ -25,19 +25,20 @@ const Layout = ({ children, onPointerMove }: Props) => {
 
   return (
     <div
-      className="flex min-h-screen flex-col items-center duration-500 selection:bg-pink-300 selection:text-white dark:bg-gray-500 dark:selection:bg-palevioletred"
+      className="flex h-full min-h-screen flex-col items-center duration-500 selection:bg-pink-300 selection:text-white dark:bg-gray-500 dark:selection:bg-palevioletred"
       style={{
         opacity: "0.9",
         backgroundImage:
           "radial-gradient(#33333390 0.75px, rgba(0,0,0,0) 0.95px)",
         backgroundSize: "19px 19px",
+        backgroundRepeat: "repeat",
       }}
     >
       <Meta />
       {alert.enabled && !value?.dismissed && (
         <Alert header={alert.header} body={alert.body} setValue={setValue} />
       )}
-      <div className="flex h-screen w-full flex-col overflow-x-hidden px-4 md:max-w-7xl md:overflow-x-visible md:px-8 lg:py-4">
+      <div className="flex w-full flex-col overflow-x-hidden px-4 md:max-w-7xl md:overflow-x-visible md:px-8 lg:py-4">
         <Navbar />
         <main className="relative flex-1">{children}</main>
         <Footer />
