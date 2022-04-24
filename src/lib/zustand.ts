@@ -14,6 +14,8 @@ enum ThemeType {
 interface ThemeState {
   theme: keyof typeof ThemeType
   setTheme: (theme: keyof typeof ThemeType) => void
+  hoverText: boolean
+  setHoverText: (hoverText: boolean) => void
 }
 
 interface LiveThemeState {
@@ -27,6 +29,8 @@ interface LiveThemeState {
 const useStore = create<ThemeState>((set) => ({
   theme: "light",
   setTheme: (theme) => set({ theme }),
+  hoverText: false,
+  setHoverText: (hover) => set({ hoverText: hover }),
 }))
 
 const useLiveStore = create(
