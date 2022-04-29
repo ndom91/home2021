@@ -107,7 +107,6 @@ const DarkToggle = () => {
           strokeLinejoin="round"
           stroke="transparent"
           style={{
-            cursor: "pointer",
             ...svgContainerProps,
           }}
         >
