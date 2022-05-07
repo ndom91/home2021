@@ -14,6 +14,7 @@ module.exports = {
       fontFamily: {
         sans: ["'Inter var', 'Inter'", ...defaultTheme.fontFamily.sans],
         mono: ["JetBrains Mono", ...defaultTheme.fontFamily.mono],
+        block: ["Silkscreen", ...defaultTheme.fontFamily.mono],
       },
       colors: {
         gray: {

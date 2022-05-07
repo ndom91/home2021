@@ -38,7 +38,7 @@ const HeroPost = ({ title, cover, date, slug, time }: Props) => {
               </a>
             </Link>
           </h3>
-          <div className="mb-4 flex space-x-4 font-mono text-lg font-light md:justify-start">
+          <div className="mb-4 flex space-x-4 font-block text-lg font-light md:justify-start">
             <DateFormatter dateString={date} />
             <span className="dark:text-gray-300">{time.text}</span>
           </div>

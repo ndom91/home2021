@@ -47,10 +47,8 @@ const Cursor = ({ cursor, color }: CursorProps) => {
     <div
       className="absolute"
       style={{
-        // @ts-ignore
-        top: `${parseInt(y)}px`,
-        // @ts-ignore
-        left: `${parseInt(x)}px`,
+        top: `${y}px`,
+        left: `${x}px`,
         zIndex: 999,
       }}
     >

@@ -79,7 +79,7 @@ const ProjectCard = ({ project, index }: Props) => {
                 <a
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-sm font-mono text-lg font-bold text-gray-600 outline-none transition-all duration-300 hover:text-palevioletred hover:outline-none focus:outline-none focus:ring-4 focus:ring-pink-300 focus:ring-offset-2 focus:ring-offset-gray-100 dark:text-gray-100 dark:hover:text-palevioletred focus:dark:ring-palevioletred focus:dark:ring-offset-gray-800 md:text-xl"
+                  className="font-block font-medium text-gray-600 outline-none transition-all duration-300 hover:text-palevioletred hover:outline-none focus:outline-none focus:ring-4 focus:ring-pink-300 focus:ring-offset-2 focus:ring-offset-gray-100 dark:text-gray-100 dark:hover:text-palevioletred focus:dark:ring-palevioletred focus:dark:ring-offset-gray-800 md:text-lg"
                 >
                   {name}
                 </a>

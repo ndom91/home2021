@@ -42,7 +42,7 @@ const PostCard = ({ post }: Props) => {
               {title}
             </a>
           </Link>
-          <div className="flex flex-col text-left font-mono text-sm font-light md:text-right md:text-base">
+          <div className="flex flex-col text-left font-block text-sm font-light md:text-right md:text-base">
             <span className="text-medium">
               <DateFormatter dateString={date} />
             </span>
@@ -60,7 +60,7 @@ const PostCard = ({ post }: Props) => {
             {tags.map((tag) => (
               <span
                 key={tag}
-                className="my-auto my-2 mr-2 whitespace-nowrap rounded-full bg-gray-100 px-4 py-2 font-mono text-sm font-semibold text-palevioletred dark:bg-pink-200 dark:text-palevioletred"
+                className="my-2 mr-2 whitespace-nowrap rounded-full bg-gray-100 px-4 py-2 font-block text-sm font-medium text-palevioletred dark:bg-pink-200 dark:text-palevioletred"
               >
                 {tag}
               </span>

@@ -47,12 +47,10 @@ const MyCursor = ({ cursor }: CursorProps) => {
     <>
       {hoverText ? (
         <div
-          className="absolute bg-pink-300"
+          className="absolute hidden bg-pink-300 md:block"
           style={{
-            // @ts-ignore
-            top: `${parseInt(y)}px`,
-            // @ts-ignore
-            left: `${parseInt(x)}px`,
+            top: `${y}px`,
+            left: `${x}px`,
             zIndex: 999,
             borderRadius: "2px",
             height: "36px",
@@ -68,12 +66,10 @@ const MyCursor = ({ cursor }: CursorProps) => {
         />
       ) : (
         <div
-          className="absolute"
+          className="absolute hidden md:block"
           style={{
-            // @ts-ignore
-            top: `${parseInt(y)}px`,
-            // @ts-ignore
-            left: `${parseInt(x)}px`,
+            top: `${y}px`,
+            left: `${x}px`,
             zIndex: 999,
             background: backgroundColor(),
             borderRadius: hover ? "16px" : "100%",
