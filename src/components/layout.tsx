@@ -1,10 +1,10 @@
-import dynamic from "next/dynamic"
-import { useLocalStorage } from "react-use"
-import Footer from "@/components/footer"
-import Navbar from "@/components/nav"
-import Meta from "@/components/meta"
+import dynamic from 'next/dynamic'
+import { useLocalStorage } from 'react-use'
+import Footer from '@/components/footer'
+import Navbar from '@/components/nav'
+import Meta from '@/components/meta'
 
-const Alert = dynamic(() => import("./alert"), {
+const Alert = dynamic(() => import('./alert'), {
   ssr: false,
 })
 
@@ -14,12 +14,12 @@ type Props = {
 }
 
 const Layout = ({ children, onPointerMove }: Props) => {
-  const [value, setValue] = useLocalStorage("ndom91-alert", {
+  const [value, setValue] = useLocalStorage('ndom91-alert', {
     dismissed: false,
   })
   const alert = {
     enabled: false && !value?.dismissed,
-    header: "TEST ALERT",
+    header: 'TEST ALERT',
     body: 'So much stuff to download <a href="#">click here!</a>',
   }
 
@@ -27,12 +27,12 @@ const Layout = ({ children, onPointerMove }: Props) => {
     <div
       className="flex h-full min-h-screen flex-col items-center duration-500 selection:bg-pink-300 selection:text-white dark:bg-gray-500 dark:selection:bg-palevioletred"
       style={{
-        opacity: "0.9",
+        opacity: '0.9',
         backgroundImage:
-          "radial-gradient(#33333390 0.75px, rgba(0,0,0,0) 0.95px)",
-        backgroundSize: "19px 19px",
-        backgroundRepeat: "repeat",
-        maskImage: "linear-gradient(rgba(0, 0, 0, 1.0), transparent)",
+          'radial-gradient(#33333390 0.75px, rgba(0,0,0,0) 0.95px)',
+        backgroundSize: '19px 19px',
+        backgroundRepeat: 'repeat',
+        maskImage: 'linear-gradient(rgba(0, 0, 0, 1.0), transparent)',
       }}
     >
       <Meta />

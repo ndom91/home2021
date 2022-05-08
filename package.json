@@ -74,7 +74,10 @@
     "vercel": "^24.0.0"
   },
   "prettier": {
-    "semi": false
+    "semi": false,
+    "singleQuote": true,
+    "bracketSpacing": true,
+    "arrowSpacing": true
   },
   "eslintConfig": {
     "extends": "next",

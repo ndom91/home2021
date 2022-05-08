@@ -1,6 +1,6 @@
-import { useState, FunctionComponent } from "react"
-import { useCopyToClipboard } from "react-use"
-import textContent from "react-addons-text-content"
+import { useState, FunctionComponent } from 'react'
+import { useCopyToClipboard } from 'react-use'
+import textContent from 'react-addons-text-content'
 
 type EditorProps = {
   title: string
@@ -21,7 +21,7 @@ const CodeEditor: FunctionComponent<EditorProps> = ({ title, children }) => {
   }
 
   return (
-    <div className="w-full" style={{ width: "100%" }}>
+    <div className="w-full" style={{ width: '100%' }}>
       <div className="relative -mb-3 flex h-10 w-full items-center justify-between rounded-t-md bg-gray-100 dark:bg-gray-700">
         <div className="inline-flex h-full justify-center">
           <div className="ml-4 inline-flex h-full items-center space-x-2">
@@ -70,7 +70,6 @@ const CodeEditor: FunctionComponent<EditorProps> = ({ title, children }) => {
               />
             </svg>
           )}
-          {/* <span className="ml-1 text-xs tracking-tight">Copy Source</span> */}
         </button>
       </div>
       <div className="z-10">{children}</div>
