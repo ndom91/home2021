@@ -1,4 +1,4 @@
-import MoreStories from "@/components/more-stories"
+import MorePosts from "@/components/more-posts"
 import HeroPost from "@/components/hero-post"
 import Layout from "@/components/layout"
 import { getAllPosts } from "../lib/api"
@@ -15,7 +15,7 @@ const Blog = ({ allPosts }: Props) => {
   return (
     <Layout>
       <div className="relative">
-        <h1 className="mt-8 mb-24 animate-fade_in_up_10 text-7xl font-bold leading-tight tracking-tighter opacity-0 dark:text-gray-100 md:pr-8 md:text-8xl">
+        <h1 className="mt-8 mb-24 animate-fade_in_up_10 text-8xl font-bold leading-tight tracking-tighter opacity-0 dark:text-gray-100 md:pr-8 md:text-9xl">
           blog.{" "}
         </h1>
       </div>
@@ -28,7 +28,7 @@ const Blog = ({ allPosts }: Props) => {
           time={heroPost.time}
         />
       )}
-      {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+      {morePosts.length > 0 && <MorePosts posts={morePosts} />}
     </Layout>
   )
 }

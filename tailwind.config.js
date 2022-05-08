@@ -10,6 +10,20 @@ module.exports = {
   darkMode: "class",
   plugins: [require("@tailwindcss/typography")],
   theme: {
+    fontSize: {
+      sm: "clamp(0.76rem, 0.2vw + 0.71rem, 0.87rem)",
+      base: "clamp(0.88rem, 0.23vw + 0.82rem, 1rem)",
+      lg: "clamp(1.16rem, 0.3vw + 1.08rem, 1.27rem)",
+      xl: "clamp(1.25rem, 0.35vw + 1.24rem, 1.30rem)",
+      "2xl": "clamp(1.53rem, 0.4vw + 1.43rem, 1.75rem)",
+      "3xl": "clamp(1.76rem, 0.46vw + 1.65rem, 2.01rem)",
+      "4xl": "clamp(2.02rem, 0.53vw + 1.89rem, 2.31rem)",
+      "5xl": "clamp(2.33rem, 0.6vw + 2.18rem, 2.66rem)",
+      "6xl": "clamp(2.68rem, 0.7vw + 2.5rem, 3.06rem)",
+      "7xl": "clamp(3.08rem, 0.8vw + 2.88rem, 3.52rem)",
+      "8xl": "clamp(3.54rem, 0.92vw + 3.31rem, 4.05rem)",
+      "9xl": "clamp(3.80rem, 0.92vw + 3.81rem, 4.75rem)",
+    },
     extend: {
       fontFamily: {
         sans: ["'Inter var', 'Inter'", ...defaultTheme.fontFamily.sans],
@@ -32,24 +46,49 @@ module.exports = {
         palevioletred: "#DB7093",
       },
       typography: (theme) => ({
+        sm: {
+          css: [
+            {
+              fontSize: "clamp(0.76rem, 0.2vw + 0.71rem, 0.87rem)",
+            },
+          ],
+        },
+        base: {
+          css: [
+            {
+              fontSize: "clamp(0.88rem, 0.23vw + 0.82rem, 1rem)",
+            },
+          ],
+        },
+        lg: {
+          css: [
+            {
+              fontSize: "clamp(1.16rem, 0.3vw + 1.08rem, 1.27rem)",
+            },
+          ],
+        },
         DEFAULT: {
           css: {
             a: {
               color: theme("colors.gray.700"),
               textDecoration: "none",
               fontWeight: "400",
+              overflowWrap: "anywhere",
             },
             h2: {
               fontFamily: "JetBrains Mono",
               fontWeight: "200",
+              overflowWrap: "anywhere",
             },
             h3: {
               fontFamily: "JetBrains Mono",
               fontWeight: "200",
+              overflowWrap: "anywhere",
             },
             h4: {
               fontFamily: "JetBrains Mono",
               fontWeight: "200",
+              overflowWrap: "anywhere",
             },
           },
         },
@@ -95,12 +134,6 @@ module.exports = {
       },
       lineHeight: {
         tight: 1.2,
-      },
-      fontSize: {
-        "6xl": "2.75rem",
-        "6.5xl": "3.25rem",
-        "7xl": "4.5rem",
-        "8xl": "6.25rem",
       },
       boxShadow: {
         small: "0 5px 10px rgba(0, 0, 0, 0.12)",

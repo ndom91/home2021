@@ -1,7 +1,6 @@
 import ErrorPage from "next/error"
 import dynamic from "next/dynamic"
 import Head from "next/head"
-import PostBody from "@/components/post-body"
 import PostHeader from "@/components/post-header"
 import Layout from "@/components/layout"
 import PostType from "../../types/post"
@@ -29,7 +28,6 @@ import { postFilePaths, POSTS_PATH } from "../../lib/mdxUtils"
 const components = {
   CodeEditor: CodeEditor,
   ScreenshotLink: ScreenshotLink,
-  PostBody: PostBody,
 }
 
 const ProgressBar = dynamic(() => import("../../components/read-progress"), {
@@ -83,14 +81,14 @@ const Post = ({ source, frontMatter, slug }: Props) => {
           <meta name="twitter:description" content={frontMatter.excerpt} />
           <meta name="twitter:image:alt" content={frontMatter.title} />
         </Head>
-        <article className="mb-32 mt-20 md:mt-32">
+        <article className="mb-32 mt-12 md:mt-12">
           <PostHeader
             title={frontMatter.title}
             cover={frontMatter.cover}
             date={frontMatter.date}
             time={frontMatter.time ?? "1 min"}
           />
-          <div className="prose prose-sm mx-auto max-w-4xl dark:prose-dark dark:text-gray-100 md:prose-lg">
+          <div className="prose prose-lg mx-auto max-w-4xl dark:prose-dark dark:text-gray-100">
             <MDXRemote {...source} components={components} />
           </div>
           <div className="not-prose prose prose-sm mx-auto mt-20 max-w-4xl dark:prose-dark dark:text-gray-100 md:prose-lg">

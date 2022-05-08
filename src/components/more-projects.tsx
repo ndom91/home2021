@@ -8,18 +8,12 @@ type Props = {
 
 const MoreProjects = ({ projects }: Props) => {
   return (
-    <section className="mt-36 py-4">
-      <div className="more-projects dark:text-gray-100">
-        {projects.map((project, index) => (
-          <ParallaxProvider key={project.name}>
-            <ProjectCard
-              project={project}
-              key={project.name}
-              index={index + 1}
-            />
-          </ParallaxProvider>
-        ))}
-      </div>
+    <section className="more-projects dark:text-gray-100">
+      {projects.map((project, index) => (
+        <ParallaxProvider key={project.name}>
+          <ProjectCard project={project} key={project.name} index={index + 1} />
+        </ParallaxProvider>
+      ))}
     </section>
   )
 }

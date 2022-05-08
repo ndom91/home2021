@@ -30,7 +30,7 @@ const CodeEditor: FunctionComponent<EditorProps> = ({ title, children }) => {
             <span className="h-3 w-3 rounded-full bg-green-300"></span>
           </div>
           <div className="ml-6 inline-flex items-center rounded-t-md p-2">
-            <div className="font-mono text-xs font-normal text-gray-700 dark:text-gray-100">
+            <div className="text-xs whitespace-normal break-all font-mono font-normal text-gray-700 dark:text-gray-100">
               {title}
             </div>
           </div>
@@ -70,7 +70,7 @@ const CodeEditor: FunctionComponent<EditorProps> = ({ title, children }) => {
               />
             </svg>
           )}
-          <span className="ml-1 text-xs tracking-tight">Copy Source</span>
+          {/* <span className="ml-1 text-xs tracking-tight">Copy Source</span> */}
         </button>
       </div>
       <div className="z-10">{children}</div>
