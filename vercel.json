@@ -24,7 +24,7 @@
       ]
     },
     {
-      "source": "/api/og",
+      "source": "/api/img",
       "headers": [
         {
           "key": "Cache-Control",

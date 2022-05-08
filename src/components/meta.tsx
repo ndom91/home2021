@@ -1,16 +1,16 @@
-import Head from "next/head"
-import Script from "next/script"
-import { useRouter } from "next/router"
+import Head from 'next/head'
+import Script from 'next/script'
+import { useRouter } from 'next/router'
 
 const Meta = () => {
   const router = useRouter()
   const searchParams = new URLSearchParams()
-  searchParams.set("path", `https://ndo.dev${router.asPath}`)
+  searchParams.set('path', `https://ndo.dev${router.asPath}`)
   const fullImageURL = `${
-    process.env.NODE_ENV === "development"
-      ? "http://localhost:3003"
-      : "https://ndo.dev"
-  }/api/og?${searchParams}`
+    process.env.NODE_ENV === 'development'
+      ? 'http://localhost:3003'
+      : 'https://ndo.dev'
+  }/api/img?${searchParams}`
 
   return (
     <>
@@ -71,20 +71,20 @@ const Meta = () => {
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
-              "@context": "http://schema.org/",
-              "@type": "Person",
-              name: "Nico Domino",
-              image: "https://ndo.dev/assets/img/avatar.png",
-              url: "https://ndo.dev",
-              jobTitle: "Fullstack Web Developer",
+              '@context': 'http://schema.org/',
+              '@type': 'Person',
+              name: 'Nico Domino',
+              image: 'https://ndo.dev/assets/img/avatar.png',
+              url: 'https://ndo.dev',
+              jobTitle: 'Fullstack Web Developer',
               worksFor: {
-                "@type": "Organization",
-                name: "Checkly",
+                '@type': 'Organization',
+                name: 'Checkly',
               },
               sameAs: [
-                "https://www.linkedin.com/in/ndom91/",
-                "https://twitter.com/ndom91",
-                "https://github.com/ndom91",
+                'https://www.linkedin.com/in/ndom91/',
+                'https://twitter.com/ndom91',
+                'https://github.com/ndom91',
               ],
             }),
           }}

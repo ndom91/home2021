@@ -1,5 +1,5 @@
-import { useState } from "react"
-import Image from "next/image"
+import { useState } from 'react'
+import Image from 'next/image'
 
 type ScreenshotLinkProps = {
   url: string
@@ -7,26 +7,26 @@ type ScreenshotLinkProps = {
   className: string
 }
 
-const ScreenshotLink = ({ url, text, className = "" }: ScreenshotLinkProps) => {
+const ScreenshotLink = ({ url, text, className = '' }: ScreenshotLinkProps) => {
   const [isHovering, setIsHovering] = useState(false)
-  const [linkScreenshot, setLinkScreenshot] = useState("")
+  const [linkScreenshot, setLinkScreenshot] = useState('')
 
   const fetchImage = async (url: string) => {
-    let colorScheme: "light" | "dark" = "light"
-    if (typeof document !== "undefined") {
-      colorScheme = document.documentElement.classList.contains("dark")
-        ? "dark"
-        : "light"
+    let colorScheme: 'light' | 'dark' = 'light'
+    if (typeof document !== 'undefined') {
+      colorScheme = document.documentElement.classList.contains('dark')
+        ? 'dark'
+        : 'light'
     }
     try {
       setIsHovering(true)
       const res = await fetch(
-        `/api/og?path=${encodeURIComponent(url)}&colorScheme=${colorScheme}`
+        `/api/img?path=${encodeURIComponent(url)}&colorScheme=${colorScheme}`
       )
       const image = await res.blob()
       setLinkScreenshot(URL.createObjectURL(image))
     } catch (e) {
-      console.error("Error fetching screenshot image", e)
+      console.error('Error fetching screenshot image', e)
     }
   }
 
