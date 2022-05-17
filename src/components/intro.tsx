@@ -1,8 +1,8 @@
-import { useEffect } from "react"
-import dynamic from "next/dynamic"
-import setFlickerAnimation from "../lib/flicker"
-import useStore from "../lib/zustand"
-const IntroDescription = dynamic(() => import("./intro-description"), {
+import { useEffect } from 'react'
+import dynamic from 'next/dynamic'
+import setFlickerAnimation from '../lib/flicker'
+import useStore from '../lib/zustand'
+const IntroDescription = dynamic(() => import('./intro-description'), {
   ssr: false,
 })
 
@@ -18,7 +18,7 @@ const Intro = () => {
         <h1
           onMouseEnter={() => setHoverText(true)}
           onMouseLeave={() => setHoverText(false)}
-          className="js_darkmode_flicker intro-title animate-fade_in_up_30 pl-4 font-sans text-7xl font-extrabold leading-tight tracking-tighter opacity-0 dark:text-gray-100 lg:pl-0 lg:pr-8 lg:text-8xl"
+          className="js_darkmode_flicker intro-title animate-fade_in_up_30 pl-2 font-sans text-9xl font-extrabold leading-tight tracking-tighter opacity-0 dark:text-gray-100 lg:pl-0 lg:pr-8 lg:text-10xl"
         >
           ndom91.
         </h1>

@@ -14,7 +14,7 @@ module.exports = {
       sm: 'clamp(0.76rem, 0.2vw + 0.71rem, 0.87rem)',
       base: 'clamp(0.88rem, 0.23vw + 0.82rem, 1rem)',
       lg: 'clamp(1.16rem, 0.3vw + 1.08rem, 1.27rem)',
-      xl: 'clamp(1.25rem, 0.35vw + 1.24rem, 1.30rem)',
+      xl: 'clamp(1.25rem, 0.31vw + 1.24rem, 1.39rem)',
       '2xl': 'clamp(1.53rem, 0.4vw + 1.43rem, 1.75rem)',
       '3xl': 'clamp(1.76rem, 0.46vw + 1.65rem, 2.01rem)',
       '4xl': 'clamp(2.02rem, 0.53vw + 1.89rem, 2.31rem)',
@@ -23,6 +23,7 @@ module.exports = {
       '7xl': 'clamp(3.08rem, 0.8vw + 2.88rem, 3.52rem)',
       '8xl': 'clamp(3.54rem, 0.92vw + 3.31rem, 4.05rem)',
       '9xl': 'clamp(3.80rem, 0.92vw + 3.81rem, 4.75rem)',
+      '10xl': 'clamp(4.50rem, 0.92vw + 5.75rem, 7.95rem)',
     },
     extend: {
       fontFamily: {
