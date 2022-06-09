@@ -29,7 +29,7 @@ Now you should have a dev server available at http://localhost:3003!
 - Generate page screenshots on-demand (Playwright API Route)
 - React-Spring
 - [supabase-comments-extension](https://github.com/malerba118/supabase-comments-extension)
-- Realtime multiplayer cursors with country of origin flag
+- Realtime multiplayer cursors with country of origin flag and city code
 
 ## 🚧 Contributing
 
