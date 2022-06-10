@@ -56,7 +56,7 @@ const generateImage = async (req: NextApiRequest, res: NextApiResponse) => {
     await browser.close()
 
     // Set the s-maxage property to cache at the CDN layer
-    res.setHeader('Cache-Control', 's-maxage=31536000, public')
+    // res.setHeader('Cache-Control', 's-maxage=31536000, public')
     res.setHeader('Content-Type', 'image/jpeg')
     res.end(data)
   } catch (error) {
