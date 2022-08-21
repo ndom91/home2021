@@ -1,6 +1,6 @@
-import Layout from "@/components/layout"
-import Image from "next/image"
-import { useRouter } from "next/router"
+import Layout from '@/components/layout'
+import Image from 'next/image'
+import { useRouter } from 'next/router'
 
 const FourOhFour = () => {
   const router = useRouter()

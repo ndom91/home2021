@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react"
-import { Parallax } from "react-scroll-parallax"
-import Image from "next/image"
-import Link from "next/link"
-import { Project } from "../types/project"
-import Icon from "./icon"
+import { useState, useEffect } from 'react'
+import { Parallax } from 'react-scroll-parallax'
+import Image from 'next/image'
+import Link from 'next/link'
+import { Project } from '../types/project'
+import Icon from './icon'
 
 interface StaticImageData {
   src: string
@@ -43,14 +43,14 @@ const ProjectCard = ({ project, index }: Props) => {
   return (
     <div
       className="animate-fade_in opacity-0 drop-shadow-md lg:mx-4"
-      style={{ ["--index" as string]: index }}
+      style={{ ['--index' as string]: index }}
     >
       <div className="group relative m-4 rounded-xl bg-gray-100 dark:bg-gray-800">
         <div className="relative z-10 flex flex-col rounded-xl bg-gray-50 transition duration-500 dark:bg-gray-700">
           {url && (
             <Link href={url}>
               <a
-                style={{ clipPath: "polygon(0 0, 100% 0%, 100% 100%, 0 80%)" }}
+                style={{ clipPath: 'polygon(0 0, 100% 0%, 100% 100%, 0 80%)' }}
                 tabIndex={-1}
                 target="_blank"
                 rel="noopener noreferrer"

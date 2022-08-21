@@ -1,7 +1,7 @@
-import DateFormatter from "@/components/date-formatter"
-import { Parallax, ParallaxProvider } from "react-scroll-parallax"
-import CoverImage from "@/components/cover-image"
-import Link from "next/link"
+import DateFormatter from '@/components/date-formatter'
+import { Parallax, ParallaxProvider } from 'react-scroll-parallax'
+import CoverImage from '@/components/cover-image'
+import Link from 'next/link'
 
 type Props = {
   post: {
@@ -37,7 +37,7 @@ const PostCard = ({ post }: Props) => {
           </ParallaxProvider>
         </div>
         <div className="relative z-20 flex w-full flex-col justify-between md:flex-row">
-          <Link href={`/posts/${slug ? slug : ""}`}>
+          <Link href={`/posts/${slug ? slug : ''}`}>
             <a className="rounded-sm text-2xl font-extralight text-gray-600 outline-none transition-colors duration-300 hover:text-palevioletred hover:outline-none focus:outline-none focus:ring-4 focus:ring-pink-300 focus:ring-offset-2 focus:ring-offset-white dark:text-gray-100 focus:dark:ring-palevioletred focus:dark:ring-offset-gray-500 md:text-4xl">
               {title}
             </a>

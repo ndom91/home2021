@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react"
-import useStore from "../lib/zustand"
+import { useEffect, useState } from 'react'
+import useStore from '../lib/zustand'
 
 type CursorProps = {
   cursor: {
@@ -21,25 +21,25 @@ const MyCursor = ({ cursor }: CursorProps) => {
     const handleMouseLeave = () => {
       setHover(false)
     }
-    const el = document.querySelectorAll("a, button")
+    const el = document.querySelectorAll('a, button')
     el.forEach((link) => {
-      link.addEventListener("mouseover", handleMouseMove)
-      link.addEventListener("mouseleave", handleMouseLeave)
+      link.addEventListener('mouseover', handleMouseMove)
+      link.addEventListener('mouseleave', handleMouseLeave)
     })
     return () => {
       el.forEach((link) => {
-        link.removeEventListener("mouseover", handleMouseMove)
-        link.removeEventListener("mouseleave", handleMouseLeave)
+        link.removeEventListener('mouseover', handleMouseMove)
+        link.removeEventListener('mouseleave', handleMouseLeave)
       })
     }
   }, [])
 
   const backgroundColor = () => {
-    if (hoverText) return "red"
+    if (hoverText) return 'red'
     if (hover) {
-      return theme === "dark" ? "rgba(200,200,255,.1)" : "rgba(50,50,50,0.1)"
+      return theme === 'dark' ? 'rgba(200,200,255,.1)' : 'rgba(50,50,50,0.1)'
     } else {
-      return theme === "dark" ? "rgba(200,200,255,.2)" : "rgba(50,50,50,0.4)"
+      return theme === 'dark' ? 'rgba(200,200,255,.2)' : 'rgba(50,50,50,0.4)'
     }
   }
 
@@ -52,16 +52,16 @@ const MyCursor = ({ cursor }: CursorProps) => {
             top: `${y}px`,
             left: `${x}px`,
             zIndex: 999,
-            borderRadius: "2px",
-            height: "36px",
-            pointerEvents: "none",
-            position: "absolute",
-            transform: "translate(-50%,-50%)",
-            transitionDuration: "250ms",
+            borderRadius: '2px',
+            height: '36px',
+            pointerEvents: 'none',
+            position: 'absolute',
+            transform: 'translate(-50%,-50%)',
+            transitionDuration: '250ms',
             transitionProperty:
-              "width,height,border-radius,transform,background",
-            transitionTimingFunction: "cubic-bezier(0.68, -0.6, 0.22, 2.1)",
-            width: "3px",
+              'width,height,border-radius,transform,background',
+            transitionTimingFunction: 'cubic-bezier(0.68, -0.6, 0.22, 2.1)',
+            width: '3px',
           }}
         />
       ) : (
@@ -72,16 +72,16 @@ const MyCursor = ({ cursor }: CursorProps) => {
             left: `${x}px`,
             zIndex: 999,
             background: backgroundColor(),
-            borderRadius: hover ? "16px" : "100%",
-            height: hover ? "48px" : "36px",
-            pointerEvents: "none",
-            position: "absolute",
-            transform: "translate(-50%,-50%)",
-            transitionDuration: "250ms",
+            borderRadius: hover ? '16px' : '100%',
+            height: hover ? '48px' : '36px',
+            pointerEvents: 'none',
+            position: 'absolute',
+            transform: 'translate(-50%,-50%)',
+            transitionDuration: '250ms',
             transitionProperty:
-              "width,height,border-radius,transform,background",
-            transitionTimingFunction: "cubic-bezier(0.68, -0.6, 0.22, 2.1)",
-            width: hover ? "48px" : "36px",
+              'width,height,border-radius,transform,background',
+            transitionTimingFunction: 'cubic-bezier(0.68, -0.6, 0.22, 2.1)',
+            width: hover ? '48px' : '36px',
           }}
         />
       )}

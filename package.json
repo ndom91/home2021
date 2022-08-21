@@ -86,8 +86,7 @@
   "prettier": {
     "semi": false,
     "singleQuote": true,
-    "bracketSpacing": true,
-    "arrowSpacing": true
+    "bracketSpacing": true
   },
   "eslintConfig": {
     "extends": "next",

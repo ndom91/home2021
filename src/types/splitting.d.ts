@@ -1,1 +1,1 @@
-declare module "splitting"
+declare module 'splitting'

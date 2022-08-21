@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react"
+import { useState, useRef, useEffect } from 'react'
 
 interface IconProps extends React.SVGProps<SVGSVGElement> {
   name: string
@@ -6,7 +6,7 @@ interface IconProps extends React.SVGProps<SVGSVGElement> {
 }
 
 const Icon: React.FC<IconProps> = ({
-  name = "react",
+  name = 'react',
   ...rest
 }): JSX.Element | null => {
   const ImportedIconRef = useRef<React.FC<React.SVGProps<SVGSVGElement>>>()
@@ -20,7 +20,7 @@ const Icon: React.FC<IconProps> = ({
           await import(`./../../public/assets/img/tech/${name}.svg`)
         ).default
       } catch (err) {
-        console.error("[SVG Error]", err)
+        console.error('[SVG Error]', err)
       } finally {
         setLoading(false)
       }

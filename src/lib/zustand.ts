@@ -1,14 +1,14 @@
-import create from "zustand"
-import { createClient } from "@liveblocks/client"
-import { middleware } from "@liveblocks/zustand"
+import create from 'zustand'
+import { createClient } from '@liveblocks/client'
+import { middleware } from '@liveblocks/zustand'
 
 const client = createClient({
   publicApiKey: process.env.NEXT_PUBLIC_LIVEBLOCKS_KEY as string,
 })
 
 enum ThemeType {
-  light = "light",
-  dark = "dark",
+  light = 'light',
+  dark = 'dark',
 }
 
 interface ThemeState {
@@ -27,7 +27,7 @@ interface LiveThemeState {
 }
 
 const useStore = create<ThemeState>((set) => ({
-  theme: "light",
+  theme: 'light',
   setTheme: (theme) => set({ theme }),
   hoverText: false,
   setHoverText: (hover) => set({ hoverText: hover }),

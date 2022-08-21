@@ -1,8 +1,8 @@
-import Link from "next/link"
-import { Parallax, ParallaxProvider } from "react-scroll-parallax"
-import Avatar from "@/components/avatar"
-import DateFormatter from "@/components/date-formatter"
-import CoverImage from "@/components/cover-image"
+import Link from 'next/link'
+import { Parallax, ParallaxProvider } from 'react-scroll-parallax'
+import Avatar from '@/components/avatar'
+import DateFormatter from '@/components/date-formatter'
+import CoverImage from '@/components/cover-image'
 
 type Props = {
   title: string

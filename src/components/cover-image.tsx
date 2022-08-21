@@ -1,6 +1,6 @@
-import { useState } from "react"
-import Link from "next/link"
-import Image from "next/image"
+import { useState } from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
 
 type Props = {
   title: string
@@ -10,10 +10,10 @@ type Props = {
   slug?: string
 }
 
-const CoverImage = ({ title, cover = { imageFile: "" }, slug }: Props) => {
+const CoverImage = ({ title, cover = { imageFile: '' }, slug }: Props) => {
   const { imageFile } = cover
 
-  const [imageImport, setImage] = useState("")
+  const [imageImport, setImage] = useState('')
   const loadImage = (imgur: string) => {
     if (!imgur) {
       return false
@@ -39,22 +39,22 @@ const CoverImage = ({ title, cover = { imageFile: "" }, slug }: Props) => {
       placeholder="blur"
       className={
         slug
-          ? "rounded-xl shadow-sm transition-shadow duration-200 hover:shadow-md"
-          : "rounded-xl bg-blend-overlay shadow-sm"
+          ? 'rounded-xl shadow-sm transition-shadow duration-200 hover:shadow-md'
+          : 'rounded-xl bg-blend-overlay shadow-sm'
       }
     />
   )
 
   return (
     <div className="sm:mx-0">
-      {!imageFile.includes(".gif") ? (
-        <Link as={slug ? `/posts/${slug}` : "#"} href="/posts/[slug]">
+      {!imageFile.includes('.gif') ? (
+        <Link as={slug ? `/posts/${slug}` : '#'} href="/posts/[slug]">
           <a aria-label={title} className="bg-pink-300 " tabIndex={-1}>
             {imageComponent}
           </a>
         </Link>
       ) : (
-        <Link as={slug ? `/posts/${slug}` : "#"} href="/posts/[slug]">
+        <Link as={slug ? `/posts/${slug}` : '#'} href="/posts/[slug]">
           <a aria-label={title} className="bg-pink-300 " tabIndex={-1}>
             {/* eslint-disable @next/next/no-img-element */}
             <img

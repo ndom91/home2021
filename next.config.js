@@ -1,4 +1,4 @@
-const withMDX = require("@next/mdx")({
+const withMDX = require('@next/mdx')({
   extension: /\.mdx$/,
 })
 
@@ -6,11 +6,11 @@ const nextConfig = withMDX({
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
-      use: ["@svgr/webpack"],
+      use: ['@svgr/webpack'],
     })
     return config
   },
-  pageExtensions: ["tsx", "md", "mdx"],
+  pageExtensions: ['tsx', 'md', 'mdx'],
 })
 
 module.exports = nextConfig

@@ -1,23 +1,23 @@
 const setFlickerAnimation = () => {
   // DISABLE EFFECT - remove flicker class on letter when switching back to light mode
-  if (!document?.documentElement?.classList.contains("dark")) {
+  if (!document?.documentElement?.classList.contains('dark')) {
     document
-      .querySelectorAll(".animate-flicker")?.[0]
-      ?.classList.remove("animate-flicker")
+      .querySelectorAll('.animate-flicker')?.[0]
+      ?.classList.remove('animate-flicker')
     return false
   }
 
   // ENABLE EFFECT
   const animatedElements = Array.from(
-    document.querySelectorAll(".js_darkmode_flicker")
+    document.querySelectorAll('.js_darkmode_flicker')
   )
   if (!animatedElements.length) {
     return false
   }
 
   const wrapRandomChars = (str: string, iterations = 1) => {
-    const chars = str.split("")
-    const excludedChars = [" ", "-", ",", ".", ";", ":", "(", ")"]
+    const chars = str.split('')
+    const excludedChars = [' ', '-', ',', '.', ';', ':', '(', ')']
     const excludedIndexes: number[] = []
     let i = 0
 
@@ -32,12 +32,12 @@ const setFlickerAnimation = () => {
       }
     }
 
-    return chars.join("")
+    return chars.join('')
   }
 
   animatedElements.forEach((el) => {
     if (!el) return
-    const text = el.textContent?.trim() || ""
+    const text = el.textContent?.trim() || ''
     el.innerHTML = wrapRandomChars(text, 1)
   })
 }

@@ -1,7 +1,7 @@
-import Link from "next/link"
-import dynamic from "next/dynamic"
+import Link from 'next/link'
+import dynamic from 'next/dynamic'
 
-const DarkToggle = dynamic(() => import("@/components/dark-toggle"))
+const DarkToggle = dynamic(() => import('@/components/dark-toggle'))
 
 const Navbar = () => {
   return (

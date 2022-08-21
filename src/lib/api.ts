@@ -1,9 +1,9 @@
-import fs from "fs/promises"
-import { join } from "path"
-import matter from "gray-matter"
-import readingTime from "reading-time"
-import { remark } from "remark"
-import html from "remark-html"
+import fs from 'fs/promises'
+import { join } from 'path'
+import matter from 'gray-matter'
+import readingTime from 'reading-time'
+import { remark } from 'remark'
+import html from 'remark-html'
 
 // Setup custom return array of fields
 type Items = {
@@ -12,13 +12,13 @@ type Items = {
 
 const firstFourLines = (file: any, options: any): any => {
   file.excerpt = file.content
-    .split("\n")
+    .split('\n')
     .filter((item: string) => item.length)
     .slice(0, 2)
-    .join(" ")
+    .join(' ')
 }
 
-const postsDirectory = join(process.cwd(), "src", "_posts")
+const postsDirectory = join(process.cwd(), 'src', '_posts')
 
 export async function getPostSlugs() {
   return fs.readdir(postsDirectory)
@@ -26,7 +26,7 @@ export async function getPostSlugs() {
 
 const getMarkdownFile = async (filePath: string) => {
   let files = await fs.readdir(filePath)
-  return files.filter((file) => file.match(new RegExp(`.*\.md`, "ig")))[0]
+  return files.filter((file) => file.match(new RegExp(`.*\.md`, 'ig')))[0]
 }
 
 const excerptToHtml = async (excerpt: string, data: any) => {
@@ -39,7 +39,7 @@ export async function getPostBySlug(slug: string, fields: string[] = []) {
   const filePath = await getMarkdownFile(join(postsDirectory, slug))
   const fileContents = await fs.readFile(
     join(postsDirectory, slug, filePath),
-    "utf8"
+    'utf8'
   )
   const { data, excerpt, content } = matter(fileContents, {
     excerpt: firstFourLines,
@@ -51,15 +51,15 @@ export async function getPostBySlug(slug: string, fields: string[] = []) {
   // Excerpt
   if (excerpt) {
     const htmlExcerpt = await excerptToHtml(excerpt, data)
-    data.excerpt = htmlExcerpt.replace(/\<h[1-4]\/?>/, "")
+    data.excerpt = htmlExcerpt.replace(/\<h[1-4]\/?>/, '')
   }
 
   // Ensure only the minimal needed data is exposed
   fields.forEach((field) => {
-    if (field === "slug") {
+    if (field === 'slug') {
       items[field] = slug
     }
-    if (field === "content") {
+    if (field === 'content') {
       items[field] = content
     }
 

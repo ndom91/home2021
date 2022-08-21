@@ -1,5 +1,5 @@
-import { useWindowScroll } from "react-use"
-import { useEffect } from "react"
+import { useWindowScroll } from 'react-use'
+import { useEffect } from 'react'
 
 const ProgressBar = () => {
   const { y } = useWindowScroll()
@@ -7,9 +7,9 @@ const ProgressBar = () => {
 
   useEffect(() => {
     const percentScrolled = (Math.abs(y) / pageHeight) * 100
-    const el = document.getElementById("scroll-progress")
+    const el = document.getElementById('scroll-progress')
     el?.style.setProperty(
-      "--tw-gradient-stops",
+      '--tw-gradient-stops',
       `var(--tw-ring-color) ${percentScrolled}%, transparent 0`
     )
   }, [y, pageHeight])
