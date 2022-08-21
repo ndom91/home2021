@@ -23,13 +23,9 @@ const ScreenshotLink = ({ url, text, className = '' }: ScreenshotLinkProps) => {
       console.log('HOVER URL', url)
       const res = await fetch(
         `https://screenshot.briefkastenhq.com/api/image?url=${encodeURIComponent(
-          /* `http://localhost:3000/api/image?path=${encodeURIComponent( */
           url
-        )}&colorScheme=${colorScheme}`
+        )}&colorScheme=${colorScheme}&skipCookieBannerClick=true`
       )
-      /* const res = await fetch( */
-      /*   `/api/img?path=${encodeURIComponent(url)}&colorScheme=${colorScheme}` */
-      /* ) */
       const image = await res.blob()
       setLinkScreenshot(URL.createObjectURL(image))
     } catch (e) {
