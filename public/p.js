@@ -55,7 +55,7 @@
       e.host &&
       e.host !== a.host &&
       ((i || n) &&
-        plausible('Outbound Link: Click', { props: { url: e.href } }),
+        window.plausible('Outbound Link: Click', { props: { url: e.href } }),
       (e.target && !e.target.match(/^_(self|parent|top)$/i)) ||
         t.ctrlKey ||
         t.metaKey ||
