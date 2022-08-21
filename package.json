@@ -16,7 +16,6 @@
   ],
   "scripts": {
     "dev": "next dev -p 3003",
-    "dev:local": "vercel dev --listen 3003",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",

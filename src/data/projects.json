@@ -7,11 +7,25 @@
     "tech": ["react", "nextjs", "npm"]
   },
   {
+    "name": "Briefkasten",
+    "url": "https://github.com/ndom91/briefkasten",
+    "image": "briefkasten.png",
+    "desc": "Self-hosted Bookmarking application made with Next.js, Prisma, Supabase.",
+    "tech": ["nextjs", "tailwindcss", "prisma"]
+  },
+  {
     "name": "NewTelco Landing",
     "url": "https://github.com/ndom91/newtelco-tab",
     "image": "homenewtelco.png",
     "desc": "PWA Company launcher and browser 'New Tab' page. Includes department shortcuts, GDrive latest files, directory, notes and CRM integration.",
     "tech": ["nextjs", "tailwindcss", "fauna", "vercel"]
+  },
+  {
+    "name": "Checkly Homeassistant",
+    "url": "https://github.com/ndom91/homeassistant-checkly",
+    "image": "checklyhomeassistant.png",
+    "desc": "HomeAssistant custom component for turning Checkly checks into HA sensors.",
+    "tech": ["python", "checkly"]
   },
   {
     "name": "react-timezone-select",
@@ -28,7 +42,7 @@
     "tech": ["aws-api-gateway", "aws-lambda", "serverless", "vue-js"]
   },
   {
-    "name": "NewTelco Homepage 2021",
+    "name": "NewTelco 2021",
     "url": "https://github.com/newtelco/newtelco-dato",
     "image": "newtelcodev.png",
     "desc": "Dark-mode homepage redesign for NewTelco GmbH (2021).",
@@ -41,7 +55,7 @@
     ]
   },
   {
-    "name": "NewTelco Homepage 2020",
+    "name": "NewTelco 2020",
     "url": "https://github.com/newtelco/newtelco-gatsby-netlify",
     "image": "newtelcohome.png",
     "desc": "Light-mode homepage redesign for NewTelco GmbH (2020).",
@@ -66,7 +80,7 @@
     "url": "https://github.com/ndom91/youtube-playlists",
     "image": "youtube.png",
     "desc": "Side-project for creating YouTube playlists on-the-fly, shareable via state in the URL.",
-    "tech": ["react", "cloudflareworkers", "styledcomponents", "netlify"]
+    "tech": ["react", "cloudflareworkers", "netlify"]
   },
   {
     "name": "NOC Dashboard",

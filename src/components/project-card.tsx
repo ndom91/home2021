@@ -46,7 +46,7 @@ const ProjectCard = ({ project, index }: Props) => {
       style={{ ['--index' as string]: index }}
     >
       <div className="group relative m-4 rounded-xl bg-gray-100 dark:bg-gray-800">
-        <div className="relative z-10 flex flex-col rounded-xl bg-gray-50 transition duration-500 dark:bg-gray-700">
+        <div className="relative z-10 flex flex-col rounded-xl bg-gray-50 transition duration-500 dark:bg-gray-800">
           {url && (
             <Link href={url}>
               <a
@@ -73,15 +73,29 @@ const ProjectCard = ({ project, index }: Props) => {
             </Link>
           )}
 
-          <div className="relative z-10 mx-2 overflow-hidden overflow-y-visible p-6 pb-2 ">
+          <div className="relative z-10 overflow-hidden overflow-y-visible p-6 pb-2 ">
             {url && (
               <Link href={url}>
                 <a
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-block font-medium text-gray-600 outline-none transition-all duration-300 hover:text-palevioletred hover:outline-none focus:outline-none focus:ring-4 focus:ring-pink-300 focus:ring-offset-2 focus:ring-offset-gray-100 dark:text-gray-100 dark:hover:text-palevioletred focus:dark:ring-palevioletred focus:dark:ring-offset-gray-800 md:text-lg"
+                  className="font-mono font-extralight text-gray-600 outline-none transition-all duration-300 hover:text-palevioletred hover:outline-none focus:outline-none focus:ring-4 focus:ring-pink-300 focus:ring-offset-2 focus:ring-offset-gray-100 dark:text-gray-100 dark:hover:text-palevioletred focus:dark:ring-palevioletred focus:dark:ring-offset-gray-800 md:text-lg inline"
                 >
                   {name}
+                  <svg
+                    className="w-6 h-6 ml-2 mb-2 inline"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={1}
+                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                    />
+                  </svg>
                 </a>
               </Link>
             )}
