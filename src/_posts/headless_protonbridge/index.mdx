@@ -15,7 +15,7 @@ So there are a few challenges here that we've got to overcome:
 
 1. Application by default requires a GUI to login, run as a service, etc.
 2. Application listens only on localhost (`127.0.0.1`)
-   2a. And only on non-standard ports
+3. And only on non-standard ports
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ So first, lets install some prerequisites.
 
 1. `pass`
 2. `gnupg`
-3. Clone the `proton-bridge` repository - Available at `https://github.com/ProtonMail/proton-bridge`
+3. Clone the `proton-bridge` repository - Available at [https://github.com/ProtonMail/proton-bridge](https://github.com/ProtonMail/proton-bridge)
 
 Next, lets figure out how to start the thing on a server without a desktop environment.
 
@@ -53,7 +53,7 @@ Currently, the bridge is designed as a local application to run on your desktop 
 
 Change line `22` from `Host = '127.0.0.1'` to `Host = '0.0.0.0'`.
 
-> Note: There is an open PR to make this user configurable, but it's been open for a few months without much action. Source: https://github.com/ProtonMail/proton-bridge/pull/270
+> Note: There is an open PR to make this user configurable, but it's been open for a few months without much action. Source: [https://github.com/ProtonMail/proton-bridge/pull/270](https://github.com/ProtonMail/proton-bridge/pull/270)
 
 That's all thats required to change where it listens!
 
@@ -131,7 +131,7 @@ $ iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 143 -j DNAT --to-destina
 $ iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 25 -j DNAT --to-destination 10.0.1.52:1025 # smtp
 ```
 
-You can see in my case, I'm using a Proxmox host that also needed to forward that port to a guest located at `10.0.1.52`, for example. Change that internal IP to wherever your `proton-bridge` service is running, or if its on the same machine just set it to `127.0.0.1` or `0.0.0.0`.
+You can see in my case, I'm using a Proxmox host (with an incoming connection on interface `vmbr0`) that also needed to forward that port to a guest located at `10.0.1.52`, for example. Don't forget to change that internal IP to wherever your `proton-bridge` service is running, or if its on the same machine just set it to `127.0.0.1` or `0.0.0.0`. Also you're probably going to need to change the name of the interface and potentially the port numbers, depending on what the `proton-bridge` interactive `info` command told you earlier.
 
 ## Summary
 
