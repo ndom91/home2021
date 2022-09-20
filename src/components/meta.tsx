@@ -66,6 +66,7 @@ const Meta = () => {
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="ndom91" />
         <meta name="twitter:site" content="@ndom91" />
+        <meta name="darkreader-lock" />
         <title>ndom91</title>
         <script
           type="application/ld+json"
