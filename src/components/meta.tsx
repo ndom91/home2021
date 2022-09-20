@@ -5,12 +5,8 @@ import { useRouter } from 'next/router'
 const Meta = () => {
   const router = useRouter()
   const searchParams = new URLSearchParams()
-  searchParams.set('path', `https://ndo.dev${router.asPath}`)
-  const fullImageURL = `${
-    process.env.NODE_ENV === 'development'
-      ? 'http://localhost:3003'
-      : 'https://ndo.dev'
-  }/api/img?${searchParams}`
+  searchParams.set('url', `https://ndo.dev${router.asPath}`)
+  const fullImageURL = `https://screenshot.briefkastenhq.com/api/image?${searchParams.toString()}`
 
   return (
     <>
