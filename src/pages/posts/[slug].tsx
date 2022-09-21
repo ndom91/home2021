@@ -51,7 +51,6 @@ type Props = {
 }
 
 const Post = ({ source, frontMatter, slug }: Props) => {
-  console.log('mdxSource', source)
   const [modalVisible, setModalVisible] = useState(false)
   const theme = useStore((state) => state.theme)
   if (!frontMatter?.title) {

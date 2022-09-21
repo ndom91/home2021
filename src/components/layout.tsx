@@ -39,7 +39,7 @@ const Layout = ({ children, onPointerMove }: Props) => {
       {alert.enabled && !value?.dismissed && (
         <Alert header={alert.header} body={alert.body} setValue={setValue} />
       )}
-      <div className="flex min-h-screen w-full flex-col px-4 max-w-full md:max-w-11xl md:overflow-x-visible md:px-8 lg:py-4 items-center justify-center">
+      <div className="flex min-h-screen w-full flex-col px-4 max-w-full md:max-w-10xl md:overflow-x-visible md:px-8 lg:py-4 items-center justify-center">
         <Navbar />
         <main className="relative flex-1 items-center flex flex-col max-w-full">
           {children}

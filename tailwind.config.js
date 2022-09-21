@@ -8,7 +8,10 @@ module.exports = {
   ],
   safelist: ['animate-flicker', 'reset', 'fade_*'],
   darkMode: 'class',
-  plugins: [require('@tailwindcss/typography')],
+  plugins: [
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/line-clamp'),
+  ],
   theme: {
     fontSize: {
       sm: 'clamp(0.76rem, 0.2vw + 0.71rem, 0.87rem)',
