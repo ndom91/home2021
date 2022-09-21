@@ -239,6 +239,33 @@ html[class='dark'] ul a:before {
 
 /* BLOG POST */
 
+@media screen and (max-width: 1890px) {
+  .prose nav.toc {
+    display: none;
+  }
+}
+@media screen and (min-width: 1890px) {
+  .prose nav.toc {
+    position: fixed;
+    top: 180px;
+    right: clamp(100px, calc(50px + 5%), 800px);
+    opacity: 0;
+    @apply animation-delay-500;
+  }
+  .prose nav.toc a {
+    @apply no-underline font-light;
+  }
+  .prose nav.toc li::marker {
+    @apply font-mono font-bold;
+  }
+  .prose h2 {
+    @apply scroll-mt-8;
+  }
+  .prose nav.toc li {
+    @apply max-w-xs overflow-ellipsis;
+  }
+}
+
 .prose .icon.icon-link:before {
   content: '#';
   position: absolute;

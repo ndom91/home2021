@@ -23,6 +23,7 @@
     "pretty-quick": "pretty-quick --staged"
   },
   "dependencies": {
+    "@jsdevtools/rehype-toc": "^3.0.2",
     "@liveblocks/client": "^0.15.4",
     "@liveblocks/zustand": "^0.15.4",
     "@mapbox/rehype-prism": "^0.8.0",

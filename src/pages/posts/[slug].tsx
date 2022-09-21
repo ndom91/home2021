@@ -24,6 +24,7 @@ import path from 'path'
 import readingTime from 'reading-time'
 import { MDXRemote } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
+const toc = require('@jsdevtools/rehype-toc')
 const rehypePrism = require('@mapbox/rehype-prism')
 
 import { postFilePaths, POSTS_PATH } from '../../lib/mdxUtils'
@@ -145,12 +146,17 @@ export async function getStaticProps({ params }: Params) {
       rehypePlugins: [
         rehypePrism,
         rehypeSlug,
+        [
+          toc,
+          {
+            cssClasses: { toc: 'toc animate-fade_in' },
+          },
+        ],
         [rehypeAutolinkHeadings, { behavior: 'prepend' }],
       ],
     },
     scope: data,
   })
-  console.log(mdxSource)
 
   return {
     props: {
