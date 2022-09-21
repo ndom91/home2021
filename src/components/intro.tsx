@@ -13,7 +13,7 @@ const Intro = () => {
   const setHoverText = useStore((state) => state.setHoverText)
 
   return (
-    <section className="relative z-10 my-16 flex flex-col items-start text-left lg:my-[20vh] lg:flex-row lg:items-center lg:justify-between">
+    <section className="relative z-10 my-16 flex flex-col items-start text-left lg:my-[20vh] lg:flex-row lg:items-center lg:justify-between max-w-7xl">
       <div className="relative h-16 w-2/3">
         <h1
           onMouseEnter={() => setHoverText(true)}

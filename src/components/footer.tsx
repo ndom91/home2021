@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className="max-w flex w-full animate-fade_in items-center justify-between py-4 opacity-0 sm:max-w-screen-sm md:max-w-7xl">
+    <footer className="flex w-full animate-fade_in items-center justify-between py-4 opacity-0 sm:max-w-screen-sm md:max-w-7xl">
       <div className="flex space-x-4">
         <a
           href="https://github.com/ndom91"

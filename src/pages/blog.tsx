@@ -14,11 +14,9 @@ const Blog = ({ allPosts }: Props) => {
 
   return (
     <Layout>
-      <div className="relative">
-        <h1 className="mt-8 mb-24 animate-fade_in_up_10 text-8xl font-bold leading-tight tracking-tighter opacity-0 dark:text-gray-100 md:pr-8 md:text-9xl">
-          blog.{' '}
-        </h1>
-      </div>
+      <h1 className="mt-8 mb-24 animate-fade_in_up_10 text-8xl font-bold leading-tight tracking-tighter opacity-0 dark:text-gray-100 md:pr-8 md:text-9xl max-w-7xl mx-auto w-full">
+        blog.{' '}
+      </h1>
       {heroPost && (
         <HeroPost
           title={heroPost.title}

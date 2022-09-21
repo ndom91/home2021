@@ -31,6 +31,12 @@ module.exports = {
         mono: ['JetBrains Mono', ...defaultTheme.fontFamily.mono],
         block: ['Silkscreen', ...defaultTheme.fontFamily.mono],
       },
+      maxWidth: {
+        '8xl': '88rem',
+        '9xl': '96rem',
+        '10xl': '104rem',
+        '11xl': '118rem',
+      },
       colors: {
         gray: {
           50: '#f3f3f4',
