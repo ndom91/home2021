@@ -81,7 +81,7 @@ const Post = ({ source, frontMatter, slug }: Props) => {
           <meta name="twitter:description" content={frontMatter.excerpt} />
           <meta name="twitter:image:alt" content={frontMatter.title} />
         </Head>
-        <article className="mb-32 mt-12 md:mt-12">
+        <article className="mb-32 mt-12 md:mt-12 max-w-full">
           <PostHeader
             title={frontMatter.title}
             cover={frontMatter.cover}
@@ -91,7 +91,7 @@ const Post = ({ source, frontMatter, slug }: Props) => {
           <div className="prose prose-lg mx-auto max-w-4xl dark:prose-dark dark:text-gray-100">
             <MDXRemote {...source} components={components} />
           </div>
-          <div className="not-prose prose prose-sm mx-auto mt-20 max-w-4xl dark:prose-dark dark:text-gray-100 md:prose-lg">
+          <div className="not-prose prose prose-sm mx-auto mt-20 max-w-full dark:prose-dark dark:text-gray-100 md:prose-lg">
             <CommentsProvider
               supabaseClient={supabase}
               onAuthRequested={() => setModalVisible(true)}

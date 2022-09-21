@@ -87,6 +87,8 @@ $ sudo vim /etc/systemd/system/proton-bridge.service
 
 And enter something like the following:
 
+<CodeEditor>
+
 ```
 [Unit]
 Description=ProtonMail Bridge
@@ -101,6 +103,8 @@ StandardError=append:/var/log/proton-bridge/stderr.log
 [Install]
 WantedBy=multi-user.target
 ```
+
+</CodeEditor>
 
 Remember to adjust the `ExecStart` path to the binary. In my case, I've symlinked the binary from its compilation source folder to `/usr/local/bin/proton-bridge`. Also notice the `--noninteractive` flag we're passing here.
 

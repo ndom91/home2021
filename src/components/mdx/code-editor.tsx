@@ -22,7 +22,7 @@ const CodeEditor: FunctionComponent<EditorProps> = ({ title, children }) => {
 
   return (
     <div className="w-full" style={{ width: '100%' }}>
-      <div className="relative -mb-3 flex h-10 w-full items-center justify-between rounded-t-md bg-gray-100 dark:bg-gray-700">
+      <div className="relative -mb-9 flex h-10 w-full items-center justify-between rounded-t-md bg-gray-100 dark:bg-gray-700">
         <div className="inline-flex h-full justify-center">
           <div className="ml-4 inline-flex h-full items-center space-x-2">
             <span className="h-3 w-3 rounded-full bg-red-400"></span>

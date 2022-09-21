@@ -242,8 +242,14 @@ html[class='dark'] ul a:before {
 .prose li {
   word-break: break-word !important;
 }
+.prose pre,
 .prose code {
-  word-break: break-word !important;
+  word-break: break-all !important;
+}
+
+.prose pre {
+  overflow-x: scroll !important;
+  @apply !max-w-none !w-full;
 }
 
 .dark .dark\:prose-dark pre code {
