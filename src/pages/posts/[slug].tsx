@@ -15,6 +15,9 @@ import {
   CommentsProvider,
 } from 'supabase-comments-extension'
 
+import { remarkMdxToc } from 'remark-mdx-toc'
+import rehypeAutolinkHeadings from 'rehype-autolink-headings'
+import rehypeSlug from 'rehype-slug'
 import fs from 'fs/promises'
 import matter from 'gray-matter'
 import path from 'path'
@@ -47,6 +50,7 @@ type Props = {
 }
 
 const Post = ({ source, frontMatter, slug }: Props) => {
+  console.log('mdxSource', source)
   const [modalVisible, setModalVisible] = useState(false)
   const theme = useStore((state) => state.theme)
   if (!frontMatter?.title) {
@@ -89,7 +93,7 @@ const Post = ({ source, frontMatter, slug }: Props) => {
             time={frontMatter.time ?? '1 min'}
           />
           <div className="prose prose-lg mx-auto max-w-4xl dark:prose-dark dark:text-gray-100">
-            <MDXRemote {...source} components={components} />
+            <MDXRemote {...source} components={components} lazy />
           </div>
           <div className="not-prose prose prose-sm mx-auto mt-20 max-w-full dark:prose-dark dark:text-gray-100 md:prose-lg">
             <CommentsProvider
@@ -137,11 +141,16 @@ export async function getStaticProps({ params }: Params) {
 
   const mdxSource = await serialize(content, {
     mdxOptions: {
-      remarkPlugins: [],
-      rehypePlugins: [rehypePrism],
+      remarkPlugins: [[remarkMdxToc, { name: 'toc' }]],
+      rehypePlugins: [
+        rehypePrism,
+        rehypeSlug,
+        [rehypeAutolinkHeadings, { behavior: 'prepend' }],
+      ],
     },
     scope: data,
   })
+  console.log(mdxSource)
 
   return {
     props: {

@@ -239,6 +239,13 @@ html[class='dark'] ul a:before {
 
 /* BLOG POST */
 
+.prose .icon.icon-link:before {
+  content: '#';
+  position: absolute;
+  left: -25px;
+  opacity: 0.2;
+}
+
 .prose li {
   word-break: break-word !important;
 }
