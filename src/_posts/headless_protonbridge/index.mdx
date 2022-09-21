@@ -9,7 +9,7 @@ cover:
 
 Proton Mail is a great web email service. If you've landed here, you probably already agree with that. However, one major missing feature is SMTP/IMAP access to your mailboxes. They offer a "local" bridge application which will communicate with their backend and then provide a local SMTP/IMAP service listening on some seemingly arbitrary ports.
 
-## Challenges
+# Challenges
 
 So there are a few challenges here that we've got to overcome:
 
@@ -17,7 +17,7 @@ So there are a few challenges here that we've got to overcome:
 2. Application listens only on localhost (`127.0.0.1`)
 3. And only on non-standard ports
 
-## Prerequisites
+# Prerequisites
 
 So first, lets install some prerequisites.
 
@@ -43,11 +43,11 @@ $ pass init "ProtonMail Bridge"
 
 Now we've got all of the prerequisite steps out of the way!
 
-## Proton-Bridge package
+# Proton-Bridge package
 
 Finally, we can begin installing the actual ProtonMail `proton-bridge` package. The problem is, the `*.deb` (or other format) package that they provide on their download page requires a ton of graphical dependencies that we don't want to install on our server. Fortunately they have a `make` target called `build-nogui` setup in their Makefile in the repository. Before we begin compiling it with this special target, there is one change we must make in the source-code.
 
-### `0.0.0.0` Host
+## `0.0.0.0` Host
 
 Currently, the bridge is designed as a local application to run on your desktop machine to enable you to use Thunderbird/Outlook with ProtonMail. However, when running on a server, we often want to connect to it from the outside. So we've got to make a small change in the `internal/bridge/constants.go` file.
 
@@ -57,13 +57,13 @@ Change line `22` from `Host = '127.0.0.1'` to `Host = '0.0.0.0'`.
 
 That's all thats required to change where it listens!
 
-### `build-nogui` Compilation
+## `build-nogui` Compilation
 
 `cd` to where you've cloned the [proton-bridge](https://github.com/ProtonMail/proton-bridge) repository if you're not still there. Now we can run `make build-nogui`. This should compile the simple go binary `proton-bridge` without all of the GUI `qt-*` libraries and the like.
 
 We should now have a compiled `proton-bridge` binary in the root of the repository which does _not_ require a GUI to setup!
 
-## Authentication
+# Authentication
 
 Finally, we can begin authenticating and getting this thing up and running.
 

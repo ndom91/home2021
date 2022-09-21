@@ -258,7 +258,10 @@ html[class='dark'] ul a:before {
   .prose nav.toc li::marker {
     @apply font-mono font-bold;
   }
-  .prose h2 {
+  .prose h1,
+  h2,
+  h3,
+  h4 {
     @apply scroll-mt-8;
   }
   .prose nav.toc li {
