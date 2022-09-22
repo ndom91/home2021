@@ -7,6 +7,8 @@ cover:
   imageFile: "vsftpd/cover.png"
 ---
 
+## Intro
+
 So an FTP server is often one of the first things people want to setup on a new server. I recently setup two, one on my Raspberry Pi for making a 2TB USB Drive available in my home, and another somewhat more secure one on my VPS to transfer files back and forth.
 So anyway, lets just right in.
 
@@ -92,7 +94,7 @@ A restart of vsftpd and your good to go:
 sudo systemctl restart vsftpd
 ```
 
-—– Securing our FTP Server —–
+## Securing our FTP Server
 
 The above will only setup a non-encrypted standard FTP server. As FTP is by default a totally unencrypted channel, I highly recommend continuing and securing your server. Otherwise all communication will be done in plaintext and will be susceptible to snooping..
 
