@@ -450,6 +450,20 @@ html[class='dark'] .border-underline-grow:active {
   fill: #fff;
 }
 
+/* Comments */
+.tiptap-editor {
+  @apply bg-white;
+}
+body.dark .tiptap-editor {
+  @apply bg-gray-500;
+}
+.tiptap-editor > p {
+  @apply m-0;
+}
+.tiptap-editor > div > div:last-child:not(.tiptap-editor) {
+  margin-top: -7px;
+}
+
 @media screen and (min-width: 768px) {
   html:not(.dark) .intro-title:hover {
     cursor: none;
