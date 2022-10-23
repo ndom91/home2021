@@ -269,11 +269,21 @@ html[class='dark'] ul a:before {
   }
 }
 
+.prose h1:has(.icon.icon-link):hover .icon.icon-link:before,
+.prose h2:has(.icon.icon-link):hover .icon.icon-link:before,
+.prose h3:has(.icon.icon-link):hover .icon.icon-link:before,
+.prose h4:has(.icon.icon-link):hover .icon.icon-link:before {
+  opacity: 0.25;
+  transition: all 250ms ease-in-out;
+}
+
 .prose .icon.icon-link:before {
   content: '#';
   position: absolute;
-  left: -25px;
-  opacity: 0.2;
+  left: -5%;
+  opacity: 0;
+
+  @apply group-hover:opacity-25;
 }
 
 .prose li {
