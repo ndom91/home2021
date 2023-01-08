@@ -33,8 +33,8 @@ const IntroDescription = () => {
         className="animation-delay-600 animate-fade_in_up opacity-0"
       />{' '}
       🔒, or catching up on the latest Netflix series. I&lsquo;m based in
-      Frankfurt, Germany where I occasionally write about my adventures in tech
-      on my{' '}
+      Berlin, Germany where I occasionally write about my adventures in tech on
+      my{' '}
       <ScreenshotLink
         url="https://ndo.dev/blog"
         text="blog"
