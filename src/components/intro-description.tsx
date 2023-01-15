@@ -29,7 +29,7 @@ const IntroDescription = () => {
       🦝. In the evenings you can find me working on open source software, like{' '}
       <ScreenshotLink
         url="https://next-auth.js.org?utm_source=ndom91"
-        text="NextAuth.js"
+        text="Auth.js"
         className="animation-delay-600 animate-fade_in_up opacity-0"
       />{' '}
       🔒, or catching up on the latest Netflix series. I&lsquo;m based in

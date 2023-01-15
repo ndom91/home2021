@@ -1,9 +1,9 @@
 [
   {
-    "name": "next-auth",
-    "url": "https://next-auth.js.org",
+    "name": "auth.js",
+    "url": "https://authjs.dev",
     "image": "nextauth.png",
-    "desc": "Core-team member of NextAuth.js, a serverless authentication library for Next.js. Supports OAuth and Email login. Backendless via JWT or bring your own database.",
+    "desc": "Core-team member of Auth.js, a serverless authentication library for Next.js. Supports OAuth and Email login. Backendless via JWT or bring your own database.",
     "tech": ["react", "nextjs", "npm"]
   },
   {
