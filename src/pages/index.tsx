@@ -40,11 +40,9 @@ type Person = {
 const Index = () => {
   let offset = { x: 0, y: 0 }
   const {
-    liveblocks: { enterRoom, leaveRoom },
+    liveblocks: { enterRoom, leaveRoom, others },
   } = useLiveStore()
-  // @ts-expect-error
   const setCursor = useLiveStore((state) => state.setCursor)
-  const others = useLiveStore((state) => state.liveblocks.others)
   const [visitorDetails, setVisitorDetails] = useState<{
     [index: string]: string
   }>({})
@@ -52,7 +50,7 @@ const Index = () => {
   const [myCursor, setMyCursor] = useState<MyCursor>({ x: 200, y: 200 })
 
   useEffect(() => {
-    enterRoom(`ndom91/home2021/${process.env.NODE_ENV}`, {})
+    enterRoom(`ndom91/home2021/${process.env.NODE_ENV}`)
 
     return () => {
       leaveRoom(`ndom91/home2021/${process.env.NODE_ENV}`)
@@ -109,8 +107,7 @@ const Index = () => {
           <Cursor
             key={i}
             color={cursorColors[i]}
-            // @ts-expect-error
-            cursor={person.presence?.cursor}
+            cursor={person.presence.cursor}
           />
         ))}
         <Intro />
