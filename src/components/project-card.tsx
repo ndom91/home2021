@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Parallax } from 'react-scroll-parallax'
-import Image from 'next/image'
+import Image from 'next/legacy/image'
 import Link from 'next/link'
 import { Project } from '../types/project'
 import Icon from './icon'

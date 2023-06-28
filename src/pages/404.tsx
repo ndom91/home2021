@@ -1,5 +1,5 @@
 import Layout from '@/components/layout'
-import Image from 'next/image'
+import Image from 'next/legacy/image'
 import { useRouter } from 'next/router'
 
 const FourOhFour = () => {
