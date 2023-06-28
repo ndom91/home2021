@@ -1,6 +1,6 @@
 import create from 'zustand'
 import { createClient } from '@liveblocks/client'
-import { middleware } from '@liveblocks/zustand'
+import { liveblocks } from '@liveblocks/zustand'
 
 const client = createClient({
   publicApiKey: process.env.NEXT_PUBLIC_LIVEBLOCKS_KEY as string,
@@ -34,8 +34,8 @@ const useStore = create<ThemeState>((set) => ({
 }))
 
 const useLiveStore = create(
-  middleware(
-    (set): LiveThemeState => ({
+  liveblocks(
+    (set: any): LiveThemeState => ({
       cursor: { x: 0, y: 0 },
       setCursor: (cursor: any) => set({ cursor }),
     }),
