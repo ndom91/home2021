@@ -20,7 +20,6 @@ const ScreenshotLink = ({ url, text, className = '' }: ScreenshotLinkProps) => {
     }
     try {
       setIsHovering(true)
-      console.log('HOVER URL', url)
       const res = await fetch(
         `https://screenshot.briefkastenhq.com/api/image?url=${encodeURIComponent(
           url

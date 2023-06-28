@@ -11,7 +11,7 @@ const IntroDescription = () => {
   const setHoverText = useStore((state) => state.setHoverText)
 
   return (
-    <p
+    <div
       onMouseEnter={() => setHoverText(true)}
       onMouseLeave={() => setHoverText(false)}
       id="intro-body"
@@ -48,7 +48,7 @@ const IntroDescription = () => {
         className="animation-delay-1100 animate-fade_in_up opacity-0"
       />{' '}
       🐦
-    </p>
+    </div>
   )
 }
 
