@@ -48,55 +48,53 @@ const ProjectCard = ({ project, index }: Props) => {
       <div className="group relative m-4 rounded-xl bg-gray-100 dark:bg-gray-800">
         <div className="relative z-10 flex flex-col rounded-xl bg-gray-50 transition duration-500 dark:bg-gray-800">
           {url && (
-            <Link href={url}>
-              <a
-                style={{ clipPath: 'polygon(0 0, 100% 0%, 100% 100%, 0 80%)' }}
-                tabIndex={-1}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="z-10 mb-2 h-32 w-full overflow-y-hidden rounded-t-xl bg-gray-200 hover:cursor-pointer dark:bg-gray-600"
-              >
-                {imageImport && (
-                  <Parallax translateY={[0, randomNumber(60, 120)]}>
-                    <Image
-                      src={imageImport}
-                      id={`project-image-${image}`}
-                      alt={`${name} Image`}
-                      quality="100"
-                      layout="responsive"
-                      placeholder="blur"
-                      className="rounded-t-xl"
-                    />
-                  </Parallax>
-                )}
-              </a>
+            <Link
+              href={url}
+              style={{ clipPath: 'polygon(0 0, 100% 0%, 100% 100%, 0 80%)' }}
+              tabIndex={-1}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="z-10 mb-2 h-32 w-full overflow-y-hidden rounded-t-xl bg-gray-200 hover:cursor-pointer dark:bg-gray-600"
+            >
+              {imageImport && (
+                <Parallax translateY={[0, randomNumber(60, 120)]}>
+                  <Image
+                    src={imageImport}
+                    id={`project-image-${image}`}
+                    alt={`${name} Image`}
+                    quality="100"
+                    layout="responsive"
+                    placeholder="blur"
+                    className="rounded-t-xl"
+                  />
+                </Parallax>
+              )}
             </Link>
           )}
 
           <div className="relative z-10 overflow-hidden overflow-y-visible p-6 pb-2 ">
             {url && (
-              <Link href={url}>
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-mono font-extralight text-gray-600 outline-none transition-all duration-300 hover:text-palevioletred hover:outline-none focus:outline-none focus:ring-4 focus:ring-pink-300 focus:ring-offset-2 focus:ring-offset-gray-100 dark:text-gray-100 dark:hover:text-palevioletred focus:dark:ring-palevioletred focus:dark:ring-offset-gray-800 md:text-lg inline"
+              <Link
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono font-extralight text-gray-600 outline-none transition-all duration-300 hover:text-palevioletred hover:outline-none focus:outline-none focus:ring-4 focus:ring-pink-300 focus:ring-offset-2 focus:ring-offset-gray-100 dark:text-gray-100 dark:hover:text-palevioletred focus:dark:ring-palevioletred focus:dark:ring-offset-gray-800 md:text-lg inline"
+              >
+                {name}
+                <svg
+                  className="w-6 h-6 ml-2 mb-2 inline"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  {name}
-                  <svg
-                    className="w-6 h-6 ml-2 mb-2 inline"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1}
-                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                    />
-                  </svg>
-                </a>
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={1}
+                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                  />
+                </svg>
               </Link>
             )}
             <div className="flex pt-1 md:pt-4">

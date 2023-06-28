@@ -32,10 +32,12 @@ const HeroPost = ({ title, cover, date, slug, time }: Props) => {
       <div className="sm:grid sm:grid-cols-5 md:gap-x-16 lg:gap-x-8">
         <div className="col-span-4">
           <h3 className="mb-2 text-4xl leading-tight lg:text-6xl">
-            <Link as={`/posts/${slug}`} href="/posts/[slug]">
-              <a className="rounded-sm font-sans font-extralight outline-none first-letter:text-4xl hover:outline-none focus:outline-none focus:ring-4 focus:ring-pink-300 focus:ring-offset-2 focus:ring-offset-white dark:text-gray-100 focus:dark:ring-palevioletred focus:dark:ring-offset-gray-500">
-                {title}
-              </a>
+            <Link
+              as={`/posts/${slug}`}
+              href="/posts/[slug]"
+              className="rounded-sm font-sans font-extralight outline-none first-letter:text-4xl hover:outline-none focus:outline-none focus:ring-4 focus:ring-pink-300 focus:ring-offset-2 focus:ring-offset-white dark:text-gray-100 focus:dark:ring-palevioletred focus:dark:ring-offset-gray-500"
+            >
+              {title}
             </Link>
           </h3>
           <div className="mb-4 flex space-x-4 font-block text-lg font-light md:justify-start">

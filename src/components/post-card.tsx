@@ -37,10 +37,11 @@ const PostCard = ({ post }: Props) => {
           </ParallaxProvider>
         </div>
         <div className="relative z-20 flex w-full flex-col justify-between">
-          <Link href={`/posts/${slug ? slug : ''}`}>
-            <a className="rounded-sm text-2xl font-extralight text-gray-600 outline-none transition-colors duration-300 hover:text-palevioletred hover:outline-none focus:outline-none focus:ring-4 focus:ring-pink-300 focus:ring-offset-2 focus:ring-offset-white dark:text-gray-100 focus:dark:ring-palevioletred focus:dark:ring-offset-gray-500 md:text-2xl">
-              {title}
-            </a>
+          <Link
+            href={`/posts/${slug ? slug : ''}`}
+            className="rounded-sm text-2xl font-extralight text-gray-600 outline-none transition-colors duration-300 hover:text-palevioletred hover:outline-none focus:outline-none focus:ring-4 focus:ring-pink-300 focus:ring-offset-2 focus:ring-offset-white dark:text-gray-100 focus:dark:ring-palevioletred focus:dark:ring-offset-gray-500 md:text-2xl"
+          >
+            {title}
           </Link>
           <div className="flex flex-col font-block text-sm font-light items-start md:text-base space-y-1">
             <span className="text-medium">
