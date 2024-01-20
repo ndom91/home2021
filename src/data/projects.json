@@ -3,14 +3,14 @@
     "name": "auth.js",
     "url": "https://authjs.dev",
     "image": "nextauth.png",
-    "desc": "Core-team member of Auth.js, a serverless authentication library for Next.js. Supports OAuth and Email login. Backendless via JWT or bring your own database.",
+    "desc": "Core-team member of Auth.js (ex NextAuth.js) - authentication for the Web! 20k+ GitHub Stars",
     "tech": ["react", "nextjs", "npm"]
   },
   {
     "name": "Briefkasten",
-    "url": "https://github.com/ndom91/briefkasten",
+    "url": "https://github.com/ndom91/sveltekasten",
     "image": "briefkasten.png",
-    "desc": "Self-hosted Bookmarking application made with Next.js, Prisma, Supabase.",
+    "desc": "Self-hosted read-it-later / rss-reader application made with Next.js, Prisma, Supabase. 600+ GitHub Stars",
     "tech": ["nextjs", "tailwindcss", "prisma"]
   },
   {
@@ -31,7 +31,7 @@
     "name": "react-timezone-select",
     "url": "https://github.com/ndom91/react-timezone-select",
     "image": "reacttimezoneselect.png",
-    "desc": "React component for selecting timezones with 50k+ downloads per month 🎉",
+    "desc": "React component for selecting timezones with 120k+ downloads per month 🎉",
     "tech": ["react", "typescript", "npm"]
   },
   {
@@ -46,13 +46,7 @@
     "url": "https://github.com/newtelco/newtelco-dato",
     "image": "newtelcodev.png",
     "desc": "Dark-mode homepage redesign for NewTelco GmbH (2021).",
-    "tech": [
-      "gatsby",
-      "tailwindcss",
-      "framer-motion",
-      "cloudflareworkers",
-      "dato-cms"
-    ]
+    "tech": ["gatsby", "tailwindcss", "framer-motion", "cloudflareworkers", "dato-cms"]
   },
   {
     "name": "NewTelco 2020",
