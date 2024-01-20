@@ -81,17 +81,17 @@ const MyCursor = ({ cursor }: CursorProps) => {
                 d="M216,152v56a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V152"
                 fill="none"
                 stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="16"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="16"
               />
               <polyline
                 points="168 112 128 152 88 112"
                 fill="none"
                 stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="16"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="16"
               />
             </svg>
           </div>

@@ -3,6 +3,7 @@ import { useEffect } from "react"
 import Splitting from "splitting"
 import ScreenshotLink from "@/components/screenshot-link"
 import useStore from "../lib/zustand"
+import { fonts } from "../lib/fonts"
 
 const IntroDescription = () => {
   useEffect(() => {
@@ -18,8 +19,8 @@ const IntroDescription = () => {
       onMouseLeave={() => setHoverText(false)}
       id="intro-body"
       data-splitting="lines"
-      className="relative p-2 mt-4 w-full font-mono text-lg font-extralight text-left text-gray-800 md:text-xl lg:pl-10 lg:w-11/12 dark:text-gray-100 tracking-[-0.06em]"
-      style={{ lineHeight: "2.75rem" }}
+      className="relative p-2 mt-4 w-full text-lg font-thin text-left text-gray-800 md:text-xl lg:pl-10 lg:w-11/12 dark:text-gray-100"
+      style={{ lineHeight: "2.75rem", ...fonts.victorMono.style }}
     >
       Hey visitor 👋 My name&apos;s Nico Domino and I&lsquo;m a senior full-stack javascript
       developer currently looking for{" "}

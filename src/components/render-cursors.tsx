@@ -91,7 +91,7 @@ const RenderCursors = () => {
   }
 
   return (
-    <div className="absolute top-0 left-0 w-full h-full cursor-none">
+    <div className="overflow-hidden absolute top-0 left-0 w-full h-full cursor-none">
       <MyCursor cursor={myCursor} />
       {otherUsers.map((person, i: number) => (
         <OthersCursor key={i} color={cursorColors[i]} cursor={person.presence.cursor} />
