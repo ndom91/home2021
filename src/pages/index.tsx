@@ -1,40 +1,30 @@
-import { useEffect, useState } from 'react'
-import Intro from '@/components/intro'
-import Layout from '@/components/layout'
-import Blur from '@/components/blur'
-import Cursor from '@/components/cursor'
-import MyCursor from '@/components/my-cursor'
-import { useLiveStore } from '../lib/zustand'
+import { useEffect, useState } from "react"
+import Intro from "@/components/intro"
+import Layout from "@/components/layout"
+import Blur from "@/components/blur"
+import Cursor from "@/components/cursor"
+import MyCursor from "@/components/my-cursor"
+import { useLiveStore } from "../lib/zustand"
+// import "splitting/dist/splitting.css"
+// import "splitting/dist/splitting-cells.css"
 
 const cursorColors = [
-  '#F28FAD',
-  '#89DCEB',
-  '#ABE9B3',
-  '#F2CDCD',
-  '#DDB6F2',
-  '#F5C2E7',
-  '#E8A2AF',
-  '#F8BD96',
-  '#FAE3B0',
-  '#B5E8E0',
-  '#96CDFB',
+  "#F28FAD",
+  "#89DCEB",
+  "#ABE9B3",
+  "#F2CDCD",
+  "#DDB6F2",
+  "#F5C2E7",
+  "#E8A2AF",
+  "#F8BD96",
+  "#FAE3B0",
+  "#B5E8E0",
+  "#96CDFB",
 ]
 
 type MyCursor = {
   x: number
   y: number
-}
-
-type Person = {
-  presence: {
-    cursor: {
-      x: number
-      y: number
-      lastUpdate: number
-      country: string
-      colo: string
-    }
-  }
 }
 
 const Index = () => {
@@ -58,20 +48,20 @@ const Index = () => {
   }, [enterRoom, leaveRoom])
 
   useEffect(() => {
-    if (!visitorDetails['loc']) {
+    if (!visitorDetails["loc"]) {
       fetchCountry()
     }
   }, [visitorDetails])
 
   const fetchCountry = async () => {
-    const url = 'https://www.cloudflare.com/cdn-cgi/trace'
+    const url = "https://www.cloudflare.com/cdn-cgi/trace"
     const cfResp = await fetch(url)
     const cfPlaintext = await cfResp.text()
     const cfJson = cfPlaintext
       .trim()
-      .split('\n')
+      .split("\n")
       .reduce((obj, line) => {
-        const pair = line.split('=')
+        const pair = line.split("=")
         obj[pair[0]] = pair[1]
         return obj
       }, {} as { [index: string]: string })
@@ -79,21 +69,21 @@ const Index = () => {
     setVisitorDetails(cfJson)
   }
 
-  if (typeof document !== 'undefined') {
-    const main = document?.querySelector('main')
+  if (typeof document !== "undefined") {
+    const main = document?.querySelector("main")
     offset = main?.getBoundingClientRect() ?? { x: 0, y: 0 }
   }
 
   return (
     <div
-      className="index overflow-hidden"
+      className="overflow-hidden index"
       onPointerMove={(e) => {
         setCursor({
           x: e.clientX - offset.x,
           y: e.clientY - offset.y,
           lastUpdate: Date.now(),
-          country: visitorDetails['loc'],
-          colo: visitorDetails['colo'],
+          country: visitorDetails["loc"],
+          colo: visitorDetails["colo"],
         })
         setMyCursor({
           x: e.clientX - offset.x,
@@ -104,11 +94,7 @@ const Index = () => {
       <Layout>
         <MyCursor cursor={myCursor} />
         {others.map((person, i: number) => (
-          <Cursor
-            key={i}
-            color={cursorColors[i]}
-            cursor={person.presence.cursor}
-          />
+          <Cursor key={i} color={cursorColors[i]} cursor={person.presence.cursor} />
         ))}
         <Intro />
         <Blur />
