@@ -1,12 +1,11 @@
 import dynamic from "next/dynamic"
 import Head from "next/head"
 import PostHeader from "@/components/post-header"
-import Layout from "@/components/layout"
+import Layout from "@/components/layout-blog"
 import PostType from "../../types/post"
 import ScreenshotLink from "@/components/screenshot-link"
 import CodeEditor from "@/components/mdx/code-editor"
 
-import { remarkMdxToc } from "remark-mdx-toc"
 import rehypeAutolinkHeadings from "rehype-autolink-headings"
 import rehypeSlug from "rehype-slug"
 import fs from "fs/promises"
@@ -15,7 +14,6 @@ import path from "path"
 import readingTime from "reading-time"
 import { MDXRemote } from "next-mdx-remote"
 import { serialize } from "next-mdx-remote/serialize"
-const toc = require("@jsdevtools/rehype-toc")
 const rehypePrism = require("@mapbox/rehype-prism")
 
 import { postFilePaths, POSTS_PATH } from "../../lib/mdxUtils"
@@ -95,18 +93,7 @@ export async function getStaticProps({ params }: Params) {
 
   const mdxSource = await serialize(content, {
     mdxOptions: {
-      remarkPlugins: [[remarkMdxToc, { name: "toc" }]],
-      rehypePlugins: [
-        rehypePrism,
-        rehypeSlug,
-        [
-          toc,
-          {
-            cssClasses: { toc: "toc animate-fade_in" },
-          },
-        ],
-        [rehypeAutolinkHeadings, { behavior: "prepend" }],
-      ],
+      rehypePlugins: [rehypePrism, rehypeSlug, [rehypeAutolinkHeadings, { behavior: "prepend" }]],
     },
     scope: data,
   })
