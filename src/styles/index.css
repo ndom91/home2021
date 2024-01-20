@@ -199,6 +199,10 @@ html[class="dark"] ul a:before {
   word-break: break-all !important;
 }
 
+.prose pre[class*="language-"] {
+  @apply !overflow-x-auto;
+}
+
 .prose pre {
   overflow-x: scroll !important;
   @apply !max-w-none !w-full;

@@ -30,7 +30,7 @@ const CodeEditor: React.FC<EditorProps> = ({ title, children }) => {
             <span className="w-3 h-3 rounded-full bg-emerald-500/50"></span>
           </div>
           <div className="inline-flex items-center p-2 ml-6 rounded-t-md">
-            <div className="font-mono text-xs font-normal text-gray-700 whitespace-normal break-all dark:text-gray-100">
+            <div className="font-mono text-sm font-normal text-gray-700 whitespace-normal break-all dark:text-gray-100">
               {title}
             </div>
           </div>
@@ -72,7 +72,7 @@ const CodeEditor: React.FC<EditorProps> = ({ title, children }) => {
           )}
         </button>
       </div>
-      <div className="z-10" ref={codeWrapperRef}>
+      <div className="z-10 code-wrapper" ref={codeWrapperRef}>
         {children}
       </div>
     </div>
