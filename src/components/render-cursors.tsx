@@ -1,4 +1,4 @@
-import Cursor from "@/components/cursor"
+import OthersCursor from "@/components/cursor"
 import MyCursor from "@/components/my-cursor"
 import { useLiveStore } from "../lib/zustand"
 import { useEffect, useState } from "react"
@@ -94,7 +94,7 @@ const RenderCursors = () => {
     <div className="absolute top-0 left-0 w-full h-full cursor-none">
       <MyCursor cursor={myCursor} />
       {otherUsers.map((person, i: number) => (
-        <Cursor key={i} color={cursorColors[i]} cursor={person.presence.cursor} />
+        <OthersCursor key={i} color={cursorColors[i]} cursor={person.presence.cursor} />
       ))}
     </div>
   )
