@@ -5,8 +5,6 @@ import Blur from "@/components/blur"
 import Cursor from "@/components/cursor"
 import MyCursor from "@/components/my-cursor"
 import { useLiveStore } from "../lib/zustand"
-// import "splitting/dist/splitting.css"
-// import "splitting/dist/splitting-cells.css"
 
 const cursorColors = [
   "#F28FAD",
@@ -32,6 +30,7 @@ const Index = () => {
   const {
     liveblocks: { enterRoom, leaveRoom, others },
   } = useLiveStore()
+
   const setCursor = useLiveStore((state) => state.setCursor)
   const [visitorDetails, setVisitorDetails] = useState<{
     [index: string]: string
