@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react'
-import { Parallax } from 'react-scroll-parallax'
-import Image from 'next/image'
-import Link from 'next/link'
-import { Project } from '../types/project'
-import Icon from './icon'
+import { useState, useEffect } from "react"
+import { Parallax } from "react-scroll-parallax"
+import Image from "next/image"
+import Link from "next/link"
+import { Project } from "../types/project"
+import Icon from "./icon"
 
 interface StaticImageData {
   src: string
@@ -43,14 +43,14 @@ const ProjectCard = ({ project, index }: Props) => {
   return (
     <div
       className="opacity-0 lg:mx-4 animate-fade_in drop-shadow-md"
-      style={{ ['--index' as string]: index }}
+      style={{ ["--index" as string]: index }}
     >
       <div className="relative m-4 bg-gray-100 rounded-xl dark:bg-gray-800 group">
         <div className="flex relative z-10 flex-col bg-gray-50 rounded-xl transition duration-500 dark:bg-gray-800">
           {url && (
             <Link
               href={url}
-              style={{ clipPath: 'polygon(0 0, 100% 0%, 100% 100%, 0 80%)' }}
+              style={{ clipPath: "polygon(0 0, 100% 0%, 100% 100%, 0 80%)" }}
               tabIndex={-1}
               target="_blank"
               rel="noopener noreferrer"
@@ -110,13 +110,7 @@ const ProjectCard = ({ project, index }: Props) => {
               {tech &&
                 tech.map((type) => (
                   <span title={type} key={type}>
-                    <Icon
-                      name={type}
-                      className="image-color"
-                      alt={`${type} icon`}
-                      height="32"
-                      width="32"
-                    />
+                    <Icon name={type} alt={`${type} icon`} height="32" width="32" />
                   </span>
                 ))}
             </div>
