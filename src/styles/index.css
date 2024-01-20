@@ -432,10 +432,6 @@ html[class="dark"] .border-underline-grow:active {
   transition-timing-function: cubic-bezier(0.98, -0.4, 0.32, 1.6);
 }
 
-.image-color > svg > path {
-  fill: #fff;
-}
-
 /* Comments */
 .tiptap-editor {
   @apply bg-white;
