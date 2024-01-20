@@ -1,17 +1,17 @@
-import { useState, FunctionComponent } from 'react'
-import { useCopyToClipboard } from 'react-use'
-import textContent from 'react-addons-text-content'
+import { useState, useRef } from "react"
+import { useCopyToClipboard } from "react-use"
 
 type EditorProps = {
   title: string
 }
 
-const CodeEditor: FunctionComponent<EditorProps> = ({ title, children }) => {
+const CodeEditor: React.FC<EditorProps> = ({ title, children }) => {
   const [success, setSuccess] = useState(false)
   const [state, copyToClipboard] = useCopyToClipboard()
+  const codeWrapperRef = useRef<HTMLDivElement>(null)
 
   const copyCode = () => {
-    copyToClipboard(textContent(children))
+    copyToClipboard(codeWrapperRef?.current?.innerText ?? "")
     if (!state.error) {
       setSuccess(true)
     }
@@ -21,27 +21,27 @@ const CodeEditor: FunctionComponent<EditorProps> = ({ title, children }) => {
   }
 
   return (
-    <div className="w-full" style={{ width: '100%' }}>
-      <div className="relative -mb-4 flex h-10 w-full items-center justify-between rounded-t-md bg-gray-50 dark:bg-gray-700">
-        <div className="inline-flex h-full justify-center">
-          <div className="ml-4 inline-flex h-full items-center space-x-2">
-            <span className="h-3 w-3 rounded-full bg-red-500/50"></span>
-            <span className="h-3 w-3 rounded-full bg-amber-500/50"></span>
-            <span className="h-3 w-3 rounded-full bg-emerald-500/50"></span>
+    <div className="w-full" style={{ width: "100%" }}>
+      <div className="flex relative justify-between items-center -mb-4 w-full h-10 bg-gray-50 rounded-t-md dark:bg-gray-700">
+        <div className="inline-flex justify-center h-full">
+          <div className="inline-flex items-center ml-4 space-x-2 h-full">
+            <span className="w-3 h-3 rounded-full bg-red-500/50"></span>
+            <span className="w-3 h-3 rounded-full bg-amber-500/50"></span>
+            <span className="w-3 h-3 rounded-full bg-emerald-500/50"></span>
           </div>
-          <div className="ml-6 inline-flex items-center rounded-t-md p-2">
-            <div className="text-xs whitespace-normal break-all font-mono font-normal text-gray-700 dark:text-gray-100">
+          <div className="inline-flex items-center p-2 ml-6 rounded-t-md">
+            <div className="font-mono text-sm font-normal text-gray-700 whitespace-normal break-all dark:text-gray-100">
               {title}
             </div>
           </div>
         </div>
         <button
-          className="transition-hover mr-2 inline-flex rounded-md rounded-t-md p-1.5 outline-none ring-pink-300 duration-300 hover:cursor-pointer hover:opacity-100 hover:outline-none hover:ring-2 hover:ring-pink-300 focus:opacity-100 focus:outline-none focus:ring-2 focus:ring-pink-300 dark:ring-palevioletred dark:hover:ring-2 dark:hover:ring-palevioletred dark:focus:ring-palevioletred"
+          className="inline-flex p-1.5 mr-2 rounded-md rounded-t-md ring-pink-300 duration-300 outline-none hover:ring-2 hover:ring-pink-300 hover:opacity-100 hover:cursor-pointer hover:outline-none focus:ring-2 focus:ring-pink-300 focus:opacity-100 focus:outline-none transition-hover dark:ring-palevioletred dark:hover:ring-2 dark:hover:ring-palevioletred dark:focus:ring-palevioletred"
           onClick={copyCode}
         >
           {success ? (
             <svg
-              className="h-4 w-4 opacity-100 transition-all duration-1000"
+              className="w-4 h-4 opacity-100 transition-all duration-1000"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -56,7 +56,7 @@ const CodeEditor: FunctionComponent<EditorProps> = ({ title, children }) => {
             </svg>
           ) : (
             <svg
-              className="h-4 w-4 opacity-100 transition-all duration-1000"
+              className="w-4 h-4 opacity-100 transition-all duration-1000"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -72,7 +72,9 @@ const CodeEditor: FunctionComponent<EditorProps> = ({ title, children }) => {
           )}
         </button>
       </div>
-      <div className="z-10">{children}</div>
+      <div className="z-10 code-wrapper" ref={codeWrapperRef}>
+        {children}
+      </div>
     </div>
   )
 }

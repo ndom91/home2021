@@ -1,21 +1,21 @@
-import { useRouter } from 'next/router'
-import { animated, useSpring } from 'react-spring'
-import { useEffect } from 'react'
-import { useLocalStorage } from 'react-use'
-import useStore from '../lib/zustand'
-import setFlickerAnimation from '../lib/flicker'
+import { useRouter } from "next/router"
+import { animated, useSpring } from "react-spring"
+import { useEffect } from "react"
+import { useLocalStorage } from "react-use"
+import useStore from "../lib/zustand"
+import setFlickerAnimation from "../lib/flicker"
 
 const properties = {
   dark: {
     r: 9,
-    transform: 'rotate(50deg)',
+    transform: "rotate(50deg)",
     cx: 11,
     cy: 5,
     opacity: 0,
   },
   light: {
     r: 5,
-    transform: 'rotate(90deg)',
+    transform: "rotate(90deg)",
     cx: 30,
     cy: 0,
     opacity: 1,
@@ -27,12 +27,12 @@ const DarkToggle = () => {
   const router = useRouter()
   const theme = useStore((state) => state.theme)
   const setTheme = useStore((state) => state.setTheme)
-  const [_, setValue] = useLocalStorage('theme', '', {
+  const [_storage, setValue] = useLocalStorage("theme", "", {
     raw: true,
   })
   useEffect(() => {
-    if (document.documentElement.classList.contains('dark')) {
-      setTheme('dark')
+    if (document.documentElement.classList.contains("dark")) {
+      setTheme("dark")
     }
   }, [setTheme])
 
@@ -51,40 +51,34 @@ const DarkToggle = () => {
   const linesProps = useSpring({ opacity, config: properties.springConfig })
 
   const toggleDark = () => {
-    if (theme === 'light') {
-      document.documentElement.classList.add('dark')
-      document.documentElement.style.setProperty('color-scheme', 'dark')
+    if (theme === "light") {
+      document.documentElement.classList.add("dark")
+      document.documentElement.style.setProperty("color-scheme", "dark")
       setFlickerAnimation()
 
       // Switch Off
-      const jsSoundOff = document.getElementById(
-        'js-sound-off'
-      ) as HTMLAudioElement
+      const jsSoundOff = document.getElementById("js-sound-off") as HTMLAudioElement
       jsSoundOff?.play()
 
-      if (router.pathname === '/') {
+      if (router.pathname === "/") {
         // Neon Bulb Sound - play only on homepage
         setTimeout(() => {
-          const jsNeonBulb = document.getElementById(
-            'js-sound-neon-bulb'
-          ) as HTMLAudioElement
+          const jsNeonBulb = document.getElementById("js-sound-neon-bulb") as HTMLAudioElement
           jsNeonBulb?.play()
         }, 500)
       }
-      setTheme('dark')
-      setValue('dark')
+      setTheme("dark")
+      setValue("dark")
     } else {
-      document.documentElement.classList.remove('dark')
-      document.documentElement.style.setProperty('color-scheme', 'light')
+      document.documentElement.classList.remove("dark")
+      document.documentElement.style.setProperty("color-scheme", "light")
 
       // Switch On
       setFlickerAnimation()
-      const jsSoundOn = document.getElementById(
-        'js-sound-on'
-      ) as HTMLAudioElement
+      const jsSoundOn = document.getElementById("js-sound-on") as HTMLAudioElement
       jsSoundOn?.play()
-      setTheme('light')
-      setValue('light')
+      setTheme("light")
+      setValue("light")
     }
   }
 
@@ -94,7 +88,7 @@ const DarkToggle = () => {
         aria-label="Dark Toggle"
         type="button"
         onClick={toggleDark}
-        className="rounded-md p-1 transition-shadow duration-300 hover:ring-4 hover:ring-pink-300 focus:outline-none focus:ring-4 focus:ring-pink-300 dark:hover:ring-palevioletred dark:focus:ring-palevioletred"
+        className="p-1 rounded-md transition-shadow duration-300 hover:ring-4 hover:ring-pink-300 focus:ring-4 focus:ring-pink-300 focus:outline-none dark:hover:ring-palevioletred dark:focus:ring-palevioletred"
       >
         <animated.svg
           xmlns="http://www.w3.org/2000/svg"
@@ -141,24 +135,9 @@ const DarkToggle = () => {
           </animated.g>
         </animated.svg>
       </button>
-      <audio
-        src="/assets/toggle-off.mp3"
-        id="js-sound-off"
-        preload="auto"
-        hidden
-      ></audio>
-      <audio
-        src="/assets/toggle-on.mp3"
-        id="js-sound-on"
-        preload="auto"
-        hidden
-      ></audio>
-      <audio
-        src="/assets/neon-bulb.mp3"
-        id="js-sound-neon-bulb"
-        preload="auto"
-        hidden
-      ></audio>
+      <audio src="/assets/toggle-off.mp3" id="js-sound-off" preload="auto" hidden></audio>
+      <audio src="/assets/toggle-on.mp3" id="js-sound-on" preload="auto" hidden></audio>
+      <audio src="/assets/neon-bulb.mp3" id="js-sound-neon-bulb" preload="auto" hidden></audio>
     </div>
   )
 }

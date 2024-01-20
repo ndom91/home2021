@@ -1,35 +1,35 @@
-import fs from 'fs/promises'
-import { join } from 'path'
-import matter from 'gray-matter'
-import readingTime from 'reading-time'
-import { remark } from 'remark'
-import html from 'remark-html'
+import fs from "fs/promises"
+import { join } from "path"
+import matter from "gray-matter"
+import readingTime from "reading-time"
+import { remark } from "remark"
+import html from "remark-html"
 
 // Setup custom return array of fields
 type Items = {
   [key: string]: string
 }
 
-const firstFourLines = (file: any, options: any): any => {
+const firstFourLines = (file: any, _options: any): any => {
   file.excerpt = file.content
-    .split('\n')
+    .split("\n")
     .filter((item: string) => item.length)
     .slice(0, 2)
-    .join(' ')
+    .join(" ")
 }
 
-const postsDirectory = join(process.cwd(), 'src', '_posts')
+const postsDirectory = join(process.cwd(), "src", "_posts")
 
 export async function getPostSlugs() {
   return fs.readdir(postsDirectory)
 }
 
 const getMarkdownFile = async (filePath: string) => {
-  let files = await fs.readdir(filePath)
-  return files.filter((file) => file.match(new RegExp(`.*\.md`, 'ig')))[0]
+  const files = await fs.readdir(filePath)
+  return files.filter((file) => file.match(new RegExp(`.*.md`, "ig")))[0]
 }
 
-const excerptToHtml = async (excerpt: string, data: any) => {
+const excerptToHtml = async (excerpt: string, _data: any) => {
   const e1 = await remark().use(html).process(excerpt)
   return e1.toString()
 }
@@ -37,10 +37,7 @@ const excerptToHtml = async (excerpt: string, data: any) => {
 export async function getPostBySlug(slug: string, fields: string[] = []) {
   const items: Items = {}
   const filePath = await getMarkdownFile(join(postsDirectory, slug))
-  const fileContents = await fs.readFile(
-    join(postsDirectory, slug, filePath),
-    'utf8'
-  )
+  const fileContents = await fs.readFile(join(postsDirectory, slug, filePath), "utf8")
   const { data, excerpt, content } = matter(fileContents, {
     excerpt: firstFourLines,
   })
@@ -51,15 +48,15 @@ export async function getPostBySlug(slug: string, fields: string[] = []) {
   // Excerpt
   if (excerpt) {
     const htmlExcerpt = await excerptToHtml(excerpt, data)
-    data.excerpt = htmlExcerpt.replace(/\<h[1-4]\/?>/, '')
+    data.excerpt = htmlExcerpt.replace(/<h[1-4]\/?>/, "")
   }
 
   // Ensure only the minimal needed data is exposed
   fields.forEach((field) => {
-    if (field === 'slug') {
+    if (field === "slug") {
       items[field] = slug
     }
-    if (field === 'content') {
+    if (field === "content") {
       items[field] = content
     }
 
@@ -73,9 +70,10 @@ export async function getPostBySlug(slug: string, fields: string[] = []) {
 
 export async function getAllPosts(fields: string[] = []) {
   const slugs = await getPostSlugs()
-  let posts = await Promise.all(
-    slugs.map(async (slug) => getPostBySlug(slug, fields))
+  const postFiles = await Promise.all(slugs.map(async (slug) => getPostBySlug(slug, fields)))
+  const postLinks = require("../data/posts.json")
+  const posts = [...postFiles, ...postLinks].sort((post1, post2) =>
+    post1.date > post2.date ? -1 : 1
   )
-  posts = posts.sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
   return posts
 }

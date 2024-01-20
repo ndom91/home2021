@@ -1,20 +1,22 @@
-import { create } from 'zustand'
-import { createClient } from '@liveblocks/client'
-import { liveblocks, WithLiveblocks } from '@liveblocks/zustand'
+import { create } from "zustand"
+import { createClient } from "@liveblocks/client"
+import { liveblocks, WithLiveblocks } from "@liveblocks/zustand"
 
 const client = createClient({
   publicApiKey: process.env.NEXT_PUBLIC_LIVEBLOCKS_KEY as string,
 })
 
 enum ThemeType {
-  light = 'light',
-  dark = 'dark',
+  light = "light",
+  dark = "dark",
 }
 
 interface ThemeState {
   theme: keyof typeof ThemeType
   setTheme: (theme: keyof typeof ThemeType) => void
   hoverText: boolean
+  download: boolean
+  setDownload: (target: boolean) => void
   setHoverText: (hoverText: boolean) => void
 }
 
@@ -32,9 +34,11 @@ interface LiveCursorState {
 }
 
 const useStore = create<ThemeState>()((set) => ({
-  theme: 'light',
+  theme: "light",
   setTheme: (theme) => set({ theme }),
   hoverText: false,
+  download: false,
+  setDownload: (target) => set({ download: target }),
   setHoverText: (hover) => set({ hoverText: hover }),
 }))
 
