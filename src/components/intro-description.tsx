@@ -6,10 +6,11 @@ import useStore from "../lib/zustand"
 
 const IntroDescription = () => {
   useEffect(() => {
-    typeof document !== "undefined" && Splitting()
+    Splitting()
   }, [])
 
   const setHoverText = useStore((state) => state.setHoverText)
+  const setDownload = useStore((state) => state.setDownload)
 
   return (
     <div
@@ -17,15 +18,17 @@ const IntroDescription = () => {
       onMouseLeave={() => setHoverText(false)}
       id="intro-body"
       data-splitting="lines"
-      className="relative p-2 mt-4 w-full font-mono text-lg font-extralight tracking-tight leading-8 text-left text-gray-800 md:text-xl lg:pl-10 lg:w-11/12 dark:text-gray-100"
-      style={{ lineHeight: "2.25rem" }}
+      className="relative p-2 mt-4 w-full font-mono text-lg font-extralight text-left text-gray-800 md:text-xl lg:pl-10 lg:w-11/12 dark:text-gray-100 tracking-[-0.06em]"
+      style={{ lineHeight: "2.75rem" }}
     >
       Hey visitor 👋 My name&apos;s Nico Domino and I&lsquo;m a senior full-stack javascript
       developer currently looking for{" "}
       <Link
+        onMouseEnter={() => setDownload(true)}
+        onMouseLeave={() => setDownload(false)}
         href="/assets/ndomino_webdev_180124.pdf"
         target="_blank"
-        className="transition-all outline-none border-underline-grow dark:ring-palevioletred"
+        className={`transition-all outline-none border-underline-grow dark:ring-palevioletred opacity-0 animation-delay-500 animate-fade_in_up`}
       >
         a new gig
       </Link>
