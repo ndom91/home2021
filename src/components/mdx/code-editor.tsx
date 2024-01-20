@@ -8,7 +8,7 @@ type EditorProps = {
 const CodeEditor: React.FC<EditorProps> = ({ title, children }) => {
   const [success, setSuccess] = useState(false)
   const [state, copyToClipboard] = useCopyToClipboard()
-  const codeWrapperRef = useRef<HTMLElement>()
+  const codeWrapperRef = useRef<HTMLDivElement>(null)
 
   const copyCode = () => {
     copyToClipboard(codeWrapperRef?.current?.innerText ?? "")
