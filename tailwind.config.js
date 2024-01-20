@@ -132,12 +132,6 @@ module.exports = {
           },
         },
       }),
-      letterSpacing: {
-        tighter: "-.04em",
-      },
-      lineHeight: {
-        tight: "1.2",
-      },
       boxShadow: {
         small: "0 5px 10px rgba(0, 0, 0, 0.12)",
         medium: "0 8px 30px rgba(0, 0, 0, 0.12)",
