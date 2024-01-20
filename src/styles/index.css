@@ -361,6 +361,35 @@ html[class="dark"] .border-underline-grow:active {
 @layer base {
   /* geist-mono - light */
   @font-face {
+    font-family: "Geist";
+    font-style: normal;
+    font-weight: 200;
+    src: local(""), url("/assets/fonts/geist-mono/Geist-Light.woff2") format("woff2");
+  }
+  /* geist-mono - normal */
+  @font-face {
+    font-family: "Geist";
+    font-style: normal;
+    font-weight: 400;
+    src: local(""), url("/assets/fonts/geist-mono/Geist-Regular.woff2") format("woff2");
+  }
+  /* geist-mono - bold */
+  @font-face {
+    font-family: "Geist";
+    font-style: normal;
+    font-weight: 600;
+    src: local(""), url("/assets/fonts/geist-mono/Geist-Bold.woff2") format("woff2");
+  }
+  /* geist-mono - black */
+  @font-face {
+    font-family: "Geist";
+    font-style: normal;
+    font-weight: 800;
+    src: local(""), url("/assets/fonts/geist-mono/Geist-Black.woff2") format("woff2");
+  }
+
+  /* geist-mono - light */
+  @font-face {
     font-family: "Geist Mono";
     font-style: normal;
     font-weight: 200;
