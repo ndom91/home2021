@@ -70,7 +70,10 @@ export async function getPostBySlug(slug: string, fields: string[] = []) {
 
 export async function getAllPosts(fields: string[] = []) {
   const slugs = await getPostSlugs()
-  let posts = await Promise.all(slugs.map(async (slug) => getPostBySlug(slug, fields)))
-  posts = posts.sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
+  const postFiles = await Promise.all(slugs.map(async (slug) => getPostBySlug(slug, fields)))
+  const postLinks = require("../data/posts.json")
+  const posts = [...postFiles, ...postLinks].sort((post1, post2) =>
+    post1.date > post2.date ? -1 : 1
+  )
   return posts
 }
