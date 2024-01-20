@@ -43,8 +43,6 @@ const MyCursor = ({ cursor }: CursorProps) => {
     }
   }
 
-  console.log({ x: cursor.x, y: cursor.y })
-
   return (
     <>
       {isHoveringText ? (
