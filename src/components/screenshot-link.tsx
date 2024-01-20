@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import Image from 'next/legacy/image'
+import Image from 'next/image'
 
 type ScreenshotLinkProps = {
   url: string
@@ -42,7 +42,7 @@ const ScreenshotLink = ({ url, text, className = '' }: ScreenshotLinkProps) => {
         onBlur={() => setIsHovering(false)}
       >
         {isHovering && linkScreenshot && (
-          <div className="pointer-events-none absolute right-1/2 bottom-[2.0rem] z-10 block w-32 animate-fade_in_up_5 lg:block">
+          <div className="block absolute right-1/2 z-10 w-32 pointer-events-none lg:block bottom-[2.0rem] animate-fade_in_up_5">
             <Image
               src={linkScreenshot}
               height={180}
@@ -57,7 +57,7 @@ const ScreenshotLink = ({ url, text, className = '' }: ScreenshotLinkProps) => {
           href={url}
           target="_blank"
           rel="noopener noreferrer"
-          className="border-underline-grow outline-none transition-all dark:ring-palevioletred"
+          className="transition-all outline-none border-underline-grow dark:ring-palevioletred"
         >
           {text}
         </a>

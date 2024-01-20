@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import Link from 'next/link'
-import Image from 'next/legacy/image'
+import Image from 'next/image'
 
 type Props = {
   title: string
@@ -25,7 +25,7 @@ const CoverImage = ({ title, cover = { imageFile: '' }, slug }: Props) => {
   loadImage(imageFile)
 
   const imageComponent = !imageImport ? (
-    <div className="relative my-4 py-4 text-center font-mono font-extralight text-gray-200 dark:text-gray-700">
+    <div className="relative py-4 my-4 font-mono font-extralight text-center text-gray-200 dark:text-gray-700">
       Loading..
     </div>
   ) : (
@@ -52,7 +52,7 @@ const CoverImage = ({ title, cover = { imageFile: '' }, slug }: Props) => {
           as={slug ? `/posts/${slug}` : '#'}
           href="/posts/[slug]"
           aria-label={title}
-          className="bg-pink-300 "
+          className="bg-pink-300"
           tabIndex={-1}
         >
           {imageComponent}
@@ -62,7 +62,7 @@ const CoverImage = ({ title, cover = { imageFile: '' }, slug }: Props) => {
           as={slug ? `/posts/${slug}` : '#'}
           href="/posts/[slug]"
           aria-label={title}
-          className="bg-pink-300 "
+          className="bg-pink-300"
           tabIndex={-1}
         >
           {/* eslint-disable @next/next/no-img-element */}
