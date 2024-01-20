@@ -32,9 +32,8 @@
     "@supabase/ui": "^0.36.4",
     "date-fns": "2.28.0",
     "next": "^14.1.0",
-    "next-mdx-remote": "^4.0.0",
+    "next-mdx-remote": "^4.4.1",
     "react": "^18.2.0",
-    "react-addons-text-content": "^0.0.4",
     "react-dom": "^18.2.0",
     "react-query": "^3.34.16",
     "react-scroll-parallax": "^3.0.5",
@@ -96,13 +95,6 @@
       "plugin:@typescript-eslint/recommended",
       "prettier",
       "next"
-    ],
-    "overrides": [
-      {
-        "files": [
-          "**/api/**/*.[jt]s"
-        ]
-      }
     ],
     "rules": {
       "@typescript-eslint/no-explicit-any": "off",
