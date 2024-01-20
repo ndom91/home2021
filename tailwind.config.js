@@ -1,6 +1,5 @@
 const defaultTheme = require("tailwindcss/defaultTheme")
 
-/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./src/**/*.{tsx,ts,md,mdx}"],
   safelist: ["animate-flicker", "reset", "fade_*"],
@@ -137,7 +136,7 @@ module.exports = {
         tighter: "-.04em",
       },
       lineHeight: {
-        tight: 1.2,
+        tight: "1.2",
       },
       boxShadow: {
         small: "0 5px 10px rgba(0, 0, 0, 0.12)",
@@ -286,55 +285,55 @@ module.exports = {
         },
         flicker: {
           "0%": {
-            opacity: 1,
+            opacity: "1",
           },
           "19.999%": {
-            opacity: 1,
+            opacity: "1",
           },
           "22%": {
-            opacity: 1,
+            opacity: "1",
           },
           "32.999%": {
-            opacity: 1,
+            opacity: "1",
           },
           "34%": {
-            opacity: 1,
+            opacity: "1",
           },
           "34.999%": {
-            opacity: 1,
+            opacity: "1",
           },
           "42%": {
-            opacity: 1,
+            opacity: "1",
           },
           "83%": {
-            opacity: 1,
+            opacity: "1",
           },
           "84%": {
-            opacity: 1,
+            opacity: "1",
           },
           "100%": {
-            opacity: 1,
+            opacity: "1",
           },
           "20%": {
-            opacity: 0.33,
+            opacity: "0.33",
           },
           "21.999%": {
-            opacity: 0.33,
+            opacity: "0.33",
           },
           "33%": {
-            opacity: 0.33,
+            opacity: "0.33",
           },
           "33.999%": {
-            opacity: 0.33,
+            opacity: "0.33",
           },
           "35%": {
-            opacity: 0.33,
+            opacity: "0.33",
           },
           "41.999%": {
-            opacity: 0.33,
+            opacity: "0.33",
           },
           "83.999%": {
-            opacity: 0.33,
+            opacity: "0.33",
           },
         },
       },

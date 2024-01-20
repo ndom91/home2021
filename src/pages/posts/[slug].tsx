@@ -1,4 +1,3 @@
-import ErrorPage from "next/error"
 import dynamic from "next/dynamic"
 import Head from "next/head"
 import PostHeader from "@/components/post-header"
@@ -6,10 +5,6 @@ import Layout from "@/components/layout"
 import PostType from "../../types/post"
 import ScreenshotLink from "@/components/screenshot-link"
 import CodeEditor from "@/components/mdx/code-editor"
-import useStore from "../../lib/zustand"
-import { useState } from "react"
-import { createClient } from "@supabase/supabase-js"
-import { Comments, AuthModal, CommentsProvider } from "supabase-comments-extension"
 
 import { remarkMdxToc } from "remark-mdx-toc"
 import rehypeAutolinkHeadings from "rehype-autolink-headings"
@@ -47,24 +42,12 @@ type Props = {
 }
 
 const Post = ({ source, frontMatter, slug }: Props) => {
-  const [modalVisible, setModalVisible] = useState(false)
-  const theme = useStore((state) => state.theme)
-  if (!frontMatter?.title) {
-    return <ErrorPage statusCode={404} />
-  }
-
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL ?? ""
-  const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_KEY ?? ""
-  const supabase = createClient(supabaseUrl, supabaseKey, {
-    autoRefreshToken: true,
-  })
-
   return (
     <>
       <ProgressBar />
       <Layout>
         <Head>
-          <title>{frontMatter.title.trim()} | ndom91</title>
+          <title>{`${frontMatter.title.trim()} | ndom91`}</title>
           <meta property="og:type" content="article" />
           <meta property="og:title" content={`${frontMatter.title} | ndom91`} />
           <meta property="og:url" content={`https://ndo.dev/posts/${slug}`} />
@@ -87,28 +70,6 @@ const Post = ({ source, frontMatter, slug }: Props) => {
           />
           <div className="mx-auto max-w-4xl dark:text-gray-100 prose prose-lg dark:prose-dark">
             <MDXRemote {...source} components={components} lazy />
-          </div>
-          <div className="mx-auto mt-20 max-w-full dark:text-gray-100 prose prose-sm md:prose-lg dark:prose-dark">
-            <CommentsProvider
-              supabaseClient={supabase}
-              onAuthRequested={() => setModalVisible(true)}
-              mode={theme}
-              enableMentions={false}
-            >
-              <AuthModal
-                visible={modalVisible}
-                onAuthenticate={() => setModalVisible(false)}
-                onClose={() => setModalVisible(false)}
-                providers={["github", "google"]}
-                onlyThirdPartyProviders={true}
-                redirectTo={
-                  process.env.NODE_ENV === "development"
-                    ? `http://localhost:3003/posts/${slug}`
-                    : `https://ndo.dev/posts/${slug}`
-                }
-              />
-              <Comments topic={slug} />
-            </CommentsProvider>
           </div>
         </article>
       </Layout>

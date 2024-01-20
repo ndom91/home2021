@@ -15,13 +15,13 @@ const CoverImage = ({ title, cover, slug }: Props) => {
       as={slug ? `/posts/${slug}` : "#"}
       href="/posts/[slug]"
       aria-label={title}
-      className="inline-block relative w-full bg-pink-300 rounded-md aspect-video"
+      className="inline-block relative w-full rounded-lg aspect-video"
       tabIndex={-1}
     >
       <Image
         src={`/assets/blog/${cover.imageFile}`}
         alt={`Cover Image for ${title}`}
-        className="object-contain"
+        className="object-cover object-top"
         priority
         fill
         sizes={"100%"}
