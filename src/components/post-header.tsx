@@ -4,26 +4,31 @@ import CoverImage from "@/components/cover-image"
 import PostTitle from "@/components/post-title"
 
 type Props = {
-  title: string
-  cover: {
-    imageFile: string
-  }
-  date: string
-  time: {
-    text: string
-    minutes: number
-    time: number
-    words: number
+  post: {
+    title: string
+    cover: {
+      imageFile: string
+    }
+    date: string
+    slug: string
+    url?: string
+    time: {
+      text: string
+      minutes: number
+      time: number
+      words: number
+    }
   }
 }
 
-const PostHeader = ({ title, cover, date, time }: Props) => {
+const PostHeader = ({ post }: Props) => {
+  const { title, date, cover, time } = post
   return (
     <>
       <PostTitle>{title}</PostTitle>
       {cover && (
         <div className="mb-16 sm:mx-0">
-          <CoverImage title={title} cover={cover} />
+          <CoverImage post={post} />
         </div>
       )}
       <div className="flex justify-between my-8 mx-auto max-w-4xl md:mt-16">

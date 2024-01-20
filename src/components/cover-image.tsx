@@ -2,18 +2,30 @@ import Link from "next/link"
 import Image from "next/image"
 
 type Props = {
-  title: string
-  cover: {
-    imageFile: string
+  post: {
+    title: string
+    cover: {
+      imageFile: string
+    }
+    date: string
+    slug: string
+    url?: string
+    time: {
+      text: string
+      minutes: number
+      time: number
+      words: number
+    }
   }
-  slug?: string
 }
 
-const CoverImage = ({ title, cover, slug }: Props) => {
+const CoverImage = ({ post }: Props) => {
+  const { title, cover, slug, url } = post
   return (
     <Link
       as={slug ? `/posts/${slug}` : "#"}
-      href="/posts/[slug]"
+      href={!url ? `/posts/${slug}` : url}
+      target={url ? "_blank" : "_self"}
       aria-label={title}
       className="inline-block relative w-full rounded-lg aspect-video"
       tabIndex={-1}

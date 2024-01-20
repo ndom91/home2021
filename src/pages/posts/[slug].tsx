@@ -60,12 +60,7 @@ const Post = ({ source, frontMatter, slug }: Props) => {
           <meta name="twitter:image:alt" content={frontMatter.title} />
         </Head>
         <article className="mt-12 mb-32 max-w-full md:mt-12">
-          <PostHeader
-            title={frontMatter.title}
-            cover={frontMatter.cover}
-            date={frontMatter.date}
-            time={frontMatter.time ?? "1 min"}
-          />
+          <PostHeader post={frontMatter} />
           <div className="mx-auto max-w-4xl dark:text-gray-100 prose prose-lg dark:prose-dark">
             <MDXRemote {...source} components={components} lazy />
           </div>

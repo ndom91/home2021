@@ -11,6 +11,7 @@ type Props = {
     slug: string
     category: string
     tags: string[]
+    url?: string
     cover: {
       imageFile: string
     }
@@ -24,7 +25,7 @@ type Props = {
 }
 
 const PostCard = ({ post }: Props) => {
-  const { title, date, excerpt, slug, tags, time, cover } = post
+  const { title, date, excerpt, slug, tags, time, url = "" } = post
 
   return (
     <div className="relative flex-col w-full max-w-full bg-white rounded-2xl md:inline-flex md:my-4 md:max-w-md dark:bg-gray-700 drop-shadow-lg">
@@ -32,13 +33,14 @@ const PostCard = ({ post }: Props) => {
         <div className="overflow-hidden z-20 mb-6 h-auto rounded-t-lg md:mb-6 mask-bottom-strong">
           <ParallaxProvider>
             <Parallax translateY={[0, -10]}>
-              <CoverImage title={title} cover={cover} slug={slug} />
+              <CoverImage post={post} />
             </Parallax>
           </ParallaxProvider>
         </div>
         <div className="flex relative z-20 flex-col justify-between w-full">
           <Link
-            href={`/posts/${slug ? slug : ""}`}
+            href={!url ? `/posts/${slug}` : url}
+            target={url ? "_blank" : "_self"}
             className="text-2xl font-extralight text-gray-600 rounded-sm transition-colors duration-300 outline-none md:text-2xl dark:text-gray-100 hover:outline-none focus:ring-4 focus:ring-pink-300 focus:ring-offset-2 focus:ring-offset-white focus:outline-none hover:text-palevioletred focus:dark:ring-palevioletred focus:dark:ring-offset-gray-500"
           >
             {title}

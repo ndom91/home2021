@@ -17,15 +17,7 @@ const Blog = ({ allPosts }: Props) => {
       <h1 className="mx-auto mt-8 mb-24 w-full max-w-7xl text-8xl font-bold tracking-tighter leading-tight opacity-0 md:pr-8 md:text-9xl dark:text-gray-100 animate-fade_in_up_10">
         blog.{" "}
       </h1>
-      {heroPost && (
-        <HeroPost
-          title={heroPost.title}
-          cover={heroPost.cover}
-          date={heroPost.date}
-          slug={heroPost.slug}
-          time={heroPost.time}
-        />
-      )}
+      {heroPost && <HeroPost post={heroPost} />}
       {morePosts.length > 0 && <MorePosts posts={morePosts} />}
     </Layout>
   )
