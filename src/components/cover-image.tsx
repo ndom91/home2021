@@ -23,7 +23,6 @@ const CoverImage = ({ post }: Props) => {
   const { title, cover, slug, url } = post
   return (
     <Link
-      as={slug ? `/posts/${slug}` : "#"}
       href={!url ? `/posts/${slug}` : url}
       target={url ? "_blank" : "_self"}
       aria-label={title}

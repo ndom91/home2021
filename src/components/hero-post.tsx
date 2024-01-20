@@ -37,7 +37,6 @@ const HeroPost = ({ post }: Props) => {
         <div className="col-span-4">
           <h3 className="mb-2 text-4xl leading-tight lg:text-6xl">
             <Link
-              as={`/posts/${slug}`}
               href={!url ? `/posts/${slug}` : url}
               target={url ? "_blank" : "_self"}
               className="font-sans font-extralight rounded-sm outline-none dark:text-gray-100 hover:outline-none focus:ring-4 focus:ring-pink-300 focus:ring-offset-2 focus:ring-offset-white focus:outline-none first-letter:text-4xl focus:dark:ring-palevioletred focus:dark:ring-offset-gray-500"
