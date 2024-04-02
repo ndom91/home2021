@@ -27,7 +27,7 @@ const IntroDescription = () => {
       <Link
         onMouseEnter={() => setDownload(true)}
         onMouseLeave={() => setDownload(false)}
-        href="/assets/ndomino_webdev_180124.pdf"
+        href="/assets/ndomino_fullstack.pdf"
         target="_blank"
         className={`transition-all outline-none border-underline-grow dark:ring-palevioletred opacity-0 animation-delay-500 animate-fade_in_up`}
       >
