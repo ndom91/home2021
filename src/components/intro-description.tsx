@@ -22,13 +22,23 @@ const IntroDescription = () => {
     >
       Hey visitor 👋 My name&apos;s Nico Domino and I&lsquo;m a senior full-stack javascript
       developer currently looking for{" "}
-      <ScreenshotLink url="/assets/ndomino_fullstack.pdf" image="resume.jpg" text="a new gig" /> .
-      In the evenings you can find me working on open source software, like{" "}
-      <ScreenshotLink url="https://authjs.dev" image="authjs.jpg" text="Auth.js" /> 🔒, or catching
-      up on the latest Netflix series. I&lsquo;m based in Berlin, Germany where I occasionally write
-      about my adventures in tech on my <ScreenshotLink url="/blog" image="blog.jpg" text="blog" />{" "}
+      <ScreenshotLink url="/assets/ndomino_fullstack.pdf" image="resume.jpg">
+        a new gig
+      </ScreenshotLink>
+      . In the evenings you can find me working on open source software, like{" "}
+      <ScreenshotLink url="https://authjs.dev" image="authjs.jpg">
+        Auth.js
+      </ScreenshotLink>{" "}
+      🔒, or catching up on the latest Netflix series. I&lsquo;m based in Berlin, Germany where I
+      occasionally write about my adventures in tech on my{" "}
+      <ScreenshotLink url="/blog" image="blog.jpg">
+        blog
+      </ScreenshotLink>{" "}
       📓 and if you like memes, movies, and web development you might also enjoy following me on{" "}
-      <ScreenshotLink url="https://twitter.com/ndom91" image="twitter.jpg" text="Twitter" /> 🐦
+      <ScreenshotLink url="https://twitter.com/ndom91" image="twitter.jpg">
+        Twitter
+      </ScreenshotLink>{" "}
+      🐦
     </div>
   )
 }
