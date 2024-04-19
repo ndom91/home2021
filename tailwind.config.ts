@@ -50,7 +50,7 @@ const config: Config = {
         },
         palevioletred: "#DB7093",
       },
-      typography: (theme) => ({
+      typography: (theme: TODO) => ({
         sm: {
           css: [
             {
