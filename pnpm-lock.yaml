@@ -103,6 +103,9 @@ devDependencies:
   lint-staged:
     specifier: ^15.2.2
     version: 15.2.2
+  open-props:
+    specifier: ^1.7.3
+    version: 1.7.3
   postcss:
     specifier: ^8.4.38
     version: 8.4.38
@@ -8501,6 +8504,10 @@ packages:
     engines: {node: '>=12'}
     dependencies:
       mimic-fn: 4.0.0
+    dev: true
+
+  /open-props@1.7.3:
+    resolution: {integrity: sha512-AzTMcnpVEM06oUUhcJmM5Ip0V7S/lSNBKKGz9R6Q8W3wRuJcgEQgXNl4l1K8/STyKWgs9F/2a2dQzq9RTUfMWg==}
     dev: true
 
   /open@6.4.0:

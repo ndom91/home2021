@@ -17,11 +17,8 @@ const ProjectCard = ({ project, index }: Props) => {
   const { name, url, desc, image, tech } = project
 
   return (
-    <div
-      className="opacity-0 animate-fade_in drop-shadow-md"
-      style={{ ["--index" as string]: index }}
-    >
-      <div className="relative bg-gray-100 rounded-xl dark:bg-gray-800 group">
+    <div className="opacity-0 animate-fade_in" style={{ ["--index" as string]: index }}>
+      <div className="relative bg-gray-100 rounded-xl shadow-sm dark:bg-gray-800 group">
         <div className="flex relative z-10 flex-col bg-gray-50 rounded-xl transition duration-500 dark:bg-gray-800">
           {url && (
             <Link
