@@ -23,7 +23,6 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        // sans: ["'Inter var', 'Inter'", ...defaultTheme.fontFamily.sans],
         sans: ["'Geist'", ...defaultTheme.fontFamily.sans],
         mono: ["Geist Mono", ...defaultTheme.fontFamily.mono],
         block: ["Silkscreen", ...defaultTheme.fontFamily.mono],
