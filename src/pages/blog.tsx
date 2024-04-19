@@ -18,7 +18,7 @@ const Blog = ({ allPosts }: Props) => {
         blog.{" "}
       </h1>
       {heroPost && <HeroPost post={heroPost} />}
-      {morePosts.length > 0 && <MorePosts posts={morePosts} />}
+      {morePosts.length ? <MorePosts posts={morePosts} /> : null}
     </Layout>
   )
 }

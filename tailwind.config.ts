@@ -179,6 +179,7 @@ const config: Config = {
         fade_out_down: "fade_out-down 500ms ease-out",
         fade_in_up: "fade_in_up 750ms cubic-bezier(0.68, -0.6, 0.32, 1.6) forwards",
         fade_in_up_5: "fade_in_up_5 750ms cubic-bezier(0.68, -0.6, 0.32, 1.6) forwards",
+        fade_in_up_5_rotate: "fade_in_up_5_rotate 1000ms var(--ease-spring-3) 500ms forwards",
         fade_in_up_10: "fade_in_up_10 750ms cubic-bezier(0.68, -0.6, 0.32, 2.2) forwards",
         fade_in_up_30: "fade_in_up_30 750ms cubic-bezier(0.68, -0.6, 0.32, 2.5) forwards",
         fade_in_up_500: "fade_in_up_10 750ms ease-out forwards 500ms",
@@ -256,6 +257,16 @@ const config: Config = {
           "100%": {
             opacity: "1",
             transform: "translateX(50%) translateY(0)",
+          },
+        },
+        fade_in_up_5_rotate: {
+          "0%": {
+            opacity: "0",
+            transform: "translateX(50%) translateY(20px)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translateX(50%) translateY(0) rotate(var(--image_rotation, 3deg))",
           },
         },
         fade_in_up_10: {
