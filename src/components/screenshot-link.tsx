@@ -1,56 +1,26 @@
-import { useState } from 'react'
-import Image from 'next/image'
+import { useState } from "react"
 
 type ScreenshotLinkProps = {
+  image: string
   url: string
   text: string
-  className: string
+  className?: string
 }
 
-const ScreenshotLink = ({ url, text, className = '' }: ScreenshotLinkProps) => {
+const ScreenshotLink = ({ url, image, text, className = "" }: ScreenshotLinkProps) => {
   const [isHovering, setIsHovering] = useState(false)
-  const [linkScreenshot, setLinkScreenshot] = useState('')
-
-  const fetchImage = async (url: string) => {
-    let colorScheme: 'light' | 'dark' = 'light'
-    if (typeof document !== 'undefined') {
-      colorScheme = document.documentElement.classList.contains('dark')
-        ? 'dark'
-        : 'light'
-    }
-    try {
-      setIsHovering(true)
-      const res = await fetch(
-        `https://screenshot.briefkastenhq.com/api/image?url=${encodeURIComponent(
-          url
-        )}&colorScheme=${colorScheme}&skipCookieBannerClick=true`
-      )
-      const image = await res.blob()
-      setLinkScreenshot(URL.createObjectURL(image))
-    } catch (e) {
-      console.error('Error fetching screenshot image', e)
-    }
-  }
 
   return (
     <span>
       <div
         className={`word relative inline-block ${className}`}
-        onMouseOver={() => fetchImage(url)}
+        onMouseOver={() => setIsHovering(true)}
         onMouseOut={() => setIsHovering(false)}
-        onFocus={() => fetchImage(url)}
-        onBlur={() => setIsHovering(false)}
       >
-        {isHovering && linkScreenshot && (
-          <div className="block absolute right-1/2 z-10 w-32 pointer-events-none lg:block bottom-[2.0rem] animate-fade_in_up_5">
-            <Image
-              src={linkScreenshot}
-              height={180}
-              width={300}
-              unoptimized
-              alt={text}
-              className="rounded-md"
-            />
+        <img src={`/screenshots/${image}`} className="hidden" />
+        {isHovering && image && (
+          <div className="block absolute bottom-16 right-1/2 z-10 w-32 rounded-md ring-4 transition rotate-6 pointer-events-none lg:block ring-zinc-100 animate-fade_in_up_5 dark:ring-zinc-800">
+            <img src={`/screenshots/${image}`} alt={text} className="rounded-md" />
           </div>
         )}
         <a

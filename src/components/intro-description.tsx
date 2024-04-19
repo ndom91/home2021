@@ -1,4 +1,3 @@
-import Link from "next/link"
 import { useEffect } from "react"
 import Splitting from "splitting"
 import ScreenshotLink from "@/components/screenshot-link"
@@ -11,7 +10,6 @@ const IntroDescription = () => {
   }, [])
 
   const setHoverText = useStore((state) => state.setHoverText)
-  const setDownload = useStore((state) => state.setDownload)
 
   return (
     <div
@@ -24,35 +22,13 @@ const IntroDescription = () => {
     >
       Hey visitor 👋 My name&apos;s Nico Domino and I&lsquo;m a senior full-stack javascript
       developer currently looking for{" "}
-      <Link
-        onMouseEnter={() => setDownload(true)}
-        onMouseLeave={() => setDownload(false)}
-        href="/assets/ndomino_fullstack.pdf"
-        target="_blank"
-        className={`transition-all outline-none border-underline-grow dark:ring-palevioletred opacity-0 animation-delay-500 animate-fade_in_up`}
-      >
-        a new gig
-      </Link>
-      . In the evenings you can find me working on open source software, like{" "}
-      <ScreenshotLink
-        url="https://next-auth.js.org?utm_source=ndom91"
-        text="Auth.js"
-        className="opacity-0 animation-delay-600 animate-fade_in_up"
-      />{" "}
-      🔒, or catching up on the latest Netflix series. I&lsquo;m based in Berlin, Germany where I
-      occasionally write about my adventures in tech on my{" "}
-      <ScreenshotLink
-        url="https://ndo.dev/blog"
-        text="blog"
-        className="opacity-0 animation-delay-900 animate-fade_in_up"
-      />{" "}
+      <ScreenshotLink url="/assets/ndomino_fullstack.pdf" image="resume.jpg" text="a new gig" /> .
+      In the evenings you can find me working on open source software, like{" "}
+      <ScreenshotLink url="https://authjs.dev" image="authjs.jpg" text="Auth.js" /> 🔒, or catching
+      up on the latest Netflix series. I&lsquo;m based in Berlin, Germany where I occasionally write
+      about my adventures in tech on my <ScreenshotLink url="/blog" image="blog.jpg" text="blog" />{" "}
       📓 and if you like memes, movies, and web development you might also enjoy following me on{" "}
-      <ScreenshotLink
-        url="https://twitter.com/ndom91"
-        text="Twitter"
-        className="opacity-0 animation-delay-1100 animate-fade_in_up"
-      />{" "}
-      🐦
+      <ScreenshotLink url="https://twitter.com/ndom91" image="twitter.jpg" text="Twitter" /> 🐦
     </div>
   )
 }
