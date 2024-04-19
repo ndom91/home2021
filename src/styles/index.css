@@ -139,30 +139,6 @@ html[class="dark"] ul a:before {
 
 /* PROJECTS */
 
-.more-projects {
-  column-count: 1;
-}
-
-@media screen and (min-width: 640px) {
-  .more-projects {
-    column-count: 2;
-    column-gap: 1rem;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .more-projects {
-    column-count: 3;
-    column-gap: 0px;
-  }
-}
-
-.more-projects>div {
-  margin-bottom: 4em;
-  break-inside: avoid;
-  page-break-inside: avoid;
-}
-
 .more-projects .animate-fade_in {
   animation-delay: calc(var(--index) * 100ms);
 }

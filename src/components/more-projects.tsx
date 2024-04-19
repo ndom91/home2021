@@ -1,6 +1,6 @@
-import { ParallaxProvider } from 'react-scroll-parallax'
-import ProjectCard from '@/components/project-card'
-import { Project } from '../types/project'
+import { ParallaxProvider } from "react-scroll-parallax"
+import ProjectCard from "@/components/project-card"
+import { Project } from "../types/project"
 
 type Props = {
   projects: Project[]
@@ -8,7 +8,7 @@ type Props = {
 
 const MoreProjects = ({ projects }: Props) => {
   return (
-    <section className="more-projects dark:text-gray-100">
+    <section className="grid grid-cols-3 dark:text-gray-100">
       {projects.map((project, index) => (
         <ParallaxProvider key={project.name}>
           <ProjectCard project={project} key={project.name} index={index + 1} />

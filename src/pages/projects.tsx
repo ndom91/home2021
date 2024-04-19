@@ -1,6 +1,6 @@
 import MoreProjects from "@/components/more-projects"
 import Layout from "@/components/layout"
-import { Projects } from "../types/project"
+import { type Projects } from "../types/project"
 
 const About = ({ projects }: Projects) => {
   return (
@@ -11,7 +11,7 @@ const About = ({ projects }: Projects) => {
             projects.
           </h1>
         </div>
-        {projects.length > 0 && <MoreProjects projects={projects} />}
+        {projects.length ? <MoreProjects projects={projects} /> : null}
       </div>
     </Layout>
   )

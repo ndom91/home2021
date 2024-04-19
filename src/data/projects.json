@@ -1,24 +1,31 @@
 [
   {
-    "name": "auth.js",
+    "name": "Auth.js",
     "url": "https://authjs.dev",
-    "image": "nextauth.png",
-    "desc": "Core-team member of Auth.js (ex NextAuth.js) - authentication for the Web! 22k+ GitHub Stars",
+    "image": "authjs.png",
+    "desc": "Core-team member of Auth.js (NextAuth.js) - Authentication for the Web! 22k+ GitHub Stars",
     "tech": ["react", "nextjs", "npm"]
   },
   {
     "name": "Briefkasten Docs",
     "url": "https://docs.briefkastenhq.com",
     "image": "briefkasten-docs.png",
-    "desc": "Documentation and marketing site for Briefkasten",
+    "desc": "Marketing and documentation site for Briefkasten",
     "tech": ["nextjs", "tailwindcss", "react"]
   },
   {
     "name": "Briefkasten",
     "url": "https://github.com/ndom91/sveltekasten",
     "image": "briefkasten.png",
-    "desc": "Self-hosted read-it-later / rss-reader application made with Next.js, Prisma, Supabase. 600+ GitHub Stars",
-    "tech": ["nextjs", "tailwindcss", "prisma"]
+    "desc": "Self-hostable RSS Reader + Read-it-later application made with SvelteKit, Prisma, Node. 700+ GitHub Stars",
+    "tech": ["nextjs", "tailwindcss", "prisma", "docker"]
+  },
+  {
+    "name": "svelte-infinite",
+    "url": "https://github.com/ndom91/svelte-infinite",
+    "image": "svelteinfinite.png",
+    "desc": "Svelte 5 infinite scroller component",
+    "tech": ["svelte", "npm"]
   },
   {
     "name": "NewTelco Landing",
@@ -32,13 +39,13 @@
     "url": "https://github.com/ndom91/homeassistant-checkly",
     "image": "checklyhomeassistant.png",
     "desc": "HomeAssistant custom component for turning Checkly checks into HA sensors.",
-    "tech": ["python", "checkly"]
+    "tech": ["homeassistant", "python", "checkly"]
   },
   {
     "name": "react-timezone-select",
     "url": "https://github.com/ndom91/react-timezone-select",
     "image": "reacttimezoneselect.png",
-    "desc": "React component for selecting timezones with 190k+ downloads per month 🎉",
+    "desc": "React component for selecting timezones with 190k+ downloads per month",
     "tech": ["react", "typescript", "npm"]
   },
   {
