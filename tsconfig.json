@@ -1,6 +1,10 @@
 {
   "compilerOptions": {
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -9,7 +13,6 @@
     "module": "esnext",
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
-    "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
     "baseUrl": ".",
@@ -19,8 +22,12 @@
       ],
       "@/assets/*": [
         "./public/assets/*"
+      ],
+      "@/types/*": [
+        "./src/types/*"
       ]
-    }
+    },
+    "isolatedModules": true
   },
   "exclude": [
     "node_modules"

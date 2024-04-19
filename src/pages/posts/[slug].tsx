@@ -2,19 +2,19 @@ import dynamic from "next/dynamic"
 import Head from "next/head"
 import PostHeader from "@/components/post-header"
 import Layout from "@/components/layout-blog"
-import PostType from "../../types/post"
 import ScreenshotLink from "@/components/screenshot-link"
 import CodeEditor from "@/components/mdx/code-editor"
+import { type Post } from "@/types/post"
 
-import rehypeAutolinkHeadings from "rehype-autolink-headings"
-import rehypeSlug from "rehype-slug"
-import fs from "fs/promises"
+import path from "node:path"
+import fs from "node:fs/promises"
 import matter from "gray-matter"
-import path from "path"
+import rehypeSlug from "rehype-slug"
 import readingTime from "reading-time"
+import rehypeShiki from "@shikijs/rehype"
 import { MDXRemote } from "next-mdx-remote"
 import { serialize } from "next-mdx-remote/serialize"
-import rehypeShiki from "@shikijs/rehype"
+import rehypeAutolinkHeadings from "rehype-autolink-headings"
 
 import { postFilePaths, POSTS_PATH } from "../../lib/mdxUtils"
 
@@ -35,7 +35,7 @@ type Params = {
 
 type Props = {
   source: TODO
-  frontMatter: PostType
+  frontMatter: Post
   slug: string
 }
 

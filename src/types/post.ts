@@ -1,4 +1,4 @@
-type PostType = {
+export type Post = {
   slug: string
   title: string
   date: string
@@ -19,5 +19,3 @@ type PostType = {
     words: number
   }
 }
-
-export default PostType

@@ -1,6 +1,6 @@
 import MoreProjects from "@/components/more-projects"
 import Layout from "@/components/layout"
-import { type Projects } from "../types/project"
+import { type Projects } from "@/types/project"
 
 const About = ({ projects }: Projects) => {
   return (
@@ -19,8 +19,8 @@ const About = ({ projects }: Projects) => {
 
 export default About
 
-export const getStaticProps = async () => {
-  const projects = require("../data/projects.json")
+export const getStaticProps = () => {
+  const projects: Record<string, any> = require("../data/projects.json")
 
   return {
     props: { projects },

@@ -1,5 +1,5 @@
-import Post from "../types/post"
 import PostCard from "@/components/post-card"
+import { type Post } from "@/types/post"
 
 type Props = {
   posts: Post[]

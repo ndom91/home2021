@@ -43,6 +43,8 @@ export default tseslint.config(
   {
     rules: {
       "@typescript-eslint/no-explicit-any": "off",
+      "@typescript-eslint/no-var-requires": "warn",
+      "@typescript-eslint/no-unsafe-assignment": "warn",
     },
     // plugins: {
     //   "@next/next": next,

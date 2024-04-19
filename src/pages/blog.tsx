@@ -2,7 +2,7 @@ import MorePosts from "@/components/more-posts"
 import HeroPost from "@/components/hero-post"
 import Layout from "@/components/layout"
 import { getAllPosts } from "../lib/api"
-import Post from "../types/post"
+import { type Post } from "@/types/post"
 
 type Props = {
   allPosts: Post[]

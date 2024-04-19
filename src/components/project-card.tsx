@@ -1,21 +1,8 @@
-import { useState, useEffect } from "react"
-import { Parallax } from "react-scroll-parallax"
 import Image from "next/image"
 import Link from "next/link"
-import { Project } from "../types/project"
-import Icon from "./icon"
-
-interface StaticImageData {
-  src: string
-  height: number
-  width: number
-}
-
-interface StaticRequire {
-  default: StaticImageData
-}
-
-type StaticImport = StaticRequire | StaticImageData
+import Icon from "@/components/icon"
+import { Parallax } from "react-scroll-parallax"
+import { type Project } from "@/types/project"
 
 type Props = {
   index: number
@@ -28,17 +15,6 @@ function randomNumber(min: number, max: number) {
 
 const ProjectCard = ({ project, index }: Props) => {
   const { name, url, desc, image, tech } = project
-  const [imageImport, setImage] = useState<StaticImport>()
-  const loadImage = (imgur: string) => {
-    import(`../../public/assets/img/screenshots/${imgur}`).then((image) => {
-      setImage(image)
-    })
-  }
-  useEffect(() => {
-    if (image) {
-      loadImage(image)
-    }
-  }, [image])
 
   return (
     <div
@@ -56,18 +32,18 @@ const ProjectCard = ({ project, index }: Props) => {
               rel="noopener noreferrer"
               className="overflow-y-hidden z-10 mb-2 w-full h-32 bg-gray-200 rounded-t-xl dark:bg-gray-600 hover:cursor-pointer"
             >
-              {imageImport && (
-                <Parallax translateY={[0, randomNumber(60, 120)]} className="relative h-full">
-                  <Image
-                    src={imageImport}
-                    id={`project-image-${image}`}
-                    alt={`${name} Image`}
-                    quality="100"
-                    sizes={"100%"}
-                    className="object-cover object-top w-full rounded-t-xl"
-                  />
-                </Parallax>
-              )}
+              <Parallax translateY={[0, randomNumber(60, 120)]} className="relative h-full">
+                <Image
+                  src={`/assets/img/screenshots/${image}`}
+                  id={`project-image-${image}`}
+                  alt={`${name} Image`}
+                  quality="100"
+                  sizes={"100%"}
+                  width="320"
+                  height="120"
+                  className="object-cover object-top w-full rounded-t-xl"
+                />
+              </Parallax>
             </Link>
           )}
 
