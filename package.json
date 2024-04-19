@@ -1,6 +1,6 @@
 {
   "name": "ndom91-2021",
-  "version": "1.3.0",
+  "version": "1.3.9",
   "description": "ndom91 portfolio page",
   "license": "MIT",
   "author": "ndom91 <yo@ndo.dev>",
@@ -21,88 +21,56 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@mapbox/rehype-prism": "^0.8.0",
-    "@mdx-js/loader": "^2.1.3",
-    "@mdx-js/react": "^3.0.0",
-    "@next/mdx": "^14.1.0",
-    "@supabase/supabase-js": "^1.31.1",
-    "@supabase/ui": "^0.36.4",
-    "date-fns": "2.28.0",
-    "next": "^14.1.0",
+    "@mapbox/rehype-prism": "^0.9.0",
+    "@mdx-js/loader": "^3.0.1",
+    "@mdx-js/react": "^3.0.1",
+    "@next/mdx": "^14.2.2",
+    "date-fns": "3.6.0",
+    "next": "^14.2.2",
     "next-mdx-remote": "^4.4.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-query": "^3.34.16",
-    "react-scroll-parallax": "^3.0.5",
-    "react-spring": "^9.4.4",
-    "react-use": "^17.3.2",
-    "rehype-autolink-headings": "^6.1.1",
-    "rehype-slug": "^5.0.1",
+    "react-scroll-parallax": "^3.4.5",
+    "react-spring": "^9.7.3",
+    "react-use": "^17.5.0",
+    "rehype-autolink-headings": "^7.1.0",
+    "rehype-slug": "^6.0.0",
     "splitting": "^1.0.6",
-    "supabase-comments-extension": "0.0.2",
-    "zustand": "^4.5.0"
+    "zustand": "^4.5.2"
   },
   "devDependencies": {
-    "@commitlint/cli": "^16.2.3",
-    "@commitlint/config-conventional": "^16.2.1",
-    "@svgr/webpack": "^6.2.1",
-    "@tailwindcss/typography": "^0.5.4",
-    "@types/jest": "^27.4.1",
-    "@types/mdx": "^2.0.10",
-    "@types/node": "^17.0.21",
-    "@types/react": "^17.0.48",
-    "@types/react-dom": "^17.0.14",
-    "@typescript-eslint/eslint-plugin": "^6.19.0",
-    "@typescript-eslint/parser": "^6.19.0",
-    "autoprefixer": "^10.4.17",
-    "chrome-aws-lambda": "^10.1.0",
-    "eslint": "^8.11.0",
-    "eslint-config-next": "^14.1.0",
+    "@commitlint/cli": "^19.2.2",
+    "@commitlint/config-conventional": "^19.2.2",
+    "@eslint/js": "^9.0.0",
+    "@svgr/webpack": "^8.1.0",
+    "@tailwindcss/typography": "^0.5.12",
+    "@types/jest": "^29.5.12",
+    "@types/mdx": "^2.0.13",
+    "@types/node": "^20.12.7",
+    "@types/react": "^18.2.79",
+    "@types/react-dom": "^18.2.25",
+    "@typescript-eslint/eslint-plugin": "^7.7.0",
+    "@typescript-eslint/parser": "^7.7.0",
+    "autoprefixer": "^10.4.19",
+    "eslint": "^9.0.0",
+    "eslint-config-next": "^14.2.2",
     "eslint-config-prettier": "^9.1.0",
     "gray-matter": "4.0.3",
-    "lint-staged": "^13.0.3",
-    "playwright-core": "^1.20.0",
-    "postcss": "^8.4.33",
-    "prettier": "^2.6.0",
+    "lint-staged": "^15.2.2",
+    "postcss": "^8.4.38",
+    "prettier": "^3.2.5",
     "reading-time": "^1.5.0",
-    "remark": "14.0.2",
-    "remark-html": "15.0.1",
+    "remark": "15.0.1",
+    "remark-html": "16.0.1",
     "remark-prism": "^1.3.6",
-    "simple-git-hooks": "^2.8.0",
-    "tailwindcss": "^3.4.1",
-    "typescript": "^5.3.3",
-    "vercel": "^24.0.0"
+    "simple-git-hooks": "^2.11.1",
+    "tailwindcss": "^3.4.3",
+    "typescript": "^5.4.5",
+    "typescript-eslint": "^7.7.0"
   },
   "prettier": {
     "semi": false,
-    "printWidth": 100,
-    "bracketSpacing": true
-  },
-  "sourceType": "module",
-  "eslintConfig": {
-    "root": true,
-    "parser": "@typescript-eslint/parser",
-    "plugins": [
-      "@typescript-eslint"
-    ],
-    "extends": [
-      "eslint:recommended",
-      "plugin:@typescript-eslint/eslint-recommended",
-      "plugin:@typescript-eslint/recommended",
-      "prettier",
-      "next"
-    ],
-    "rules": {
-      "@typescript-eslint/no-explicit-any": "off",
-      "@typescript-eslint/ban-ts-comment": "off",
-      "@typescript-eslint/no-var-requires": "off",
-      "@typescript-eslint/no-unused-vars": "off"
-    },
-    "parserOptions": {
-      "sourceType": "module",
-      "ecmaVersion": "esnext",
-      "allowImportExportEverywhere": true
-    }
+    "printWidth": 100
   },
   "commitlint": {
     "extends": [
@@ -112,5 +80,11 @@
   "simple-git-hooks": {
     "commit-msg": "npx commitlint --edit",
     "pre-commit": "npx lint-staged"
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
   }
 }

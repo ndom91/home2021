@@ -26,7 +26,6 @@ type Props = {
 
 const PostCard = ({ post }: Props) => {
   const { title, date, excerpt, slug, tags, time, url = "" } = post
-  console.log("PostCard", title, time)
 
   return (
     <div className="relative flex-col w-full max-w-full bg-white rounded-2xl md:inline-flex md:my-4 md:max-w-md dark:bg-gray-700 drop-shadow-lg">

@@ -1,4 +1,6 @@
-const withMDX = require("@next/mdx")({
+import Mdx from "@next/mdx"
+
+const withMDX = Mdx({
   experimental: {
     mdxRs: true,
   },
@@ -16,4 +18,4 @@ const nextConfig = {
   pageExtensions: ["tsx", "md", "mdx"],
 }
 
-module.exports = withMDX(nextConfig)
+export default withMDX(nextConfig)

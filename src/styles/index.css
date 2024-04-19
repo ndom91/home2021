@@ -358,7 +358,7 @@ html[class="dark"] .border-underline-grow:active {
     font-family: "Geist";
     font-style: normal;
     font-weight: 200;
-    src: local(""), url("/assets/fonts/geist-mono/Geist-Light.woff2") format("woff2");
+    src: local(""), url("/assets/fonts/geist/Geist-Light.woff2") format("woff2");
   }
 
   /* geist-mono - normal */
@@ -366,7 +366,7 @@ html[class="dark"] .border-underline-grow:active {
     font-family: "Geist";
     font-style: normal;
     font-weight: 400;
-    src: local(""), url("/assets/fonts/geist-mono/Geist-Regular.woff2") format("woff2");
+    src: local(""), url("/assets/fonts/geist/Geist-Regular.woff2") format("woff2");
   }
 
   /* geist-mono - bold */
@@ -374,7 +374,7 @@ html[class="dark"] .border-underline-grow:active {
     font-family: "Geist";
     font-style: normal;
     font-weight: 600;
-    src: local(""), url("/assets/fonts/geist-mono/Geist-Bold.woff2") format("woff2");
+    src: local(""), url("/assets/fonts/geist/Geist-Bold.woff2") format("woff2");
   }
 
   /* geist-mono - black */
@@ -382,7 +382,7 @@ html[class="dark"] .border-underline-grow:active {
     font-family: "Geist";
     font-style: normal;
     font-weight: 800;
-    src: local(""), url("/assets/fonts/geist-mono/Geist-Black.woff2") format("woff2");
+    src: local(""), url("/assets/fonts/geist/Geist-Black.woff2") format("woff2");
   }
 
   /* geist-mono - light */

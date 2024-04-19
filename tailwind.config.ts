@@ -1,7 +1,8 @@
-const defaultTheme = require("tailwindcss/defaultTheme")
+import defaultTheme from "tailwindcss/defaultTheme"
+import { type Config } from "tailwindcss"
 
-module.exports = {
-  content: ["./src/**/*.{tsx,ts,md,mdx}"],
+const config: Config = {
+  content: ["./src/**/*.{tsx,ts,md,mdx}", "./public/assets/**/*.svg"],
   safelist: ["animate-flicker", "reset", "fade_*"],
   darkMode: "class",
   plugins: [require("@tailwindcss/typography")],
@@ -335,3 +336,5 @@ module.exports = {
     },
   },
 }
+
+export default config
