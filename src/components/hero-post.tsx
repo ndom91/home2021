@@ -26,7 +26,7 @@ const HeroPost = ({ post }: Props) => {
   const { title, date, slug, time, url } = post
   return (
     <section className="p-8 mx-auto w-full max-w-7xl bg-white rounded-2xl shadow-xl opacity-0 md:p-16 dark:bg-gray-700 animate-fade_in">
-      <div className="overflow-hidden mb-8 h-auto rounded-t-lg md:mb-16 md:h-96 mask-bottom-strong">
+      <div className="overflow-hidden mb-8 h-auto rounded-t-lg md:mb-16 mask-bottom-strong md:h-[28rem]">
         <ParallaxProvider>
           <Parallax translateY={[0, -10]}>
             <CoverImage post={post} />
@@ -44,7 +44,7 @@ const HeroPost = ({ post }: Props) => {
               {title}
             </Link>
           </h3>
-          <div className="flex mb-4 space-x-4 font-light md:justify-start text-md">
+          <div className="flex mb-4 space-x-4 font-semibold md:justify-start text-md">
             <DateFormatter dateString={date} />
             <span className="text-gray-400 dark:text-gray-300">{time.text}</span>
           </div>

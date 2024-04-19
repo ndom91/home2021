@@ -32,7 +32,6 @@ const CoverImage = ({ post }: Props) => {
       <Image
         src={`/assets/blog/${cover.imageFile}`}
         alt={`Cover Image for ${title}`}
-        className="object-fill"
         priority
         fill
         sizes={"100%"}

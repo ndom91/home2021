@@ -7,6 +7,13 @@
     "tech": ["react", "nextjs", "npm"]
   },
   {
+    "name": "Briefkasten Docs",
+    "url": "https://docs.briefkastenhq.com",
+    "image": "briefkasten-docs.png",
+    "desc": "Documentation and marketing site for Briefkasten",
+    "tech": ["nextjs", "tailwindcss", "react"]
+  },
+  {
     "name": "Briefkasten",
     "url": "https://github.com/ndom91/sveltekasten",
     "image": "briefkasten.png",

@@ -6,39 +6,51 @@
   .animation-delay-200 {
     animation-delay: 200ms;
   }
+
   .animation-delay-300 {
     animation-delay: 300ms;
   }
+
   .animation-delay-400 {
     animation-delay: 400ms;
   }
+
   .animation-delay-500 {
     animation-delay: 500ms;
   }
+
   .animation-delay-600 {
     animation-delay: 600ms;
   }
+
   .animation-delay-700 {
     animation-delay: 700ms;
   }
+
   .animation-delay-800 {
     animation-delay: 800ms;
   }
+
   .animation-delay-900 {
     animation-delay: 900ms;
   }
+
   .animation-delay-1100 {
     animation-delay: 1100ms;
   }
+
   .animation-delay-1000 {
     animation-delay: 1000ms;
   }
+
   .animation-delay-2000 {
     animation-delay: 2s;
   }
+
   .animation-delay-4000 {
     animation-delay: 4s;
   }
+
   .reset {
     margin: 0 !important;
     padding: 0 !important;
@@ -145,7 +157,7 @@ html[class="dark"] ul a:before {
   }
 }
 
-.more-projects > div {
+.more-projects>div {
   margin-bottom: 4em;
   break-inside: avoid;
   page-break-inside: avoid;
@@ -163,12 +175,14 @@ html[class="dark"] ul a:before {
 }
 
 @media screen and (min-width: 1890px) {
+
   .prose h1,
   .prose h2,
   .prose h3,
   .prose h4 {
     @apply scroll-mt-8;
   }
+
   .prose nav.toc li {
     @apply max-w-xs overflow-ellipsis;
   }
@@ -194,6 +208,7 @@ html[class="dark"] ul a:before {
 .prose li {
   word-break: break-word !important;
 }
+
 .prose pre,
 .prose code {
   word-break: break-all !important;
@@ -250,15 +265,20 @@ html[class="dark"] ul a:before {
 }
 
 .mask-bottom-strong {
-  mask-image: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(255, 255, 255, 0.05) 10%,
-    rgba(255, 255, 255, 0.15) 16%,
-    rgba(255, 255, 255, 0.35) 23%,
-    rgba(255, 255, 255, 0.8) 35%,
-    rgba(255, 255, 255, 1) 50%
-  );
+  mask-image: linear-gradient(to bottom,
+      hsl(0, 0%, 0%) 0%,
+      hsla(0, 0%, 0%, 0.738) 19%,
+      hsla(0, 0%, 0%, 0.541) 34%,
+      hsla(0, 0%, 0%, 0.382) 47%,
+      hsla(0, 0%, 0%, 0.278) 56.5%,
+      hsla(0, 0%, 0%, 0.194) 65%,
+      hsla(0, 0%, 0%, 0.126) 73%,
+      hsla(0, 0%, 0%, 0.075) 80.2%,
+      hsla(0, 0%, 0%, 0.042) 86.1%,
+      hsla(0, 0%, 0%, 0.021) 91%,
+      hsla(0, 0%, 0%, 0.008) 95.2%,
+      hsla(0, 0%, 0%, 0.002) 98.2%,
+      hsla(0, 0%, 0%, 0) 100%);
 }
 
 html.dark .js_darkmode_flicker {
@@ -282,6 +302,7 @@ html.dark .js_darkmode_flicker {
     opacity: 0;
     transform: translateY(20px);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0);
@@ -339,22 +360,23 @@ html[class="dark"] .border-underline-grow:active {
   html:not(.dark) .intro-title:hover {
     cursor: none;
     transition: text-shadow 1000ms cubic-bezier(1, 0.36, 0.7, 1.97),
-      /* cubic-bezier(0.98, -0.4, 0.32, 2.2), */ mask-size 500ms ease-in-out;
+      /* cubic-bezier(0.98, -0.4, 0.32, 2.2), */
+      mask-size 500ms ease-in-out;
     text-shadow: 0px 90px 1px palevioletred, 0px 180px 1.5px palevioletred,
       0px 270px 3.5px palevioletred, 0px 360px 5px palevioletred, 0px 450px 6px palevioletred,
       0px 540px 4px palevioletred;
     width: 100%;
     height: 50vh;
-    mask-image: linear-gradient(
-      to top,
-      rgba(0, 0, 0, 0),
-      rgba(255, 255, 255, 1) 85%,
-      rgba(255, 255, 255, 1)
-    );
+    mask-image: linear-gradient(to top,
+        rgba(0, 0, 0, 0),
+        rgba(255, 255, 255, 1) 85%,
+        rgba(255, 255, 255, 1));
   }
 }
+
 /* FONTS */
 @layer base {
+
   /* geist-mono - light */
   @font-face {
     font-family: "Geist";
@@ -362,6 +384,7 @@ html[class="dark"] .border-underline-grow:active {
     font-weight: 200;
     src: local(""), url("/assets/fonts/geist-mono/Geist-Light.woff2") format("woff2");
   }
+
   /* geist-mono - normal */
   @font-face {
     font-family: "Geist";
@@ -369,6 +392,7 @@ html[class="dark"] .border-underline-grow:active {
     font-weight: 400;
     src: local(""), url("/assets/fonts/geist-mono/Geist-Regular.woff2") format("woff2");
   }
+
   /* geist-mono - bold */
   @font-face {
     font-family: "Geist";
@@ -376,6 +400,7 @@ html[class="dark"] .border-underline-grow:active {
     font-weight: 600;
     src: local(""), url("/assets/fonts/geist-mono/Geist-Bold.woff2") format("woff2");
   }
+
   /* geist-mono - black */
   @font-face {
     font-family: "Geist";
@@ -391,6 +416,7 @@ html[class="dark"] .border-underline-grow:active {
     font-weight: 200;
     src: local(""), url("/assets/fonts/geist-mono/GeistMono-Light.woff2") format("woff2");
   }
+
   /* geist-mono - normal */
   @font-face {
     font-family: "Geist Mono";
@@ -398,6 +424,7 @@ html[class="dark"] .border-underline-grow:active {
     font-weight: 400;
     src: local(""), url("/assets/fonts/geist-mono/GeistMono-Regular.woff2") format("woff2");
   }
+
   /* geist-mono - bold */
   @font-face {
     font-family: "Geist Mono";
@@ -405,6 +432,7 @@ html[class="dark"] .border-underline-grow:active {
     font-weight: 600;
     src: local(""), url("/assets/fonts/geist-mono/GeistMono-Bold.woff2") format("woff2");
   }
+
   /* geist-mono - black */
   @font-face {
     font-family: "Geist Mono";

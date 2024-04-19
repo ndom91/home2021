@@ -5,7 +5,6 @@ import readingTime from "reading-time"
 import { remark } from "remark"
 import html from "remark-html"
 
-// Setup custom return array of fields
 type Items = {
   [key: string]: string
 }

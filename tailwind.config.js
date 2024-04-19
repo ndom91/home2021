@@ -7,6 +7,7 @@ module.exports = {
   plugins: [require("@tailwindcss/typography")],
   theme: {
     fontSize: {
+      xs: "clamp(0.46rem, 0.18vw + 0.57rem, 0.75rem)",
       sm: "clamp(0.76rem, 0.2vw + 0.71rem, 0.87rem)",
       base: "clamp(0.88rem, 0.23vw + 0.82rem, 1rem)",
       lg: "clamp(1.16rem, 0.3vw + 1.08rem, 1.27rem)",

@@ -10,7 +10,7 @@
     "category": "observability",
     "tags": ["observability", "grafana", "prometheus", "clickhouse"],
     "time": {
-      "text": "7 min"
+      "text": "7 min read"
     }
   },
   {
@@ -24,7 +24,7 @@
     "tags": ["monitoring", "api", "api monitoring", "multi-step api checks"],
     "category": "monitoring",
     "time": {
-      "text": "2 min"
+      "text": "2 min read"
     }
   },
   {
@@ -38,7 +38,7 @@
     "category": "testing",
     "tags": ["testing", "api", "api testing"],
     "time": {
-      "text": "4 min"
+      "text": "4 min read"
     }
   },
   {
@@ -52,7 +52,7 @@
     "category": "react",
     "tags": ["monaco", "code", "code editor"],
     "time": {
-      "text": "4 min"
+      "text": "4 min read"
     }
   }
 ]
