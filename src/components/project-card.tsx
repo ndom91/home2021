@@ -77,7 +77,7 @@ const ProjectCard = ({ project, index }: Props) => {
                 href={url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline font-mono font-extralight text-gray-600 transition-all duration-300 outline-none md:text-lg dark:text-gray-100 hover:outline-none focus:ring-4 focus:ring-pink-300 focus:ring-offset-2 focus:ring-offset-gray-100 focus:outline-none dark:hover:text-palevioletred hover:text-palevioletred focus:dark:ring-palevioletred focus:dark:ring-offset-gray-800"
+                className="inline font-mono font-extralight text-gray-600 rounded-sm transition-all duration-300 outline-none md:text-lg dark:text-gray-100 hover:outline-none focus:ring-4 focus:ring-pink-300 focus:ring-offset-2 focus:ring-offset-gray-100 focus:outline-none dark:hover:text-palevioletred hover:text-palevioletred focus:dark:ring-palevioletred focus:dark:ring-offset-gray-800"
               >
                 {name}
                 <svg

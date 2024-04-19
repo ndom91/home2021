@@ -24,7 +24,7 @@ const Layout = ({ children }: Props) => {
 
   return (
     <div
-      className="flex flex-col items-center h-full min-h-screen duration-500 dark:bg-gray-900 selection:bg-pink-300 selection:text-white dark:selection:bg-palevioletred"
+      className="flex overflow-hidden flex-col items-center h-full min-h-screen duration-500 dark:bg-gray-900 selection:bg-pink-300 selection:text-white dark:selection:bg-palevioletred"
       style={{
         opacity: "0.9",
         backgroundImage: "radial-gradient(#33333390 0.75px, rgba(0,0,0,0) 0.95px)",
