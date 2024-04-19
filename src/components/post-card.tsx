@@ -40,7 +40,7 @@ const PostCard = ({ post }: Props) => {
         <Link
           href={!url ? `/posts/${slug}` : url}
           target={url ? "_blank" : "_self"}
-          className="text-lg font-extralight text-gray-600 rounded-sm transition-colors duration-300 outline-none md:text-xl dark:text-gray-100 hover:outline-none focus:ring-4 focus:ring-pink-300 focus:ring-offset-2 focus:ring-offset-white focus:outline-none text-balance line-clamp-2 hover:text-palevioletred focus:dark:ring-palevioletred focus:dark:ring-offset-gray-500"
+          className="text-lg font-extralight text-gray-600 rounded-sm transition-colors duration-300 outline-none md:text-xl dark:text-gray-100 hover:outline-none focus:ring-2 focus:ring-pink-300 focus:ring-offset-2 focus:ring-offset-white focus:outline-none text-balance line-clamp-2 hover:text-palevioletred focus:dark:ring-palevioletred focus:dark:ring-offset-gray-500"
         >
           {title}
         </Link>
