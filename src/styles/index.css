@@ -1,6 +1,4 @@
 @import "open-props/shadows";
-@import "open-props/easings";
-@import "open-props/animations";
 
 @tailwind base;
 @tailwind components;

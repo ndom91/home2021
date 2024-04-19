@@ -28,29 +28,27 @@ const PostCard = ({ post }: Props) => {
   const { title, date, excerpt, slug, tags, time, url = "" } = post
 
   return (
-    <div className="relative flex-col w-full max-w-full bg-white md:inline-flex md:my-4 md:max-w-md dark:bg-gray-700">
-      <div className="flex flex-col gap-2 p-10 rounded-2xl shadow-sm">
-        <div className="overflow-hidden h-48 rounded-t-lg mask-bottom-strong">
+    <div className="flex relative flex-col w-full md:my-4 md:max-w-md">
+      <div className="flex flex-col gap-3 p-10 bg-white rounded-xl shadow-sm dark:bg-gray-700">
+        <div className="overflow-hidden rounded-t-lg mask-bottom-strong">
           <ParallaxProvider>
             <Parallax translateY={[0, -10]}>
               <CoverImage post={post} />
             </Parallax>
           </ParallaxProvider>
         </div>
-        <div className="flex relative flex-col gap-1 justify-between w-full">
-          <Link
-            href={!url ? `/posts/${slug}` : url}
-            target={url ? "_blank" : "_self"}
-            className="text-lg font-extralight text-gray-600 rounded-sm transition-colors duration-300 outline-none md:text-xl dark:text-gray-100 hover:outline-none focus:ring-4 focus:ring-pink-300 focus:ring-offset-2 focus:ring-offset-white focus:outline-none text-balance line-clamp-2 hover:text-palevioletred focus:dark:ring-palevioletred focus:dark:ring-offset-gray-500"
-          >
-            {title}
-          </Link>
-          <div className="flex justify-between text-sm font-semibold md:text-base">
-            <span className="text-medium">
-              <DateFormatter dateString={date} />
-            </span>
-            <span className="text-gray-400 dark:text-gray-200">{time.text}</span>
-          </div>
+        <Link
+          href={!url ? `/posts/${slug}` : url}
+          target={url ? "_blank" : "_self"}
+          className="text-lg font-extralight text-gray-600 rounded-sm transition-colors duration-300 outline-none md:text-xl dark:text-gray-100 hover:outline-none focus:ring-4 focus:ring-pink-300 focus:ring-offset-2 focus:ring-offset-white focus:outline-none text-balance line-clamp-2 hover:text-palevioletred focus:dark:ring-palevioletred focus:dark:ring-offset-gray-500"
+        >
+          {title}
+        </Link>
+        <div className="flex justify-between text-sm font-semibold md:text-base">
+          <span className="text-medium">
+            <DateFormatter dateString={date} />
+          </span>
+          <span className="text-gray-400 dark:text-gray-200">{time.text}</span>
         </div>
         {excerpt ? (
           <div

@@ -1,14 +1,17 @@
-import { parseISO, format } from 'date-fns'
-
 type Props = {
   dateString: string
 }
 
 const DateFormatter = ({ dateString }: Props) => {
-  const date = parseISO(dateString)
+  const formattedDate = new Date(dateString).toLocaleDateString("en-UK", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  })
+
   return (
     <time className="text-palevioletred" dateTime={dateString}>
-      {format(date, 'LLLL d, yyyy')}
+      {formattedDate}
     </time>
   )
 }
