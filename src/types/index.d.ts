@@ -1,1 +1,3 @@
-declare module 'react-addons-text-content'
+declare module "react-addons-text-content"
+
+type TODO = any

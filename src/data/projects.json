@@ -3,49 +3,49 @@
     "name": "Auth.js",
     "url": "https://authjs.dev",
     "image": "authjs.png",
-    "desc": "Core-team member of Auth.js (NextAuth.js) - Authentication for the Web! 22k+ GitHub Stars",
+    "desc": "Core-team member of Auth.js (NextAuth.js) - Authentication for the Web! 22k+ GitHub Stars.",
     "tech": ["react", "nextjs", "npm"]
   },
   {
     "name": "Briefkasten Docs",
     "url": "https://docs.briefkastenhq.com",
     "image": "briefkasten-docs.png",
-    "desc": "Marketing and documentation site for Briefkasten",
+    "desc": "Marketing and documentation site for Briefkasten.",
     "tech": ["nextjs", "tailwindcss", "react"]
   },
   {
     "name": "Briefkasten",
     "url": "https://github.com/ndom91/sveltekasten",
     "image": "briefkasten.png",
-    "desc": "Self-hostable RSS Reader + Read-it-later application made with SvelteKit, Prisma, Node. 700+ GitHub Stars",
+    "desc": "Self-hostable RSS Reader / Read-it-later application, 700+ GitHub Stars.",
     "tech": ["nextjs", "tailwindcss", "prisma", "docker"]
   },
   {
     "name": "svelte-infinite",
     "url": "https://github.com/ndom91/svelte-infinite",
     "image": "svelteinfinite.png",
-    "desc": "Svelte 5 infinite scroller component",
+    "desc": "Svelte 5 infinite scroller / infinite loader component.",
     "tech": ["svelte", "npm"]
   },
   {
     "name": "NewTelco Landing",
     "url": "https://github.com/ndom91/newtelco-tab",
     "image": "homenewtelco.png",
-    "desc": "PWA Company launcher and browser 'New Tab' page. Includes department shortcuts, GDrive latest files, directory, notes and CRM integration.",
+    "desc": "PWA Company launcher, includes department shortcuts, GDrive files, directory, CRM integration and more.",
     "tech": ["nextjs", "tailwindcss", "fauna", "vercel"]
   },
   {
     "name": "Checkly Homeassistant",
     "url": "https://github.com/ndom91/homeassistant-checkly",
     "image": "checklyhomeassistant.png",
-    "desc": "HomeAssistant custom component for turning Checkly checks into HA sensors.",
+    "desc": "HomeAssistant custom integration for turning Checkly checks into HA sensors.",
     "tech": ["homeassistant", "python", "checkly"]
   },
   {
     "name": "react-timezone-select",
     "url": "https://github.com/ndom91/react-timezone-select",
     "image": "reacttimezoneselect.png",
-    "desc": "React component for selecting timezones with 190k+ downloads per month",
+    "desc": "React component for selecting timezones with 190k+ downloads per month.",
     "tech": ["react", "typescript", "npm"]
   },
   {
@@ -73,14 +73,14 @@
     "name": "Timeoff",
     "url": "https://github.com/newtelco/timeoff",
     "image": "timeoff.png",
-    "desc": "Absence management application for making, approving, and auditing vacation/sick/business trip requests. Includes admin dashboard with reporting, charts, and Excel export.",
+    "desc": "Absence management application for making, approving, and auditing vacation/sick/business trip requests.",
     "tech": ["nextjs", "nodejs", "activedirectory"]
   },
   {
     "name": "Network Maintenance",
     "url": "https://github.com/newtelco/next-maintenance",
     "image": "maintenance.png",
-    "desc": "Internal application for receiving, creating, and auditing Network Maintenance requests from suppliers and semi-automatically informing customers. Strong integration into many Google Workspace products.",
+    "desc": "Internal application for receiving, creating, and auditing Network Maintenance requests from suppliers and automatically informing customers.",
     "tech": ["nextjs", "algolia", "google", "nodejs"]
   },
   {
@@ -94,7 +94,7 @@
     "name": "NOC Dashboard",
     "url": "https://github.com/newtelco/nt-noc",
     "image": "nocdashboard.png",
-    "desc": "Network Operations Center Dashboard which is designed to be displayed 24/7. Contains metrics graphs from Grafana and live video feeds transcoded via ffmpeg for displaying directly in a browser on a large display.",
+    "desc": "Network Operations Center Dashboard designed to be displayed 24/7. Contains Grafana metrics and live video feeds from the datacenter.",
     "tech": ["preact", "ffmpeg", "snowpack"]
   }
 ]

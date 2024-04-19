@@ -14,7 +14,7 @@ import path from "path"
 import readingTime from "reading-time"
 import { MDXRemote } from "next-mdx-remote"
 import { serialize } from "next-mdx-remote/serialize"
-const rehypePrism = require("@mapbox/rehype-prism")
+import rehypeShiki from "@shikijs/rehype"
 
 import { postFilePaths, POSTS_PATH } from "../../lib/mdxUtils"
 
@@ -34,7 +34,7 @@ type Params = {
 }
 
 type Props = {
-  source: any
+  source: TODO
   frontMatter: PostType
   slug: string
 }
@@ -88,7 +88,17 @@ export async function getStaticProps({ params }: Params) {
 
   const mdxSource = await serialize(content, {
     mdxOptions: {
-      rehypePlugins: [rehypePrism, rehypeSlug, [rehypeAutolinkHeadings, { behavior: "prepend" }]],
+      rehypePlugins: [
+        rehypeSlug,
+        [
+          // @ts-expect-error types not matching mdx-remote expectations
+          rehypeShiki,
+          {
+            theme: "rose-pine-moon",
+          },
+        ],
+        [rehypeAutolinkHeadings, { behavior: "prepend" }],
+      ],
     },
     scope: data,
   })

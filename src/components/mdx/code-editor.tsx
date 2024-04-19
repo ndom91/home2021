@@ -3,9 +3,10 @@ import { useCopyToClipboard } from "react-use"
 
 type EditorProps = {
   title: string
+  children: React.ReactNode
 }
 
-const CodeEditor: React.FC<EditorProps> = ({ title, children }) => {
+const CodeEditor = ({ title, children }: EditorProps) => {
   const [success, setSuccess] = useState(false)
   const [state, copyToClipboard] = useCopyToClipboard()
   const codeWrapperRef = useRef<HTMLDivElement>(null)
@@ -21,8 +22,8 @@ const CodeEditor: React.FC<EditorProps> = ({ title, children }) => {
   }
 
   return (
-    <div className="w-full" style={{ width: "100%" }}>
-      <div className="flex relative justify-between items-center -mb-4 w-full h-10 bg-gray-50 rounded-t-md dark:bg-gray-700">
+    <div className="w-full">
+      <div className="flex relative justify-between items-center -mb-4 w-full h-12 bg-gray-50 rounded-t-md dark:bg-gray-700">
         <div className="inline-flex justify-center h-full">
           <div className="inline-flex items-center ml-4 space-x-2 h-full">
             <span className="w-3 h-3 rounded-full bg-red-500/50"></span>
@@ -72,7 +73,7 @@ const CodeEditor: React.FC<EditorProps> = ({ title, children }) => {
           )}
         </button>
       </div>
-      <div className="z-10 code-wrapper" ref={codeWrapperRef}>
+      <div className="z-10 code-wrapper [&>pre]:!pt-8 [&>pre]:!m-0" ref={codeWrapperRef}>
         {children}
       </div>
     </div>

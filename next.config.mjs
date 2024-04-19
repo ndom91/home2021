@@ -1,6 +1,6 @@
-import Mdx from "@next/mdx"
+import createMDX from "@next/mdx"
 
-const withMDX = Mdx({
+const withMDX = createMDX({
   experimental: {
     mdxRs: true,
   },

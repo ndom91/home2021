@@ -59,8 +59,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         : "/usr/bin/chromium",
     headless: process.env.NODE_ENV !== "development" ? chromium.headless : true,
   })
-
-  ...
 ```
 
 </CodeEditor>
@@ -72,8 +70,6 @@ Next we'll use `playwright` to visit the url we passed to the route as an argume
 <CodeEditor title="/api/image.ts">
 
 ```js
-  ...
-
   // Create a page with the recommended Open Graph image size
   const page = await browser.newPage({
     viewport: {
@@ -92,8 +88,6 @@ Next we'll use `playwright` to visit the url we passed to the route as an argume
   })
 
   await browser.close()
-
-  ...
 ```
 
 </CodeEditor>
@@ -105,8 +99,6 @@ The final part of this API route is returning the image data and setting some ca
 <CodeEditor title="/api/image.ts">
 
 ```js
-...
-
   // Set the `s-maxage` property to cache at the CDN layer
   res.setHeader("Cache-Control", "s-maxage=31536000, public")
   res.setHeader("Content-Type", "image/png")
@@ -232,10 +224,6 @@ const ScreenshotLink = ({ url, text }: Props) => {
       console.error(e)
     }
   }
-
-  return (
-
-  ...
 ```
 
 </CodeEditor>
@@ -258,8 +246,6 @@ So with the logic out of the way, let's look at the markup of this LinkScreensho
 <CodeEditor title="/src/components/ScreenshotLink.tsx">
 
 ```js
-  ...
-
   return (
     <div
       className="relative inline-block"
@@ -421,7 +407,6 @@ const Meta = () => {
     <Head>
       <meta property="og:image" content={fullImageURL} />
       <meta property="twitter:image" content={fullImageURL} />
-      ...
     </Head>
   )
 }
