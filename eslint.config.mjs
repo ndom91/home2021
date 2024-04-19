@@ -1,3 +1,6 @@
+// @ts-check
+
+// eslint config < 9.0.0
 // export default {
 //   root: true,
 //   parser: "@typescript-eslint/parser",
@@ -28,9 +31,25 @@
 //     node: true,
 //   },
 // }
-// @ts-check
 
+// eslint flat config >= 9.0.0
 import eslint from "@eslint/js"
 import tseslint from "typescript-eslint"
 
-export default tseslint.config(eslint.configs.recommended, ...tseslint.configs.recommended)
+export default tseslint.config(
+  eslint.configs.recommended,
+  ...tseslint.configs.recommendedTypeChecked,
+  {
+    languageOptions: {
+      parserOptions: {
+        project: true,
+        tsconfigRootDir: import.meta.dirname,
+        ecmaFeatures: {
+          jsx: true,
+        },
+        sourceType: "module",
+        ecmaVersion: "latest",
+      },
+    },
+  }
+)
