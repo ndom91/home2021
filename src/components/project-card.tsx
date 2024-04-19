@@ -18,10 +18,10 @@ const ProjectCard = ({ project, index }: Props) => {
 
   return (
     <div
-      className="opacity-0 lg:mx-4 animate-fade_in drop-shadow-md"
+      className="opacity-0 animate-fade_in drop-shadow-md"
       style={{ ["--index" as string]: index }}
     >
-      <div className="relative m-4 bg-gray-100 rounded-xl dark:bg-gray-800 group">
+      <div className="relative bg-gray-100 rounded-xl dark:bg-gray-800 group">
         <div className="flex relative z-10 flex-col bg-gray-50 rounded-xl transition duration-500 dark:bg-gray-800">
           {url && (
             <Link
@@ -91,7 +91,6 @@ const ProjectCard = ({ project, index }: Props) => {
             </div>
           </div>
         </div>
-        <div className="absolute -right-4 -bottom-4 z-0 w-64 h-64 text-palevioletred" />
       </div>
     </div>
   )
