@@ -4,7 +4,7 @@ import PostHeader from "@/components/post-header"
 import Layout from "@/components/layout-post"
 import ScreenshotLink from "@/components/screenshot-link"
 import CodeEditor from "@/components/mdx/code-editor"
-import { type Post } from "@/types"
+import { type Post, type TODO } from "@/types"
 
 import path from "node:path"
 import fs from "node:fs/promises"
