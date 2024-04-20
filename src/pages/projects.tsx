@@ -5,14 +5,10 @@ import { type Projects } from "@/types"
 const About = ({ projects }: Projects) => {
   return (
     <Layout>
-      <div className="max-w-7xl">
-        <div className="relative">
-          <h1 className="mt-8 mb-20 text-6xl font-bold tracking-tighter leading-tight opacity-0 md:pr-8 md:text-7xl dark:text-gray-100 animate-fade_in_up_10">
-            projects.
-          </h1>
-        </div>
-        {projects.length ? <MoreProjects projects={projects} /> : null}
-      </div>
+      <h1 className="mb-8 w-full max-w-7xl text-6xl font-bold tracking-tighter leading-tight opacity-0 md:pr-8 md:text-7xl lg:mb-12 dark:text-gray-100 animate-fade_in_up_10">
+        projects.
+      </h1>
+      {projects.length ? <MoreProjects projects={projects} /> : null}
     </Layout>
   )
 }

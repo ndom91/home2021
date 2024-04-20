@@ -14,7 +14,7 @@ const Blog = ({ allPosts }: Props) => {
 
   return (
     <Layout>
-      <h1 className="w-full max-w-7xl text-6xl font-bold tracking-tighter leading-tight opacity-0 md:pr-8 md:text-7xl dark:text-gray-100 animate-fade_in_up_10">
+      <h1 className="mb-8 w-full max-w-7xl text-6xl font-bold tracking-tighter leading-tight opacity-0 md:pr-8 md:text-7xl lg:mb-12 dark:text-gray-100 animate-fade_in_up_10">
         blog.{" "}
       </h1>
       {heroPost && <HeroPost post={heroPost} />}
