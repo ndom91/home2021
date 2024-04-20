@@ -24,7 +24,7 @@ type Props = {
 const PostHeader = ({ post }: Props) => {
   const { title, date, cover, time } = post
   return (
-    <>
+    <div className="w-full">
       <PostTitle>{title}</PostTitle>
       {cover && (
         <div className="mb-16 sm:mx-0">
@@ -40,7 +40,7 @@ const PostHeader = ({ post }: Props) => {
           <p className="text-gray-700 dark:text-gray-300">{time.text}</p>
         </div>
       </div>
-    </>
+    </div>
   )
 }
 

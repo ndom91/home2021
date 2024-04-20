@@ -1,9 +1,8 @@
 import { useRouter } from "next/router"
 import { animated, useSpring } from "react-spring"
 import { useEffect } from "react"
-import { useLocalStorage } from "react-use"
-import useStore from "../lib/zustand"
-import setFlickerAnimation from "../lib/flicker"
+import useStore from "@/lib/zustand"
+import setFlickerAnimation from "@/lib/flicker"
 
 const properties = {
   dark: {
@@ -27,9 +26,6 @@ const DarkToggle = () => {
   const router = useRouter()
   const theme = useStore((state) => state.theme)
   const setTheme = useStore((state) => state.setTheme)
-  const [_storage, setValue] = useLocalStorage("theme", "", {
-    raw: true,
-  })
   useEffect(() => {
     if (document.documentElement.classList.contains("dark")) {
       setTheme("dark")
@@ -68,7 +64,6 @@ const DarkToggle = () => {
         }, 500)
       }
       setTheme("dark")
-      setValue("dark")
     } else {
       document.documentElement.classList.remove("dark")
       document.documentElement.style.setProperty("color-scheme", "light")
@@ -78,7 +73,6 @@ const DarkToggle = () => {
       const jsSoundOn = document.getElementById("js-sound-on") as HTMLAudioElement
       jsSoundOn?.play()
       setTheme("light")
-      setValue("light")
     }
   }
 
@@ -107,7 +101,7 @@ const DarkToggle = () => {
           <mask id="myMask2">
             <rect x="0" y="0" width="100%" height="100%" fill="white" />
             <animated.circle
-              // @ts-ignore
+              // @ts-expect-error style prop
               style={maskedCircleProps}
               r="10"
               fill="black"
@@ -118,7 +112,7 @@ const DarkToggle = () => {
           <animated.circle
             cx="12"
             cy="13"
-            // @ts-ignore
+            // @ts-expect-error style prop
             style={centerCircleProps}
             fill="currentColor"
             mask="url(#myMask2)"

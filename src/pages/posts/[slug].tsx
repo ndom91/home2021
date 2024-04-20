@@ -42,28 +42,26 @@ type Props = {
 const Post = ({ source, frontMatter, slug }: Props) => {
   return (
     <>
+      <Head>
+        <title>{`${frontMatter.title.trim()} | ndom91`}</title>
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content={`${frontMatter.title} | ndom91`} />
+        <meta property="og:url" content={`https://ndo.dev/posts/${slug}`} />
+        <meta property="og:description" content={frontMatter.excerpt ?? ""} />
+        <meta property="article:author" content="Nico Domino" />
+        <meta property="article:tag" content={frontMatter.tags.join(",")} />
+
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content={`${frontMatter.title} | ndom91`} />
+        <meta name="twitter:site" content="@ndom91" />
+        <meta name="twitter:description" content={frontMatter.excerpt} />
+        <meta name="twitter:image:alt" content={frontMatter.title} />
+      </Head>
       <ProgressBar />
       <Layout>
-        <Head>
-          <title>{`${frontMatter.title.trim()} | ndom91`}</title>
-          <meta property="og:type" content="article" />
-          <meta property="og:title" content={`${frontMatter.title} | ndom91`} />
-          <meta property="og:url" content={`https://ndo.dev/posts/${slug}`} />
-          <meta property="og:description" content={frontMatter.excerpt ?? ""} />
-          <meta property="article:author" content="Nico Domino" />
-          <meta property="article:tag" content={frontMatter.tags.join(",")} />
-
-          <meta name="twitter:card" content="summary" />
-          <meta name="twitter:title" content={`${frontMatter.title} | ndom91`} />
-          <meta name="twitter:site" content="@ndom91" />
-          <meta name="twitter:description" content={frontMatter.excerpt} />
-          <meta name="twitter:image:alt" content={frontMatter.title} />
-        </Head>
-        <article className="mt-12 mb-32 max-w-full md:mt-12">
-          <PostHeader post={frontMatter} />
-          <div className="mx-auto max-w-4xl dark:text-gray-100 prose prose-lg dark:prose-dark">
-            <MDXRemote {...source} components={components} lazy />
-          </div>
+        <PostHeader post={frontMatter} />
+        <article className="w-full max-w-4xl dark:text-gray-100 prose prose-lg dark:prose-dark">
+          <MDXRemote {...source} components={components} lazy />
         </article>
       </Layout>
     </>

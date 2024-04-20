@@ -14,13 +14,11 @@ const Blog = ({ allPosts }: Props) => {
 
   return (
     <Layout>
-      <main className="flex relative flex-col gap-4 items-center max-w-full">
-        <h1 className="w-full max-w-7xl text-6xl font-bold tracking-tighter leading-tight opacity-0 md:pr-8 md:text-7xl dark:text-gray-100 animate-fade_in_up_10">
-          blog.{" "}
-        </h1>
-        {heroPost && <HeroPost post={heroPost} />}
-        {morePosts.length ? <MorePosts posts={morePosts} /> : null}
-      </main>
+      <h1 className="w-full max-w-7xl text-6xl font-bold tracking-tighter leading-tight opacity-0 md:pr-8 md:text-7xl dark:text-gray-100 animate-fade_in_up_10">
+        blog.{" "}
+      </h1>
+      {heroPost && <HeroPost post={heroPost} />}
+      {morePosts.length ? <MorePosts posts={morePosts} /> : null}
     </Layout>
   )
 }

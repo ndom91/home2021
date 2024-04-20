@@ -9,7 +9,7 @@ type Props = {
 const Layout = ({ children }: Props) => {
   return (
     <div
-      className="flex flex-col items-center h-full min-h-screen duration-500 dark:bg-gray-900 selection:bg-pink-300 selection:text-white dark:selection:bg-palevioletred"
+      className="flex flex-col items-center px-6 duration-500 xl:px-0 selection:bg-pink-300 selection:text-white dark:bg-gray-900/95 dark:selection:bg-palevioletred"
       style={{
         opacity: "0.9",
         backgroundImage: "radial-gradient(#33333390 0.75px, rgba(0,0,0,0) 0.95px)",
@@ -18,11 +18,11 @@ const Layout = ({ children }: Props) => {
       }}
     >
       <Meta />
-      <div className="flex flex-col justify-center items-center px-4 w-full max-w-full min-h-screen bg-white md:overflow-x-visible md:px-8 lg:py-4 dark:bg-gray-900 md:max-w-8xl">
-        <Navbar />
-        <main className="flex relative flex-col flex-1 items-center max-w-full">{children}</main>
-        <Footer />
-      </div>
+      <Navbar />
+      <main className="flex relative flex-col flex-1 gap-4 items-center w-full max-w-7xl">
+        {children}
+      </main>
+      <Footer />
     </div>
   )
 }

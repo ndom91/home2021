@@ -153,15 +153,14 @@ html[class="dark"] ul a:before {
   @apply line-clamp-4;
 }
 
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4 {
+  @apply scroll-mt-8;
+}
+
 @media screen and (min-width: 1890px) {
-
-  .prose h1,
-  .prose h2,
-  .prose h3,
-  .prose h4 {
-    @apply scroll-mt-8;
-  }
-
   .prose nav.toc li {
     @apply max-w-xs overflow-ellipsis;
   }
@@ -178,8 +177,8 @@ html[class="dark"] ul a:before {
 .prose .icon.icon-link:before {
   content: "#";
   position: absolute;
-  left: -5%;
   opacity: 0;
+  transform: translateX(-40px);
 
   @apply group-hover:opacity-25;
 }

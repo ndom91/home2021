@@ -19,7 +19,7 @@ const Layout = ({ children }: Props) => {
     >
       <Meta />
       <Navbar />
-      <main className="flex relative flex-col flex-1 items-center max-w-full">{children}</main>
+      <main className="flex relative flex-col flex-1 items-center max-w-7xl">{children}</main>
       <Footer />
     </div>
   )
