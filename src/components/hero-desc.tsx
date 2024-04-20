@@ -3,7 +3,7 @@ import ScreenshotLink from "@/components/screenshot-link"
 
 const IntroDescription = () => {
   useEffect(() => {
-    ; (async () => {
+    ;(async () => {
       const Splitting = (await import("splitting")).default
       Splitting()
     })()
@@ -17,7 +17,7 @@ const IntroDescription = () => {
     >
       Hey visitor 👋 My name&apos;s Nico Domino and I&lsquo;m a senior fullstack web developer
       currently looking for
-      <ScreenshotLink url="/assets/ndomino_fullstack.pdf" image="resume.jpg">
+      <ScreenshotLink url="https://cv.ndo.dev/fullstack?utm_source=home_desc" image="resume.jpg">
         a new gig
       </ScreenshotLink>
       📝. You can also find me working on open source software, like{" "}
