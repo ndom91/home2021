@@ -74,16 +74,20 @@ Tailwind's linear gradients are fairly flexible, but if used as intended, they w
 
 Fortunately Tailwind makes liberal use of CSS custom properties, and there is one that we can piggy back on and overwrite in order to "fix" the gradient hard stop problem. That's the `tw-gradient-stops` custom property in the `bg-gradient-to-r` class.
 
-```
+```scss
 // bg-gradient-to-r
 background-image: linear-gradient(to right, var(--tw-gradient-stops));
 ```
 
 By setting the `tw-gradient-stops` custom property ourselves, we can set a stop point of the bar to the percentage scrolled, and the second stop to `transparent 0`. This will allow us to achieve the effect of having a sharp edge along the progress bar as it moves across the screen. Our "new" `bg-gradient-to-r` will look like this.
 
-```
+```scss
 // bg-gradient-to-r
-background-image: linear-gradient(to right, var(--tw-ring-color) ${percentScrolled}%, transparent 0);
+background-image: linear-gradient(
+  to right,
+  var(--tw-ring-color) ${percentScrolled}%,
+  transparent 0
+);
 ```
 
 Thanks to `useEffect` and the `percentScrolled` string interpolation this percentage scrolled value is updated constantly as the user scrolls, generating our desired progress bar along the top of the screen!
