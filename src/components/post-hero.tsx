@@ -32,7 +32,7 @@ const HeroPost = ({ post }: Props) => {
             <CoverImage post={post} />
           </Parallax>
         </ParallaxProvider>
-        {url.includes("checklyhq.com") ? (
+        {url?.includes("checklyhq.com") ? (
           <div
             className="absolute top-12 right-12 z-20 p-2 bg-gray-200 rounded-full dark:bg-gray-700"
             title="External"

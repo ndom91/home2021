@@ -36,7 +36,7 @@ const PostCard = ({ post }: Props) => {
               <CoverImage post={post} />
             </Parallax>
           </ParallaxProvider>
-          {url.includes("checklyhq.com") ? (
+          {url?.includes("checklyhq.com") ? (
             <div
               className="absolute top-10 right-10 z-20 p-2 bg-gray-200 rounded-full dark:bg-gray-700"
               title="External"
