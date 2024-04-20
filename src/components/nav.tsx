@@ -1,16 +1,16 @@
-import Link from 'next/link'
-import dynamic from 'next/dynamic'
+import Link from "next/link"
+import dynamic from "next/dynamic"
 
-const DarkToggle = dynamic(() => import('@/components/dark-toggle'))
+const DarkToggle = dynamic(() => import("@/components/dark-toggle"))
 
 const Navbar = () => {
   return (
-    <nav className="flex animate-fade_in py-4 opacity-0 max-w-7xl mx-auto w-full">
-      <ul className="flex w-full items-center space-x-10 font-mono text-xl font-extralight text-gray-800 dark:text-gray-100">
+    <nav className="flex py-8 mx-auto w-full max-w-7xl opacity-0 animate-fade_in">
+      <ul className="flex items-center space-x-10 w-full font-mono text-xl font-extralight text-gray-800 dark:text-gray-100">
         <li>
           <Link
             href="/"
-            className="p-0.5 font-light text-gray-800 outline-none  transition-all duration-200 focus:outline-none dark:text-gray-100"
+            className="p-0.5 font-light text-gray-800 transition-all duration-200 outline-none dark:text-gray-100 focus:outline-none"
           >
             home
           </Link>
@@ -18,7 +18,7 @@ const Navbar = () => {
         <li>
           <Link
             href="/blog"
-            className="p-0.5 font-light text-gray-800 outline-none  transition-all duration-200 focus:outline-none dark:text-gray-100"
+            className="p-0.5 font-light text-gray-800 transition-all duration-200 outline-none dark:text-gray-100 focus:outline-none"
           >
             blog
           </Link>
@@ -26,7 +26,7 @@ const Navbar = () => {
         <li>
           <Link
             href="/projects"
-            className="p-0.5 font-light text-gray-800 outline-none  transition-all duration-200 focus:outline-none dark:text-gray-100"
+            className="p-0.5 font-light text-gray-800 transition-all duration-200 outline-none dark:text-gray-100 focus:outline-none"
           >
             work
           </Link>

@@ -1,5 +1,5 @@
 import MoreProjects from "@/components/more-projects"
-import Layout from "@/components/layout"
+import Layout from "@/components/layout-project"
 import { type Projects } from "@/types/project"
 
 const About = ({ projects }: Projects) => {

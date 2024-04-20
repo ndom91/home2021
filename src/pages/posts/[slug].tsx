@@ -1,7 +1,7 @@
 import dynamic from "next/dynamic"
 import Head from "next/head"
 import PostHeader from "@/components/post-header"
-import Layout from "@/components/layout-blog"
+import Layout from "@/components/layout-post"
 import ScreenshotLink from "@/components/screenshot-link"
 import CodeEditor from "@/components/mdx/code-editor"
 import { type Post } from "@/types/post"
