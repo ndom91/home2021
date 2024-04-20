@@ -28,9 +28,6 @@
       ],
       "@/types": [
         "./src/types/index.ts"
-      ],
-      "@/types/*": [
-        "./src/types/*"
       ]
     },
     "isolatedModules": true
