@@ -225,8 +225,26 @@ html[class="dark"] ul a:before {
   text-decoration: underline;
 }
 
-.prose summary::marker {
+.prose summary {
+  list-style: none;
+  position: relative;
+  margin-left: 20px;
+}
+
+.prose summary::before {
   content: "👉 ";
+  height: 38px;
+  width: 27px;
+
+  position: absolute;
+  left: -30px;
+  transform: rotate(0);
+  transform-origin: 14px 19px;
+  transition: all 250ms ease-in-out;
+}
+
+.prose details[open] summary::before {
+  transform: rotate(90deg);
 }
 
 .prose img {

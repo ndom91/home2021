@@ -16,22 +16,16 @@ import { MDXRemote } from "next-mdx-remote"
 import { serialize } from "next-mdx-remote/serialize"
 import rehypeAutolinkHeadings from "rehype-autolink-headings"
 
-import { postFilePaths, POSTS_PATH } from "../../lib/mdxUtils"
+import { postFilePaths, POSTS_PATH } from "@/lib/mdxUtils"
 
 const components = {
   CodeEditor: CodeEditor,
   ScreenshotLink: ScreenshotLink,
 }
 
-const ProgressBar = dynamic(() => import("../../components/read-progress"), {
+const ProgressBar = dynamic(() => import("../../components/progress-bar"), {
   ssr: false,
 })
-
-type Params = {
-  params: {
-    slug: string
-  }
-}
 
 type Props = {
   source: TODO
@@ -69,6 +63,12 @@ const Post = ({ source, frontMatter, slug }: Props) => {
 }
 
 export default Post
+
+type Params = {
+  params: {
+    slug: string
+  }
+}
 
 export async function getStaticProps({ params }: Params) {
   const postFilePath = path.join(POSTS_PATH, params.slug, "index.mdx")

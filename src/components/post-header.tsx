@@ -1,7 +1,6 @@
 import Avatar from "@/components/avatar"
 import DateFormatter from "@/components/date-formatter"
-import CoverImage from "@/components/cover-image"
-import PostTitle from "@/components/post-title"
+import Image from "next/image"
 
 type Props = {
   post: {
@@ -24,18 +23,27 @@ type Props = {
 const PostHeader = ({ post }: Props) => {
   const { title, date, cover, time } = post
   return (
-    <div className="w-full">
-      <PostTitle>{title}</PostTitle>
+    <div className="flex flex-col gap-16 w-full lg:gap-24">
+      <h1 className="font-light tracking-tighter leading-tight text-center md:text-7xl md:leading-none md:text-left lg:text-8xl dark:text-gray-100 text-[3.25rem] text-balance">
+        {title}
+      </h1>
       {cover && (
-        <div className="mb-16 sm:mx-0">
-          <CoverImage post={post} />
-        </div>
+        <Image
+          src={`/assets/blog/${cover.imageFile}`}
+          alt={`Cover Image for ${title}`}
+          priority
+          sizes="100vw"
+          style={{
+            width: "100%",
+            height: "auto",
+          }}
+          width={500}
+          height={300}
+        />
       )}
-      <div className="flex justify-between my-8 mx-auto max-w-4xl md:mt-16">
-        <div className="z-10 mb-6">
-          <Avatar />
-        </div>
-        <div className="mb-16 text-lg font-light text-right">
+      <div className="flex justify-between mx-auto w-full max-w-4xl">
+        <Avatar />
+        <div className="text-lg font-light text-right">
           <DateFormatter dateString={date} />
           <p className="text-gray-700 dark:text-gray-300">{time.text}</p>
         </div>
