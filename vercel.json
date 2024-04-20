@@ -10,7 +10,7 @@
       ]
     },
     {
-      "source": "/assets/fonts/inter/(.*).woff2",
+      "source": "/assets/fonts/(.*)",
       "headers": [
         {
           "key": "Cache-Control",

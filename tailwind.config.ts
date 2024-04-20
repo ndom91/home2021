@@ -1,12 +1,14 @@
 import defaultTheme from "tailwindcss/defaultTheme"
 import { StaticShadows } from "open-props/src/shadows"
+import tailwindTypography from "@tailwindcss/typography"
 import { type Config } from "tailwindcss"
+import { type TODO } from "@/types"
 
 const config: Config = {
-  content: ["./src/**/*.{tsx,ts,md,mdx}", "./public/assets/**/*.svg"],
+  content: ["./src/**/*.{tsx,ts,md,mdx}"],
   safelist: ["animate-flicker", "reset", "fade_*"],
   darkMode: "class",
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [tailwindTypography],
   theme: {
     fontSize: {
       xs: "clamp(0.46rem, 0.18vw + 0.57rem, 0.75rem)",
@@ -39,12 +41,6 @@ const config: Config = {
         block: ["Silkscreen", ...defaultTheme.fontFamily.mono],
         victor: ["Victor Mono", ...defaultTheme.fontFamily.mono],
       },
-      maxWidth: {
-        "8xl": "88rem",
-        "9xl": "96rem",
-        "10xl": "104rem",
-        "11xl": "118rem",
-      },
       colors: {
         gray: {
           50: "#f3f3f4",
@@ -60,38 +56,7 @@ const config: Config = {
         },
         palevioletred: "#DB7093",
       },
-      typography: (theme: TODO) => ({
-        sm: {
-          css: [
-            {
-              fontSize: "clamp(0.76rem, 0.2vw + 0.71rem, 0.87rem)",
-            },
-          ],
-        },
-        base: {
-          css: [
-            {
-              fontSize: "clamp(0.88rem, 0.23vw + 0.82rem, 1rem)",
-            },
-          ],
-        },
-        lg: {
-          css: [
-            {
-              fontSize: "clamp(1.16rem, 0.3vw + 1.08rem, 1.27rem)",
-            },
-          ],
-        },
-        DEFAULT: {
-          css: {
-            a: {
-              color: theme("colors.gray.700"),
-              textDecoration: "none",
-              fontWeight: "400",
-              overflowWrap: "anywhere",
-            },
-          },
-        },
+      typography: ({ theme }: { theme: TODO }) => ({
         dark: {
           css: {
             a: {
@@ -129,60 +94,16 @@ const config: Config = {
           },
         },
       }),
-      boxShadow: {
-        small: "0 5px 10px rgba(0, 0, 0, 0.12)",
-        medium: "0 8px 30px rgba(0, 0, 0, 0.12)",
-        "sm-smooth": `0 1.4px 0.9px rgba(0, 0, 0, 0.02),
-          0 3.3px 2.3px rgba(0, 0, 0, 0.028),
-          0 6.1px 4.3px rgba(0, 0, 0, 0.035),
-          0 10.9px 7.6px rgba(0, 0, 0, 0.042),
-          0 20.5px 14.2px rgba(0, 0, 0, 0.05),
-          0 49px 34px rgba(0, 0, 0, 0.07)`,
-        "md-smooth": `0 2.8px 2.2px rgba(0, 0, 0, 0.02),
-          0 6.7px 5.3px rgba(0, 0, 0, 0.028),
-          0 12.5px 10px rgba(0, 0, 0, 0.035),
-          0 22.3px 17.9px rgba(0, 0, 0, 0.042),
-          0 41.8px 33.4px rgba(0, 0, 0, 0.05),
-          0 100px 80px rgba(0, 0, 0, 0.07)`,
-        "lg-smooth": `0 3.7px 2.2px rgba(0, 0, 0, 0.034),
-          0 8.8px 5.3px rgba(0, 0, 0, 0.048),
-          0 16.7px 10px rgba(0, 0, 0, 0.06),
-          0 29.7px 17.9px rgba(0, 0, 0, 0.072),
-          0 55.6px 33.4px rgba(0, 0, 0, 0.086),
-          0 133px 80px rgba(0, 0, 0, 0.12)`,
-        "xl-smooth": `0 6.1px 2.2px rgba(0, 0, 0, 0.037),
-          0 14.6px 5.3px rgba(0, 0, 0, 0.053),
-          0 27.4px 10px rgba(0, 0, 0, 0.065),
-          0 48.9px 17.9px rgba(0, 0, 0, 0.077),
-          0 91.5px 33.4px rgba(0, 0, 0, 0.093),
-          0 219px 80px rgba(0, 0, 0, 0.13)`,
-      },
       animation: {
         blob: "blob 12s infinite",
-        "staggered-lines": "staggered-lines 1000ms forwards 500ms",
         fade_in: "fade_in 1000ms forwards",
-        fade_in_down: "fade_in_down 500ms ease-out",
-        fade_out_down: "fade_out-down 500ms ease-out",
         fade_in_up: "fade_in_up 750ms cubic-bezier(0.68, -0.6, 0.32, 1.6) forwards",
-        fade_in_up_5: "fade_in_up_5 750ms cubic-bezier(0.68, -0.6, 0.32, 1.6) forwards",
         fade_in_up_5_rotate: "fade_in_up_5_rotate 1000ms var(--ease-spring-3) 600ms forwards",
         fade_in_up_10: "fade_in_up_10 750ms cubic-bezier(0.68, -0.6, 0.32, 2.2) forwards",
         fade_in_up_30: "fade_in_up_30 750ms cubic-bezier(0.68, -0.6, 0.32, 2.5) forwards",
-        fade_in_up_500: "fade_in_up_10 750ms ease-out forwards 500ms",
-        fade_out_up: "fade_out_up 500ms ease-out",
         flicker: "flicker 3s linear forwards alternate infinite",
       },
       keyframes: {
-        "staggered-lines": {
-          "0%": {
-            opacity: "0",
-            transform: "translateY(-10px)",
-          },
-          "100%": {
-            opacity: "1",
-            transform: "translateY(0)",
-          },
-        },
         blob: {
           "0%": {
             transform: "translate(0px, 0px) scale(1)",
@@ -205,26 +126,6 @@ const config: Config = {
             opacity: "1",
           },
         },
-        fade_in_down: {
-          "0%": {
-            opacity: "0",
-            transform: "translateY(-10px)",
-          },
-          "100%": {
-            opacity: "1",
-            transform: "translateY(0)",
-          },
-        },
-        fade_out_down: {
-          from: {
-            opacity: "1",
-            transform: "translateY(0px)",
-          },
-          to: {
-            opacity: "0",
-            transform: "translateY(10px)",
-          },
-        },
         fade_in_up: {
           "0%": {
             opacity: "0",
@@ -233,16 +134,6 @@ const config: Config = {
           "100%": {
             opacity: "1",
             transform: "translateY(0)",
-          },
-        },
-        fade_in_up_5: {
-          "0%": {
-            opacity: "0",
-            transform: "translateX(50%) translateY(20px)",
-          },
-          "100%": {
-            opacity: "1",
-            transform: "translateX(50%) translateY(0)",
           },
         },
         fade_in_up_5_rotate: {
@@ -273,16 +164,6 @@ const config: Config = {
           "100%": {
             opacity: "1",
             transform: "translateY(0)",
-          },
-        },
-        fade_out_up: {
-          from: {
-            opacity: "1",
-            transform: "translateY(0px)",
-          },
-          to: {
-            opacity: "0",
-            transform: "translateY(10px)",
           },
         },
         flicker: {
