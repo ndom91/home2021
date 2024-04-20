@@ -1,6 +1,6 @@
 import MoreProjects from "@/components/more-projects"
 import Layout from "@/components/layout-project"
-import { type Projects } from "@/types/project"
+import { type Projects } from "@/types"
 
 const About = ({ projects }: Projects) => {
   return (

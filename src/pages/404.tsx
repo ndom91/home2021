@@ -1,9 +1,7 @@
 import Layout from "@/components/layout"
 import Image from "next/image"
-import { useRouter } from "next/router"
 
-const FourOhFour = () => {
-  const router = useRouter()
+const Error404 = () => {
   return (
     <Layout>
       <div className="flex flex-col justify-center items-center mt-12 space-y-12 w-full dark:text-white">
@@ -28,4 +26,4 @@ const FourOhFour = () => {
   )
 }
 
-export default FourOhFour
+export default Error404

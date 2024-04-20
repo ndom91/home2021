@@ -2,7 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import Icon from "@/components/icon"
 import { Parallax } from "react-scroll-parallax"
-import { type Project } from "@/types/project"
+import { type Project } from "@/types"
 
 type Props = {
   index: number

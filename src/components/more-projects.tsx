@@ -1,6 +1,6 @@
 import { ParallaxProvider } from "react-scroll-parallax"
 import ProjectCard from "@/components/project-card"
-import { type Project } from "@/types/project"
+import { type Project } from "@/types"
 
 type Props = {
   projects: Project[]
