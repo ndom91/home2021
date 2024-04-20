@@ -41,9 +41,6 @@ dependencies:
   rehype-slug:
     specifier: ^6.0.0
     version: 6.0.0
-  splitting:
-    specifier: ^1.0.6
-    version: 1.0.6
   zustand:
     specifier: ^4.5.2
     version: 4.5.2(@types/react@18.2.79)(react@18.2.0)
@@ -9883,10 +9880,6 @@ packages:
     resolution: {integrity: sha512-VBiJxFkxiXRlUIeyMQi8s4hgvKCSjtknJv/LVYbrgALPwf5zSKmEwV9Lst25AkvMDnvxODugjdl6KZgwKM1WYQ==}
     engines: {node: '>= 10.x'}
     dev: true
-
-  /splitting@1.0.6:
-    resolution: {integrity: sha512-2hYicS/hTy1MgjTi4ST6B298uoLSx854VfTf0FeMmCeE6OiZjEixTOGPLqnNzSaM/y3jwoEYj5pmDzYFwRInPw==}
-    dev: false
 
   /sprintf-js@1.0.3:
     resolution: {integrity: sha512-D9cPgkvLlV3t3IzL0D0YLvGA9Ahk4PcvVwUbN0dSGr1aP0Nrt4AEnTUbuGvquEC0mA64Gqt1fzirlRs5ibXx8g==}

@@ -1,5 +1,6 @@
 @import "open-props/shadows";
 @import "open-props/easings";
+@import "open-props/animations";
 
 @tailwind base;
 @tailwind components;
@@ -256,20 +257,22 @@ html[class="dark"] ul a:before {
 }
 
 .mask-bottom-strong {
-  mask-image: linear-gradient(to bottom,
-      hsl(0, 0%, 0%) 0%,
-      hsla(0, 0%, 0%, 0.738) 19%,
-      hsla(0, 0%, 0%, 0.541) 34%,
-      hsla(0, 0%, 0%, 0.382) 47%,
-      hsla(0, 0%, 0%, 0.278) 56.5%,
-      hsla(0, 0%, 0%, 0.194) 65%,
-      hsla(0, 0%, 0%, 0.126) 73%,
-      hsla(0, 0%, 0%, 0.075) 80.2%,
-      hsla(0, 0%, 0%, 0.042) 86.1%,
-      hsla(0, 0%, 0%, 0.021) 91%,
-      hsla(0, 0%, 0%, 0.008) 95.2%,
-      hsla(0, 0%, 0%, 0.002) 98.2%,
-      hsla(0, 0%, 0%, 0) 100%);
+  mask-image: linear-gradient(
+    to bottom,
+    hsl(0, 0%, 0%) 0%,
+    hsla(0, 0%, 0%, 0.738) 19%,
+    hsla(0, 0%, 0%, 0.541) 34%,
+    hsla(0, 0%, 0%, 0.382) 47%,
+    hsla(0, 0%, 0%, 0.278) 56.5%,
+    hsla(0, 0%, 0%, 0.194) 65%,
+    hsla(0, 0%, 0%, 0.126) 73%,
+    hsla(0, 0%, 0%, 0.075) 80.2%,
+    hsla(0, 0%, 0%, 0.042) 86.1%,
+    hsla(0, 0%, 0%, 0.021) 91%,
+    hsla(0, 0%, 0%, 0.008) 95.2%,
+    hsla(0, 0%, 0%, 0.002) 98.2%,
+    hsla(0, 0%, 0%, 0) 100%
+  );
 }
 
 html.dark .js_darkmode_flicker {
@@ -284,19 +287,10 @@ html.dark .js_darkmode_flicker {
     0 0 1em var(--primary);
 }
 
-#intro-body span {
-  opacity: 0;
-  animation-name: staggeredLines;
-  animation-duration: 750ms;
-  animation-timing-function: cubic-bezier(0.68, -0.6, 0.32, 1.6);
-  animation-delay: calc(150ms * var(--line-index));
-  animation-fill-mode: forwards;
-}
-
 @keyframes staggeredLines {
   0% {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(50px);
   }
 
   100% {
@@ -324,10 +318,6 @@ html.dark .js_darkmode_flicker {
   transition-property: max-height, transform;
   transition-duration: 0.5s;
   transition-timing-function: ease-out;
-}
-
-#intro-body .border-underline-grow:before {
-  background: rgba(var(--pink-300), 1);
 }
 
 html[class="dark"] .border-underline-grow:before {
@@ -364,15 +354,16 @@ html[class="dark"] .border-underline-grow:active {
       0px 540px 4px palevioletred;
     width: 100%;
     height: 50vh;
-    mask-image: linear-gradient(to top,
-        rgba(0, 0, 0, 0),
-        rgba(255, 255, 255, 1) 85%,
-        rgba(255, 255, 255, 1));
+    mask-image: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0),
+      rgba(255, 255, 255, 1) 85%,
+      rgba(255, 255, 255, 1)
+    );
   }
 }
 
 @layer base {
-
   /* victor mono - variable */
   @font-face {
     font-family: "Victor Mono";

@@ -33,7 +33,6 @@
     "react-use": "^17.5.0",
     "rehype-autolink-headings": "^7.1.0",
     "rehype-slug": "^6.0.0",
-    "splitting": "^1.0.6",
     "zustand": "^4.5.2"
   },
   "devDependencies": {

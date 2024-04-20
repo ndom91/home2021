@@ -14,7 +14,7 @@ const ScreenshotLink = ({ url, image, children }: ScreenshotLinkProps) => {
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-block relative mx-2 outline-none word group border-underline-grow leading-[2.75rem] dark:ring-palevioletred"
+      className="inline-block relative mx-2 outline-none group border-underline-grow leading-[2.75rem] dark:ring-palevioletred"
     >
       <img
         data-comment="load image before any potential hover events to ensure smooth in-animation"
@@ -33,7 +33,7 @@ const ScreenshotLink = ({ url, image, children }: ScreenshotLinkProps) => {
       >
         <img src={`/screenshots/${image}`} className="rounded-md !m-0" />
       </div>
-      <span className="">{children}</span>
+      {children}
     </a>
   )
 }

@@ -25,17 +25,59 @@ type Props = {
 const HeroPost = ({ post }: Props) => {
   const { title, date, slug, time, url } = post
   return (
-    <section className="p-8 mx-auto w-full max-w-7xl bg-white rounded-2xl shadow-sm opacity-0 md:p-16 dark:bg-gray-700 animate-fade_in">
-      <div className="overflow-hidden mb-8 h-auto rounded-t-lg md:mb-16 mask-bottom-strong md:h-[24rem]">
+    <section className="relative p-8 mx-auto w-full max-w-7xl bg-white rounded-2xl shadow-sm opacity-0 md:p-10 dark:bg-gray-700 animate-fade_in">
+      <div className="overflow-hidden mb-4 h-auto rounded-t-lg md:mb-8 mask-bottom-strong md:h-[24rem]">
         <ParallaxProvider>
-          <Parallax translateY={[20, -20]}>
+          <Parallax translateY={[10, -20]}>
             <CoverImage post={post} />
           </Parallax>
         </ParallaxProvider>
+        {url.includes("checklyhq.com") ? (
+          <div
+            className="absolute top-12 right-12 z-20 p-2 bg-gray-200 rounded-full dark:bg-gray-700"
+            title="External"
+          >
+            <svg
+              className="text-white size-6"
+              data-comment="external icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 256 256"
+            >
+              <rect width="256" height="256" fill="none" />
+              <polyline
+                points="216 104 215.99 40.01 152 40"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="16"
+              />
+              <line
+                x1="136"
+                y1="120"
+                x2="216"
+                y2="40"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="16"
+              />
+              <path
+                d="M184,136v72a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V80a8,8,0,0,1,8-8h72"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="16"
+              />
+            </svg>
+          </div>
+        ) : null}
       </div>
       <div className="sm:grid sm:grid-cols-5 md:gap-x-16 lg:gap-x-8">
-        <div className="col-span-4">
-          <h3 className="mb-2 text-3xl leading-tight lg:text-4xl">
+        <div className="flex flex-col col-span-4 gap-2">
+          <h3 className="text-3xl leading-tight lg:text-4xl">
             <Link
               href={!url ? `/posts/${slug}` : url}
               target={url ? "_blank" : "_self"}
@@ -44,7 +86,7 @@ const HeroPost = ({ post }: Props) => {
               {title}
             </Link>
           </h3>
-          <div className="flex mb-4 space-x-4 font-semibold md:justify-start text-md">
+          <div className="flex gap-4 md:justify-start text-md">
             <DateFormatter dateString={date} />
             <span className="text-gray-400 dark:text-gray-300">{time.text}</span>
           </div>
