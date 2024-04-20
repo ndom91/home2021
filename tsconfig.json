@@ -20,6 +20,9 @@
       "@/components/*": [
         "./src/components/*"
       ],
+      "@/lib/*": [
+        "./src/lib/*"
+      ],
       "@/assets/*": [
         "./public/assets/*"
       ],

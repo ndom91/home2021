@@ -290,12 +290,8 @@ html.dark .js_darkmode_flicker {
 
 .border-underline-grow {
   display: inline-block;
-  vertical-align: middle;
-  transform: perspective(1px) translateZ(0);
   box-shadow: 0 0 1px rgba(0, 0, 0, 0);
   position: relative;
-  transition-property: color;
-  transition-duration: 0.5s;
 }
 
 .border-underline-grow:before {
@@ -332,7 +328,8 @@ html[class="dark"] .border-underline-grow:active {
 .border-underline-grow:active:before {
   transform: scaleY(1);
   max-height: 100%;
-  transition-timing-function: cubic-bezier(0.98, -0.4, 0.32, 1.6);
+  backdrop-filter: invert(100%);
+  transition-timing-function: var(--ease-in-out-5);
 }
 
 @media screen and (min-width: 768px) {
@@ -352,6 +349,15 @@ html[class="dark"] .border-underline-grow:active {
 }
 
 @layer base {
+
+  /* victor mono - variable */
+  @font-face {
+    font-family: "Victor Mono";
+    /* font-display: swap; */
+    font-style: normal;
+    font-weight: 100 900;
+    src: local(""), url("/assets/fonts/victormono-variable.ttf");
+  }
 
   /* geist-mono - light */
   @font-face {

@@ -1,11 +1,11 @@
-import Intro from "@/components/intro"
+import Hero from "@/components/hero"
 import Layout from "@/components/layout"
 import Blur from "@/components/blur"
 
 const Index = () => {
   return (
     <Layout>
-      <Intro />
+      <Hero />
       <Blur />
     </Layout>
   )

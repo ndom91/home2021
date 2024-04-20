@@ -34,9 +34,10 @@ const config: Config = {
     },
     extend: {
       fontFamily: {
-        sans: ["'Geist'", ...defaultTheme.fontFamily.sans],
+        sans: ["Geist", ...defaultTheme.fontFamily.sans],
         mono: ["Geist Mono", ...defaultTheme.fontFamily.mono],
         block: ["Silkscreen", ...defaultTheme.fontFamily.mono],
+        victor: ["Victor Mono", ...defaultTheme.fontFamily.mono],
       },
       maxWidth: {
         "8xl": "88rem",
@@ -87,21 +88,6 @@ const config: Config = {
               color: theme("colors.gray.700"),
               textDecoration: "none",
               fontWeight: "400",
-              overflowWrap: "anywhere",
-            },
-            h2: {
-              fontFamily: "JetBrains Mono",
-              fontWeight: "200",
-              overflowWrap: "anywhere",
-            },
-            h3: {
-              fontFamily: "JetBrains Mono",
-              fontWeight: "200",
-              overflowWrap: "anywhere",
-            },
-            h4: {
-              fontFamily: "JetBrains Mono",
-              fontWeight: "200",
               overflowWrap: "anywhere",
             },
           },

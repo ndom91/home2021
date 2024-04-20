@@ -14,15 +14,17 @@ const ScreenshotLink = ({ url, image, children }: ScreenshotLinkProps) => {
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className="word group relative inline-block !duration-100 transition-all outline-none border-underline-grow dark:ring-palevioletred"
+      className="inline-block relative mx-2 outline-none word group border-underline-grow leading-[2.75rem] dark:ring-palevioletred"
     >
       <img
-        data-comment="load image before hover to ensure smooth animation"
+        data-comment="load image before any potential hover events to ensure smooth in-animation"
+        aria-hidden="true"
         alt={image}
         src={`/screenshots/${image}`}
-        className="hidden"
+        className="sr-only"
       />
       <div
+        suppressHydrationWarning
         style={{
           // @ts-expect-error setting css variable
           "--image_rotation": `${randomInteger(-8, 8)}deg`,
@@ -31,7 +33,7 @@ const ScreenshotLink = ({ url, image, children }: ScreenshotLinkProps) => {
       >
         <img src={`/screenshots/${image}`} className="rounded-md" />
       </div>
-      {children}
+      <span className="">{children}</span>
     </a>
   )
 }
