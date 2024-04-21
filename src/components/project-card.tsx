@@ -18,7 +18,7 @@ const ProjectCard = ({ project, index }: Props) => {
 
   return (
     <div className="opacity-0 animate-fade_in" style={{ animationDelay: `${75 * index}ms` }}>
-      <div className="relative bg-gray-100 rounded-xl shadow-sm dark:bg-gray-800 group">
+      <div className="relative bg-gray-50 rounded-xl shadow-sm dark:bg-gray-700 group">
         <div className="flex relative z-10 flex-col bg-gray-50 rounded-xl transition duration-500 dark:bg-gray-800">
           {url && (
             <Link
