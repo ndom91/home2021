@@ -141,12 +141,6 @@ html[class="dark"] ul a:before {
   background: rgba(var(--palevioletred), 1);
 }
 
-/* PROJECTS */
-
-.more-projects .animate-fade_in {
-  animation-delay: calc(var(--index) * 100ms);
-}
-
 /* BLOG POST */
 
 .card-description p,
