@@ -52,9 +52,9 @@ const PostCard = ({ post }: Props) => {
                   points="216 104 215.99 40.01 152 40"
                   fill="none"
                   stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="16"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="16"
                 />
                 <line
                   x1="136"
@@ -63,17 +63,17 @@ const PostCard = ({ post }: Props) => {
                   y2="40"
                   fill="none"
                   stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="16"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="16"
                 />
                 <path
                   d="M184,136v72a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V80a8,8,0,0,1,8-8h72"
                   fill="none"
                   stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="16"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="16"
                 />
               </svg>
             </div>
