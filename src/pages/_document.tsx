@@ -20,7 +20,7 @@ window.matchMedia("(prefers-color-scheme: dark)").matches)) {
             }}
           />
         </Head>
-        <body className="h-screen [&>div]:h-full">
+        <body className="h-dvh [&>div]:h-full">
           <Main />
           <NextScript />
         </body>
