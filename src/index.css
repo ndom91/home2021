@@ -295,6 +295,7 @@ html.dark .js_darkmode_flicker {
   display: inline-block;
   box-shadow: 0 0 1px rgba(0, 0, 0, 0);
   position: relative;
+  text-decoration: none;
 }
 
 .border-underline-grow:before {

@@ -19,7 +19,7 @@ const Layout = ({ children }: Props) => {
     >
       <Meta />
       <Navbar />
-      <main className="flex relative flex-col flex-1 gap-4 items-center w-full max-w-7xl">
+      <main className="flex relative flex-col flex-1 gap-8 items-center w-full max-w-7xl lg:gap-16">
         {children}
       </main>
       <Footer />
