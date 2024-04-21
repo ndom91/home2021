@@ -34,11 +34,11 @@ const HeroPost = ({ post }: Props) => {
         </ParallaxProvider>
         {url?.includes("checklyhq.com") ? (
           <div
-            className="absolute top-12 right-12 z-20 p-2 bg-gray-200 rounded-full dark:bg-gray-700"
+            className="absolute top-12 right-12 z-20 p-2 bg-gray-100 rounded-full dark:bg-gray-700"
             title="External"
           >
             <svg
-              className="text-white size-6"
+              className="text-gray-500 dark:text-white size-6"
               data-comment="external icon"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 256 256"
