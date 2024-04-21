@@ -31,6 +31,7 @@ const PostHeader = ({ post }: Props) => {
         <Image
           src={`/assets/blog/${cover.imageFile}`}
           alt={`Cover Image for ${title}`}
+          className="rounded-md"
           priority
           sizes="100vw"
           style={{

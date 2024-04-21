@@ -4,7 +4,7 @@ const Avatar = () => {
   return (
     <div className="flex flex-col items-center">
       <Image
-        src="/assets/img/brick-avatar.png"
+        src="/assets/img/brick-avatar.webp"
         quality="100"
         height="128"
         width="128"

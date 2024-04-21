@@ -18,14 +18,14 @@
     "url": "https://github.com/ndom91/sveltekasten",
     "image": "briefkasten.png",
     "desc": "Self-hostable RSS Reader / Read-it-later application, 700+ GitHub Stars.",
-    "tech": ["nextjs", "tailwindcss", "prisma", "docker"]
+    "tech": ["svelte", "tailwindcss", "prisma", "docker"]
   },
   {
     "name": "svelte-infinite",
     "url": "https://github.com/ndom91/svelte-infinite",
     "image": "svelteinfinite.png",
     "desc": "Svelte 5 infinite scroller / infinite loader component.",
-    "tech": ["svelte", "npm"]
+    "tech": ["svelte", "typescript", "npm"]
   },
   {
     "name": "NewTelco Landing",

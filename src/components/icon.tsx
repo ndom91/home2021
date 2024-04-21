@@ -7,7 +7,7 @@ const Icon = ({ name = "react", ...rest }) => {
 
   return (
     <Suspense fallback={<div>L</div>}>
-      <Svg className="size-8" {...rest} />
+      <Svg className="size-8" {...rest} height="32" width="32" />
     </Suspense>
   )
 }

@@ -1,1 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><linearGradient id="a" gradientTransform="rotate(90 .5 .5)"><stop offset="0" stop-color="#f08"/><stop offset="1" stop-color="#d0e"/></linearGradient><linearGradient id="b" gradientTransform="rotate(90 .5 .5)"><stop offset="0" stop-color="#91f"/><stop offset="1" stop-color="#40f"/></linearGradient><linearGradient id="c" gradientTransform="rotate(90 .5 .5)"><stop offset="0" stop-color="#09f"/><stop offset="1" stop-color="#05f"/></linearGradient></defs><path d="M0 100V0l50 50z" fill="url(#a)"/><path d="M100 0v50l-50 50-25-25z" fill="url(#b)"/><path d="M100 50v50L75 75z" fill="url(#c)"/></svg>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32" height="32" viewBox="0 0 256 384" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid">
+    <title>Framer</title>
+    <g>
+        <path d="M0,0 L256,0 L256,128 L128,128 L0,0 Z M0,128 L128,128 L256,256 L128,256 L128,384 L0,256 L0,128 Z" fill="currentColor"></path>
+    </g>
+</svg>
