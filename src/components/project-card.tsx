@@ -44,7 +44,7 @@ const ProjectCard = ({ project, index }: Props) => {
             </Link>
           )}
 
-          <div className="overflow-hidden overflow-y-visible relative z-10 px-6">
+          <div className="relative z-10 py-1 px-6">
             {url && (
               <Link
                 href={url}

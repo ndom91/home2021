@@ -69,12 +69,6 @@
   --palevioletred: 219, 112, 147;
 }
 
-.cursor-wrapper:hover,
-.cursor-wrapper *,
-.cursor-wrapper *:hover {
-  cursor: none;
-}
-
 body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -339,7 +333,7 @@ html[class="dark"] .border-underline-grow:active {
 
 @media screen and (min-width: 768px) {
   html:not(.dark) .intro-title:hover {
-    cursor: none;
+    cursor: cell;
     transition:
       text-shadow 1000ms var(--ease-bounce-5),
       mask-size 300ms var(--ease-bounce-5);

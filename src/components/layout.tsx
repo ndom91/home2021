@@ -9,7 +9,7 @@ type Props = {
 const Layout = ({ children }: Props) => {
   return (
     <div
-      className="flex overflow-hidden flex-col items-center px-6 h-full duration-500 xl:px-0 dark:bg-gray-900 selection:bg-pink-300 selection:text-white dark:selection:bg-palevioletred"
+      className="flex overflow-hidden overflow-y-auto flex-col items-center px-6 h-full duration-500 xl:px-0 dark:bg-gray-900 selection:bg-pink-300 selection:text-white dark:selection:bg-palevioletred"
       style={{
         opacity: "0.9",
         backgroundImage: "radial-gradient(#33333390 0.75px, rgba(0,0,0,0) 0.95px)",
