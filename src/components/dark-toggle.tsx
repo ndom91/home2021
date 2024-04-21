@@ -27,7 +27,10 @@ const DarkToggle = () => {
   const theme = useStore((state) => state.theme)
   const setTheme = useStore((state) => state.setTheme)
   useEffect(() => {
-    if (document.documentElement.classList.contains("dark")) {
+    const localTheme = window.localStorage.getItem("theme") as "light" | "dark"
+    if (localTheme) {
+      setTheme(localTheme)
+    } else if (document.documentElement.classList.contains("dark")) {
       setTheme("dark")
     }
   }, [setTheme])
@@ -64,6 +67,7 @@ const DarkToggle = () => {
         }, 500)
       }
       setTheme("dark")
+      window.localStorage.setItem("theme", "dark")
     } else {
       document.documentElement.classList.remove("dark")
       document.documentElement.style.setProperty("color-scheme", "light")
@@ -73,6 +77,7 @@ const DarkToggle = () => {
       const jsSoundOn = document.getElementById("js-sound-on") as HTMLAudioElement
       jsSoundOn?.play()
       setTheme("light")
+      window.localStorage.setItem("theme", "light")
     }
   }
 
