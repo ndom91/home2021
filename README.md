@@ -6,7 +6,6 @@ Portfolio page redesign for ~2021~ ~2022~ 2024 @ [`ndo.dev`](https://ndo.dev/?ut
 
 <p dir="auto">
   <img src="https://img.shields.io/badge/typescript-black?style=for-the-badge&logo=typescript&logoColor=white" />
-  <img src="https://img.shields.io/badge/bundle%20size-48kb-black?style=for-the-badge&color=black&labelColor=black" />
   <img src="https://img.shields.io/github/last-commit/ndom91/home2021?style=for-the-badge&color=black&labelColor=black" />
   <img src="https://img.shields.io/github/deployments/ndom91/home2021/Production?label=vercel&logo=vercel&style=for-the-badge&color=black&labelColor=black" />
 </p>
