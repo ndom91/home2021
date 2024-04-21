@@ -11,10 +11,9 @@ Portfolio page redesign for ~2021~ ~2022~ 2024 @ [`ndo.dev`](https://ndo.dev/?ut
   <img src="https://img.shields.io/github/deployments/ndom91/home2021/Production?label=vercel&logo=vercel&style=for-the-badge&color=black&labelColor=black" />
 </p>
 
-
 ![swappy-20240421-214644](https://github.com/ndom91/home2021/assets/7415984/df49784c-ad31-41bb-b523-e1a70a106bc3)
 
-### 🚀 Getting Started
+## 🏗 Quick Start
 
 1. Clone repository
 
@@ -34,8 +33,8 @@ cd home2021 && pnpm install
 pnpm dev
 ```
 
-The site should be up and running at [localhost:3003](http://localhost:3003)
+The site should be up and running at [localhost:3003](http://localhost:3003).
 
-### 📖 License
+## 📖 License
 
 MIT
