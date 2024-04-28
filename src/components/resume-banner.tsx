@@ -1,6 +1,6 @@
 const ResumeBanner = () => (
   <a
-    href="https://cv.ndo.dev/fullstack"
+    href="https://cv.ndo.dev/fullstack/?utm_source=portfolio&utm_medium=banner&utm_campaign=resume"
     target="_blank"
     className="inline-flex absolute -bottom-2 left-1/2 justify-between items-stretch w-full font-mono font-light text-gray-500 bg-gray-50 rounded-md border transition duration-300 -translate-x-1/2 dark:text-gray-300 dark:bg-gray-700 hover:shadow-sm hover:-translate-y-1 min-[500px]:w-max group border-gray-200/30 dark:border-gray-500/30"
   >

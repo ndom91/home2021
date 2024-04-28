@@ -7,7 +7,10 @@ const IntroDescription = () => (
   >
     Hey visitor 👋 My name&apos;s Nico Domino and I&lsquo;m a senior fullstack web developer
     currently looking for{" "}
-    <ScreenshotLink url="https://cv.ndo.dev/fullstack?utm_source=home_desc" image="resume.jpg">
+    <ScreenshotLink
+      url="https://cv.ndo.dev/fullstack?utm_source=portfolio&utm_medium=description&utm_campaign=resume"
+      image="resume.jpg"
+    >
       a new gig
     </ScreenshotLink>{" "}
     📝. You can also find me working on open source software, like{" "}
