@@ -37,9 +37,8 @@ const config: Config = {
     extend: {
       fontFamily: {
         sans: ["GT America", ...defaultTheme.fontFamily.sans],
-        mono: ["Geist Mono", ...defaultTheme.fontFamily.mono],
+        mono: ["Victor Mono", ...defaultTheme.fontFamily.mono],
         block: ["Silkscreen", ...defaultTheme.fontFamily.mono],
-        victor: ["Victor Mono", ...defaultTheme.fontFamily.mono],
       },
       colors: {
         gray: {
