@@ -28,7 +28,7 @@ const Navbar = () => {
             href="/projects"
             className="p-0.5 text-gray-800 transition-all duration-200 outline-none dark:text-gray-100 focus:outline-none"
           >
-            work
+            projects
           </Link>
         </li>
       </ul>

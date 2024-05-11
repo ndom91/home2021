@@ -83,7 +83,7 @@ const PostCard = ({ post }: Props) => {
           <Link
             href={!url ? `/posts/${slug}` : url}
             target={url ? "_blank" : "_self"}
-            className="text-lg font-extralight text-gray-600 rounded-sm transition-colors duration-300 outline-none md:text-xl dark:text-gray-100 hover:outline-none focus:ring-2 focus:ring-pink-300 focus:ring-offset-2 focus:ring-offset-white focus:outline-none text-balance line-clamp-2 hover:text-palevioletred focus:dark:ring-palevioletred focus:dark:ring-offset-gray-500"
+            className="text-lg font-medium text-gray-600 rounded-sm transition-colors duration-300 outline-none md:text-xl dark:text-gray-100 hover:outline-none focus:ring-2 focus:ring-pink-300 focus:ring-offset-2 focus:ring-offset-white focus:outline-none text-balance line-clamp-2 hover:text-palevioletred focus:dark:ring-palevioletred focus:dark:ring-offset-gray-500"
           >
             {title}
           </Link>
@@ -96,7 +96,7 @@ const PostCard = ({ post }: Props) => {
         </div>
         {excerpt ? (
           <div
-            className="flex w-full max-w-full font-light text-gray-600 dark:text-gray-200 prose-md prose prose-pink card-description dark:prose-dark"
+            className="flex w-full max-w-full text-gray-400 dark:text-gray-300 prose-md prose prose-pink card-description dark:prose-dark"
             dangerouslySetInnerHTML={{ __html: excerpt }}
           />
         ) : null}
@@ -105,7 +105,7 @@ const PostCard = ({ post }: Props) => {
             {tags.map((tag) => (
               <span
                 key={tag}
-                className="py-1 px-2 my-1 mr-2 text-xs font-medium whitespace-nowrap bg-gray-100 rounded-full dark:text-pink-800 dark:bg-pink-200 font-block text-palevioletred"
+                className="py-1 px-2 my-1 mr-2 text-xs font-medium whitespace-nowrap bg-gray-100 rounded-full dark:text-gray-600 font-block text-palevioletred dark:bg-pink-200/70"
               >
                 {tag}
               </span>

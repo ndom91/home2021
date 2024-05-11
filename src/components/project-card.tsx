@@ -69,9 +69,9 @@ const ProjectCard = ({ project, index }: Props) => {
                 </svg>
               </Link>
             )}
-            <div className="flex pt-1 md:pt-4">
+            <div className="flex p-1 md:pt-4">
               <span
-                className="font-light text-gray-500 dark:text-gray-400"
+                className="text-gray-400 dark:text-gray-400 font-base"
                 dangerouslySetInnerHTML={{ __html: desc }}
               />
             </div>
