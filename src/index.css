@@ -251,20 +251,22 @@ html[class="dark"] ul a:before {
 }
 
 .mask-bottom-strong {
-  mask-image: linear-gradient(to bottom,
-      hsl(0, 0%, 0%) 0%,
-      hsla(0, 0%, 0%, 0.738) 19%,
-      hsla(0, 0%, 0%, 0.541) 34%,
-      hsla(0, 0%, 0%, 0.382) 47%,
-      hsla(0, 0%, 0%, 0.278) 56.5%,
-      hsla(0, 0%, 0%, 0.194) 65%,
-      hsla(0, 0%, 0%, 0.126) 73%,
-      hsla(0, 0%, 0%, 0.075) 80.2%,
-      hsla(0, 0%, 0%, 0.042) 86.1%,
-      hsla(0, 0%, 0%, 0.021) 91%,
-      hsla(0, 0%, 0%, 0.008) 95.2%,
-      hsla(0, 0%, 0%, 0.002) 98.2%,
-      hsla(0, 0%, 0%, 0) 100%);
+  mask-image: linear-gradient(
+    to bottom,
+    hsl(0, 0%, 0%) 0%,
+    hsla(0, 0%, 0%, 0.738) 19%,
+    hsla(0, 0%, 0%, 0.541) 34%,
+    hsla(0, 0%, 0%, 0.382) 47%,
+    hsla(0, 0%, 0%, 0.278) 56.5%,
+    hsla(0, 0%, 0%, 0.194) 65%,
+    hsla(0, 0%, 0%, 0.126) 73%,
+    hsla(0, 0%, 0%, 0.075) 80.2%,
+    hsla(0, 0%, 0%, 0.042) 86.1%,
+    hsla(0, 0%, 0%, 0.021) 91%,
+    hsla(0, 0%, 0%, 0.008) 95.2%,
+    hsla(0, 0%, 0%, 0.002) 98.2%,
+    hsla(0, 0%, 0%, 0) 100%
+  );
 }
 
 html.dark .js_darkmode_flicker {
@@ -346,62 +348,128 @@ html[class="dark"] .border-underline-grow:active {
       0px 540px 4px palevioletred;
     width: 100%;
     height: 50vh;
-    mask-image: linear-gradient(to top,
-        rgba(0, 0, 0, 0),
-        rgba(255, 255, 255, 1) 85%,
-        rgba(255, 255, 255, 1));
+    mask-image: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0),
+      rgba(255, 255, 255, 1) 85%,
+      rgba(255, 255, 255, 1)
+    );
   }
 }
 
 @layer base {
   @font-face {
-    font-family: "Berkeley Mono";
-    font-style: normal;
-    font-weight: 100 800;
-    src: url("/assets/fonts/berkeley-mono-variable-regular.woff2") format("woff2");
+    font-family: "Neue Montreal";
+    src: url("/assets/fonts/NeueMontreal/NeueMontreal-Italic.woff2") format("woff2");
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
   }
 
   @font-face {
-    font-family: "GT America";
-    font-style: normal;
-    font-weight: 800;
-    src: url("/assets/fonts/GT-America-Standard-Black.woff2") format("woff2");
-  }
-
-  @font-face {
-    font-family: "GT America";
-    font-style: normal;
-    font-weight: 700;
-    src: url("/assets/fonts/GT-America-Standard-Bold.woff2") format("woff2");
-  }
-
-  @font-face {
-    font-family: "GT America";
-    font-style: normal;
-    font-weight: 500;
-    src: url("/assets/fonts/GT-America-Standard-Medium.woff2") format("woff2");
-  }
-
-  @font-face {
-    font-family: "GT America";
-    font-style: normal;
-    font-weight: 400;
-    src: url("/assets/fonts/GT-America-Standard-Regular.woff2") format("woff2");
-  }
-
-  @font-face {
-    font-family: "GT America";
-    font-style: normal;
+    font-family: "Neue Montreal";
+    src: url("/assets/fonts/NeueMontreal/NeueMontreal-Light.woff2") format("woff2");
     font-weight: 300;
-    src: url("/assets/fonts/GT-America-Standard-Light.woff2") format("woff2");
+    font-style: normal;
+    font-display: swap;
   }
 
   @font-face {
-    font-family: "GT America";
+    font-family: "Neue Montreal";
+    src: url("/assets/fonts/NeueMontreal/NeueMontreal-Bold.woff2") format("woff2");
+    font-weight: bold;
     font-style: normal;
-    font-weight: 200;
-    src: url("/assets/fonts/GT-America-Standard-Thin.woff2") format("woff2");
+    font-display: swap;
   }
+
+  @font-face {
+    font-family: "Neue Montreal";
+    src: url("/assets/fonts/NeueMontreal/NeueMontreal-BoldItalic.woff2") format("woff2");
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Neue Montreal";
+    src: url("/assets/fonts/NeueMontreal/NeueMontreal-Regular.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Neue Montreal";
+    src: url("/assets/fonts/NeueMontreal/NeueMontreal-Medium.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Neue Montreal";
+    src: url("/assets/fonts/NeueMontreal/NeueMontreal-MediumItalic.woff2") format("woff2");
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Neue Montreal";
+    src: url("/assets/fonts/NeueMontreal/NeueMontreal-LightItalic.woff2") format("woff2");
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  /* @font-face { */
+  /*   font-family: "Berkeley Mono"; */
+  /*   font-style: normal; */
+  /*   font-weight: 100 800; */
+  /*   src: url("/assets/fonts/berkeley-mono-variable-regular.woff2") format("woff2"); */
+  /* } */
+
+  /* @font-face { */
+  /*   font-family: "GT America"; */
+  /*   font-style: normal; */
+  /*   font-weight: 800; */
+  /*   src: url("/assets/fonts/GT-America-Standard-Black.woff2") format("woff2"); */
+  /* } */
+  /**/
+  /* @font-face { */
+  /*   font-family: "GT America"; */
+  /*   font-style: normal; */
+  /*   font-weight: 700; */
+  /*   src: url("/assets/fonts/GT-America-Standard-Bold.woff2") format("woff2"); */
+  /* } */
+  /**/
+  /* @font-face { */
+  /*   font-family: "GT America"; */
+  /*   font-style: normal; */
+  /*   font-weight: 500; */
+  /*   src: url("/assets/fonts/GT-America-Standard-Medium.woff2") format("woff2"); */
+  /* } */
+  /**/
+  /* @font-face { */
+  /*   font-family: "GT America"; */
+  /*   font-style: normal; */
+  /*   font-weight: 400; */
+  /*   src: url("/assets/fonts/GT-America-Standard-Regular.woff2") format("woff2"); */
+  /* } */
+  /**/
+  /* @font-face { */
+  /*   font-family: "GT America"; */
+  /*   font-style: normal; */
+  /*   font-weight: 300; */
+  /*   src: url("/assets/fonts/GT-America-Standard-Light.woff2") format("woff2"); */
+  /* } */
+  /**/
+  /* @font-face { */
+  /*   font-family: "GT America"; */
+  /*   font-style: normal; */
+  /*   font-weight: 200; */
+  /*   src: url("/assets/fonts/GT-America-Standard-Thin.woff2") format("woff2"); */
+  /* } */
 
   /* victor mono - variable */
   @font-face {
@@ -412,93 +480,49 @@ html[class="dark"] .border-underline-grow:active {
     src: local(""), url("/assets/fonts/victormono-variable.ttf");
   }
 
-  /* geist-mono - light */
-  @font-face {
-    font-family: "Geist";
-    font-display: swap;
-    font-style: normal;
-    font-weight: 200;
-    src:
-      local(""),
-      url("/assets/fonts/geist/Geist-Light.woff2") format("woff2");
-  }
-
-  /* geist-mono - normal */
-  @font-face {
-    font-family: "Geist";
-    font-display: swap;
-    font-style: normal;
-    font-weight: 400;
-    src:
-      local(""),
-      url("/assets/fonts/geist/Geist-Regular.woff2") format("woff2");
-  }
-
-  /* geist-mono - bold */
-  @font-face {
-    font-family: "Geist";
-    font-display: swap;
-    font-style: normal;
-    font-weight: 600;
-    src:
-      local(""),
-      url("/assets/fonts/geist/Geist-Bold.woff2") format("woff2");
-  }
-
-  /* geist-mono - black */
-  @font-face {
-    font-family: "Geist";
-    font-display: swap;
-    font-style: normal;
-    font-weight: 800;
-    src:
-      local(""),
-      url("/assets/fonts/geist/Geist-Black.woff2") format("woff2");
-  }
-
-  /* geist-mono - light */
-  @font-face {
-    font-family: "Geist Mono";
-    font-display: swap;
-    font-style: normal;
-    font-weight: 200;
-    src:
-      local(""),
-      url("/assets/fonts/geist-mono/GeistMono-Light.woff2") format("woff2");
-  }
-
-  /* geist-mono - normal */
-  @font-face {
-    font-family: "Geist Mono";
-    font-display: swap;
-    font-style: normal;
-    font-weight: 400;
-    src:
-      local(""),
-      url("/assets/fonts/geist-mono/GeistMono-Regular.woff2") format("woff2");
-  }
-
-  /* geist-mono - bold */
-  @font-face {
-    font-family: "Geist Mono";
-    font-display: swap;
-    font-style: normal;
-    font-weight: 600;
-    src:
-      local(""),
-      url("/assets/fonts/geist-mono/GeistMono-Bold.woff2") format("woff2");
-  }
-
-  /* geist-mono - black */
-  @font-face {
-    font-family: "Geist Mono";
-    font-display: swap;
-    font-style: normal;
-    font-weight: 800;
-    src:
-      local(""),
-      url("/assets/fonts/geist-mono/GeistMono-Black.woff2") format("woff2");
-  }
+  /* /* geist-mono - light */
+  /* @font-face { */
+  /*   font-family: "Geist Mono"; */
+  /*   font-display: swap; */
+  /*   font-style: normal; */
+  /*   font-weight: 200; */
+  /*   src: */
+  /*     local(""), */
+  /*     url("/assets/fonts/geist-mono/GeistMono-Light.woff2") format("woff2"); */
+  /* } */
+  /**/
+  /* /* geist-mono - normal */
+  /* @font-face { */
+  /*   font-family: "Geist Mono"; */
+  /*   font-display: swap; */
+  /*   font-style: normal; */
+  /*   font-weight: 400; */
+  /*   src: */
+  /*     local(""), */
+  /*     url("/assets/fonts/geist-mono/GeistMono-Regular.woff2") format("woff2"); */
+  /* } */
+  /**/
+  /* /* geist-mono - bold */
+  /* @font-face { */
+  /*   font-family: "Geist Mono"; */
+  /*   font-display: swap; */
+  /*   font-style: normal; */
+  /*   font-weight: 600; */
+  /*   src: */
+  /*     local(""), */
+  /*     url("/assets/fonts/geist-mono/GeistMono-Bold.woff2") format("woff2"); */
+  /* } */
+  /**/
+  /* /* geist-mono - black */
+  /* @font-face { */
+  /*   font-family: "Geist Mono"; */
+  /*   font-display: swap; */
+  /*   font-style: normal; */
+  /*   font-weight: 800; */
+  /*   src: */
+  /*     local(""), */
+  /*     url("/assets/fonts/geist-mono/GeistMono-Black.woff2") format("woff2"); */
+  /* } */
 
   /* Silkscreen */
   @font-face {
