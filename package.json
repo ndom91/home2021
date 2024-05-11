@@ -23,35 +23,35 @@
   "dependencies": {
     "@mdx-js/loader": "^3.0.1",
     "@mdx-js/react": "^3.0.1",
-    "@next/mdx": "^14.2.2",
-    "next": "^14.2.2",
+    "@next/mdx": "^14.2.3",
+    "next": "^14.2.3",
     "next-mdx-remote": "^4.4.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "react-scroll-parallax": "^3.4.5",
     "react-spring": "^9.7.3",
     "react-use": "^17.5.0",
     "zustand": "^4.5.2"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.2.2",
+    "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
-    "@eslint/js": "^9.0.0",
-    "@next/eslint-plugin-next": "^14.2.2",
-    "@shikijs/rehype": "^1.3.0",
+    "@eslint/js": "^9.2.0",
+    "@next/eslint-plugin-next": "^14.2.3",
+    "@shikijs/rehype": "^1.4.0",
     "@svgr/webpack": "^8.1.0",
-    "@tailwindcss/typography": "^0.5.12",
+    "@tailwindcss/typography": "^0.5.13",
     "@types/jest": "^29.5.12",
     "@types/mdx": "^2.0.13",
-    "@types/node": "^20.12.7",
-    "@types/react": "^18.2.79",
-    "@types/react-dom": "^18.2.25",
+    "@types/node": "^20.12.8",
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.0",
     "autoprefixer": "^10.4.19",
-    "eslint": "^9.0.0",
-    "eslint-config-next": "^14.2.2",
+    "eslint": "^9.2.0",
+    "eslint-config-next": "^14.2.3",
     "gray-matter": "4.0.3",
     "lint-staged": "^15.2.2",
-    "open-props": "^1.7.3",
+    "open-props": "^1.7.4",
     "postcss": "^8.4.38",
     "prettier": "^3.2.5",
     "reading-time": "^1.5.0",
@@ -63,7 +63,7 @@
     "simple-git-hooks": "^2.11.1",
     "tailwindcss": "^3.4.3",
     "typescript": "^5.4.5",
-    "typescript-eslint": "^7.7.0"
+    "typescript-eslint": "^7.8.0"
   },
   "commitlint": {
     "extends": [
@@ -79,5 +79,6 @@
       "eslint --fix",
       "prettier --write"
     ]
-  }
+  },
+  "packageManager": "pnpm@9.0.4+sha256.caa915eaae9d9aefccf50ee8aeda25a2f8684d8f9d5c6e367eaf176d97c1f89e"
 }
