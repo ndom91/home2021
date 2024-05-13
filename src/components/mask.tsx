@@ -1,7 +1,7 @@
 export default function Mask() {
   return (
     <svg
-      className="fixed top-0 left-0 transition pointer-events-none duration-0"
+      className="fixed top-0 left-0 h-full transition pointer-events-none duration-0"
       style={{ maskRepeat: "repeat" }}
       viewBox="0 0 800 800"
       xmlns="http://www.w3.org/2000/svg"
@@ -25,16 +25,17 @@ export default function Mask() {
         <circle filter="url(#blur-filter)" fill="url(#rgradient)" cx="200" cy="600" r="200" />
       </mask>
 
-      <rect
+      <polygon
         mask="url(#my-mask)"
+        points="0,0 800,0 800,800 0,800"
         x="0"
         y="0"
-        width="800"
-        height="800"
+        width="100%"
+        height="100%"
         fillOpacity="0.3"
         fill="currentColor"
         className="text-pink-300/50 dark:text-purple-300/10"
-      ></rect>
+      />
     </svg>
   )
 }

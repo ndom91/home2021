@@ -1,9 +1,10 @@
 export default function Mask() {
   return (
     <svg
-      className="fixed top-0 left-1/2 w-full max-w-screen-2xl h-full transition -translate-x-1/2 pointer-events-none duration-0"
+      className="fixed top-0 left-1/2 transition -translate-x-1/2 pointer-events-none duration-0"
       style={{ maskRepeat: "repeat" }}
       viewBox="0 0 800 800"
+      height="100%"
       xmlns="http://www.w3.org/2000/svg"
     >
       <defs>
@@ -18,16 +19,17 @@ export default function Mask() {
         <rect fill="url(#lgradient)" width="800" height="800"></rect>
       </mask>
 
-      <rect
+      <polygon
+        points="0,0 800,0 800,800 0,800"
         mask="url(#my-mask)"
         x="0"
         y="0"
-        width="800"
-        height="800"
+        width="100%"
+        height="100%"
         fillOpacity="0.8"
         fill="currentColor"
         className="text-white dark:text-gray-900/80"
-      ></rect>
+      />
     </svg>
   )
 }

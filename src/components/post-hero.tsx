@@ -75,8 +75,8 @@ const HeroPost = ({ post }: Props) => {
           </div>
         ) : null}
       </div>
-      <div className="sm:grid sm:grid-cols-5 md:gap-x-16 lg:gap-x-8">
-        <div className="flex flex-col col-span-4 gap-2">
+      <div className="sm:grid sm:grid-cols-4 md:gap-x-16 lg:gap-x-8">
+        <div className="flex flex-col col-span-3 gap-2">
           <h3 className="text-3xl leading-tight lg:text-4xl">
             <Link
               href={!url ? `/posts/${slug}` : url}

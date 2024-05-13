@@ -8,7 +8,7 @@ const Avatar = () => {
         quality="100"
         height="128"
         width="128"
-        className="mr-4 rounded-full size-14 sm:size-28"
+        className="mr-4 rounded-full !size-14 sm:!size-28"
         alt="ndom91"
       />
     </div>
