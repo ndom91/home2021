@@ -8,10 +8,10 @@ export default function Mask() {
     >
       <defs>
         <radialGradient id="rgradient" r="0.95" cx="0.5" cy="0.5">
-          <stop offset="0" stop-color="rgba(0,0,0,1)" />
-          <stop offset="0.3" stop-color="rgba(0,0,0,0.99)" />
-          <stop offset="0.5" stop-color="rgba(0,0,0,0.1)" />
-          <stop offset="1" stop-color="rgba(0,0,0,0)" />
+          <stop offset="0" stopColor="rgba(0,0,0,1)" />
+          <stop offset="0.3" stopColor="rgba(0,0,0,0.99)" />
+          <stop offset="0.5" stopColor="rgba(0,0,0,0.1)" />
+          <stop offset="1" stopColor="rgba(0,0,0,0)" />
         </radialGradient>
 
         <filter id="blur-filter" width="400%" height="400%" x="-200%" y="-200%">
