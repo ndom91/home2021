@@ -44,6 +44,7 @@ export async function getPostBySlug(slug: string, fields: string[] = []) {
   const filePath = await getMarkdownFile(join(postsDirectory, slug))
   const fileContents = await fs.readFile(join(postsDirectory, slug, filePath), "utf8")
   const { data, excerpt, content } = matter(fileContents, {
+    // @ts-expect-error comment
     excerpt: firstFourLines,
   })
 
