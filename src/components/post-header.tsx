@@ -23,8 +23,8 @@ type Props = {
 const PostHeader = ({ post }: Props) => {
   const { title, date, cover, time } = post
   return (
-    <div className="flex flex-col gap-16 w-full lg:gap-24">
-      <h1 className="font-light tracking-tighter leading-tight text-center md:text-7xl md:leading-none md:text-left lg:text-8xl dark:text-gray-100 text-[3.25rem] text-balance">
+    <div className="flex flex-col gap-16 w-full">
+      <h1 className="font-bold tracking-tighter leading-tight text-center md:text-7xl md:leading-none md:text-left lg:text-8xl dark:text-gray-100 text-[3.25rem] text-balance">
         {title}
       </h1>
       {cover && (
@@ -44,7 +44,7 @@ const PostHeader = ({ post }: Props) => {
       )}
       <div className="flex justify-between mx-auto w-full max-w-4xl">
         <Avatar />
-        <div className="text-lg font-light text-right">
+        <div className="text-lg text-right">
           <DateFormatter dateString={date} />
           <p className="text-gray-700 dark:text-gray-300">{time.text}</p>
         </div>

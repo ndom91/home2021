@@ -68,6 +68,8 @@ Next, we need to create some firewall rules that will match the traffic we want 
 
 > If the hosts that will use the tunnel are configured to use local DNS servers (such as OPNsense itself or another local DNS server), then the configuration below will likely result in DNS leaks - that is, DNS requests for the hosts will continue to be processed through the normal WAN gateway, rather than through the tunnel. See [Dealing with DNS leaks](https://docs.opnsense.org/manual/how-tos/wireguard-selective-routing.html#dealing-with-dns-leaks) in the OPNsense docs for a discussion of potential solutions to this
 
+### RFC1918 Alias
+
 First, we'll add another alias for all RFC1918 addresses (all reserved for local networks addresses).
 
 1. Go to **Firewall** -> **Aliases**
@@ -84,7 +86,9 @@ First, we'll add another alias for all RFC1918 addresses (all reserved for local
 
 4. Click **Save** and **Apply**
 
-Next, we'll add a firewall rule for the interface(s) that our target devices are on to send traffic to Tailscale Gateway if the target **is not** one of the above RFC1918 addresses
+### Allow Traffic to new Gateway
+
+Next, we'll add a firewall rule for the interface(s) that our target devices are on to allow them to send traffic to Tailscale Gateway if the target **is not** one of the above RFC1918 addresses
 
 1. Go to **Firewall** -> **Rules** -> **[Name of Interface on which the hosts reside, i.e. LAN]**
 2. Click **Add** to add a new rule.

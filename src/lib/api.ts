@@ -9,7 +9,12 @@ type Items = {
   [key: string]: string
 }
 
-const firstFourLines = (file: any, _options: any): any => {
+type File = {
+  excerpt: string
+  content: string
+}
+
+const firstFourLines = (file: File) => {
   file.excerpt = file.content
     .split("\n")
     .filter((item: string) => item.length)
@@ -28,7 +33,8 @@ const getMarkdownFile = async (filePath: string) => {
   return files.filter((file) => file.match(new RegExp(`.*.md`, "ig")))[0]
 }
 
-const excerptToHtml = async (excerpt: string, _data: any) => {
+const excerptToHtml = async (excerpt: string) => {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
   const e1 = await remark().use(html).process(excerpt)
   return e1.toString()
 }
@@ -46,7 +52,7 @@ export async function getPostBySlug(slug: string, fields: string[] = []) {
 
   // Excerpt
   if (excerpt) {
-    const htmlExcerpt = await excerptToHtml(excerpt, data)
+    const htmlExcerpt = await excerptToHtml(excerpt)
     data.excerpt = htmlExcerpt.replace(/<h[1-4]\/?>/, "")
   }
 
@@ -70,9 +76,10 @@ export async function getPostBySlug(slug: string, fields: string[] = []) {
 export async function getAllPosts(fields: string[] = []) {
   const slugs = await getPostSlugs()
   const postFiles = await Promise.all(slugs.map(async (slug) => getPostBySlug(slug, fields)))
-  const postLinks = require("../data/posts.json")
-  const posts = [...postFiles, ...postLinks].sort((post1, post2) =>
-    post1.date > post2.date ? -1 : 1
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
+  const postLinks = require("../data/posts.json") as Items[]
+  const posts: Items[] = [...postFiles, ...postLinks].sort((post1, post2) =>
+    post1.date > post2.date ? -1 : 1,
   )
   return posts
 }

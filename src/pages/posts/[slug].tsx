@@ -10,6 +10,7 @@ import path from "node:path"
 import fs from "node:fs/promises"
 import matter from "gray-matter"
 import rehypeSlug from "rehype-slug"
+import gfm from "remark-gfm"
 import readingTime from "reading-time"
 import rehypeShiki from "@shikijs/rehype"
 import { MDXRemote } from "next-mdx-remote"
@@ -85,7 +86,9 @@ export async function getStaticProps({ params }: Params) {
   data.time = readingTime(content)
 
   const mdxSource = await serialize(content, {
+    parseFrontmatter: false,
     mdxOptions: {
+      remarkPlugins: [gfm],
       rehypePlugins: [
         rehypeSlug,
         [

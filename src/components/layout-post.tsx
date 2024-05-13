@@ -1,6 +1,7 @@
 import Footer from "@/components/footer"
 import Navbar from "@/components/nav"
 import Meta from "@/components/meta"
+import MaskPost from "@/components/mask-post"
 
 type Props = {
   children: React.ReactNode
@@ -18,6 +19,7 @@ const Layout = ({ children }: Props) => {
       }}
     >
       <Meta />
+      <MaskPost />
       <Navbar />
       <main className="flex relative flex-col flex-1 gap-8 items-center w-full max-w-7xl lg:gap-16">
         {children}

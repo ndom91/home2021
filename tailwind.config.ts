@@ -57,6 +57,20 @@ const config: Config = {
         palevioletred: "#DB7093",
       },
       typography: ({ theme }: { theme: TODO }) => ({
+        DEFAULT: {
+          css: {
+            blockquote: {
+              fontWeight: "400",
+            },
+          },
+        },
+        light: {
+          css: {
+            blockquote: {
+              color: theme("colors.gray.300"),
+            },
+          },
+        },
         dark: {
           css: {
             a: {
@@ -86,11 +100,16 @@ const config: Config = {
               color: theme("colors.gray.200"),
               backgroundColor: theme("colors.gray.800"),
             },
+            th: {
+              color: theme("colors.gray.100"),
+            },
             thead: {
               color: theme("colors.gray.100"),
-              borderBottomColor: theme("colors.gray.700"),
+              borderBottomColor: theme("colors.palevioletred"),
             },
-            "tbody tr": { borderBottomColor: theme("colors.gray.800") },
+            "tbody tr": {
+              borderBottomColor: theme("colors.zinc.800"),
+            },
           },
         },
       }),
