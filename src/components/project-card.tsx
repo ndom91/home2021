@@ -27,7 +27,7 @@ const ProjectCard = ({ project, index }: Props) => {
         "--imagerotation": `${randomInteger(-2, 2)}deg`,
         animationDelay: `${75 * index}ms`,
       }}
-      className={`opacity-0 transition-transform duration-300 hover:rotate-[var(--imagerotation)] hover:-translate-y-4 animate-fade_in`}
+      className={`opacity-0 transition-transform duration-300 hover:rotate-[var(--imagerotation)] hover:-translate-y-4 animate-fade_in ease-[var(--ease-elastic-out-2)]`}
     >
       <div className="relative bg-gray-50 rounded-xl shadow-sm dark:bg-gray-700 group">
         <div className="flex relative z-10 flex-col bg-gray-50 rounded-xl transition duration-500 dark:bg-gray-800">
