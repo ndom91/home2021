@@ -1,11 +1,12 @@
 export default function Mask() {
   return (
-    <div className="fixed top-0 left-0 w-full h-full transition pointer-events-none duration-0">
+    <div className="fixed top-0 left-0 w-screen h-full transition pointer-events-none duration-0">
       <svg
-        className="h-full"
-        style={{ maskRepeat: "repeat" }}
+        width="100%"
+        height="100%"
         viewBox="0 0 800 800"
         xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="none"
       >
         <defs>
           <radialGradient id="rgradient" r="0.95" cx="0.5" cy="0.5">

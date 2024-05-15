@@ -91,7 +91,7 @@ const HeroPost = ({ post }: Props) => {
             <span className="text-gray-400 dark:text-gray-300">{time.text}</span>
           </div>
         </div>
-        <div className="flex justify-start sm:justify-end">
+        <div className="hidden justify-end sm:flex">
           <Avatar />
         </div>
       </div>

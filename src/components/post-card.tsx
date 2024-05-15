@@ -83,12 +83,12 @@ const PostCard = ({ post }: Props) => {
           <Link
             href={!url ? `/posts/${slug}` : url}
             target={url ? "_blank" : "_self"}
-            className="text-lg font-medium text-gray-600 rounded-sm transition-colors duration-300 outline-none md:text-xl dark:text-gray-100 hover:outline-none focus:ring-2 focus:ring-pink-300 focus:ring-offset-2 focus:ring-offset-white focus:outline-none text-balance line-clamp-2 hover:text-palevioletred focus:dark:ring-palevioletred focus:dark:ring-offset-gray-500"
+            className="text-3xl font-light text-gray-600 rounded-sm transition-colors duration-300 outline-none md:text-xl dark:text-gray-100 hover:outline-none focus:ring-2 focus:ring-pink-300 focus:ring-offset-2 focus:ring-offset-white focus:outline-none text-balance line-clamp-2 hover:text-palevioletred focus:dark:ring-palevioletred focus:dark:ring-offset-gray-500"
           >
             {title}
           </Link>
-          <div className="flex justify-between text-sm md:text-base">
-            <span className="text-medium">
+          <div className="flex justify-between">
+            <span className="">
               <DateFormatter dateString={date} />
             </span>
             <span className="text-gray-400 dark:text-gray-200">{time.text}</span>
@@ -105,7 +105,7 @@ const PostCard = ({ post }: Props) => {
             {tags.map((tag) => (
               <span
                 key={tag}
-                className="py-1 px-2 my-1 mr-2 text-xs font-medium whitespace-nowrap bg-gray-100 rounded-full dark:text-gray-600 font-block text-palevioletred dark:bg-pink-200/70"
+                className="py-1 px-2 my-1 mr-2 text-sm font-medium whitespace-nowrap bg-gray-100 rounded-full dark:text-gray-600 font-block text-palevioletred dark:bg-pink-200/70"
               >
                 {tag}
               </span>
