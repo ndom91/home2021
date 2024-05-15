@@ -1,10 +1,9 @@
 import defaultTheme from "tailwindcss/defaultTheme"
-import { StaticShadows } from "open-props/src/shadows"
 import tailwindTypography from "@tailwindcss/typography"
 import { type Config } from "tailwindcss"
-import { type TODO } from "@/types"
+import { type PluginUtils } from "tailwindcss/types/config"
 
-const config: Config = {
+export default {
   content: ["./src/**/*.{tsx,ts,md,mdx}"],
   safelist: ["animate-flicker", "reset", "fade_*"],
   darkMode: "class",
@@ -28,12 +27,12 @@ const config: Config = {
       "10xl": "clamp(4.50rem, 0.92vw + 5.75rem, 7.95rem)",
     },
     boxShadow: {
-      xs: StaticShadows["--shadow-1"],
-      sm: StaticShadows["--shadow-2"],
-      md: StaticShadows["--shadow-3"],
-      lg: StaticShadows["--shadow-4"],
-      xl: StaticShadows["--shadow-5"],
-      "2xl": StaticShadows["--shadow-6"],
+      xs: "var(--shadow-1)",
+      sm: "var(--shadow-2)",
+      md: "var(--shadow-3)",
+      lg: "var(--shadow-4)",
+      xl: "var(--shadow-5)",
+      "2xl": "var(--shadow-6)",
     },
     extend: {
       fontFamily: {
@@ -57,7 +56,7 @@ const config: Config = {
         },
         palevioletred: "#DB7093",
       },
-      typography: ({ theme }: { theme: TODO }) => ({
+      typography: ({ theme }: PluginUtils) => ({
         DEFAULT: {
           css: {
             blockquote: {
@@ -68,48 +67,48 @@ const config: Config = {
         light: {
           css: {
             blockquote: {
-              color: theme("colors.gray.300"),
+              color: theme("colors.gray.300") as string,
             },
           },
         },
         dark: {
           css: {
             a: {
-              color: theme("colors.gray.100"),
+              color: theme("colors.gray.100") as string,
               textDecoration: "none",
               fontWeight: "400",
             },
-            '[class~="lead"]': { color: theme("colors.gray.400") },
-            strong: { color: theme("colors.gray.100") },
+            '[class~="lead"]': { color: theme("colors.gray.400") as string },
+            strong: { color: theme("colors.gray.100") as string },
             "ul > li::marker": {
-              color: theme("colors.palevioletred"),
+              color: theme("colors.palevioletred") as string,
             },
-            "ol > li::before": { color: theme("colors.palevioletred") },
-            "ol > li::marker": { color: theme("colors.palevioletred") },
-            hr: { borderColor: theme("colors.palevioletred") },
+            "ol > li::before": { color: theme("colors.palevioletred") as string },
+            "ol > li::marker": { color: theme("colors.palevioletred") as string },
+            hr: { borderColor: theme("colors.palevioletred") as string },
             blockquote: {
-              color: theme("colors.gray.100"),
-              borderLeftColor: theme("colors.palevioletred"),
+              color: theme("colors.gray.100") as string,
+              borderLeftColor: theme("colors.palevioletred") as string,
             },
-            h1: { color: theme("colors.gray.100") },
-            h2: { color: theme("colors.gray.100") },
-            h3: { color: theme("colors.gray.100") },
-            h4: { color: theme("colors.gray.100") },
-            code: { color: theme("colors.palevioletred") },
-            "a code": { color: theme("colors.palevioletred") },
+            h1: { color: theme("colors.gray.100") as string },
+            h2: { color: theme("colors.gray.100") as string },
+            h3: { color: theme("colors.gray.100") as string },
+            h4: { color: theme("colors.gray.100") as string },
+            code: { color: theme("colors.palevioletred") as string },
+            "a code": { color: theme("colors.palevioletred") as string },
             "pre code": {
-              color: theme("colors.gray.200"),
-              backgroundColor: theme("colors.gray.800"),
+              color: theme("colors.gray.200") as string,
+              backgroundColor: theme("colors.gray.800") as string,
             },
             th: {
-              color: theme("colors.gray.100"),
+              color: theme("colors.gray.100") as string,
             },
             thead: {
-              color: theme("colors.gray.100"),
-              borderBottomColor: theme("colors.palevioletred"),
+              color: theme("colors.gray.100") as string,
+              borderBottomColor: theme("colors.palevioletred") as string,
             },
             "tbody tr": {
-              borderBottomColor: theme("colors.zinc.800"),
+              borderBottomColor: theme("colors.zinc.800") as string,
             },
           },
         },
@@ -242,6 +241,4 @@ const config: Config = {
       },
     },
   },
-}
-
-export default config
+} satisfies Config
