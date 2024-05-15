@@ -24,6 +24,7 @@ const config: Config = {
       "7xl": "clamp(3.08rem, 0.8vw + 2.88rem, 3.52rem)",
       "8xl": "clamp(3.54rem, 0.92vw + 3.31rem, 4.05rem)",
       "9xl": "clamp(3.80rem, 0.92vw + 3.81rem, 4.75rem)",
+      "9.5xl": "clamp(4.30rem, 0.92vw + 4.91rem, 6.25rem)",
       "10xl": "clamp(4.50rem, 0.92vw + 5.75rem, 7.95rem)",
     },
     boxShadow: {
