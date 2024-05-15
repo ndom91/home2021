@@ -1,6 +1,6 @@
 export default function Mask() {
   return (
-    <div className="fixed top-0 left-1/2 w-full h-full transition -translate-x-1/2 pointer-events-none duration-0">
+    <div className="fixed top-0 left-1/2 w-full max-w-screen-2xl h-full transition -translate-x-1/2 pointer-events-none duration-0">
       <svg
         preserveAspectRatio="none"
         viewBox="0 0 800 800"
