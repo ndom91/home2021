@@ -105,7 +105,7 @@ const PostCard = ({ post }: Props) => {
             {tags.map((tag) => (
               <span
                 key={tag}
-                className="py-1 px-2 my-1 mr-2 text-sm font-medium whitespace-nowrap bg-gray-100 rounded-full dark:text-gray-600 font-block text-palevioletred dark:bg-pink-200/70"
+                className="py-1 px-2 my-1 mr-2 text-xs font-medium whitespace-nowrap bg-gray-100 rounded-full dark:text-gray-600 font-block text-palevioletred dark:bg-pink-200/70"
               >
                 {tag}
               </span>
