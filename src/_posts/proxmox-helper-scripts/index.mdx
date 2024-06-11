@@ -1,0 +1,58 @@
+---
+date: "2024-06-11"
+title: "Proxmox Helper-Scripts"
+tags: ["proxmox"]
+cover:
+  imageFile: "proxmox-helper-scripts/cover.png"
+---
+
+# Introduction
+
+As a Proxmox user, you're probably aware of the helper scripts repository - https://github.com/tteck/Proxmox. 
+
+`@tteck` has run a great repo of scripts to help with post-installation steps, spinning up a variety of LXC containers and VM images and more. Then, recently tteck seems to have launched a new website at https://helper-scripts.com. After adding an ugly banner I asked in the main repository if the website was also open-source so I could contribute and maybe help improve the look of the banner ([Source](https://github.com/tteck/Proxmox/discussions/3081#discussioncomment-9687860)).
+
+<img src="/assets/blog/proxmox-helper-scripts/comment_0.png" style={{ width: "768px" }} />
+
+I was then made aware of [another repository](https://github.com/BramSuurdje/proxmox-helper-scripts) which housed the [same website](https://phs.bramsuurd.nl/) and included a note from `BramSuurdje`:
+
+> Update: since making the repo public. tteck has run away with the website and has ceased all communication. For the most up-to-date website with the best features and security, please use the site linked to the repository. Thank you.
+
+Doing some more digging, I posted in that same GitHub dicussion thread linked above asking something along the lines of.. **"What's the deal with this other website/repository? You don't credit them anywhere? :thinking:"**. `@tteck` almost immediately deleted the comment and responded to my original thread (linked above) with two other GitHub issue links, as you can also see in the screenshot above. 
+
+- https://github.com/tteck/Proxmox/discussions/2889
+- https://github.com/tteck/Proxmox/discussions/3042
+
+The second issue includes a direct response from `tteck`:
+
+![](/assets/blog/proxmox-helper-scripts/thread0_0.png)
+
+So `@tteck`'s side of the story seems to be, that a student offered to redesign his project's website. He agreed, but then was unhappy with some of the merged pull requests, so he "decided to continue development privately" and allegedly compensated the student. If that were all it was, I wouldn't have gotten worked up enough to write this blog post 😅
+
+Later on, Bram answers:
+
+![](/assets/blog/proxmox-helper-scripts/thread0_1.png)
+
+The only changes that are visible in `@tteck`'s version of the website are:
+
+1. He changed the tailwind shade of grey to no longer match any of the other button colors, etc. 
+2. He added this banner without any regard for web design 😂 
+3. He added floating logos in the background of every page other than the homepage.
+4. He broke the primary menu of scripts CSS
+
+![](/assets/blog/proxmox-helper-scripts/homepage_0.png)
+
+I decided then to check out the contributions, and on Bram's repository at least, there are 0 actual commits from `@tteck` although he is counted as a "contributor" by GitHub on the repositories homepage.
+
+![](/assets/blog/proxmox-helper-scripts/contributions_1.png)
+
+
+## Summary
+
+So it seems to me that `@tteck` "stole" the website from Bram, stopped responding to them, and spun up his own (uglier) copy of the site without crediting Bram or any of the other contributors of the original project. The fact that he seems allergic to opensourcing the website for fear that someone will "steal it" (which is exactly what he did to someone else, projecting?) and has 0 frontend web development skills, make me much more inclined to believe Bram's side of the story here..
+
+Without crediting the original author somewhere on the website, he's continuing to let the broader Proxmox community think this is his work, all the while slowly but surely "ruining" the original design. He also added this odd ["Terms of Use"](https://helper-scripts.com/terms-of-use)..
+
+![](/assets/blog/proxmox-helper-scripts/tos_0.png)
+
+Unfortunately for him, the [actual scripts](https://github.com/tteck/Proxmox) are [MIT licensed](https://github.com/tteck/Proxmox/blob/main/LICENSE)..
