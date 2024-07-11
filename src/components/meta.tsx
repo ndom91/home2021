@@ -11,7 +11,10 @@ const Meta = () => {
   Swetrix.init("aobVjewCqi98", {
     apiURL: "https://api.stats.ndo.dev/log",
   })
-  const url = `${pathname}?${searchParams.toString()}`
+  let url = pathname
+  if (searchParams.toString() !== "") {
+    url += `?${searchParams.toString()}`
+  }
 
   if (typeof document !== "undefined") {
     Swetrix.trackPageview(url)
