@@ -1,10 +1,15 @@
 import Head from "next/head"
 import { useRouter } from "next/router"
+import * as Swetrix from "swetrix"
 
 const Meta = () => {
   const router = useRouter()
   const searchParams = new URLSearchParams()
   searchParams.set("url", `https://ndo.dev${router.asPath}`)
+
+  Swetrix.init("aobVjewCqi98")
+  // eslint-disable-next-line
+  Swetrix.trackViews()
 
   return (
     <>
@@ -57,22 +62,6 @@ const Meta = () => {
           }}
         />
       </Head>
-      <script src="/p.js" defer></script>
-      <script>
-        document.addEventListener('DOMContentLoaded', function() {
-          // @ts-expect-error
-          swetrix.init('aobVjewCqi98')
-          swetrix.trackViews()
-        })
-      </script>
-
-      <noscript>
-        <img
-          src="https://api.stats.ndo.dev/log/noscript?pid=aobVjewCqi98"
-          alt=""
-          referrerPolicy="no-referrer-when-downgrade"
-        />
-      </noscript>
     </>
   )
 }
