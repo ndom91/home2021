@@ -1,5 +1,4 @@
 import Head from "next/head"
-import Script from "next/script"
 import { useRouter } from "next/router"
 
 const Meta = () => {
@@ -58,7 +57,21 @@ const Meta = () => {
           }}
         />
       </Head>
-      <Script src="/p.js" data-domain="ndo.dev" data-api="/a/e" />
+      <script src="/p.js" defer></script>
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          swetrix.init('aobVjewCqi98')
+          swetrix.trackViews()
+        })
+      </script>
+
+      <noscript>
+        <img
+          src="https://api.stats.ndo.dev/log/noscript?pid=aobVjewCqi98"
+          alt=""
+          referrerpolicy="no-referrer-when-downgrade"
+        />
+      </noscript>
     </>
   )
 }
