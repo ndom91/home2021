@@ -60,6 +60,7 @@ const Meta = () => {
       <script src="/p.js" defer></script>
       <script>
         document.addEventListener('DOMContentLoaded', function() {
+          // @ts-expect-error
           swetrix.init('aobVjewCqi98')
           swetrix.trackViews()
         })
@@ -69,7 +70,7 @@ const Meta = () => {
         <img
           src="https://api.stats.ndo.dev/log/noscript?pid=aobVjewCqi98"
           alt=""
-          referrerpolicy="no-referrer-when-downgrade"
+          referrerPolicy="no-referrer-when-downgrade"
         />
       </noscript>
     </>
