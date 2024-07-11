@@ -13,7 +13,9 @@ const Meta = () => {
   })
   const url = `${pathname}?${searchParams.toString()}`
 
-  Swetrix.trackPageview(url)
+  if (typeof document !== "undefined") {
+    Swetrix.trackPageview(url)
+  }
 
   return (
     <>
