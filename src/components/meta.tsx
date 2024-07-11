@@ -1,15 +1,19 @@
 import Head from "next/head"
 import { useRouter } from "next/router"
+import { usePathname, useSearchParams } from "next/navigation"
 import * as Swetrix from "swetrix"
 
 const Meta = () => {
   const router = useRouter()
-  const searchParams = new URLSearchParams()
-  searchParams.set("url", `https://ndo.dev${router.asPath}`)
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
 
-  Swetrix.init("aobVjewCqi98")
-  // eslint-disable-next-line
-  Swetrix.trackViews()
+  Swetrix.init("aobVjewCqi98", {
+    apiURL: "https://api.stats.ndo.dev/log",
+  })
+  const url = `${pathname}?${searchParams.toString()}`
+
+  Swetrix.trackPageview(url)
 
   return (
     <>
