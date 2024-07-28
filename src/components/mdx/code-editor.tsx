@@ -24,16 +24,9 @@ const CodeEditor = ({ title, children }: EditorProps) => {
   return (
     <div className="w-full">
       <div className="flex relative justify-between items-center -mb-4 w-full h-12 bg-gray-50 rounded-t-md dark:bg-gray-700 bg-zinc-300">
-        <div className="inline-flex justify-center h-full">
-          <div className="inline-flex items-center ml-4 space-x-2 h-full">
-            <span className="w-3 h-3 rounded-full bg-red-500/50"></span>
-            <span className="w-3 h-3 rounded-full bg-amber-500/50"></span>
-            <span className="w-3 h-3 rounded-full bg-emerald-500/50"></span>
-          </div>
-          <div className="inline-flex items-center p-2 ml-6 rounded-t-md">
-            <div className="font-mono text-sm font-normal text-gray-700 whitespace-normal break-all dark:text-gray-100">
-              {title}
-            </div>
+        <div className="inline-flex items-center ml-6 rounded-t-md">
+          <div className="font-mono text-sm font-normal text-gray-700 whitespace-normal break-all dark:text-gray-100">
+            {title}
           </div>
         </div>
         <button
@@ -65,10 +58,7 @@ const CodeEditor = ({ title, children }: EditorProps) => {
           </svg>
         </button>
       </div>
-      <div
-        className="z-10 code-wrapper [&>pre]:!overflow-x-auto [&>pre]:!pt-8 [&>pre]:!m-0"
-        ref={codeWrapperRef}
-      >
+      <div className="z-10 code-wrapper [&>pre]:!pt-8 [&>pre]:!m-0" ref={codeWrapperRef}>
         {children}
       </div>
     </div>
