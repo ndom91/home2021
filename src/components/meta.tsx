@@ -1,24 +1,9 @@
 import Head from "next/head"
+import Script from "next/script"
 import { useRouter } from "next/router"
-import { usePathname, useSearchParams } from "next/navigation"
-import * as Swetrix from "swetrix"
 
 const Meta = () => {
   const router = useRouter()
-  const pathname = usePathname()
-  const searchParams = useSearchParams()
-
-  Swetrix.init("aobVjewCqi98", {
-    apiURL: "https://api.stats.ndo.dev/log",
-  })
-  let url = pathname
-  if (searchParams.toString() !== "") {
-    url += `?${searchParams.toString()}`
-  }
-
-  if (typeof document !== "undefined") {
-    Swetrix.trackPageview(url)
-  }
 
   return (
     <>
@@ -57,20 +42,21 @@ const Meta = () => {
               name: "Nico Domino",
               image: "https://ndo.dev/assets/img/avatar.png",
               url: "https://ndo.dev",
-              jobTitle: "Fullstack Web Developer",
-              // worksFor: {
-              //   "@type": "Organization",
-              //   name: "Checkly",
-              // },
-              // sameAs: [
-              //   "https://www.linkedin.com/in/ndom91/",
-              //   "https://twitter.com/ndom91",
-              //   "https://github.com/ndom91",
-              // ],
+              jobTitle: "Web Developer",
+              worksFor: {
+                "@type": "Organization",
+                name: "GitButler",
+              },
+              sameAs: [
+                "https://www.linkedin.com/in/ndom91/",
+                "https://twitter.com/ndom91",
+                "https://github.com/ndom91",
+              ],
             }),
           }}
         />
       </Head>
+      <Script src="/p.js" data-domain="ndo.dev" data-api="/a/e" />
     </>
   )
 }
