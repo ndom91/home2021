@@ -95,7 +95,8 @@ export async function getStaticProps({ params }: Params) {
           // @ts-expect-error types not matching mdx-remote expectations
           rehypeShiki,
           {
-            theme: "rose-pine-moon",
+            // See: https://shiki.matsu.io/themes
+            theme: "catppuccin-mocha",
           },
         ],
         [rehypeAutolinkHeadings, { behavior: "prepend" }],

@@ -23,11 +23,9 @@ const CodeEditor = ({ title, children }: EditorProps) => {
 
   return (
     <div className="w-full">
-      <div className="flex relative justify-between items-center -mb-4 w-full h-12 bg-gray-50 rounded-t-md dark:bg-gray-700 bg-zinc-300">
-        <div className="inline-flex items-center ml-6 rounded-t-md">
-          <div className="font-mono text-sm font-normal text-gray-700 whitespace-normal break-all dark:text-gray-100">
-            {title}
-          </div>
+      <div className="flex relative justify-between items-center -mb-4 w-full h-12 rounded-t-md dark:bg-gray-600 bg-zinc-200">
+        <div className="ml-6 font-mono text-sm font-normal text-gray-700 whitespace-normal break-all dark:text-gray-100">
+          {title}
         </div>
         <button
           className="inline-flex relative mr-2 rounded-md rounded-t-md ring-pink-300 duration-300 outline-none hover:ring-2 hover:ring-gray-300 hover:opacity-100 hover:cursor-pointer hover:outline-none focus:ring-2 focus:ring-gray-300 focus:opacity-100 focus:outline-none size-6 transition-hover dark:ring-palevioletred dark:hover:ring-2 dark:hover:ring-palevioletred dark:focus:ring-palevioletred hover:dark:ring-pink-300"
