@@ -5,6 +5,7 @@ import Blur from "@/components/blur"
 const Index = () => {
   return (
     <Layout>
+    AHHHHHh
       <Hero />
       <Blur />
     </Layout>
