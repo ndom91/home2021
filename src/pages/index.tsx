@@ -8,6 +8,7 @@ const Index = () => {
     AHHHHHh
       <Hero />
       <Blur />
+      Noooooooo
     </Layout>
   )
 }
