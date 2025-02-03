@@ -1,5 +1,5 @@
 ---
-date: "2022-09-20"
+date: "2025-02-03"
 title: "ProtonBridge Headless Mode"
 tags: ["self hosted", "mail", "servers", "linux"]
 category: "linux"
@@ -7,30 +7,59 @@ cover:
   imageFile: "headless_protonbridge/cover.png"
 ---
 
-Proton Mail is a great web email service. If you've landed here, you probably already agree with that. However, one major missing feature is SMTP/IMAP access to your mailboxes. They offer a "local" bridge application which will communicate with their backend and then provide a local SMTP/IMAP service listening on some seemingly arbitrary ports.
+Proton Mail is a great web email service. If you've landed here, you probably already agree with that. However, one major missing feature is SMTP/IMAP access to your mailboxes. They offer a "local" bridge application which is designed to run in a desktop environment and enable you to use Outlook or Thunderbird, etc. on that same local desktkop computer. However, if you'd like to run the bridge on a server and enable SMTP/IMAP access for your Android/iOS devices, that's a whole different story.
 
 # Challenges
 
-So there are a few challenges here that we've got to overcome:
+There are a few challenges here that we've got to overcome to enable using the `proton-bridge` project in this way:
 
-1. Application by default requires a GUI to login, run as a service, etc.
+1. Application by default requires a GUI Desktop environment to run
 2. Application listens only on localhost (`127.0.0.1`)
 3. And only on non-standard ports
 
 # Prerequisites
 
-So first, lets install some prerequisites.
+I'll be doing this on a Debian 12 server, so we'll need to install some dependencies.
 
-1. `pass`
-2. `gnupg`
-3. Clone the `proton-bridge` repository - Available at [https://github.com/ProtonMail/proton-bridge](https://github.com/ProtonMail/proton-bridge)
+1. `sudo apt install pass libsecret-1-dev pkg-config gnupg dbus-x11 build-essential`
+2. Install golang (the Debian repo one is usually too old) 
+  - https://go.dev/doc/install
+3. Clone the `proton-bridge` repository 
+  - [https://github.com/ProtonMail/proton-bridge](https://github.com/ProtonMail/proton-bridge)
+
+# User Account
+
+We're going to create a system user account for the `proton-bridge` service to run as. To do this, simply use this `useradd` command.
+
+```bash
+sudo useradd -s /bin/false proton
+sudo mkdir /home/proton
+sudo chown -R proton: /home/proton
+```
+
+You'll probably want to add your local user to the `proton` group as well, in order to make reading it's logs, etc. easier in the future.
+
+```bash
+sudo usermod -aG proton $USER
+```
+
+And finally, create a directory for its logs
+
+```bash
+sudo mkdir /var/log/proton-bridge
+sudo chown -R proton: /var/log/proton-bridge
+```
+
+# Keystore
 
 Next, lets figure out how to start the thing on a server without a desktop environment.
 
-First, you'll want to setup a passphrase-free GPG key.
+First, you'll want to setup a passphrase-free GPG key. 
+
+> Notice all of these following commands are run in the context of the `proton` user via `sudo -u proton ..`.
 
 ```bash
-$ gpg --batch --passphrase '' --quick-gen-key 'ProtonMail Bridge' default default never
+$ sudo -u proton gpg --batch --passphrase '' --quick-gen-key 'ProtonMail Bridge' default default never
 ```
 
 This will generate a new key with the name `ProtonMail Bridge` in your local keyring.
@@ -38,48 +67,53 @@ This will generate a new key with the name `ProtonMail Bridge` in your local key
 Then we'll need to setup a new password database in `pass`.
 
 ```bash
-$ pass init "ProtonMail Bridge"
+$ sudo -u proton pass init "ProtonMail Bridge"
 ```
 
 Now we've got all of the prerequisite steps out of the way!
 
-# Proton-Bridge package
+# Compiling from source
 
-Finally, we can begin installing the actual ProtonMail `proton-bridge` package. The problem is, the `*.deb` (or other format) package that they provide on their download page requires a ton of graphical dependencies that we don't want to install on our server. Fortunately they have a `make` target called `build-nogui` setup in their Makefile in the repository. Before we begin compiling it with this special target, there is one change we must make in the source-code.
+Finally, we can begin installing the actual ProtonMail `proton-bridge` package. They offer a `deb` build artifact, but the `*.deb` package that they provide on their download page requires a ton of graphical dependencies that we don't want to install on our server. Fortunately they have a `make` target called `build-nogui` setup in their Makefile in the repository. Before we begin compiling it with this special target, there is one change we must make in the source-code.
 
 ## `0.0.0.0` Host
 
-Currently, the bridge is designed as a local application to run on your desktop machine to enable you to use Thunderbird/Outlook with ProtonMail. However, when running on a server, we often want to connect to it from the outside. So we've got to make a small change in the `internal/bridge/constants.go` file.
+By default, the bridge is designed as a local application to run on your desktop machine to enable you to use Thunderbird/Outlook with ProtonMail. However, when running on a server, we often want to connect to it from the outside. So we've got to make a small change in the `internal/constants/constants.go` file.
 
-Change line `22` from `Host = '127.0.0.1'` to `Host = '0.0.0.0'`.
-
-> Note: There is an open PR to make this user configurable, but it's been open for a few months without much action. Source: [https://github.com/ProtonMail/proton-bridge/pull/270](https://github.com/ProtonMail/proton-bridge/pull/270)
-
-That's all thats required to change where it listens!
+Change the line defining `Host` from `Host = '127.0.0.1'` to `Host = '0.0.0.0'`.
 
 ## `build-nogui` Compilation
 
-`cd` to where you've cloned the [proton-bridge](https://github.com/ProtonMail/proton-bridge) repository if you're not still there. Now we can run `make build-nogui`. This should compile the simple go binary `proton-bridge` without all of the GUI `qt-*` libraries and the like.
+Next, ensure you're in the root of the `proton-bridge` repository again and run `make build-nogui`. This should compile the simple go binary `proton-bridge` without all of the GUI dependencnies like `qt-*` and the like.
 
-We should now have a compiled `proton-bridge` binary in the root of the repository which does _not_ require a GUI to setup!
+After running `make build-nogui`, we should now have a compiled `bridge` binary in the root of the repository which does _not_ require a GUI to setup!
+
+Run `./bridge --version` to ensure it can run and prints the expected output.
+
+If that all seems well, symlink this binary to a more appropriate locaiton.
+
+```bash
+sudo ln -s $(pwd)/bridge /usr/local/bin/bridge
+```
 
 # Authentication
 
-Finally, we can begin authenticating and getting this thing up and running.
-
-Execute the binary with the `--cli` flag to enter into an interactive CLI mode.
+Finally, we can begin authenticating and getting this thing up and running. Execute the binary with the `--cli` flag to enter into an interactive CLI mode.
 
 ```bash
-$ proton-bridge --cli
+$ sudo -u proton bridge --cli
 ```
 
-Here use the `login` command to begin the login procedure. This will ask you for your normal web-based ProtonMail username/password and potentially 2FA code.
+In this interactive environment, use the `login` command to begin the login procedure. This will ask you for your normal web-based ProtonMail username/password and potentially 2FA code. After successfully authenticating, it will begin syncing mails for offline storage. Depending on the age of your account and the size of your mailbox, this may take a while.
 
-After logging in successfully, you can type `info` in the interactive shell and it should print out a small table of information like the current host/port/username/password required to connect to both SMTP and IMAP.
+After that's completed, type `info` in the interactive shell and it will print out a table of critical information including:
 
-We're so close!
+- SMTP / IMAP port and host connection details
+- SMTP / IMAP credentials
 
-Finally, we can set this proton-bridge to run as a service with a small custom systemd unit file.
+# Daemonizing
+
+Finally, we can set this `bridge` binary to run as a service with a small systemd unit file.
 
 ```bash
 $ sudo vim /etc/systemd/system/proton-bridge.service
@@ -95,10 +129,10 @@ Description=ProtonMail Bridge
 After=network.target
 
 [Service]
-User=ndo
-ExecStart=/usr/local/bin/proton-bridge --noninteractive
-StandardOutput=append:/var/log/proton-bridge/stdout.log
-StandardError=append:/var/log/proton-bridge/stderr.log
+User=proton
+ExecStart=/usr/local/bin/bridge --noninteractive
+StandardOutput=append:/var/log/proton-bridge/activity.log
+StandardError=append:/var/log/proton-bridge/error.log
 
 [Install]
 WantedBy=multi-user.target
@@ -106,11 +140,16 @@ WantedBy=multi-user.target
 
 </CodeEditor>
 
-Remember to adjust the `ExecStart` path to the binary. In my case, I've symlinked the binary from its compilation source folder to `/usr/local/bin/proton-bridge`. Also notice the `--noninteractive` flag we're passing here.
+Remember to potentially adjust a few things here.
+
+1. The `ExecStart` path to the binary. In my case, I've symlinked the binary from its compilation source folder to `/usr/local/bin/proton`. Also notice the `--noninteractive` flag we're passing here.
+2. The user with which this binary will be executed.
+3. The paths for the log files. Ensure these directories exist and the user has access to write to them.
 
 After saving and closing that file, enable and start the systemd service.
 
 ```bash
+$ sudo systemctl daemon-reload
 $ sudo systemctl enable proton-bridge
 $ sudo systemctl start proton-bridge
 ```
@@ -119,24 +158,24 @@ This should start the `proton-bridge` service now and enable it to auto-start on
 
 You can check the current status by executing `sudo systemctl status proton-bridge` and as the service file indicated, the logs are located at `/var/log/proton-bridge/*`.
 
-## Ports
+# Ports (Optional)
 
-Finally, after starting that service we have the IMAP and SMTP bridge running as a daemon on our server! However, it's still using the odd arbitrary ports. This may be fine if your client application allows you to manually input any number in the port field. However, some services only allow you to select from a dropdown of a preselected few IMAP ports, for example.
+Finally, after starting that service we have the IMAP and SMTP bridge running as a daemon on our server! However, it's still using the odd arbitrary ports. This may be fine if your client application allows you to manually input any number in the port field. However, many Email clients will only allow you to select from a dropdown of a preselected few IMAP/SMTP ports when adding a new Email account.
 
 For cases like these, we can use `iptables` to our advantage!
 
-These commands will forward:
+These commands will forward traffic coming from A to destination B.
 
-1. `143` -> `1143`
-2. `25` -> `1025`
+1. `tcp/143` -> `tcp/1143`
+2. `tcp/25` -> `tcp/1025`
+
+Make sure to replace `10.0.1.52` with the IP address of the interface where you'd like `proton-bridge` to listen on.
 
 ```bash
-$ iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 143 -j DNAT --to-destination 10.0.1.52:1143 # imap
-$ iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 25 -j DNAT --to-destination 10.0.1.52:1025 # smtp
+$ iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 143 -j DNAT --to-destination 10.0.1.52:1143 # IMAP
+$ iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 25 -j DNAT --to-destination 10.0.1.52:1025 # SMTP
 ```
-
-You can see in my case, I'm using a Proxmox host (with an incoming connection on interface `vmbr0`) that also needed to forward that port to a guest located at `10.0.1.52`, for example. Don't forget to change that internal IP to wherever your `proton-bridge` service is running, or if its on the same machine just set it to `127.0.0.1` or `0.0.0.0`. Also you're probably going to need to change the name of the interface and potentially the port numbers, depending on what the `proton-bridge` interactive `info` command told you earlier.
 
 ## Summary
 
-So with a bit of tweaking we were able to use the pre-existing local bridge GUI application, to run a headless server daemon to allow us to connect via SMTP / IMAP from any client to our awesome ProtonMail inboxes!
+So with a bit of tweaking we were able to use the pre-existing local bridge GUI application to run a headless server daemon to allow us to connect via SMTP / IMAP from any client to our ProtonMail inboxes!
