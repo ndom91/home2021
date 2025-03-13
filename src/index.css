@@ -237,6 +237,31 @@ html[class="dark"] ul a:before {
   user-select: none;
 }
 
+blockquote.callout {
+  padding: 0;
+}
+
+.callout-title,
+.callout-content {
+  padding-left: 1rem;
+}
+
+.callout-content p {
+  margin: 0.5rem;
+  font-style: normal;
+
+  &::after,
+  &::before {
+    content: "";
+  }
+}
+
+.callout-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 /* INTRO */
 
 .intro-title {
@@ -413,55 +438,6 @@ html[class="dark"] .border-underline-grow:active {
     font-display: swap;
   }
 
-  /* @font-face { */
-  /*   font-family: "Berkeley Mono"; */
-  /*   font-style: normal; */
-  /*   font-weight: 100 800; */
-  /*   src: url("/assets/fonts/berkeley-mono-variable-regular.woff2") format("woff2"); */
-  /* } */
-
-  /* @font-face { */
-  /*   font-family: "GT America"; */
-  /*   font-style: normal; */
-  /*   font-weight: 800; */
-  /*   src: url("/assets/fonts/GT-America-Standard-Black.woff2") format("woff2"); */
-  /* } */
-  /**/
-  /* @font-face { */
-  /*   font-family: "GT America"; */
-  /*   font-style: normal; */
-  /*   font-weight: 700; */
-  /*   src: url("/assets/fonts/GT-America-Standard-Bold.woff2") format("woff2"); */
-  /* } */
-  /**/
-  /* @font-face { */
-  /*   font-family: "GT America"; */
-  /*   font-style: normal; */
-  /*   font-weight: 500; */
-  /*   src: url("/assets/fonts/GT-America-Standard-Medium.woff2") format("woff2"); */
-  /* } */
-  /**/
-  /* @font-face { */
-  /*   font-family: "GT America"; */
-  /*   font-style: normal; */
-  /*   font-weight: 400; */
-  /*   src: url("/assets/fonts/GT-America-Standard-Regular.woff2") format("woff2"); */
-  /* } */
-  /**/
-  /* @font-face { */
-  /*   font-family: "GT America"; */
-  /*   font-style: normal; */
-  /*   font-weight: 300; */
-  /*   src: url("/assets/fonts/GT-America-Standard-Light.woff2") format("woff2"); */
-  /* } */
-  /**/
-  /* @font-face { */
-  /*   font-family: "GT America"; */
-  /*   font-style: normal; */
-  /*   font-weight: 200; */
-  /*   src: url("/assets/fonts/GT-America-Standard-Thin.woff2") format("woff2"); */
-  /* } */
-
   /* victor mono - variable */
   @font-face {
     font-family: "Victor Mono";
@@ -470,50 +446,6 @@ html[class="dark"] .border-underline-grow:active {
     font-weight: 100 900;
     src: local(""), url("/assets/fonts/victormono-variable.ttf");
   }
-
-  /* /* geist-mono - light */
-  /* @font-face { */
-  /*   font-family: "Geist Mono"; */
-  /*   font-display: swap; */
-  /*   font-style: normal; */
-  /*   font-weight: 200; */
-  /*   src: */
-  /*     local(""), */
-  /*     url("/assets/fonts/geist-mono/GeistMono-Light.woff2") format("woff2"); */
-  /* } */
-  /**/
-  /* /* geist-mono - normal */
-  /* @font-face { */
-  /*   font-family: "Geist Mono"; */
-  /*   font-display: swap; */
-  /*   font-style: normal; */
-  /*   font-weight: 400; */
-  /*   src: */
-  /*     local(""), */
-  /*     url("/assets/fonts/geist-mono/GeistMono-Regular.woff2") format("woff2"); */
-  /* } */
-  /**/
-  /* /* geist-mono - bold */
-  /* @font-face { */
-  /*   font-family: "Geist Mono"; */
-  /*   font-display: swap; */
-  /*   font-style: normal; */
-  /*   font-weight: 600; */
-  /*   src: */
-  /*     local(""), */
-  /*     url("/assets/fonts/geist-mono/GeistMono-Bold.woff2") format("woff2"); */
-  /* } */
-  /**/
-  /* /* geist-mono - black */
-  /* @font-face { */
-  /*   font-family: "Geist Mono"; */
-  /*   font-display: swap; */
-  /*   font-style: normal; */
-  /*   font-weight: 800; */
-  /*   src: */
-  /*     local(""), */
-  /*     url("/assets/fonts/geist-mono/GeistMono-Black.woff2") format("woff2"); */
-  /* } */
 
   /* Silkscreen */
   @font-face {
