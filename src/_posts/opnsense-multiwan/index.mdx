@@ -7,17 +7,34 @@ cover:
   imageFile: "opnsense-multiwan/cover.png"
 ---
 
-My goal with this project was to allow some devices on my local LAN to use a Tailscale [exit-node](https://tailscale.com/kb/1103/exit-nodes) as a gateway to exit out onto the internet, i.e. enable the normal exit node behavior, but without having to configure anything on the devices themselves. The firewall should route the traffic down the Tailnet tunnel automatically without the target local devices being any the wiser. This post will walk through the steps required to get your OPNsense firewall to selectively send traffic out via a second gateway. The goal is to use Tailscale running on OPNsense (FreeBSD) as a second Gateway for some select devices, while others continue to use the default WAN connection and gateway.
+My goal with this project was to allow some devices on my local LAN to use a Tailscale [exit-node](https://tailscale.com/kb/1103/exit-nodes) as a gateway to exit out onto the internet, i.e. enable some devices to route their traffic out via a Tailscale node, without having to install tailscale on those devices. The firewall should route the traffic down the Tailnet tunnel automatically without the target local devices being any the wiser. This post will walk through the steps required to get your OPNsense firewall to selectively send traffic out via a second gateway. The rest of the devices should continue to use your pre-existing gateway, while the selected devices should use a Tailscale exit-node as their gateway.
 
 First, let's summarize some of the prerequisites and what I had in-place before beginning with the OPNsense configuration.
 
-1. Home OPNsense firewall acting as the default gateway for all devices on my local LAN / VLAN.
-2. Tailscale FreeBSD client running on the OPNsense firewall. ([Installing Tailscale on OPNsense](https://www.zenarmor.com/docs/network-security-tutorials/how-to-install-and-configure-tailscale-on-opnsense#2-install-tailscale-on-opnsense))
-3. Another server running Tailscale somewhere on the internet. This must be a part of your Tailnet and advertise itself as an exit-node. In my case, I'm using a colo server I have in another city.
+1. OPNsense firewall acting as the default gateway for all devices on my local LAN / VLAN.
+2. Tailscale FreeBSD client running on the OPNsense firewall. ~See [Installing Tailscale on OPNsense](https://www.zenarmor.com/docs/network-security-tutorials/how-to-install-and-configure-tailscale-on-opnsense#2-install-tailscale-on-opnsense)~ Tailscale is now available as a first-party addon in OPNSense.
+3. Another device running Tailscale advertising itself as an exit-node.
 
 ![](/assets/blog/opnsense-multiwan/infra_01.svg)
 
-## Alias
+## Tailscale
+
+Let's begin with Tailscale. As of a few weeks (months?) ago, you can install Tailscale via the OPNSense GUI. You can find it in the OPNSense "Plugins" section, under **System** -> **Firmware** -> **Plugins**. Install it there and follow the instructions to signin.
+
+Next, I've noticed when starting tailscale via the CLI (i.e. `tailscale up --ssh --exit-node=..`, the routes for `100.0.0.0/8` don't get correctly setup. If you start tailscale via the addon's UI in the OPNSense dashboard, it works as expected. So go to **VPN** -> **Tailscale** -> **Settings**, and ensure you're authenticated and have your exit-node selected.
+
+## OPNSense Configuration
+
+This setup consists of the following pieces.
+
+1. A firewall alias defining which host's traffic should be sent down the Tailscale tunnel
+2. A second gateway configuration for the Tailscale exit-node
+3. Firewall rules allowing traffic out to that node
+4. Outbound NAT rules to map traffic from our exit-node to the local IPs of our target hosts
+
+Let's go through each of those in more detail.
+
+### Alias
 
 First, since we want to selectively route some traffic out via the Tailscale exit-node, we want to create an "alias" in OPNsense to target the hosts / IP addresses for which any special rules should apply.
 
@@ -28,7 +45,7 @@ First, since we want to selectively route some traffic out via the Tailscale exi
 | Field       | Description                                                                                           |
 | ----------- | ----------------------------------------------------------------------------------------------------- |
 | Enabled     | Call it whatever you want                                                                             |
-| Name        | Call it whatever your want, eg `tailscale_wg_hosts`                                                   |
+| Name        | Call it whatever your want, eg `tailscale_target_hosts`                                               |
 | Type        | Select either Host(s) or Network(s) in the dropdown, depending on how you want to specify the members |
 | Content     | Enter the host IPs, hostnames, or the network in CIDR format                                          |
 | Description | Add one if you wish to                                                                                |
@@ -37,13 +54,13 @@ First, since we want to selectively route some traffic out via the Tailscale exi
 
 > The **Content** value is very important here, this defines the hosts for which every other setting will apply!
 
-## Gateways
+### Gateways
 
-For those of you unfamiliar with network infrastructure details the "gateway" is one of the critical addresses you have to give a computer / interface if it is to reach the wider internet. Besides for its own IP address, it needs to know the first hop that packets should take by default. This is known as the gateway (we'll ignore the routing table for now).
+Besides for its own IP address, every device needs to know the first hop that packets should take by default. This is known as the gateway.
 
-So initially, we have 1 gateway and that's assigned to us via DHCP from our ISP. This is indicated by the big green line from the firewall to the Internet in the diagram above.
+So initially, our OPNSense box has 1 default gateway that's assigned to us by our ISP. This is indicated by the big green line from the firewall to the Internet in the diagram above. In the local network, your OPNSense box is most likely the default gateway for every device in your local network / behind it. The firewall, however, also needs a gateway configured so it knows where to send its traffic.
 
-We want our firewall to send _some_ traffic out via a different route, so we'll need to setup a second gateway. This is the Tailscale exit-node.
+We want our firewall to continue to send most traffic out via the pre-existing default gateway, however, _some_ traffic should go out toward the internet via a different route, so we'll need to setup a second gateway. This is the Tailscale exit-node.
 
 1. Go to **System** -> **Gateways** -> **Configuration**.
 2. Click on the **Add** button to add a new gateway.
@@ -55,22 +72,22 @@ We want our firewall to send _some_ traffic out via a different route, so we'll 
 | Description                | Add one if you wish to                                                              |
 | Interface                  | Select your Tailscale interface (i.e. `TSCL`)                                       |
 | Address Family             | Select IPv4 in the dropdown                                                         |
-| IP address                 | Insert the IP of the Tailscale exit-node you'd like to use                          |
+| IP address                 | Insert the IP of the Tailscale exit-node you've selected in the Tailscale UI        |
 | Far Gateway                | Checked                                                                             |
 | Disable Gateway Monitoring | Unchecked                                                                           |
-| Monitor IP                 | Another IP only available via Tailscale to indicate whether this gateway is up/down |
+| Monitor IP                 | Another IP only available via Tailscale to indicate whether this gateway is up/down, i.e. `100.100.100.100` |
 
 4. Click **Save** and apply
 
-## Firewall Rules
+### Firewall Rules
 
 Next, we need to create some firewall rules that will match the traffic we want to send out via the Tailscale exit-node and ensure that all other traffic is still routed as normal. The ultimate effect of these steps is that only traffic from the relevant hosts that is destined for **non-local** destinations will be sent down the tunnel.
 
 > If the hosts that will use the tunnel are configured to use local DNS servers (such as OPNsense itself or another local DNS server), then the configuration below will likely result in DNS leaks - that is, DNS requests for the hosts will continue to be processed through the normal WAN gateway, rather than through the tunnel. See [Dealing with DNS leaks](https://docs.opnsense.org/manual/how-tos/wireguard-selective-routing.html#dealing-with-dns-leaks) in the OPNsense docs for a discussion of potential solutions to this
 
-### RFC1918 Alias
+#### RFC1918 Alias
 
-First, we'll add another alias for all RFC1918 addresses (all reserved for local networks addresses).
+First, we'll add another alias for all RFC1918 addresses, these are all subnets reserved for local use and won't be routed on the internet.
 
 1. Go to **Firewall** -> **Aliases**
 2. Click **+** to add a new Alias
@@ -103,7 +120,7 @@ Next, we'll add a firewall rule for the interface(s) that our target devices are
 | TCP/IP Version         | IPv4                                                                                         |
 | Protocol               | any                                                                                          |
 | Source / Invert        | Unchecked                                                                                    |
-| Source                 | Select the relevant hosts Alias you created above in the dropdown (eg `tailscale_wg_hosts` ) |
+| Source                 | Select the relevant hosts Alias you created above in the dropdown (eg `tailscale_target_hosts` ) |
 | Destination / Invert   | Checked                                                                                      |
 | Destination            | Select the `RFC1918_Networks` Alias you created above in the dropdown                        |
 | Destination port range | any                                                                                          |
@@ -113,7 +130,7 @@ Next, we'll add a firewall rule for the interface(s) that our target devices are
 4. Click **Save** and **Apply**
 5. Make sure that this rule is **above** any of the other rules on the interface that would otherwise interfere with its operation, i.e. this rule should be evaluated first. You want your new rule to be above the “Default allow LAN to any rule”
 
-## Routing
+### Routing
 
 Next, we want to setup a routing rule that will force Tailscale traffic destined for traffic in the tailscale network to use the new Tailscale gateway as well.
 
@@ -140,7 +157,7 @@ Next, we want to setup a routing rule that will force Tailscale traffic destined
 
 4. Click **Save** and **Apply**
 
-## NAT
+### NAT
 
 Next, we'll need to setup a NAT rule to map the internal LAN host addresses (for our chosen target LAN hosts) to the Tailscale interface address and vice-versa for traffic coming and going.
 
@@ -155,7 +172,7 @@ Next, we'll need to setup a NAT rule to map the internal LAN host addresses (for
 | TCP/IP Version       | IPv4                                                                                            |
 | Protocol             | any                                                                                             |
 | Source invert        | Unchecked                                                                                       |
-| Source address       | Select the Alias we created for the hosts intended to use the tunnel (eg `tailscale_wg_hosts` ) |
+| Source address       | Select the Alias we created for the hosts intended to use the tunnel (eg `tailscale_target_hosts` ) |
 | Source port          | any                                                                                             |
 | Destination invert   | Unchecked                                                                                       |
 | Destination address  | any                                                                                             |
@@ -172,6 +189,8 @@ After applying that last NAT rule, we should successfully have internet connecti
 ```sh
 curl wtfismyip.com/json
 ```
+
+You can toggle this functionality on/off by enabling/disabling the firewall alias `tailscale_target_hosts`, this allows you to easily turn the selective routing on/off whenever you need it as well as control which hosts these special rules should apply to.
 
 This post is based off of the [guide in the OPNsense documentation](https://docs.opnsense.org/manual/how-tos/wireguard-selective-routing.html) for "Selective Routing to External VPN Endpoints" with modifications for Tailscale and multi-wan. Check out that guide for additional options like "adding a Kill Switch", to disable network connectivity for the targeted hosts if the Tailscale gateway is offline instead of falling back to your default gateway. Or "adding IPv6 support", or the aforementioned "DNS Leak prevention".
 
