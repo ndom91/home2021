@@ -89,6 +89,7 @@ export async function getStaticProps({ params }: Params) {
   const mdxSource = await serialize(content, {
     parseFrontmatter: false,
     mdxOptions: {
+      // @ts-expect-error Callouts plugin works, but type not matching to next-mdx-remote expectations
       remarkPlugins: [gfm, callouts],
       rehypePlugins: [
         rehypeSlug,
