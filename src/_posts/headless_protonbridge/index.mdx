@@ -90,10 +90,10 @@ After running `make build-nogui`, we should now have a compiled `bridge` binary 
 
 Run `./bridge --version` to ensure it can run and prints the expected output.
 
-If that all seems well, symlink this binary to a more appropriate locaiton.
+If that all seems well, symlink this binary to a more appropriate location. Ensure that `/usr/local/bin/` is a part of your `$PATH`.
 
 ```bash
-sudo ln -s $(pwd)/bridge /usr/local/bin/bridge
+sudo ln -s $(pwd)/bridge /usr/local/bin/proton-bridge
 ```
 
 # Authentication
@@ -101,7 +101,7 @@ sudo ln -s $(pwd)/bridge /usr/local/bin/bridge
 Finally, we can begin authenticating and getting this thing up and running. Execute the binary with the `--cli` flag to enter into an interactive CLI mode.
 
 ```bash
-$ sudo -u proton bridge --cli
+$ sudo -u proton proton-bridge --cli
 ```
 
 In this interactive environment, use the `login` command to begin the login procedure. This will ask you for your normal web-based ProtonMail username/password and potentially 2FA code. After successfully authenticating, it will begin syncing mails for offline storage. Depending on the age of your account and the size of your mailbox, this may take a while.
@@ -130,7 +130,7 @@ After=network.target
 
 [Service]
 User=proton
-ExecStart=/usr/local/bin/bridge --noninteractive
+ExecStart=/usr/local/bin/proton-bridge --noninteractive
 StandardOutput=append:/var/log/proton-bridge/activity.log
 StandardError=append:/var/log/proton-bridge/error.log
 
@@ -142,7 +142,7 @@ WantedBy=multi-user.target
 
 Remember to potentially adjust a few things here.
 
-1. The `ExecStart` path to the binary. In my case, I've symlinked the binary from its compilation source folder to `/usr/local/bin/proton`. Also notice the `--noninteractive` flag we're passing here.
+1. The `ExecStart` path to the binary. In my case, I've symlinked the binary from its compilation source folder to `/usr/local/bin/proton-bridge`. Also notice the `--noninteractive` flag we're passing here.
 2. The user with which this binary will be executed.
 3. The paths for the log files. Ensure these directories exist and the user has access to write to them.
 
