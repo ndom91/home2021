@@ -210,17 +210,21 @@ html[class="dark"] ul a:before {
   list-style: none;
   position: relative;
   margin-left: 20px;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .prose summary::before {
-  content: "👉 ";
-  height: 38px;
-  width: 27px;
+  content: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20320%20512%22%20fill%3D%22white%22%3E%3Cpath%20d%3D%22M310.6%20233.4c12.5%2012.5%2012.5%2032.8%200%2045.3l-192%20192c-12.5%2012.5-32.8%2012.5-45.3%200s-12.5-32.8%200-45.3L242.7%20256%2073.4%2086.6c-12.5-12.5-12.5-32.8%200-45.3s32.8-12.5%2045.3%200l192%20192z%22%2F%3E%3C%2Fsvg%3E");
+  width: 10px;
+  line-height: 2rem;
 
   position: absolute;
-  left: -30px;
+  left: -1.5rem;
   transform: rotate(0);
-  transform-origin: 14px 19px;
+  transform-origin: center;
   transition: all 250ms ease-in-out;
 }
 
