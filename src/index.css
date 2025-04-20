@@ -259,6 +259,8 @@ blockquote.callout {
 .callout-title {
   display: flex;
   align-items: center;
+  font-size: 0.9em;
+  font-style: normal;
   gap: 0.5rem;
 }
 
