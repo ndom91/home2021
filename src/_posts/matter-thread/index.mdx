@@ -155,18 +155,18 @@ Some other notes that I didn't know where to put here, but that I found helpful 
 - There are many IPv6 multicast addresses that you can ping to get a response from certain device types which can be useful for debugging to see if devices can see one another. Some of the useful ones include:
 
   ```
-  ff02::1	    		all nodes
-  ff02::2	  		all routers
-  ff02::f			UPNP (Universal Plug and Play) devices
-  ff02::11			all homenet nodes
-  ff02::fb			multicast DNS IPv6
-  ff02::101	  		network time (NTP)
-  ff02::1:2			all DHCP agents
-  ff02::1:3			LLMNR (Link-Local Multicast Name Resolution)
-  ff02:0:0:0:0:1:ff00::/104	solicited node address
-  ff02:0:0:0:0:1-2:ff00::/104	node information query
-  ff05::1:3			all DHCP server (site)
-  ff05::101	  		all NTP server (site)
+  ff02::1			          all nodes
+  ff02::2			          all routers
+  ff02::f			          UPNP (Universal Plug and Play) devices
+  ff02::11			      all homenet nodes
+  ff02::fb			      multicast DNS IPv6
+  ff02::101			      network time (NTP)
+  ff02::1:2			      all DHCP agents
+  ff02::1:3			      LLMNR (Link-Local Multicast Name Resolution)
+  ff02:0:0:0:0:1:ff00::/104			      solicited node address
+  ff02:0:0:0:0:1-2:ff00::/104			      node information query
+  ff05::1:3			      all DHCP server (site)
+  ff05::101			      all NTP server (site)
   ```
 
 You can ping IPv6 addresses by passing `ping` the `-6` flag. However, these multicast addresses also often necessitate you explicitly defining which interface you want to send them out of. This can be done by adding a suffix of `%` followed by your interface name to the target address. So a full `ping` command to the `all nodes` endpoint would look something like this:

@@ -111,14 +111,14 @@ html.dark .shiki {
 
 /* NAV */
 
-ul a {
+nav ul a {
   display: inline-block;
   transform: perspective(1px) translateZ(0);
   position: relative;
   overflow: hidden;
 }
 
-ul a:before {
+nav ul a:before {
   content: "";
   position: absolute;
   z-index: -1;
@@ -132,13 +132,13 @@ ul a:before {
   transition-timing-function: cubic-bezier(0.28, -0.4, 2.32, 1.6);
 }
 
-ul a:hover:before,
-ul a:focus:before,
-ul a:active:before {
+nav ul a:hover:before,
+nav ul a:focus:before,
+nav ul a:active:before {
   right: 0;
 }
 
-html[class="dark"] ul a:before {
+html[class="dark"] nav ul a:before {
   background: rgba(var(--palevioletred), 1);
 }
 
@@ -315,6 +315,12 @@ html.dark .js_darkmode_flicker {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.prose a {
+  line-height: 1.1;
+  vertical-align: text-bottom;
+  text-underline-offset: 0.25rem;
 }
 
 .border-underline-grow {
