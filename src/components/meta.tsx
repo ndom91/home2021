@@ -56,7 +56,7 @@ const Meta = () => {
           }}
         />
       </Head>
-      <Script src="/p.js" data-domain="ndo.dev" data-api="/a/e" />
+      <Script src="/r.js" data-site-id="1" defer></Script>
     </>
   )
 }
