@@ -1,7 +1,7 @@
 // Rybbit Script
 ;(function () {
   const scriptTag = document.currentScript
-  const ANALYTICS_HOST = scriptTag.getAttribute("src").split("/script.js")[0]
+  const ANALYTICS_HOST = "https://stats.ndo.dev"
 
   if (!ANALYTICS_HOST) {
     console.error("Please provide a valid analytics host")
