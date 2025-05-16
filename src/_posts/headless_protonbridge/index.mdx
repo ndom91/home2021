@@ -7,13 +7,13 @@ cover:
   imageFile: "headless_protonbridge/cover.png"
 ---
 
-Proton Mail is a great web email service. If you've landed here, you probably already agree with that. However, one major missing feature is SMTP/IMAP access to your mailboxes. They offer a "local" bridge application which is designed to run in a desktop environment and enable you to use Outlook or Thunderbird, etc. on that same local desktkop computer. However, if you'd like to run the bridge on a server and enable SMTP/IMAP access for your Android/iOS devices, that's a whole different story.
+Proton Mail is a great web email service, but if you've landed here, you've probably run into their lack of support for SMTP. They offer a local bridge application which is designed to run in a desktop environment and enable you to use your Outlook, Thunderbird, etc. email client on that same local computer with your Proton Mail account. However, if you'd like to access your Proton Mail email via another email client on your mobile device or another computer where you can't run their bridge application - that is not supported. This was incredibly frustrating so I figured out how to compile their bridge application without the GUI dependencies in order to run it on any Linux server and expose SMTP / IMAP ports for you to consume from your email client of choice.
 
 # Challenges
 
 There are a few challenges here that we've got to overcome to enable using the `proton-bridge` project in this way:
 
-1. Application by default requires a GUI Desktop environment to run
+1. Application by default requires a GUI Desktop environment to run; On linux it requires Qt and all of it's related dependencies
 2. Application listens only on localhost (`127.0.0.1`)
 3. And only on non-standard ports
 
@@ -22,14 +22,14 @@ There are a few challenges here that we've got to overcome to enable using the `
 I'll be doing this on a Debian 12 server, so we'll need to install some dependencies.
 
 1. `sudo apt install pass libsecret-1-dev pkg-config gnupg dbus-x11 build-essential`
-2. Install golang (the Debian repo one is usually too old) 
+2. Install golang (the Debian repo one is usually too old)
   - https://go.dev/doc/install
-3. Clone the `proton-bridge` repository 
+3. Clone the `proton-bridge` repository
   - [https://github.com/ProtonMail/proton-bridge](https://github.com/ProtonMail/proton-bridge)
 
 # User Account
 
-We're going to create a system user account for the `proton-bridge` service to run as. To do this, simply use this `useradd` command.
+We're going to create a system user account and group for the `proton-bridge` service to run as. To do this, simply use this `useradd` command.
 
 ```bash
 sudo useradd -s /bin/false proton
@@ -54,7 +54,7 @@ sudo chown -R proton: /var/log/proton-bridge
 
 Next, lets figure out how to start the thing on a server without a desktop environment.
 
-First, you'll want to setup a passphrase-free GPG key. 
+First, you'll want to setup a passphrase-free GPG key.
 
 > Notice all of these following commands are run in the context of the `proton` user via `sudo -u proton ..`.
 
@@ -78,7 +78,7 @@ Finally, we can begin installing the actual ProtonMail `proton-bridge` package. 
 
 ## `0.0.0.0` Host
 
-By default, the bridge is designed as a local application to run on your desktop machine to enable you to use Thunderbird/Outlook with ProtonMail. However, when running on a server, we often want to connect to it from the outside. So we've got to make a small change in the `internal/constants/constants.go` file.
+By default, the bridge is designed as a local application to run on your desktop machine to enable you to use Thunderbird/Outlook with ProtonMail. With that use-case in mind, it makes sense to only listen on `127.0.0.1` because you'll only be consuming it from the same host. However, we want to run it on a server and connect to it from the outside. So we've got to make a small change in the `internal/constants/constants.go` file and tell it to listen on `0.0.0.0`. This is a shortcut that basically means "all interfaces".
 
 Change the line defining `Host` from `Host = '127.0.0.1'` to `Host = '0.0.0.0'`.
 
