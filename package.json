@@ -1,6 +1,6 @@
 {
 	"name": "ndom91-2021",
-	"version": "1.5.0",
+	"version": "1.5.1",
 	"description": "ndom91 portfolio page",
 	"license": "MIT",
 	"author": "ndom91 <yo@ndo.dev>",
@@ -35,8 +35,6 @@
 		"zustand": "^4.5.2"
 	},
 	"devDependencies": {
-		"@commitlint/cli": "^19.3.0",
-		"@commitlint/config-conventional": "^19.2.2",
 		"@eslint/js": "^9.2.0",
 		"@next/eslint-plugin-next": "^14.2.3",
 		"@shikijs/rehype": "^1.4.0",
@@ -48,13 +46,12 @@
 		"@types/react": "^18.3.1",
 		"@types/react-dom": "^18.3.0",
 		"autoprefixer": "^10.4.19",
-		"eslint": "^9.2.0",
+		"biome": "^0.3.3",
 		"eslint-config-next": "^14.2.3",
 		"gray-matter": "4.0.3",
 		"lint-staged": "^15.2.2",
 		"open-props": "^1.7.4",
 		"postcss": "^8.4.38",
-		"prettier": "^3.2.5",
 		"reading-time": "^1.5.0",
 		"rehype-autolink-headings": "^7.1.0",
 		"rehype-slug": "^6.0.0",
@@ -72,8 +69,8 @@
 	},
 	"lint-staged": {
 		"src/**/*.{ts,tsx}": [
-			"eslint --fix",
-			"prettier --write"
+			"biome format --write",
+			"biome lint --write"
 		]
 	},
 	"packageManager": "pnpm@9.0.4+sha256.caa915eaae9d9aefccf50ee8aeda25a2f8684d8f9d5c6e367eaf176d97c1f89e"
