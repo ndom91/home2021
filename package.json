@@ -1,86 +1,80 @@
 {
-  "name": "ndom91-2021",
-  "version": "1.5.0",
-  "description": "ndom91 portfolio page",
-  "license": "MIT",
-  "author": "ndom91 <yo@ndo.dev>",
-  "homepage": "https://ndo.dev/",
-  "bugs": "https://github.com/ndom91/home2021/issues",
-  "repository": "https://github.com/ndom91/home2021",
-  "keywords": [
-    "next.js",
-    "tailwindcss",
-    "blog",
-    "portfolio",
-    "2022"
-  ],
-  "scripts": {
-    "dev": "next dev -p 3003",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "@mdx-js/loader": "^3.0.1",
-    "@mdx-js/react": "^3.0.1",
-    "@next/mdx": "^14.2.3",
-    "next": "^14.2.3",
-    "next-mdx-remote": "^4.4.1",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-scroll-parallax": "^3.4.5",
-    "react-spring": "^9.7.3",
-    "react-use": "^17.5.0",
-    "remark-callouts": "^2.0.0",
-    "zustand": "^4.5.2"
-  },
-  "devDependencies": {
-    "@commitlint/cli": "^19.3.0",
-    "@commitlint/config-conventional": "^19.2.2",
-    "@eslint/js": "^9.2.0",
-    "@next/eslint-plugin-next": "^14.2.3",
-    "@shikijs/rehype": "^1.4.0",
-    "@svgr/webpack": "^8.1.0",
-    "@tailwindcss/typography": "^0.5.13",
-    "@types/jest": "^29.5.12",
-    "@types/mdx": "^2.0.13",
-    "@types/node": "^20.12.8",
-    "@types/react": "^18.3.1",
-    "@types/react-dom": "^18.3.0",
-    "autoprefixer": "^10.4.19",
-    "eslint": "^9.2.0",
-    "eslint-config-next": "^14.2.3",
-    "gray-matter": "4.0.3",
-    "lint-staged": "^15.2.2",
-    "open-props": "^1.7.4",
-    "postcss": "^8.4.38",
-    "prettier": "^3.2.5",
-    "reading-time": "^1.5.0",
-    "rehype-autolink-headings": "^7.1.0",
-    "rehype-slug": "^6.0.0",
-    "remark": "15.0.1",
-    "remark-gfm": "^3.0.1",
-    "remark-html": "16.0.1",
-    "remark-prism": "^1.3.6",
-    "simple-git-hooks": "^2.11.1",
-    "tailwindcss": "^3.4.3",
-    "typescript": "^5.4.5",
-    "typescript-eslint": "^7.8.0"
-  },
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
-  },
-  "simple-git-hooks": {
-    "commit-msg": "npx commitlint --edit",
-    "pre-commit": "npx lint-staged"
-  },
-  "lint-staged": {
-    "src/**/*.{ts,tsx}": [
-      "eslint --fix",
-      "prettier --write"
-    ]
-  },
-  "packageManager": "pnpm@9.0.4+sha256.caa915eaae9d9aefccf50ee8aeda25a2f8684d8f9d5c6e367eaf176d97c1f89e"
+	"name": "ndom91-2021",
+	"version": "1.5.0",
+	"description": "ndom91 portfolio page",
+	"license": "MIT",
+	"author": "ndom91 <yo@ndo.dev>",
+	"homepage": "https://ndo.dev/",
+	"bugs": "https://github.com/ndom91/home2021/issues",
+	"repository": "https://github.com/ndom91/home2021",
+	"keywords": [
+		"next.js",
+		"tailwindcss",
+		"blog",
+		"portfolio",
+		"2022"
+	],
+	"scripts": {
+		"dev": "next dev -p 3003",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint"
+	},
+	"dependencies": {
+		"@mdx-js/loader": "^3.0.1",
+		"@mdx-js/react": "^3.0.1",
+		"@next/mdx": "^14.2.3",
+		"next": "^14.2.3",
+		"next-mdx-remote": "^4.4.1",
+		"react": "^18.3.1",
+		"react-dom": "^18.3.1",
+		"react-scroll-parallax": "^3.4.5",
+		"react-spring": "^9.7.3",
+		"react-use": "^17.5.0",
+		"remark-callouts": "^2.0.0",
+		"zustand": "^4.5.2"
+	},
+	"devDependencies": {
+		"@commitlint/cli": "^19.3.0",
+		"@commitlint/config-conventional": "^19.2.2",
+		"@eslint/js": "^9.2.0",
+		"@next/eslint-plugin-next": "^14.2.3",
+		"@shikijs/rehype": "^1.4.0",
+		"@svgr/webpack": "^8.1.0",
+		"@tailwindcss/typography": "^0.5.13",
+		"@types/jest": "^29.5.12",
+		"@types/mdx": "^2.0.13",
+		"@types/node": "^20.12.8",
+		"@types/react": "^18.3.1",
+		"@types/react-dom": "^18.3.0",
+		"autoprefixer": "^10.4.19",
+		"eslint": "^9.2.0",
+		"eslint-config-next": "^14.2.3",
+		"gray-matter": "4.0.3",
+		"lint-staged": "^15.2.2",
+		"open-props": "^1.7.4",
+		"postcss": "^8.4.38",
+		"prettier": "^3.2.5",
+		"reading-time": "^1.5.0",
+		"rehype-autolink-headings": "^7.1.0",
+		"rehype-slug": "^6.0.0",
+		"remark": "15.0.1",
+		"remark-gfm": "^3.0.1",
+		"remark-html": "16.0.1",
+		"remark-prism": "^1.3.6",
+		"simple-git-hooks": "^2.11.1",
+		"tailwindcss": "^3.4.3",
+		"typescript": "^5.4.5",
+		"typescript-eslint": "^7.8.0"
+	},
+	"simple-git-hooks": {
+		"pre-commit": "npx lint-staged"
+	},
+	"lint-staged": {
+		"src/**/*.{ts,tsx}": [
+			"eslint --fix",
+			"prettier --write"
+		]
+	},
+	"packageManager": "pnpm@9.0.4+sha256.caa915eaae9d9aefccf50ee8aeda25a2f8684d8f9d5c6e367eaf176d97c1f89e"
 }
