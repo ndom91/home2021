@@ -18,7 +18,8 @@
 		"dev": "next dev -p 3003",
 		"build": "next build",
 		"start": "next start",
-		"lint": "next lint"
+		"lint": "next lint",
+		"format:fix": "biome check --write ."
 	},
 	"dependencies": {
 		"@mdx-js/loader": "^3.0.1",
