@@ -7,6 +7,8 @@ cover:
   imageFile: "headless_protonbridge/cover.png"
 ---
 
+> Updated 2026-05-10 with latest versions and instructions
+
 Proton Mail is a great web email service, but if you've landed here, you've probably run into their lack of support for SMTP. They offer a local bridge application which is designed to run in a desktop environment and enable you to use your Outlook, Thunderbird, etc. email client on that same local computer with your Proton Mail account. However, if you'd like to access your Proton Mail email via another email client on your mobile device or another computer where you can't run their bridge application - that is not supported. This was incredibly frustrating so I figured out how to compile their bridge application without the GUI dependencies in order to run it on any Linux server and expose SMTP / IMAP ports for you to consume from your email client of choice.
 
 # Challenges
@@ -19,13 +21,18 @@ There are a few challenges here that we've got to overcome to enable using the `
 
 # Prerequisites
 
-I'll be doing this on a Debian 12 server, so we'll need to install some dependencies.
+I'll be doing this on an Ubuntu 24.04 server, so we'll need to install some dependencies.
 
-1. `sudo apt install pass libsecret-1-dev pkg-config gnupg dbus-x11 build-essential`
-2. Install golang (the Debian repo one is usually too old)
-  - https://go.dev/doc/install
-3. Clone the `proton-bridge` repository
-  - [https://github.com/ProtonMail/proton-bridge](https://github.com/ProtonMail/proton-bridge)
+1. `sudo apt install libfido2-dev libcbor-dev libssl-dev pkg-config`
+2. Install golang (the Debian repo one is usually too old - https://go.dev/doc/install)
+
+```bash
+cd /tmp
+wget https://go.dev/dl/go1.26.3.linux-amd64.tar.gz
+sudo rm -rf /usr/local/go
+sudo tar -C /usr/local -xzf go1.26.3.linux-amd64.tar.gz
+go version  # should print go1.26.3
+```
 
 # User Account
 
@@ -75,6 +82,13 @@ Now we've got all of the prerequisite steps out of the way!
 # Compiling from source
 
 Finally, we can begin installing the actual ProtonMail `proton-bridge` package. They offer a `deb` build artifact, but the `*.deb` package that they provide on their download page requires a ton of graphical dependencies that we don't want to install on our server. Fortunately they have a `make` target called `build-nogui` setup in their Makefile in the repository. Before we begin compiling it with this special target, there is one change we must make in the source-code.
+
+```bash
+git clone https://github.com/ProtonMail/proton-bridge.git
+cd proton-bridge
+git tag --sort=-v:refname | head -5
+git checkout v3.20.1   # or whatever the latest tag is
+```
 
 ## `0.0.0.0` Host
 
